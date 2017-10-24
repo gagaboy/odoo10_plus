@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.currency.rate.live</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='update_currency_live']" position="after" >
+                <div>
+                    <div class="row mt16">
+                        <label string="Service" for="provider" class="col-md-3 o_light_label"/>
+                        <field name="provider"/>
+                    </div>
+                    <div class="row">
+                        <label string="Interval" for="interval_unit" class="col-md-3 o_light_label"/>
+                        <field name="interval_unit"/>
+                    </div>
+                    <div class="row">
+                        <label string="Next Run" for="execution_date" class="col-md-3 o_light_label"/>
+                        <field name="execution_date"/>
+                        <button name="live_currency_rates_update" type="object" class="btn-link">
+                            <i title="Update now" class="fa fa-fw fa-refresh"></i>
+                        </button>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</flectra>
