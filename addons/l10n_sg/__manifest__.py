@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo,Flectra. See LICENSE file for full copyright and licensing details.
 
-# Copyright (C) 2014 Tech Receptives, Flectra (<http://techreceptives.com>)
+# Copyright (C) 2014 Tech Receptives (<http://techreceptives.com>)
 
 {
     'name': 'Singapore - Accounting',
-    'author': 'Tech Receptives, Flectra',
+    'author': 'Tech Receptives',
     'version': '2.0',
     'website': 'http://www.techreceptives.com',
     'category': 'Localization',

@@ -13,7 +13,7 @@ Plan contable peruano e impuestos de acuerdo a disposiciones vigentes de la
 SUNAT 2011 (PCGE 2010).
 
     """,
-    'author': ['Cubic ERP', ' Flectra'],
+    'author': ['Cubic ERP'],
     'website': 'http://cubicERP.com',
     'category': 'Localization',
     'depends': ['account'],

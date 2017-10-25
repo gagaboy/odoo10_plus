@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo,Flectra. See LICENSE file for full copyright and licensing details.
 
-# Copyright (c) 2011 Cubic ERP, Flectra - Teradata SAC. (http://cubicerp.com).
+# Copyright (c) 2011 Cubic ERP - Teradata SAC. (http://cubicerp.com).
 
 {
     "name": "Panama - Accounting",
@@ -14,7 +14,7 @@ Con la Colaboración de
 - AHMNET CORP http://www.ahmnet.com
 
     """,
-    "author": "Cubic ERP, Flectra",
+    "author": "Cubic ERP",
     "website": "http://cubicERP.com",
     'category': 'Localization',
     "depends": ["account"],

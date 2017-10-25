@@ -5,7 +5,7 @@
 
 {
     'name': 'Greece - Accounting',
-    'author': 'P. Christeas, OpenERP SA., Flectra',
+    'author': 'P. Christeas, OpenERP SA.',
     'website': 'http://openerp.hellug.gr/',
     'category': 'Localization',
     'description': """

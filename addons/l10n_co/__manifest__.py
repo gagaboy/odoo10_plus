@@ -13,7 +13,7 @@
     'version': '0.8',
     'category': 'Localization',
     'description': 'Colombian Accounting and Tax Preconfiguration',
-    'author': 'David Arnold BA HSG (devCO), Flectra',
+    'author': 'David Arnold BA HSG (devCO)',
     'depends': [
         'account',
     ],

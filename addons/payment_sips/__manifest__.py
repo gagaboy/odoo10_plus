@@ -1,12 +1,12 @@
 # -*- encoding: utf-8 -*-
 # Part of Odoo,Flectra. See LICENSE file for full copyright and licensing details.
 
-# Copyright 2015 Eezee-It, Flectra
+# Copyright 2015 Eezee-It
 
 {
     'name': 'Worldline SIPS',
     'version': '1.0',
-    'author': 'Eezee-It, Flectra',
+    'author': 'Eezee-It',
     'category': 'Accounting',
     'description': """
 Worldline SIPS Payment Acquirer for online payments

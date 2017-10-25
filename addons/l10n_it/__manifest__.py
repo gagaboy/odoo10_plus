@@ -9,7 +9,7 @@
         'base_iban',
         'base_vat',
     ],
-    'author': 'OpenERP Italian Community, Flectra',
+    'author': 'OpenERP Italian Community',
     'description': """
 Piano dei conti italiano di un'impresa generica.
 ================================================

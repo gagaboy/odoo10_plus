@@ -6,7 +6,7 @@ import werkzeug.urls
 
 from flectra import api, fields, models, tools
 
-from openerp.addons.link_tracker.models.link_tracker import URL_REGEX
+from flectra.addons.link_tracker.models.link_tracker import URL_REGEX
 
 
 class MailMail(models.Model):

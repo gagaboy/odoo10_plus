@@ -18,7 +18,7 @@ This is the base module to manage the accounting chart for Honduras.
 Agrega una nomenclatura contable para Honduras. También incluye impuestos y la
 moneda Lempira. -- Adds accounting chart for Honduras. It also includes taxes
 and the Lempira currency.""",
-    'author': 'Salvatore Josue Trimarchi Pinto, Flectra',
+    'author': 'Salvatore Josue Trimarchi Pinto',
     'website': 'http://bacgroup.net',
     'depends': ['base', 'account'],
     'data': [

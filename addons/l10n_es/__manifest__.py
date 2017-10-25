@@ -8,12 +8,12 @@
 # Carlos Liébana <carlos.liebana@factorlibre.com>
 # Hugo Santos <hugo.santos@factorlibre.com>
 # Albert Cabedo <albert@gafic.com>
-# Olivier Colson <oco@flectrahq.com>
+# Olivier Colson <oco@odoo.com>
 
 {
     "name" : "Spain - Accounting (PGCE 2008)",
     "version" : "4.0",
-    "author" : "Spanish Localization Team, Flectra",
+    "author" : "Spanish Localization Team",
     'website' : 'https://launchpad.net/openerp-spain',
     'category': 'Localization',
     "description": """

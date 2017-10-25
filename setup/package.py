@@ -144,7 +144,7 @@ class FlectraDocker(object):
         )
         time.sleep(2)  # let the bash start
         self.docker.logfile_read = self.log_file
-        self.id = subprocess.check_output('docker ps -l -q', shell=True)
+        self.id = subprocess.check_output('docker ps -l -q', shell=True).strip().decode('ascii')
 
     def end(self):
         try:
@@ -192,7 +192,7 @@ class KVM(object):
         l.append('-nographic')
         logging.info("Starting kvm: {}".format( " ".join(l)))
         self.pid=os.spawnvp(os.P_NOWAIT, l[0], l)
-        time.sleep(20)
+        time.sleep(50)
         signal.alarm(2400)
         signal.signal(signal.SIGALRM, self.timeout)
         try:
@@ -216,7 +216,7 @@ class KVM(object):
 class KVMWinBuildExe(KVM):
     def run(self):
         with open(join(self.o.build_dir, 'setup/win32/Makefile.version'), 'w') as f:
-            f.write("VERSION=%s\n" % version.replace('~', '_'))
+            f.write("VERSION=%s\n" % version.replace('~', '_').replace('+', ''))
         with open(join(self.o.build_dir, 'setup/win32/Makefile.python'), 'w') as f:
             f.write("PYTHON_VERSION=%s\n" % self.o.vm_winxp_python_version.replace('.', ''))
         with open(join(self.o.build_dir, 'setup/win32/Makefile.servicename'), 'w') as f:
@@ -288,7 +288,7 @@ def build_deb(o):
         deb.expect(pexpect.EOF, timeout=1200)
     else:
         subprocess.call(['dpkg-buildpackage', '-rfakeroot', '-uc', '-us'], cwd=o.build_dir)
-    # As the packages are builded in the parent of the buildir, we move them back to build_dir
+    # As the packages are built in the parent of the buildir, we move them back to build_dir
     build_dir_parent = '{}/../'.format(o.build_dir)
     wildcards = ['flectra_{}'.format(wc) for wc in ('*.deb', '*.dsc', '*_amd64.changes', '*.tar.gz', '*.tar.xz')]
     move_glob(build_dir_parent, wildcards, o.build_dir)
@@ -339,14 +339,14 @@ def test_tgz(o):
     with docker('flectra-%s-src-nightly-tests' % docker_version, o.build_dir, o.pub) as wheezy:
         wheezy.release = '*.tar.gz'
         wheezy.system("service postgresql start")
-        wheezy.system('pip install /opt/release/%s' % wheezy.release)
+        wheezy.system('pip3 install /opt/release/%s' % wheezy.release)
         wheezy.system("useradd --system --no-create-home flectra")
         wheezy.system('su postgres -s /bin/bash -c "createuser -s flectra"')
         wheezy.system('su postgres -s /bin/bash -c "createdb mycompany"')
         wheezy.system('mkdir /var/lib/flectra')
         wheezy.system('chown flectra:flectra /var/lib/flectra')
-        wheezy.system('su flectra -s /bin/bash -c "flectra --addons-path=/usr/local/lib/python2.7/dist-packages/flectra/addons -d mycompany -i base --stop-after-init"')
-        wheezy.system('su flectra -s /bin/bash -c "flectra --addons-path=/usr/local/lib/python2.7/dist-packages/flectra/addons -d mycompany &"')
+        wheezy.system('su flectra -s /bin/bash -c "flectra -d mycompany -i base --stop-after-init"')
+        wheezy.system('su flectra -s /bin/bash -c "flectra -d mycompany &"')
 
 def test_deb(o):
     logging.info('Testing deb package in docker')
@@ -445,7 +445,7 @@ def options():
 
     op.add_option("-b", "--build-dir", default=build_dir, help="build directory (%default)", metavar="DIR")
     op.add_option("-p", "--pub", default=None, help="pub directory (%default)", metavar="DIR")
-    op.add_option("", "--no-testing", action="store_true", help="don't test the builded packages")
+    op.add_option("", "--no-testing", action="store_true", help="don't test the built packages")
 
     op.add_option("", "--no-debian", action="store_true", help="don't build the debian package")
     op.add_option("", "--no-debsign", action="store_true", help="don't sign the debian package")

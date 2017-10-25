@@ -9,11 +9,11 @@
     'category': 'Localization',
     'description': """
 This is the base module to manage the accounting chart for Ecuador in Odoo,Flectra.
-==============================================================================
+===================================================================================
 
 Accounting chart and localization for Ecuador.
     """,
-    'author': 'Gnuthink Co.Ltd., Flectra',
+    'author': 'Gnuthink Co.Ltd.',
     'depends': [
         'account',
         'base_iban',

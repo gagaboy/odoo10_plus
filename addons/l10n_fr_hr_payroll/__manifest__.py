@@ -4,7 +4,7 @@
 {
     'name': 'French Payroll',
     'category': 'Localization',
-    'author': 'Yannick Buron (SYNERPGY), Flectra',
+    'author': 'Yannick Buron (SYNERPGY)',
     'depends': ['hr_payroll', 'l10n_fr'],
     'description': """
 French Payroll Rules.

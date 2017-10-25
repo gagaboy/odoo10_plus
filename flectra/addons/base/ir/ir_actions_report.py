@@ -465,7 +465,8 @@ class IrActionsReport(models.Model):
             user=user,
             res_company=user.company_id,
             website=website,
-            web_base_url=self.env['ir.config_parameter'].sudo().get_param('web.base.url', default='')
+            web_base_url=self.env['ir.config_parameter'].sudo().get_param('web.base.url', default=''),
+            to_text=odoo.tools.pycompat.to_text,
         )
         return view_obj.render_template(template, values)
 

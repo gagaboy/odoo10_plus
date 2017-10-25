@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo,Flectra. See LICENSE file for full copyright and licensing details.
 
-# Copyright (C) 2014 InnOpen Group Kft, Flectra (<http://www.innopen.eu>).
+# Copyright (C) 2014 InnOpen Group Kft (<http://www.innopen.eu>).
 
 {
     'name': 'Hungarian - Accounting',
@@ -18,7 +18,7 @@ This module consists :
  - Hungarian taxes
  - Hungarian Bank information
  """,
-    'author': 'InnOpen Group Kft, Flectra',
+    'author': 'InnOpen Group Kft',
     'website': 'http://www.innopen.eu',
     'depends': ['account'],
     'data': [

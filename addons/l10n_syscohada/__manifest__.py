@@ -6,7 +6,7 @@
 
 {
     'name' : 'OHADA - Accounting',
-    'author' : 'Baamtu Senegal, Flectra',
+    'author' : 'Baamtu Senegal',
     'category': 'Localization',
     'description': """
 This module implements the accounting chart for OHADA area.

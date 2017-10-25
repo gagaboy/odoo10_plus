@@ -112,8 +112,6 @@ def dispatch_rpc(service_name, method, params):
             dispatch = flectra.service.db.dispatch
         elif service_name == 'object':
             dispatch = flectra.service.model.dispatch
-        elif service_name == 'report':
-            dispatch = flectra.service.report.dispatch
         result = dispatch(method, params)
 
         if rpc_request_flag or rpc_response_flag:

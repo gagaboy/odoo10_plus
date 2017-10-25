@@ -2649,6 +2649,44 @@ QUnit.module('Views', {
         form.destroy();
     });
 
+    QUnit.test('default_get, onchange which fails, should still work', function (assert) {
+        assert.expect(1);
+
+        this.data.partner.onchanges.foo = true;
+
+        var form = createView({
+            View: FormView,
+            model: 'partner',
+            data: this.data,
+            arch: '<form>' +
+                    '<field name="foo"/>' +
+                '</form>',
+            mockRPC: function (route, args) {
+                if (args.method === 'onchange') {
+                    // we simulate a validation error.  In the 'real' web client,
+                    // the server error will be used by the session to display
+                    // an error dialog.  From the point of view of the basic
+                    // model, the deferred is just rejected.
+                    return $.Deferred().reject();
+                }
+                return this._super.apply(this, arguments);
+            },
+        });
+
+        // this test checks that a form view is still rendered when the server
+        // onchange fails (for example, because of a validation error, or, more
+        // likely, a bug in the onchange code).  This is quite rare, but if the
+        // onchange fails, we still want to display the form view (with the error
+        // dialog from the session/crashmanager).  Otherwise, we could be in the
+        // situation where a user clicks on a button, it should open a wizard,
+        // but something fails and the wizard is not even rendered.  In that
+        // case, there is nothing that the user could do.
+        assert.strictEqual(form.$('.o_field_widget[name="foo"]').val(), 'My little Foo Value',
+            "should display proper default value");
+
+        form.destroy();
+    });
+
     QUnit.test('attrs are properly transmitted to new records', function (assert) {
         assert.expect(2);
 
@@ -5977,5 +6015,36 @@ QUnit.module('Views', {
 
         form.destroy();
     });
+
+    QUnit.test('proper context stringification in debug mode tooltip', function (assert) {
+        assert.expect(2);
+
+        var initialDebugMode = config.debug;
+        config.debug = true;
+
+        var form = createView({
+            View: FormView,
+            model: 'partner',
+            data: this.data,
+            arch: '<form string="Partners">' +
+                    '<sheet>' +
+                        '<field name="product_id" context="{\'lang\': \'en_US\'}"/>' +
+                    '</sheet>' +
+                '</form>',
+        });
+
+        var $field = form.$('[name="product_id"]');
+        $field.tooltip('show', true);
+        $field.trigger($.Event('mouseenter'));
+        assert.strictEqual($('.oe_tooltip_technical>li[data-item="context"]').length,
+            1, 'context should be present for this field');
+        assert.strictEqual($('.oe_tooltip_technical>li[data-item="context"]')[0].lastChild.wholeText.trim(),
+            "{'lang': 'en_US'}", "context should be properly stringified");
+
+        config.debug = initialDebugMode;
+        form.destroy();
+    });
+
+
 });
 });

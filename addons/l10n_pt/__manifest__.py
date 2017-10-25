@@ -7,7 +7,7 @@
 {
     'name': 'Portugal - Accounting',
     'version': '0.011',
-    'author': 'ThinkOpen Solutions, Flectra',
+    'author': 'ThinkOpen Solutions',
     'website': 'http://www.thinkopensolutions.com/',
     'category': 'Localization',
     'description': 'Plano de contas SNC para Portugal',

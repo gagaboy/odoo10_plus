@@ -9,7 +9,7 @@
 
 {
     "name" : "Romania - Accounting",
-    "author" : "Fekete Mihai (Forest and Biomass Services Romania), Flectra",
+    "author" : "Fekete Mihai (Forest and Biomass Services Romania)",
     "website": "http://www.forbiom.eu",
     'category': 'Localization',
     "depends" : [

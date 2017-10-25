@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo,Flectra. See LICENSE file for full copyright and licensing details.
 
-# Copyright: (C) 2012 - Mentis d.o.o., Flectra, Dravograd
+# Copyright: (C) 2012 - Mentis d.o.o., Dravograd
 
 {
     "name": "Slovenian - Accounting",
     "versiom": "1.1",
-    "author": "Mentis d.o.o., Flectra",
+    "author": "Mentis d.o.o.",
     "website": "http://www.mentis.si",
     'category': 'Localization',
     "description": "Kontni načrt za gospodarske družbe",

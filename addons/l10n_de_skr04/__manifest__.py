@@ -56,8 +56,8 @@
 {
     'name': 'Deutschland SKR04 - Accounting',
     'version': '2.0',
-    'author': 'openbig.org, Flectra',
-    'website': 'http://www.openbig.org, Flectra',
+    'author': 'openbig.org',
+    'website': 'http://www.openbig.org',
     'category': 'Localization',
     'description': """
 Dieses  Modul beinhaltet einen deutschen Kontenrahmen basierend auf dem SKR04.

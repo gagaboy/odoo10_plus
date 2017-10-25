@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo,Flectra. See LICENSE file for full copyright and licensing details.
 
-# Copyright (C) conexus.at, Flectra
+# Copyright (C) conexus.at
 
 {
     'name': 'Austria - Accounting',
     'version': '2.0',
     'author': 'conexus.at, Flectra',
-    'website': 'http://www.conexus.at, Flectra',
+    'website': 'http://www.conexus.at',
     'category': 'Localization',
     'depends': ['account'],
     'description': """

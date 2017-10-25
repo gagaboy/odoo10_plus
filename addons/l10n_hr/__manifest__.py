@@ -39,7 +39,7 @@ Izvori podataka:
 
 """,
     "version": "13.0",
-    "author": "OpenERP Croatian Community, Flectra",
+    "author": "OpenERP Croatian Community",
     'category': 'Localization',
     "website": "https://code.launchpad.net/openobject-croatia",
 

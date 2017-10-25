@@ -17,7 +17,7 @@ Also:
     - activates a number of regional currencies.
     - sets up New Zealand taxes.
     """,
-    'author': 'Richard deMeester - Willow IT, Flectra',
+    'author': 'Richard deMeester - Willow IT',
     'website': 'http://www.willowit.com',
     'depends': ['account'],
     'data': [

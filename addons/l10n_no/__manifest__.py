@@ -4,7 +4,7 @@
 {
     "name" : "Norway - Accounting",
     "version" : "2.0",
-    "author" : "Rolv Råen, Flectra",
+    "author" : "Rolv Råen",
     'category': 'Localization',
     "description": """This is the module to manage the accounting chart for Norway in Odoo,Flectra.
 

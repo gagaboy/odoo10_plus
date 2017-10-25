@@ -3,13 +3,13 @@
 
 #    Coded by: Alejandro Negrin anegrin@vauxoo.com,
 #    Planified by: Alejandro Negrin, Humberto Arocha, Moises Lopez
-#    Finance by: Vauxoo, Flectra.
+#    Finance by: Vauxoo.
 #    Audited by: Humberto Arocha (hbto@vauxoo.com) y Moises Lopez (moylop260@vauxoo.com)
 
 {
     "name": "Mexico - Accounting",
     "version": "2.0",
-    "author": "Vauxoo, Flectra",
+    "author": "Vauxoo",
     'category': 'Localization',
     "description": """
 Minimal accounting configuration for Mexico.

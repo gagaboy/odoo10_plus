@@ -14,7 +14,7 @@ This is the latest UK Odoo localisation necessary to run Odoo accounting for UK 
     - VAT100-ready tax structure
     - InfoLogic UK counties listing
     - a few other adaptations""",
-    'author': 'SmartMode LTD, Flectra',
+    'author': 'SmartMode LTD',
     'website': 'http://www.smartmode.co.uk',
     'depends': [
         'account',

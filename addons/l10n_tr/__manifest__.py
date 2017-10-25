@@ -13,7 +13,7 @@ Bu modül kurulduktan sonra, Muhasebe yapılandırma sihirbazı çalışır
     * Sihirbaz sizden hesap planı şablonu, planın kurulacağı şirket, banka hesap
       bilgileriniz, ilgili para birimi gibi bilgiler isteyecek.
     """,
-    'author': 'Ahmet Altınışık, Flectra',
+    'author': 'Ahmet Altınışık',
     'maintainer':'https://launchpad.net/~openerp-turkey',
     'website':'https://launchpad.net/openerp-turkey',
     'depends': [
