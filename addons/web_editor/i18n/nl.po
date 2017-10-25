@@ -1,21 +1,21 @@
-# Translation of Flectra Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * web_editor
 # 
 # Translators:
 # Yenthe Van Ginneken <yenthespam@gmail.com>, 2017
-# Erwin van der Ploeg <erwin@flectraexperts.nl>, 2017
-# Martin Trigaux <mat@flectrahq.com>, 2017
+# Erwin van der Ploeg <erwin@odooexperts.nl>, 2017
+# Martin Trigaux <mat@odoo.com>, 2017
 # Cas Vissers <casvissers@brahoo.nl>, 2017
 # Eric Geens <ericgeens@yahoo.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Flectra Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-20 09:54+0000\n"
 "PO-Revision-Date: 2017-09-20 09:54+0000\n"
 "Last-Translator: Eric Geens <ericgeens@yahoo.com>, 2017\n"
-"Language-Team: Dutch (https://www.transifex.com/flectra/teams/41243/nl/)\n"
+"Language-Team: Dutch (https://www.transifex.com/odoo/teams/41243/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -27,7 +27,7 @@ msgstr ""
 #: code:addons/web_editor/static/src/xml/editor.xml:193
 #, python-format
 msgid "(URL or Embed)"
-msgstr ""
+msgstr "(URL of insluiten)"
 
 #. module: web_editor
 #. openerp-web
@@ -662,7 +662,7 @@ msgstr ""
 #: code:addons/web_editor/static/src/xml/editor.xml:219
 #, python-format
 msgid "Hide Dailymotion logo"
-msgstr ""
+msgstr "Verberg Dailymotion logo"
 
 #. module: web_editor
 #. openerp-web
@@ -676,14 +676,14 @@ msgstr "Verberg YouTube logo"
 #: code:addons/web_editor/static/src/xml/editor.xml:213
 #, python-format
 msgid "Hide fullscreen button"
-msgstr ""
+msgstr "Verberg volledig-scherm knop"
 
 #. module: web_editor
 #. openerp-web
 #: code:addons/web_editor/static/src/xml/editor.xml:210
 #, python-format
 msgid "Hide player controls"
-msgstr ""
+msgstr "Verberg player knoppen"
 
 #. module: web_editor
 #. openerp-web
@@ -1619,8 +1619,8 @@ msgstr "auto"
 #. openerp-web
 #: code:addons/web_editor/static/src/xml/editor.xml:113
 #, python-format
-msgid "https://www.flectrahq.com/logo.png"
-msgstr "https://www.flectrahq.com/logo.png"
+msgid "https://www.odoo.com/logo.png"
+msgstr "https://www.odoo.com/logo.png"
 
 #. module: web_editor
 #: model:ir.model,name:web_editor.model_ir_attachment

@@ -1,20 +1,20 @@
-# Translation of Flectra Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * website_event_questions
 # 
 # Translators:
 # Yenthe Van Ginneken <yenthespam@gmail.com>, 2017
-# Martin Trigaux <mat@flectrahq.com>, 2017
-# Erwin van der Ploeg <erwin@flectraexperts.nl>, 2017
+# Martin Trigaux <mat@odoo.com>, 2017
+# Erwin van der Ploeg <erwin@odooexperts.nl>, 2017
 # Cas Vissers <casvissers@brahoo.nl>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Flectra Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
 "Last-Translator: Cas Vissers <casvissers@brahoo.nl>, 2017\n"
-"Language-Team: Dutch (https://www.transifex.com/flectra/teams/41243/nl/)\n"
+"Language-Team: Dutch (https://www.transifex.com/odoo/teams/41243/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -199,6 +199,8 @@ msgstr "Vraag"
 #, python-format
 msgid "Question should belong to either event category or event but not both"
 msgstr ""
+"Vragen moeten toebehoren aan een evenement categorie of een evenement maar "
+"niet beide"
 
 #. module: website_event_questions
 #: model:ir.model.fields,field_description:website_event_questions.field_event_event_question_ids

@@ -1,4 +1,4 @@
-# Translation of Flectra Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * website_quote
 # 
@@ -6,16 +6,16 @@
 # Bohdan Lisnenko <lem8r.ka11a@gmail.com>, 2017
 # Zoriana Zaiats <sorenabell@quintagroup.com>, 2017
 # ТАрас <tratatuta@i.ua>, 2017
-# Martin Trigaux <mat@flectrahq.com>, 2017
+# Martin Trigaux <mat@odoo.com>, 2017
 # Yaroslav Molochko <onorua@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Flectra Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
 "Last-Translator: Yaroslav Molochko <onorua@gmail.com>, 2017\n"
-"Language-Team: Ukrainian (https://www.transifex.com/flectra/teams/41243/uk/)\n"
+"Language-Team: Ukrainian (https://www.transifex.com/odoo/teams/41243/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -67,7 +67,7 @@ msgid ""
 "                <p style=\"font-size: 11px;\"><strong>Sent by\n"
 "                <a href=\"${user.company_id.website}\" style=\"text-decoration:none; color: #875A7B;\">\n"
 "                    <strong>${user.company_id.name}</strong>\n"
-"                </a> using <a href=\"www.flectrahq.com\" style=\"text-decoration:none; color: #875A7B;\"><strong>Flectra</strong></a>\n"
+"                </a> using <a href=\"www.odoo.com\" style=\"text-decoration:none; color: #875A7B;\"><strong>Odoo</strong></a>\n"
 "                </strong></p>\n"
 "            </td>\n"
 "        </tr></tbody>\n"
@@ -98,7 +98,7 @@ msgstr "&amp;bull;"
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "&amp;nbsp;"
-msgstr ""
+msgstr "&amp;nbsp;"
 
 #. module: website_quote
 #: model:ir.ui.view,arch_db:website_quote.so_quotation
@@ -166,6 +166,7 @@ msgstr "<i class=\"fa fa-times\"/> Відхилити"
 msgid ""
 "<i>You will be able to create dynamic page interacting with the ORM.</i>"
 msgstr ""
+"<i>Ви зможете створювати динамічні сторінки, що взаємодіють з ORM.</i>"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -176,6 +177,8 @@ msgid ""
 "<i>You will be able to develop a full application with backend and user "
 "interface.</i>"
 msgstr ""
+"<i>Ви зможете розробляти повноцінні додатки з бек-ендом та персональним "
+"інтерфейсом.</i>"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -185,6 +188,7 @@ msgstr ""
 msgid ""
 "<i>You will be able to develop simple dynamic compenents in HTML pages.</i>"
 msgstr ""
+"<i>Ви зможете розробляти прості динамічні компоненти для HTML сторінок.</i>"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -242,7 +246,7 @@ msgstr "<strong>Термін дії:</strong>"
 msgid ""
 "<strong>Having attended this course, participants should be able "
 "to:</strong>"
-msgstr ""
+msgstr "<strong>Відвідавши цей курс, учасники матимуть змогу:</strong>"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -250,7 +254,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "<strong>Objectives:</strong>"
-msgstr ""
+msgstr "<strong>Мета:</strong>"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -258,7 +262,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "<strong>Our prices include:</strong>"
-msgstr ""
+msgstr "<strong>В ціну входить:</strong>"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -266,7 +270,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "<strong>Requirements:</strong>"
-msgstr ""
+msgstr "<strong>Вимоги:</strong>"
 
 #. module: website_quote
 #: model:ir.ui.view,arch_db:website_quote.pricing
@@ -325,7 +329,7 @@ msgstr "Про нас"
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
 msgid ""
-"Access to an Account Manager at Flectra SA to discuss strategic, sales and "
+"Access to an Account Manager at Odoo SA to discuss strategic, sales and "
 "service issues"
 msgstr ""
 
@@ -358,7 +362,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Advanced JQuery"
-msgstr ""
+msgstr "Розширений JQuery"
 
 #. module: website_quote
 #: model:ir.ui.view,arch_db:website_quote.pricing
@@ -372,7 +376,7 @@ msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "An Flectra official partner commits to:"
+msgid "An Odoo official partner commits to:"
 msgstr ""
 
 #. module: website_quote
@@ -386,7 +390,7 @@ msgstr "Заархівовано"
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Arrays"
-msgstr ""
+msgstr "Списки"
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_default
@@ -413,19 +417,19 @@ msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Be available for periodic review meeting with Flectra SA account managers"
+msgid "Be available for periodic review meeting with Odoo SA account managers"
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
 msgid ""
-"Be the first level of support for his Flectra customers and use Flectra SA for the"
+"Be the first level of support for his Odoo customers and use Odoo SA for the"
 " second level of support (mostly for bug fixes)"
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Become a Certified Flectra Partner"
+msgid "Become a Certified Odoo Partner"
 msgstr ""
 
 #. module: website_quote
@@ -452,7 +456,7 @@ msgstr "Платник:"
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Bootstrap CSS"
-msgstr ""
+msgstr "Bootstrap CSS"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -460,7 +464,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Bring your own laptop."
-msgstr ""
+msgstr "Візьміть з собою свій лептоп."
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -468,7 +472,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Building a Full Application"
-msgstr ""
+msgstr "Створити повноцінний додаток"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -476,7 +480,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Calling the ORM"
-msgstr ""
+msgstr "Виклик ORM"
 
 #. module: website_quote
 #: model:ir.ui.view,arch_db:website_quote.so_quotation
@@ -532,7 +536,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Course Summary"
-msgstr ""
+msgstr "Підсумок курсу"
 
 #. module: website_quote
 #: model:ir.model.fields,field_description:website_quote.field_sale_order_option_create_uid
@@ -561,7 +565,7 @@ msgstr "Клієнт:"
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Day 1"
-msgstr ""
+msgstr "День 1"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -569,7 +573,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Day 2"
-msgstr ""
+msgstr "День 2"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -577,7 +581,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Day 3"
-msgstr ""
+msgstr "День 3"
 
 #. module: website_quote
 #: model:ir.model.fields,field_description:website_quote.field_res_config_settings_default_template_id
@@ -613,7 +617,7 @@ msgstr "Опис для вебсайту"
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Develop a new module for a particular application."
-msgstr ""
+msgstr "Розробити новий модуль для окремої програми"
 
 #. module: website_quote
 #: model:ir.ui.view,arch_db:website_quote.pricing
@@ -641,7 +645,7 @@ msgstr "Назва для відображення"
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Dive into Strings"
-msgstr ""
+msgstr "Зануритись у Рядки"
 
 #. module: website_quote
 #: model:ir.ui.view,arch_db:website_quote.so_quotation_content
@@ -677,7 +681,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Functions"
-msgstr ""
+msgstr "Функції"
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
@@ -714,18 +718,18 @@ msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Has a direct relationship with Flectra SA to escalate issues"
+msgid "Has a direct relationship with Odoo SA to escalate issues"
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
 msgid ""
-"Has access to Flectra Enterprise source code on Github and latest bug fixes"
+"Has access to Odoo Enterprise source code on Github and latest bug fixes"
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Have dedicated resources assigned to Flectra projects"
+msgid "Have dedicated resources assigned to Odoo projects"
 msgstr ""
 
 #. module: website_quote
@@ -734,7 +738,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Hello World"
-msgstr ""
+msgstr "Привіт, світ!"
 
 #. module: website_quote
 #: model:ir.ui.view,arch_db:website_quote.chatter
@@ -795,7 +799,7 @@ msgstr "в т. ч. податки)"
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Install and administer your own server;"
-msgstr ""
+msgstr "Встановіть та адмініструйте свій власний сервер;"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -803,7 +807,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Integrated Help"
-msgstr ""
+msgstr "Комплексна допомога"
 
 #. module: website_quote
 #: model:ir.ui.view,arch_db:website_quote.navigation_menu
@@ -816,7 +820,7 @@ msgstr "Передмова"
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Introduction to JQuery"
-msgstr ""
+msgstr "Вступ до JQuery"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -824,7 +828,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Introduction to Javascript"
-msgstr ""
+msgstr "Вступ до Javascript"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -832,11 +836,11 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Introduction to QWeb"
-msgstr ""
+msgstr "Вступ до QWeb"
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Is fully trained on Flectra"
+msgid "Is fully trained on Odoo"
 msgstr ""
 
 #. module: website_quote
@@ -871,8 +875,8 @@ msgstr "Останнє оновлення"
 #: model:product.template,description_sale:website_quote.product_template_quote_1
 #: model:product.template,description_sale:website_quote.product_template_quote_3
 msgid ""
-"Learn directly from our team and network of Flectra experts. Choose from the "
-"available training sessions for a better functional understanding of Flectra"
+"Learn directly from our team and network of Odoo experts. Choose from the "
+"available training sessions for a better functional understanding of Odoo"
 msgstr ""
 
 #. module: website_quote
@@ -880,8 +884,8 @@ msgstr ""
 #: model:product.template,description_sale:website_quote.product_product_quote_2_product_template
 #: model:product.template,description_sale:website_quote.product_template_quote_2
 msgid ""
-"Learn directly from our team and network of Flectra experts. Choose from the "
-"available training sessions for a better technical understanding of Flectra"
+"Learn directly from our team and network of Odoo experts. Choose from the "
+"available training sessions for a better technical understanding of Odoo"
 msgstr ""
 
 #. module: website_quote
@@ -915,7 +919,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Loops"
-msgstr ""
+msgstr "Повторення"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_1
@@ -939,7 +943,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Modules"
-msgstr ""
+msgstr "Модулі"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_1
@@ -959,25 +963,25 @@ msgstr "Кількість днів для розрахунку терміну �
 #: model:product.template,quote_description:website_quote.product_product_quote_2_product_template
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
-msgid "Flectra Official Website"
-msgstr ""
+msgid "Odoo Official Website"
+msgstr "Офіційний сайт Odoo "
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
 #: model:product.template,quote_description:website_quote.product_product_quote_2_product_template
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
-msgid "Flectra Web Client"
+msgid "Odoo Web Client"
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Flectra official partners will benefit from:"
+msgid "Odoo official partners will benefit from:"
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Flectra sales training session"
+msgid "Odoo sales training session"
 msgstr ""
 
 #. module: website_quote
@@ -1057,6 +1061,8 @@ msgid ""
 "Participants preferably have a functional knowledge of our software (see "
 "Functional Training)."
 msgstr ""
+"Учасники повинні мати навички користування нашим програмним забезпеченням "
+"(див. Тренінг з користування)"
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
@@ -1144,12 +1150,12 @@ msgstr "Товари"
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Promote Flectra Enterprise to its customers"
+msgid "Promote Odoo Enterprise to its customers"
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Publishes references directly on Flectra.com"
+msgid "Publishes references directly on Odoo.com"
 msgstr ""
 
 #. module: website_quote
@@ -1171,7 +1177,7 @@ msgstr "Кількість"
 #. module: website_quote
 #: model:ir.model,name:website_quote.model_sale_order
 msgid "Quotation"
-msgstr ""
+msgstr "Пропозиція"
 
 #. module: website_quote
 #: model:ir.model.fields,field_description:website_quote.field_sale_quote_template_number_of_days
@@ -1246,7 +1252,7 @@ msgstr "Відхилити цю пропозицію"
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Report Engine"
-msgstr ""
+msgstr "Генератор звітів"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -1254,7 +1260,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Requirements"
-msgstr ""
+msgstr "Вимоги"
 
 #. module: website_quote
 #: model:ir.model,name:website_quote.model_sale_order_option
@@ -1342,7 +1348,7 @@ msgstr "Податки:"
 #: model:sale.quote.line,name:website_quote.website_sale_order_line_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Technical Training"
-msgstr ""
+msgstr "Технічна підготовка"
 
 #. module: website_quote
 #: model:ir.ui.view,arch_db:website_quote.so_quotation
@@ -1371,22 +1377,22 @@ msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "The Flectra Enterprise GitHub repositories for all his developers"
+msgid "The Odoo Enterprise GitHub repositories for all his developers"
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
 msgid ""
-"The Flectra eco system is designed to offer the best customer experience to "
-"Flectra users, from the product to implementation services. In order to "
-"guarantee that, the Flectra Partner Program ensures that official partners have"
-" the resources and knowledge required to offer Flectra implementation services."
+"The Odoo eco system is designed to offer the best customer experience to "
+"Odoo users, from the product to implementation services. In order to "
+"guarantee that, the Odoo Partner Program ensures that official partners have"
+" the resources and knowledge required to offer Odoo implementation services."
 msgstr ""
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
 msgid ""
-"The ability to report bugs to be fixed by Flectra on behalf of his customer "
+"The ability to report bugs to be fixed by Odoo on behalf of his customer "
 "(Enterprise contracts only)"
 msgstr ""
 
@@ -1453,7 +1459,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "To get more information, visit the"
-msgstr ""
+msgstr "Детальніша інформація на"
 
 #. module: website_quote
 #: model:ir.ui.view,arch_db:website_quote.pricing
@@ -1462,7 +1468,7 @@ msgstr "Сума"
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
-msgid "Train their staff by following Flectra training sessions"
+msgid "Train their staff by following Odoo training sessions"
 msgstr ""
 
 #. module: website_quote
@@ -1471,7 +1477,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Training Center Module"
-msgstr ""
+msgstr "Модуль центру підготовки"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -1479,7 +1485,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Underscore"
-msgstr ""
+msgstr "Підкреслити"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -1487,7 +1493,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Understand the development concepts and architecture;"
-msgstr ""
+msgstr "Розуміти концепти та архітектуру розвитку;"
 
 #. module: website_quote
 #: model:ir.model.fields,field_description:website_quote.field_sale_order_option_price_unit
@@ -1508,7 +1514,7 @@ msgstr "Одиниця виміру"
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
 msgid ""
-"Up to 20% commission on Flectra Enterprise sales, depending on the partnership "
+"Up to 20% commission on Odoo Enterprise sales, depending on the partnership "
 "level"
 msgstr ""
 
@@ -1545,7 +1551,7 @@ msgstr ""
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
 msgid ""
 "Visibility and recognition, by being listed as an official partner on "
-"Flectra.com Partners page"
+"Odoo.com Partners page"
 msgstr ""
 
 #. module: website_quote
@@ -1572,7 +1578,7 @@ msgstr "Опис для вебсайту"
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "What you will learn?"
-msgstr ""
+msgstr "Що ви дізнаєтесь?"
 
 #. module: website_quote
 #: model:product.product,quote_description:website_quote.product_product_quote_2
@@ -1580,7 +1586,7 @@ msgstr ""
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "Workflows"
-msgstr ""
+msgstr "Робочі процеси"
 
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_1
@@ -1590,7 +1596,7 @@ msgstr ""
 #. module: website_quote
 #: model:sale.quote.template,website_description:website_quote.website_quote_template_default
 msgid ""
-"You can <strong>set a description per product</strong>. Flectra will\n"
+"You can <strong>set a description per product</strong>. Odoo will\n"
 "                        automatically create a quotation using the descriptions\n"
 "                        of all products in the proposal. The table of content\n"
 "                        on the left is generated automatically using the styles you\n"
@@ -1634,7 +1640,7 @@ msgstr "Ваше заохочення:"
 #: model:product.template,quote_description:website_quote.product_template_quote_1
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_1
 msgid "Your advantages"
-msgstr ""
+msgstr "Ваші заохочення"
 
 #. module: website_quote
 #: model:ir.ui.view,arch_db:website_quote.so_quotation
@@ -1688,7 +1694,7 @@ msgstr "днів"
 #: model:product.template,quote_description:website_quote.product_template_quote_2
 #: model:sale.quote.line,website_description:website_quote.website_sale_order_line_2
 msgid "drinks and lunch;"
-msgstr ""
+msgstr "напої та ланч; "
 
 #. module: website_quote
 #: model:ir.ui.view,arch_db:website_quote.so_quotation

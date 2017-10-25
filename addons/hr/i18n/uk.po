@@ -1,19 +1,19 @@
-# Translation of Flectra Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * hr
 # 
 # Translators:
 # Bohdan Lisnenko <lem8r.ka11a@gmail.com>, 2017
 # ТАрас <tratatuta@i.ua>, 2017
-# Martin Trigaux <mat@flectrahq.com>, 2017
+# Martin Trigaux <mat@odoo.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Flectra Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
-"Last-Translator: Martin Trigaux <mat@flectrahq.com>, 2017\n"
-"Language-Team: Ukrainian (https://www.transifex.com/flectra/teams/41243/uk/)\n"
+"Last-Translator: Martin Trigaux <mat@odoo.com>, 2017\n"
+"Language-Team: Ukrainian (https://www.transifex.com/odoo/teams/41243/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -170,12 +170,12 @@ msgstr "Народження"
 #. module: hr
 #: model:hr.job,name:hr.job_ceo
 msgid "Chief Executive Officer"
-msgstr ""
+msgstr "Головний виконавчий директор"
 
 #. module: hr
 #: model:hr.job,name:hr.job_cto
 msgid "Chief Technical Officer"
-msgstr ""
+msgstr "Головний технічний директор"
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_department_child_ids
@@ -263,7 +263,7 @@ msgstr ""
 #. module: hr
 #: model:hr.job,name:hr.job_consultant
 msgid "Consultant"
-msgstr ""
+msgstr "Консультант"
 
 #. module: hr
 #: model:ir.model,name:hr.model_res_partner
@@ -280,7 +280,7 @@ msgstr "Контактна інформація"
 #: model:hr.job,website_description:hr.job_developer
 #: model:hr.job,website_description:hr.job_trainee
 msgid "Contributions to open source projects"
-msgstr ""
+msgstr "Вклад у проекти з відкритим кодом"
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_department_create_uid
@@ -317,7 +317,7 @@ msgstr ""
 
 #. module: hr
 #: model:hr.job,website_description:hr.job_consultant
-msgid "Deliver generic Flectra functional training sessions"
+msgid "Deliver generic Odoo functional training sessions"
 msgstr ""
 
 #. module: hr
@@ -566,7 +566,7 @@ msgstr "Людські ресурси"
 #. module: hr
 #: model:hr.job,name:hr.job_hrm
 msgid "Human Resources Manager"
-msgstr ""
+msgstr "Керівник з людських ресурсів"
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_department_id
@@ -827,7 +827,7 @@ msgstr ""
 #. module: hr
 #: model:ir.actions.act_window,help:hr.open_module_tree_department
 msgid ""
-"Flectra's department structure is used to manage all documents\n"
+"Odoo's department structure is used to manage all documents\n"
 "                related to employees by departments: expenses, timesheets,\n"
 "                leaves, recruitments, etc."
 msgstr ""
@@ -970,7 +970,7 @@ msgstr "Вимоги"
 #: model:hr.job,website_description:hr.job_marketing
 #: model:hr.job,website_description:hr.job_trainee
 msgid "Responsibilities"
-msgstr ""
+msgstr "Обов'язки"
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_employee_sinid
@@ -1037,7 +1037,7 @@ msgstr "Неодружений/а/"
 #: model:hr.job,website_description:hr.job_marketing
 #: model:hr.job,website_description:hr.job_trainee
 msgid "Skills"
-msgstr ""
+msgstr "Навички"
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_employee_image_small
@@ -1129,7 +1129,7 @@ msgstr "Прогнозована кількість співробітників
 #. module: hr
 #: model:hr.job,name:hr.job_trainee
 msgid "Trainee"
-msgstr ""
+msgstr "Стажер"
 
 #. module: hr
 #: model:hr.job,website_description:hr.job_marketing
@@ -1249,7 +1249,7 @@ msgstr ""
 #: model:ir.actions.act_window,help:hr.act_employee_from_department
 #: model:ir.actions.act_window,help:hr.open_view_employee_list_my
 msgid ""
-"With just a quick glance on the Flectra employee screen, you\n"
+"With just a quick glance on the Odoo employee screen, you\n"
 "                can easily find all the information you need for each person;\n"
 "                contact data, job position, availability, etc."
 msgstr ""

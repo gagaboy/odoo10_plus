@@ -1,10 +1,10 @@
-# Translation of Flectra Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * website_sale
 # 
 # Translators:
 # Torsten Wichmann <t.wichmann@intero-technologies.de>, 2017
-# Martin Trigaux <mat@flectrahq.com>, 2017
+# Martin Trigaux <mat@odoo.com>, 2017
 # key six <mobile.umts@gmail.com>, 2017
 # Tina Rittmüller <tr@ife.de>, 2017
 # Ermin Trevisan <trevi@twanda.com>, 2017
@@ -20,7 +20,7 @@
 # Renzo Meister <info@jamotion.ch>, 2017
 # Andi <flimflam@salasar.de>, 2017
 # aNj <anj2j@yahoo.de>, 2017
-# Gab_Flectra <gab@flectrahq.com>, 2017
+# Gab_Odoo <gab@odoo.com>, 2017
 # JackTheHunter <Maximilian.N98@gmail.com>, 2017
 # Anja Funk <anja.funk@afimage.de>, 2017
 # Thomas Neu <t.neu@runbox.com>, 2017
@@ -30,14 +30,15 @@
 # Rudolf Schnapka <rs@techno-flex.de>, 2017
 # Mathias Neef <mn@copado.de>, 2017
 # Dejan Dinic <dejan.dinic@bluewin.ch>, 2017
+# Constantin Ehrenstein <transifex@skiller.eu>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Flectra Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
-"Last-Translator: Dejan Dinic <dejan.dinic@bluewin.ch>, 2017\n"
-"Language-Team: German (https://www.transifex.com/flectra/teams/41243/de/)\n"
+"Last-Translator: Constantin Ehrenstein <transifex@skiller.eu>, 2017\n"
+"Language-Team: German (https://www.transifex.com/odoo/teams/41243/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -227,10 +228,10 @@ msgstr ""
 #: model:ir.ui.view,arch_db:website_sale.website_planner
 msgid ""
 "<span class=\"fa fa-lightbulb-o fa-2x\"/>\n"
-"                                Everything is editable in your Flectra website. Feel free to edit any page title, field or button label. Simply hit *Edit* in upper-right corner to start editing the page."
+"                                Everything is editable in your Odoo website. Feel free to edit any page title, field or button label. Simply hit *Edit* in upper-right corner to start editing the page."
 msgstr ""
 "<span class=\"fa fa-lightbulb-o fa-2x\"/>\n"
-"                                Alles ist editierbar in Ihrer Flectra-Website. Fühlen Sie sich frei, jeden Seitentitel, jedes Feld oder Button-Label zu bearbeiten. Drücken Sie einfach *Edit* in der oberen rechten Ecke, um die Bearbeitung der Seite zu starten."
+"                                Alles ist editierbar in Ihrer Odoo-Website. Fühlen Sie sich frei, jeden Seitentitel, jedes Feld oder Button-Label zu bearbeiten. Drücken Sie einfach *Edit* in der oberen rechten Ecke, um die Bearbeitung der Seite zu starten."
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.website_planner
@@ -612,7 +613,7 @@ msgstr ""
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.website_planner
-msgid "<strong>See it in action in Flectra</strong><br/>"
+msgid "<strong>See it in action in Odoo</strong><br/>"
 msgstr ""
 
 #. module: website_sale
@@ -715,6 +716,9 @@ msgid ""
 "A rounding per line is advised if your prices are tax-included. That way, "
 "the sum of line subtotals equals the total with taxes."
 msgstr ""
+"Die Rundung pro Zeile wird empfohlen, wenn Sie Bruttopreise angeben. Auf "
+"diese Weise entspricht die Zeilen-Zwischensumme der Gesamtsumme inklusive "
+"Steuern."
 
 #. module: website_sale
 #: model:sale.order.line,website_description:website_sale.website_sale_order_line_1
@@ -876,6 +880,8 @@ msgstr "Multiwährungsfunktion akzeptieren"
 #: model:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
 msgid "Apply right VAT rates for digital products sold in EU"
 msgstr ""
+"Richtige Mehrwertsteuersätze für in der EU verkaufte digitale Produkte "
+"anwenden"
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.res_config_settings_view_form
@@ -1718,7 +1724,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:website_sale.website_planner
 msgid ""
 "If you deal with a major shipper (UPS, FedEx, DHL, etc.), activate the "
-"related connector in Flectra to compute accurate costs and print labels."
+"related connector in Odoo to compute accurate costs and print labels."
 msgstr ""
 
 #. module: website_sale
@@ -3238,7 +3244,7 @@ msgstr ""
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.website_planner
 msgid ""
-"To do so, take the most out of Flectra's <strong>pricing options</strong>:<br/>"
+"To do so, take the most out of Odoo's <strong>pricing options</strong>:<br/>"
 msgstr ""
 
 #. module: website_sale
@@ -3427,7 +3433,7 @@ msgstr ""
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.website_planner
-msgid "You can setup 3 types of <strong>payment acquirers in Flectra:</strong>"
+msgid "You can setup 3 types of <strong>payment acquirers in Odoo:</strong>"
 msgstr ""
 
 #. module: website_sale
@@ -3532,7 +3538,7 @@ msgstr "eCommerce"
 #: model:ir.ui.menu,name:website_sale.menu_catalog_categories
 #: model:ir.ui.view,arch_db:website_sale.product_template_form_view
 msgid "eCommerce Categories"
-msgstr ""
+msgstr "eCommerce Kategorien"
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.search count
@@ -3611,7 +3617,7 @@ msgstr "Geschäftsbedingungen"
 
 #. module: website_sale
 #: model:ir.ui.view,arch_db:website_sale.website_planner
-msgid "use Flectra API to import through scripts"
+msgid "use Odoo API to import through scripts"
 msgstr ""
 
 #. module: website_sale

@@ -1,4 +1,4 @@
-# Translation of Flectra Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * base_setup
 # 
@@ -8,18 +8,19 @@
 # Antonio Trueba <atgayol@gmail.com>, 2017
 # Gustavo Valverde <g.valverde02@gmail.com>, 2017
 # Ruben Dario Machado <ruben@vauxoo.com>, 2017
-# Martin Trigaux <mat@flectrahq.com>, 2017
-# RGB Consulting <flectra@rgbconsulting.com>, 2017
+# Martin Trigaux <mat@odoo.com>, 2017
+# RGB Consulting <odoo@rgbconsulting.com>, 2017
 # Cristóbal Martí Oliver <info@moblesmarti.com>, 2017
 # Sergio Flores <vitavitae1@gmail.com>, 2017
+# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Flectra Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 11:26+0000\n"
-"PO-Revision-Date: 2017-10-02 11:26+0000\n"
-"Last-Translator: Sergio Flores <vitavitae1@gmail.com>, 2017\n"
-"Language-Team: Spanish (https://www.transifex.com/flectra/teams/41243/es/)\n"
+"POT-Creation-Date: 2017-10-10 11:35+0000\n"
+"PO-Revision-Date: 2017-10-10 11:35+0000\n"
+"Last-Translator: Juan José Scarafía <scarafia.juanjose@gmail.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -159,7 +160,7 @@ msgstr ""
 
 #. module: base_setup
 #: model:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
-msgid "Extract and analyze Flectra data from Google Spreadsheet"
+msgid "Extract and analyze Odoo data from Google Spreadsheet"
 msgstr ""
 
 #. module: base_setup
@@ -173,7 +174,6 @@ msgid "Format"
 msgstr "Formatear"
 
 #. module: base_setup
-#: model:ir.actions.act_window,name:base_setup.action_general_configuration
 #: model:ir.ui.menu,name:base_setup.menu_config
 msgid "General Settings"
 msgstr "Opciones Generales"
@@ -270,6 +270,11 @@ msgid "Set the paper format of printed documents"
 msgstr ""
 
 #. module: base_setup
+#: model:ir.actions.act_window,name:base_setup.action_general_configuration
+msgid "Settings"
+msgstr "Ajustes"
+
+#. module: base_setup
 #: model:ir.model.fields,field_description:base_setup.field_res_config_settings_company_share_partner
 msgid "Share partners to all companies"
 msgstr "Compartir empresas para todas las compañías"
@@ -322,7 +327,7 @@ msgstr "Uso de proveedores de autenticación externos (OAuth)"
 
 #. module: base_setup
 #: model:ir.ui.view,arch_db:base_setup.res_config_settings_view_form
-msgid "Use external pads in Flectra Notes"
+msgid "Use external pads in Odoo Notes"
 msgstr ""
 
 #. module: base_setup

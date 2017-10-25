@@ -1,13 +1,13 @@
-# Translation of Flectra Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 #	* base
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Flectra Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 11:56+0000\n"
-"PO-Revision-Date: 2017-10-02 11:56+0000\n"
+"POT-Creation-Date: 2017-10-24 09:14+0000\n"
+"PO-Revision-Date: 2017-10-24 09:14+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -117,7 +117,7 @@ msgid "\n"
 "210101 - Proveedores locales\n"
 "\n"
 "**Ocho dígitos** son para las cuentas de tercer orden (las visualizadas\n"
-"en Flectra):\n"
+"en Odoo):\n"
 "1101- Efectivo y Equivalentes\n"
 "110101- Caja\n"
 "11010101 Caja General\n"
@@ -139,7 +139,7 @@ msgid "\n"
 "\n"
 "* Fiscal positions '内税' and '外税' have been added to handle special requirements which might arise from POS implementation. [1]  You may not need to use these at all under normal circumstances.\n"
 "\n"
-"[1] See https://github.com/flectra/flectra/pull/6470 for detail.\n"
+"[1] See https://github.com/odoo/odoo/pull/6470 for detail.\n"
 "\n"
 "    "
 msgstr ""
@@ -203,6 +203,14 @@ msgid "\n"
 "and get rewards.\n"
 "\n"
 ""
+msgstr ""
+
+#. module: base
+#: code:addons/model.py:136
+#, python-format
+msgid "\n"
+"\n"
+"[object with reference: %s - %s]"
 msgstr ""
 
 #. module: base
@@ -477,7 +485,7 @@ msgid "\n"
 "\n"
 "        To be elligible for this payment method, a customer must have first\n"
 "        returned a mandate to the company, giving his consent to use direct debit.\n"
-"        This consent must have been encoded as a 'customer mandate' into Flectra.\n"
+"        This consent must have been encoded as a 'customer mandate' into Odoo.\n"
 "\n"
 "        You also need to meet the following requirements in order to properly\n"
 "        generate a SDD file:\n"
@@ -487,7 +495,7 @@ msgid "\n"
 "        - Your company must have defined a journal to receive SDD payments (again, in 'settings' of accounting module)\n"
 "        - Every customer for which you generate a payment must have a valid IBAN account number in a bank associated with a correct BIC.\n"
 "\n"
-"        Flectra will let you know if any of these requirements are not satisfied.\n"
+"        Odoo will let you know if any of these requirements are not satisfied.\n"
 "\n"
 "        Any invoice that gets validated for a customer with a mandate will be\n"
 "        automatically set in 'paid' state, and a payment will be generated. An\n"
@@ -519,7 +527,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_web_mobile
 msgid "\n"
-"        This module provides the core of the Flectra Mobile App.\n"
+"        This module provides the core of the Odoo Mobile App.\n"
 "        "
 msgstr ""
 
@@ -621,13 +629,6 @@ msgstr ""
 msgid "\n"
 "    Resource management for Project\n"
 "    "
-msgstr ""
-
-#. module: base
-#: model:ir.module.module,description:base.module_sms_fortytwo
-msgid "\n"
-"    Send SMS text messages with FortyTwo SMS Services.\n"
-""
 msgstr ""
 
 #. module: base
@@ -1097,7 +1098,7 @@ msgid "\n"
 "Base Module for Ethiopian Localization\n"
 "======================================\n"
 "\n"
-"This is the latest Ethiopian Flectra localization and consists of:\n"
+"This is the latest Ethiopian Odoo localization and consists of:\n"
 "    - Chart of Accounts\n"
 "    - VAT tax structure\n"
 "    - Withholding tax structure\n"
@@ -1131,12 +1132,12 @@ msgid "\n"
 "propagate those new data properly.\n"
 "\n"
 "It's important to note however that this module lack many implementations to \n"
-"use Flectra properly in Brazil. Those implementations (such as the electronic \n"
+"use Odoo properly in Brazil. Those implementations (such as the electronic \n"
 "fiscal Invoicing which is already operational) are brought by more than 15 \n"
 "additional modules of the Brazilian Launchpad localization project \n"
 "https://launchpad.net/openerp.pt-br-localiz and their dependencies in the \n"
 "extra addons branch. Those modules aim at not breaking with the remarkable \n"
-"Flectra modularity, this is why they are numerous but small. One of the \n"
+"Odoo modularity, this is why they are numerous but small. One of the \n"
 "reasons for maintaining those modules apart is that Brazilian Localization \n"
 "leaders need commit rights agility to complete the localization as companies \n"
 "fund the remaining legal requirements (such as soon fiscal ledgers, \n"
@@ -1189,11 +1190,11 @@ msgid "\n"
 "\n"
 "Legal\n"
 "-----\n"
-"**The use of pos_blackbox_be sources is only certified on flectra.com SaaS platform\n"
+"**The use of pos_blackbox_be sources is only certified on odoo.com SaaS platform\n"
 "for version 9.0.**\n"
 "An obfuscated and certified version of the pos_blackbox_be may be provided on\n"
 "requests for on-premise installations.\n"
-"No modified version is certified and supported by Flectra SA.\n"
+"No modified version is certified and supported by Odoo SA.\n"
 "    "
 msgstr ""
 
@@ -1249,16 +1250,16 @@ msgid "\n"
 "===============================\n"
 "\n"
 "Venezuela doesn't have any chart of account by law, but the default\n"
-"proposed in Flectra should comply with some Accepted best practices in Venezuela, \n"
+"proposed in Odoo should comply with some Accepted best practices in Venezuela, \n"
 "this plan comply with this practices.\n"
 "\n"
 "This module has been tested as base for more of 1000 companies, because \n"
 "it is based in a mixtures of most common software in the Venezuelan \n"
 "market what will allow for sure to accountants feel them first steps with \n"
-"Flectra more confortable.\n"
+"Odoo more confortable.\n"
 "\n"
 "This module doesn't pretend be the total localization for Venezuela, \n"
-"but it will help you to start really quickly with Flectra in this country.\n"
+"but it will help you to start really quickly with Odoo in this country.\n"
 "\n"
 "This module give you.\n"
 "---------------------\n"
@@ -1507,7 +1508,7 @@ msgid "\n"
 "ESC/POS Hardware Driver\n"
 "=======================\n"
 "\n"
-"This module allows Flectra to print with ESC/POS compatible printers and\n"
+"This module allows Odoo to print with ESC/POS compatible printers and\n"
 "to open ESC/POS controlled cashdrawers in the point of sale and other modules\n"
 "that would need such functionality.\n"
 "\n"
@@ -1627,7 +1628,7 @@ msgid "\n"
 "This module allows a Point Of Sale client to communicate with a\n"
 "connected Belgian Fiscal Data Module.\n"
 "\n"
-"This module does **not** turn an Flectra Point Of Sale module into a certified\n"
+"This module does **not** turn an Odoo Point Of Sale module into a certified\n"
 "Belgian cash register. It allows the communication on with a certified Fiscal\n"
 "Data Module but will not modify the behaviour of the Point of Sale.\n"
 ""
@@ -1661,14 +1662,14 @@ msgstr ""
 msgid "\n"
 "Gamification process\n"
 "====================\n"
-"The Gamification module provides ways to evaluate and motivate the users of Flectra.\n"
+"The Gamification module provides ways to evaluate and motivate the users of Odoo.\n"
 "\n"
 "The users can be evaluated using goals and numerical objectives to reach.\n"
 "**Goals** are assigned through **challenges** to evaluate and compare members of a team with each others and through time.\n"
 "\n"
 "For non-numerical achievements, **badges** can be granted to users. From a simple \"thank you\" to an exceptional achievement, a badge is an easy way to exprimate gratitude to a user for their good work.\n"
 "\n"
-"Both goals and badges are flexibles and can be adapted to a large range of modules and actions. When installed, this module creates easy goals to help new users to discover Flectra and configure their user profile.\n"
+"Both goals and badges are flexibles and can be adapted to a large range of modules and actions. When installed, this module creates easy goals to help new users to discover Odoo and configure their user profile.\n"
 ""
 msgstr ""
 
@@ -1788,11 +1789,11 @@ msgid "\n"
 "\n"
 "Indian accounting chart and localization.\n"
 "\n"
-"Flectra allows to manage Indian Accounting by providing Two Formats Of Chart of Accounts i.e Indian Chart Of Accounts - Standard and Indian Chart Of Accounts - Schedule VI.\n"
+"Odoo allows to manage Indian Accounting by providing Two Formats Of Chart of Accounts i.e Indian Chart Of Accounts - Standard and Indian Chart Of Accounts - Schedule VI.\n"
 "\n"
 "Note: The Schedule VI has been revised by MCA and is applicable for all Balance Sheet made after\n"
 "31st March, 2011. The Format has done away with earlier two options of format of Balance\n"
-"Sheet, now only Vertical format has been permitted Which is Supported By Flectra.\n"
+"Sheet, now only Vertical format has been permitted Which is Supported By Odoo.\n"
 "  "
 msgstr ""
 
@@ -1835,20 +1836,20 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_mail_github
 msgid "\n"
-"Integrate Github to Flectra Discuss.\n"
+"Integrate Github to Odoo Discuss.\n"
 "======================================\n"
 "\n"
-"This Module integrates all post commits, pull requests and activity of github issue to channels in Flectra.\n"
+"This Module integrates all post commits, pull requests and activity of github issue to channels in Odoo.\n"
 "    "
 msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_google_drive
 msgid "\n"
-"Integrate google document to Flectra record.\n"
+"Integrate google document to Odoo record.\n"
 "============================================\n"
 "\n"
-"This module allows you to integrate google documents to any of your Flectra record quickly and easily using OAuth 2.0 for Installed Applications,\n"
+"This module allows you to integrate google documents to any of your Odoo record quickly and easily using OAuth 2.0 for Installed Applications,\n"
 "You can configure your google Authorization Code from Settings > Configuration > General Settings by clicking on \"Generate Google Authorization Code\"\n"
 ""
 msgstr ""
@@ -1858,7 +1859,7 @@ msgstr ""
 msgid "\n"
 "Invoicing & Payments\n"
 "====================\n"
-"The specific and easy-to-use Invoicing system in Flectra allows you to keep track of your accounting, even when you are not an accountant. It provides an easy way to follow up on your vendors and customers.\n"
+"The specific and easy-to-use Invoicing system in Odoo allows you to keep track of your accounting, even when you are not an accountant. It provides an easy way to follow up on your vendors and customers.\n"
 "\n"
 "You could use this simplified accounting in case you work with an (external) account to keep your books, and you still want to keep track of payments. This module also offers you an easy method of registering payments, without having to encode complete abstracts of account.\n"
 "    "
@@ -2123,7 +2124,7 @@ msgid "\n"
 "============================================\n"
 "\n"
 "This Chart of account is a minimal proposal to be able to use OoB the\n"
-"accounting feature of Flectra.\n"
+"accounting feature of Odoo.\n"
 "\n"
 "This doesn't pretend be all the localization for MX it is just the minimal\n"
 "data required to start from 0 in mexican localization.\n"
@@ -2145,7 +2146,7 @@ msgid "\n"
 "Module for defining analytic accounting object.\n"
 "===============================================\n"
 "\n"
-"In Flectra, analytic accounts are linked to general accounts but are treated\n"
+"In Odoo, analytic accounts are linked to general accounts but are treated\n"
 "totally independently. So, you can enter various different analytic operations\n"
 "that have no counterpart in the general financial accounts.\n"
 "    "
@@ -2258,7 +2259,7 @@ msgid "\n"
 "Module to import CSV bank statements.\n"
 "======================================\n"
 "\n"
-"This module allows you to import CSV Files in Flectra: they are parsed and stored in human readable format in\n"
+"This module allows you to import CSV Files in Odoo: they are parsed and stored in human readable format in\n"
 "Accounting \\ Bank and Cash \\ Bank Statements.\n"
 "\n"
 "Important Note\n"
@@ -2274,7 +2275,7 @@ msgid "\n"
 "Module to import OFX bank statements.\n"
 "======================================\n"
 "\n"
-"This module allows you to import the machine readable OFX Files in Flectra: they are parsed and stored in human readable format in\n"
+"This module allows you to import the machine readable OFX Files in Odoo: they are parsed and stored in human readable format in\n"
 "Accounting \\ Bank and Cash \\ Bank Statements.\n"
 "\n"
 "Bank Statements may be generated containing a subset of the OFX information (only those transaction lines that are required for the\n"
@@ -2288,7 +2289,7 @@ msgid "\n"
 "Module to import QIF bank statements.\n"
 "======================================\n"
 "\n"
-"This module allows you to import the machine readable QIF Files in Flectra: they are parsed and stored in human readable format in\n"
+"This module allows you to import the machine readable QIF Files in Odoo: they are parsed and stored in human readable format in\n"
 "Accounting \\ Bank and Cash \\ Bank Statements.\n"
 "\n"
 "Important Note\n"
@@ -2322,10 +2323,10 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_base_import
 msgid "\n"
-"New extensible file import for Flectra\n"
+"New extensible file import for Odoo\n"
 "======================================\n"
 "\n"
-"Re-implement Flectra's file import system:\n"
+"Re-implement Odoo's file import system:\n"
 "\n"
 "* Server side, the previous system forces most of the logic into the\n"
 "  client which duplicates the effort (between clients), makes the\n"
@@ -2339,7 +2340,7 @@ msgid "\n"
 "  files) which may be simpler to handle in their work flow or from\n"
 "  their data production sources.\n"
 "\n"
-"* In a module, so that administrators and users of Flectra who do not\n"
+"* In a module, so that administrators and users of Odoo who do not\n"
 "  need or want an online import can avoid it being available to users.\n"
 ""
 msgstr ""
@@ -2347,7 +2348,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_sa
 msgid "\n"
-"Flectra Arabic localization for most arabic countries and Saudi Arabia.\n"
+"Odoo Arabic localization for most arabic countries and Saudi Arabia.\n"
 "\n"
 "This initially includes chart of accounts of USA translated to Arabic.\n"
 "\n"
@@ -2358,7 +2359,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_website_form_project
 msgid "\n"
-"Flectra Contact Form\n"
+"Odoo Contact Form\n"
 "=================\n"
 "\n"
 "        "
@@ -2367,7 +2368,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_website_customer
 msgid "\n"
-"Flectra Customer References\n"
+"Odoo Customer References\n"
 "===========================\n"
 ""
 msgstr ""
@@ -2375,7 +2376,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_website_sale_options
 msgid "\n"
-"Flectra E-Commerce\n"
+"Odoo E-Commerce\n"
 "==================\n"
 "\n"
 "        "
@@ -2384,7 +2385,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_website_sale_stock_options
 msgid "\n"
-"Flectra E-Commerce\n"
+"Odoo E-Commerce\n"
 "==================\n"
 "Adds stock limitations on products options.\n"
 ""
@@ -2393,7 +2394,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_web_enterprise
 msgid "\n"
-"Flectra Enterprise Web Client.\n"
+"Odoo Enterprise Web Client.\n"
 "===========================\n"
 "\n"
 "This module modifies the web addon to provide Enterprise design and responsiveness.\n"
@@ -2403,7 +2404,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_website_form_editor
 msgid "\n"
-"Flectra Form Editor\n"
+"Odoo Form Editor\n"
 "====================\n"
 "\n"
 "Allows you to build web forms on the website using the website builder.\n"
@@ -2413,7 +2414,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_website_mail_channel
 msgid "\n"
-"Flectra Mail Group : Mailing List Archives\n"
+"Odoo Mail Group : Mailing List Archives\n"
 "==========================================\n"
 "\n"
 "        "
@@ -2422,7 +2423,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_web_editor
 msgid "\n"
-"Flectra Web Editor widget.\n"
+"Odoo Web Editor widget.\n"
 "==========================\n"
 "\n"
 ""
@@ -2431,17 +2432,17 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_web
 msgid "\n"
-"Flectra Web core module.\n"
+"Odoo Web core module.\n"
 "========================\n"
 "\n"
-"This module provides the core of the Flectra Web Client.\n"
+"This module provides the core of the Odoo Web Client.\n"
 "        "
 msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_web_tour
 msgid "\n"
-"Flectra Web tours.\n"
+"Odoo Web tours.\n"
 "========================\n"
 "\n"
 ""
@@ -2450,7 +2451,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_website_google_map
 msgid "\n"
-"Flectra Website Google Map\n"
+"Odoo Website Google Map\n"
 "==========================\n"
 "\n"
 "        "
@@ -2459,9 +2460,9 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_website_livechat
 msgid "\n"
-"Flectra Website LiveChat\n"
+"Odoo Website LiveChat\n"
 "========================\n"
-"For website built with Flectra CMS, this module include a chat button on your Website, and allow your visitors to chat with your collaborators.\n"
+"For website built with Odoo CMS, this module include a chat button on your Website, and allow your visitors to chat with your collaborators.\n"
 "It also will include the feedback tool for the livechat, and web pages to display your channel and its ratings on the website.\n"
 "        "
 msgstr ""
@@ -2469,7 +2470,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_web_settings_dashboard
 msgid "\n"
-"Flectra dashboard\n"
+"Odoo dashboard\n"
 "==============\n"
 "* Quick access to install apps\n"
 "* Quick users add\n"
@@ -2641,12 +2642,12 @@ msgid "\n"
 "PosBox Homepage\n"
 "===============\n"
 "\n"
-"This module overrides Flectra web interface to display a simple\n"
+"This module overrides Odoo web interface to display a simple\n"
 "Homepage that explains what's the posbox and show the status,\n"
 "and where to find documentation.\n"
 "\n"
 "If you activate this module, you won't be able to access the \n"
-"regular Flectra interface anymore.\n"
+"regular Odoo interface anymore.\n"
 "\n"
 ""
 msgstr ""
@@ -2659,7 +2660,7 @@ msgid "\n"
 "\n"
 "This module allows to remotely upgrade the PosBox software to a\n"
 "new version. This module is specific to the PosBox setup and environment\n"
-"and should not be installed on regular Flectra servers.\n"
+"and should not be installed on regular Odoo servers.\n"
 "\n"
 ""
 msgstr ""
@@ -2707,7 +2708,7 @@ msgid "\n"
 "Publish your products on eBay\n"
 "=============================\n"
 "\n"
-"The eBay integrator gives you the opportunity to manage your Flectra's products on eBay.\n"
+"The eBay integrator gives you the opportunity to manage your Odoo's products on eBay.\n"
 "\n"
 "Key Features\n"
 "------------\n"
@@ -2752,11 +2753,11 @@ msgid "\n"
 "============================================\n"
 "\n"
 "Enter the parameters of your POP/IMAP account(s), and any incoming emails on\n"
-"these accounts will be automatically downloaded into your Flectra system. All\n"
+"these accounts will be automatically downloaded into your Odoo system. All\n"
 "POP3/IMAP-compatible servers are supported, included those that require an\n"
 "encrypted SSL/TLS connection.\n"
 "\n"
-"This can be used to easily create email-based workflows for many email-enabled Flectra documents, such as:\n"
+"This can be used to easily create email-based workflows for many email-enabled Odoo documents, such as:\n"
 "----------------------------------------------------------------------------------------------------------\n"
 "    * CRM Leads/Opportunities\n"
 "    * CRM Claims\n"
@@ -2767,8 +2768,8 @@ msgid "\n"
 "Just install the relevant application, and you can assign any of these document\n"
 "types (Leads, Project Issues) to your incoming email accounts. New emails will\n"
 "automatically spawn new documents of the chosen type, so it's a snap to create a\n"
-"mailbox-to-Flectra integration. Even better: these documents directly act as mini\n"
-"conversations synchronized by email. You can reply from within Flectra, and the\n"
+"mailbox-to-Odoo integration. Even better: these documents directly act as mini\n"
+"conversations synchronized by email. You can reply from within Odoo, and the\n"
 "answers will automatically be collected when they come back, and attached to the\n"
 "same *conversation* document.\n"
 "\n"
@@ -2901,7 +2902,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_web_studio
 msgid "\n"
-"Studio - Customize Flectra\n"
+"Studio - Customize Odoo\n"
 "=======================\n"
 "\n"
 "This addon allows the user to customize most element of the user interface, in a\n"
@@ -2917,7 +2918,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_website_studio
 msgid "\n"
-"Studio - Customize Flectra\n"
+"Studio - Customize Odoo\n"
 "=======================\n"
 "\n"
 "This addon allows the user to display all the website forms linked to a certain\n"
@@ -2983,7 +2984,7 @@ msgid "\n"
 "Synchronization of timesheet entries with the external timesheet application.\n"
 "=============================================================================\n"
 "\n"
-"If you use the external timesheet application, this module alows you to synchronize timesheet entries between Flectra and the application.\n"
+"If you use the external timesheet application, this module alows you to synchronize timesheet entries between Odoo and the application.\n"
 "    "
 msgstr ""
 
@@ -2995,7 +2996,7 @@ msgid "\n"
 "old description:\n"
 "Invoicing & Payments by Accounting Voucher & Receipts\n"
 "=====================================================\n"
-"The specific and easy-to-use Invoicing system in Flectra allows you to keep track of your accounting, even when you are not an accountant. It provides an easy way to follow up on your vendors and customers. \n"
+"The specific and easy-to-use Invoicing system in Odoo allows you to keep track of your accounting, even when you are not an accountant. It provides an easy way to follow up on your vendors and customers. \n"
 "\n"
 "You could use this simplified accounting in case you work with an (external) account to keep your books, and you still want to keep track of payments. \n"
 "\n"
@@ -3047,7 +3048,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_base
 msgid "\n"
-"The kernel of Flectra, needed for all installation.\n"
+"The kernel of Odoo, needed for all installation.\n"
 "===================================================\n"
 ""
 msgstr ""
@@ -3063,7 +3064,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_google_spreadsheet
 msgid "\n"
-"The module adds the possibility to display data from Flectra in Google Spreadsheets in real time.\n"
+"The module adds the possibility to display data from Odoo in Google Spreadsheets in real time.\n"
 "=================================================================================================\n"
 ""
 msgstr ""
@@ -3094,7 +3095,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_product
 msgid "\n"
-"This is the base module for managing products and pricelists in Flectra.\n"
+"This is the base module for managing products and pricelists in Odoo.\n"
 "========================================================================\n"
 "\n"
 "Products support variants, different pricing methods, vendors information,\n"
@@ -3118,7 +3119,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_be
 msgid "\n"
-"This is the base module to manage the accounting chart for Belgium in Flectra.\n"
+"This is the base module to manage the accounting chart for Belgium in Odoo.\n"
 "==============================================================================\n"
 "\n"
 "After installing this module, the Configuration wizard for accounting is launched.\n"
@@ -3163,7 +3164,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_ec
 msgid "\n"
-"This is the base module to manage the accounting chart for Ecuador in Flectra.\n"
+"This is the base module to manage the accounting chart for Ecuador in Odoo.\n"
 "==============================================================================\n"
 "\n"
 "Accounting chart and localization for Ecuador.\n"
@@ -3236,7 +3237,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_generic_coa
 msgid "\n"
-"This is the base module to manage the generic accounting chart in Flectra.\n"
+"This is the base module to manage the generic accounting chart in Odoo.\n"
 "==============================================================================\n"
 "\n"
 "Install some generic chart of accounts.\n"
@@ -3246,7 +3247,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_uk
 msgid "\n"
-"This is the latest UK Flectra localisation necessary to run Flectra accounting for UK SME's with:\n"
+"This is the latest UK Odoo localisation necessary to run Odoo accounting for UK SME's with:\n"
 "=================================================================================================\n"
 "    - a CT600-ready chart of accounts\n"
 "    - VAT100-ready tax structure\n"
@@ -3258,7 +3259,7 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_ro
 msgid "\n"
 "This is the module to manage the Accounting Chart, VAT structure, Fiscal Position and Tax Mapping.\n"
-"It also adds the Registration Number for Romania in Flectra.\n"
+"It also adds the Registration Number for Romania in Odoo.\n"
 "================================================================================================================\n"
 "\n"
 "Romanian accounting chart and localization.\n"
@@ -3268,7 +3269,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_ca
 msgid "\n"
-"This is the module to manage the Canadian accounting chart in Flectra.\n"
+"This is the module to manage the Canadian accounting chart in Odoo.\n"
 "===========================================================================================\n"
 "\n"
 "Canadian accounting charts and localizations.\n"
@@ -3299,14 +3300,14 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_pl
 msgid "\n"
-"This is the module to manage the accounting chart and taxes for Poland in Flectra.\n"
+"This is the module to manage the accounting chart and taxes for Poland in Odoo.\n"
 "==================================================================================\n"
 "\n"
 "To jest moduł do tworzenia wzorcowego planu kont, podatków, obszarów podatkowych i\n"
 "rejestrów podatkowych. Moduł ustawia też konta do kupna i sprzedaży towarów\n"
 "zakładając, że wszystkie towary są w obrocie hurtowym.\n"
 "\n"
-"Niniejszy moduł jest przeznaczony dla flectra 8.0.\n"
+"Niniejszy moduł jest przeznaczony dla odoo 8.0.\n"
 "Wewnętrzny numer wersji OpenGLOBE 1.02\n"
 "    "
 msgstr ""
@@ -3314,7 +3315,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_fr
 msgid "\n"
-"This is the module to manage the accounting chart for France in Flectra.\n"
+"This is the module to manage the accounting chart for France in Odoo.\n"
 "========================================================================\n"
 "\n"
 "This module applies to companies based in France mainland. It doesn't apply to\n"
@@ -3340,7 +3341,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_vn
 msgid "\n"
-"This is the module to manage the accounting chart for Vietnam in Flectra.\n"
+"This is the module to manage the accounting chart for Vietnam in Odoo.\n"
 "=========================================================================\n"
 "\n"
 "This module applies to companies based in Vietnamese Accounting Standard (VAS)\n"
@@ -3355,20 +3356,12 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_vn_reports
 msgid "\n"
-"This is the module to manage the accounting reports for Vietnam in Flectra.\n"
+"This is the module to manage the accounting reports for Vietnam in Odoo.\n"
 "=========================================================================\n"
 "\n"
 "This module applies to companies based in Vietnamese Accounting Standard (VAS).\n"
 "\n"
 "**Credits:** General Solutions.\n"
-""
-msgstr ""
-
-#. module: base
-#: model:ir.module.module,description:base.module_test_main_flows
-msgid "\n"
-"This mobule will test the main workflow of Flectra.\n"
-"It will install some main apps and will try to execute the most important actions.\n"
 ""
 msgstr ""
 
@@ -3410,7 +3403,7 @@ msgid "\n"
 "will add their specific templates and controllers to extend the customer\n"
 "portal.\n"
 "\n"
-"This module contains most code coming from flectra v10 website_portal. Purpose\n"
+"This module contains most code coming from odoo v10 website_portal. Purpose\n"
 "of this module is to allow the display of a customer portal without having\n"
 "a dependency towards website edition and customization capabilities."
 msgstr ""
@@ -3422,7 +3415,7 @@ msgid "\n"
 "\n"
 "Scanning\n"
 "--------\n"
-"Use a USB scanner (that mimics keyboard inputs) in order to work with barcodes in Flectra.\n"
+"Use a USB scanner (that mimics keyboard inputs) in order to work with barcodes in Odoo.\n"
 "The scanner must be configured to use no prefix and a carriage return or tab as suffix.\n"
 "The delay between each character input must be less than or equal to 50 milliseconds.\n"
 "Most barcode scanners will work out of the box.\n"
@@ -3661,7 +3654,7 @@ msgid "\n"
 "This module gives a framework for SMS text messaging\n"
 "----------------------------------------------------\n"
 "\n"
-"You need to install a provider alongside of this module in order to be able send SMS text messages.\n"
+"The service is provided by the In App Purchase Odoo platform.\n"
 ""
 msgstr ""
 
@@ -3771,6 +3764,13 @@ msgid "\n"
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,description:base.module_iap
+msgid "\n"
+"This module provides standard tools (account model, context manager and helpers) to support In-App purchases inside Odoo.\n"
+""
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,description:base.module_l10n_at
 #: model:ir.module.module,description:base.module_l10n_at_reports
 msgid "\n"
@@ -3783,7 +3783,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_note_pad
 msgid "\n"
-"This module update memos inside Flectra for using an external pad\n"
+"This module update memos inside Odoo for using an external pad\n"
 "=================================================================\n"
 "\n"
 "Use for update your text memo in real time with the following user that you invite.\n"
@@ -3819,6 +3819,14 @@ msgid "\n"
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,description:base.module_test_main_flows
+msgid "\n"
+"This module will test the main workflow of Odoo.\n"
+"It will install some main apps and will try to execute the most important actions.\n"
+""
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,description:base.module_web_kanban_gauge
 msgid "\n"
 "This widget allows to display gauges using d3 library.\n"
@@ -3850,7 +3858,7 @@ msgid "\n"
 "This module will add a link to the Transifex project in the translation view.\n"
 "The purpose of this module is to speed up translations of the main modules.\n"
 "\n"
-"To work, Flectra uses Transifex configuration files `.tx/config` to detec the\n"
+"To work, Odoo uses Transifex configuration files `.tx/config` to detec the\n"
 "project source. Custom modules will not be translated (as not published on\n"
 "the main Transifex project).\n"
 "\n"
@@ -3862,7 +3870,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_tr
 msgid "\n"
-"Türkiye için Tek düzen hesap planı şablonu Flectra Modülü.\n"
+"Türkiye için Tek düzen hesap planı şablonu Odoo Modülü.\n"
 "==========================================================\n"
 "\n"
 "Bu modül kurulduktan sonra, Muhasebe yapılandırma sihirbazı çalışır\n"
@@ -3934,7 +3942,7 @@ msgstr ""
 msgid "\n"
 "Vehicle, leasing, insurances, cost\n"
 "==================================\n"
-"With this module, Flectra helps you managing all your vehicles, the\n"
+"With this module, Odoo helps you managing all your vehicles, the\n"
 "contracts associated to those vehicle as well as services, fuel log\n"
 "entries, costs and many other features necessary to the management \n"
 "of your fleet of vehicle(s)\n"
@@ -4342,8 +4350,13 @@ msgstr ""
 #: model:ir.ui.view,arch_db:base.view_server_action_form
 msgid "<code style=\"white-space: pre-wrap\">\n"
 "partner_name = record.name + '_code'\n"
-"env[\"res.partner\"].create({\"name\": partner_name})\n"
+"env['res.partner'].create({'name': partner_name})\n"
 "</code>"
+msgstr ""
+
+#. module: base
+#: model:ir.ui.view,arch_db:base.view_server_action_form
+msgid "<code>Warning</code>: Warning Exception to use with <code>raise</code>"
 msgstr ""
 
 #. module: base
@@ -4359,6 +4372,31 @@ msgid "<code>dateutil</code> (Python module)"
 msgstr ""
 
 #. module: base
+#: model:ir.ui.view,arch_db:base.view_server_action_form
+msgid "<code>env</code>: Odoo Environment on which the action is triggered"
+msgstr ""
+
+#. module: base
+#: model:ir.ui.view,arch_db:base.view_server_action_form
+msgid "<code>log(message, level='info')</code>:logging function to record debug information in <code>ir.logging</code> table"
+msgstr ""
+
+#. module: base
+#: model:ir.ui.view,arch_db:base.view_server_action_form
+msgid "<code>model</code>: Odoo Model of the record on which the action is triggered; is a void recordset"
+msgstr ""
+
+#. module: base
+#: model:ir.ui.view,arch_db:base.view_server_action_form
+msgid "<code>record</code>: record on which the action is triggered; may be be void"
+msgstr ""
+
+#. module: base
+#: model:ir.ui.view,arch_db:base.view_server_action_form
+msgid "<code>records</code>: recordset of all records on which the action is triggered in multi mode; may be void"
+msgstr ""
+
+#. module: base
 #: model:ir.ui.view,arch_db:base.view_model_fields_form
 #: model:ir.ui.view,arch_db:base.view_model_form
 msgid "<code>self</code> (the set of records to compute)"
@@ -4368,6 +4406,11 @@ msgstr ""
 #: model:ir.ui.view,arch_db:base.view_model_fields_form
 #: model:ir.ui.view,arch_db:base.view_model_form
 msgid "<code>time</code> (Python module)"
+msgstr ""
+
+#. module: base
+#: model:ir.ui.view,arch_db:base.view_server_action_form
+msgid "<code>time</code>, <code>datetime</code>, <code>dateutil</code>, <code>timezone</code>: useful Python libraries"
 msgstr ""
 
 #. module: base
@@ -4519,7 +4562,7 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_pylint
-msgid "A module to test Flectra with pylint."
+msgid "A module to test Odoo with pylint."
 msgstr ""
 
 #. module: base
@@ -4918,11 +4961,6 @@ msgid "Add Delivery Costs to Online Sales"
 msgstr ""
 
 #. module: base
-#: selection:ir.actions.server,state:0
-msgid "Add Followers"
-msgstr ""
-
-#. module: base
 #: model:ir.module.module,summary:base.module_transifex
 msgid "Add a link to edit a translation in Transifex"
 msgstr ""
@@ -4987,7 +5025,7 @@ msgstr ""
 msgid "Adds support for authentication by LDAP server.\n"
 "===============================================\n"
 "This module allows users to login with their LDAP username and password, and\n"
-"will automatically create Flectra users for them on the fly.\n"
+"will automatically create Odoo users for them on the fly.\n"
 "\n"
 "**Note:** This module only work on servers who have Python's ``ldap`` module installed.\n"
 "\n"
@@ -4996,7 +5034,7 @@ msgid "Adds support for authentication by LDAP server.\n"
 "After installing this module, you need to configure the LDAP parameters in the\n"
 "General Settings menu. Different companies may have different\n"
 "LDAP servers, as long as they have unique usernames (usernames need to be unique\n"
-"in Flectra, even across multiple companies).\n"
+"in Odoo, even across multiple companies).\n"
 "\n"
 "Anonymous LDAP binding is also supported (for LDAP servers that allow it), by\n"
 "simply keeping the LDAP user and password empty in the LDAP configuration.\n"
@@ -5012,24 +5050,24 @@ msgid "Adds support for authentication by LDAP server.\n"
 "\n"
 "Security Considerations:\n"
 "------------------------\n"
-"Users' LDAP passwords are never stored in the Flectra database, the LDAP server\n"
+"Users' LDAP passwords are never stored in the Odoo database, the LDAP server\n"
 "is queried whenever a user needs to be authenticated. No duplication of the\n"
 "password occurs, and passwords are managed in one place only.\n"
 "\n"
-"Flectra does not manage password changes in the LDAP, so any change of password\n"
+"Odoo does not manage password changes in the LDAP, so any change of password\n"
 "should be conducted by other means in the LDAP directory directly (for LDAP users).\n"
 "\n"
-"It is also possible to have local Flectra users in the database along with\n"
+"It is also possible to have local Odoo users in the database along with\n"
 "LDAP-authenticated users (the Administrator account is one obvious example).\n"
 "\n"
 "Here is how it works:\n"
 "---------------------\n"
-"    * The system first attempts to authenticate users against the local Flectra\n"
+"    * The system first attempts to authenticate users against the local Odoo\n"
 "      database;\n"
 "    * if this authentication fails (for example because the user has no local\n"
 "      password), the system then attempts to authenticate against LDAP;\n"
 "\n"
-"As LDAP users have blank passwords by default in the local Flectra database\n"
+"As LDAP users have blank passwords by default in the local Odoo database\n"
 "(which means no access), the first step always fails and the LDAP server is\n"
 "queried to do the authentication.\n"
 "\n"
@@ -5047,7 +5085,7 @@ msgid "Adds support for authentication by LDAP server.\n"
 "         assigned as local password for each new LDAP user, effectively setting\n"
 "         a *master password* for these users (until manually changed). You\n"
 "         usually do not want this. One easy way to setup a template user is to\n"
-"         login once with a valid LDAP user, let Flectra create a blank local\n"
+"         login once with a valid LDAP user, let Odoo create a blank local\n"
 "         user with the same login (and a blank password), then rename this new\n"
 "         user to a username that does not exist in LDAP, and setup its groups\n"
 ""
@@ -5187,6 +5225,11 @@ msgstr ""
 #. module: base
 #: model:ir.module.category,description:base.module_category_account_voucher
 msgid "Allows you to create your invoices and track the payments. It is an easier version of the accounting module for managers who are not accountants."
+msgstr ""
+
+#. module: base
+#: model:ir.actions.act_window,help:base.action_attachment
+msgid "Also you will find here all the related documents and download it by clicking on any individual document."
 msgstr ""
 
 #. module: base
@@ -5536,11 +5579,6 @@ msgid "Automate Marketing Campaigns"
 msgstr ""
 
 #. module: base
-#: selection:ir.actions.server,usage:0
-msgid "Automated Action"
-msgstr ""
-
-#. module: base
 #: model:ir.module.module,shortdesc:base.module_base_automation
 msgid "Automated Action Rules"
 msgstr ""
@@ -5644,6 +5682,12 @@ msgstr ""
 #. module: base
 #: selection:res.company,external_report_layout:0
 msgid "Background"
+msgstr ""
+
+#. module: base
+#: code:addons/translate.py:1066
+#, python-format
+msgid "Bad file format: %s"
 msgstr ""
 
 #. module: base
@@ -5801,7 +5845,12 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,summary:base.module_web_grid
-msgid "Basic 2D Grid view for flectra"
+msgid "Basic 2D Grid view for odoo"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,summary:base.module_iap
+msgid "Basic models and helpers to support In-App purchases."
 msgstr ""
 
 #. module: base
@@ -6408,7 +6457,7 @@ msgid "China"
 msgstr ""
 
 #. module: base
-#: code:addons/base/ir/ir_actions_report.py:683
+#: code:addons/base/ir/ir_actions_report.py:685
 #, python-format
 msgid "Choose Your Document Layout"
 msgstr ""
@@ -6455,13 +6504,13 @@ msgid "Clean"
 msgstr ""
 
 #. module: base
-#: model:ir.actions.act_window,help:base.action_attachment
-msgid "Click here to attach a new document."
+#: model:ir.actions.act_window,help:base.action_ui_view_custom
+msgid "Click here to create a customized view"
 msgstr ""
 
 #. module: base
-#: model:ir.actions.act_window,help:base.action_ui_view_custom
-msgid "Click here to create a customized view"
+#: model:ir.actions.act_window,help:base.action_attachment
+msgid "Click here to create new documents."
 msgstr ""
 
 #. module: base
@@ -7063,7 +7112,6 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_logging_create_date
 #: model:ir.model.fields,field_description:base.field_ir_ui_view_create_date
-#: model:ir.model.fields,field_description:base.field_res_users_create_date
 msgid "Create Date"
 msgstr ""
 
@@ -7105,7 +7153,7 @@ msgstr ""
 
 #. module: base
 #: model:ir.actions.act_window,help:base.action_res_company_form
-msgid "Create and manage the companies that will be managed by Flectra from here. Shops or subsidiaries can be created and maintained from here."
+msgid "Create and manage the companies that will be managed by Odoo from here. Shops or subsidiaries can be created and maintained from here."
 msgstr ""
 
 #. module: base
@@ -7286,6 +7334,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:base.field_res_partner_industry_create_date
 #: model:ir.model.fields,field_description:base.field_res_partner_title_create_date
 #: model:ir.model.fields,field_description:base.field_res_request_link_create_date
+#: model:ir.model.fields,field_description:base.field_res_users_create_date
 #: model:ir.model.fields,field_description:base.field_res_users_log_create_date
 #: model:ir.model.fields,field_description:base.field_wizard_ir_model_menu_create_create_date
 msgid "Created on"
@@ -7537,11 +7586,6 @@ msgid "DHL Shipping"
 msgstr ""
 
 #. module: base
-#: model:ir.ui.view,arch_db:base.res_config_settings_view_form
-msgid "DISCARD"
-msgstr ""
-
-#. module: base
 #: selection:report.paperformat,format:0
 msgid "DLE 26 110 x 220 mm"
 msgstr ""
@@ -7652,18 +7696,6 @@ msgstr ""
 #. module: base
 #: selection:ir.cron,interval_type:0
 msgid "Days"
-msgstr ""
-
-#. module: base
-#: model:res.company,overdue_msg:base.main_company
-msgid "Dear Sir/Madam,\n"
-"\n"
-"Our records indicate that some payments on your account are still due. Please find details below.\n"
-"If the amount has already been paid, please disregard this notice. Otherwise, please forward us the total amount stated below.\n"
-"If you have any queries regarding your account, Please contact us.\n"
-"\n"
-"Thank you in advance for your cooperation.\n"
-"Best Regards,"
 msgstr ""
 
 #. module: base
@@ -7881,6 +7913,11 @@ msgstr ""
 #, python-format
 msgid "Disabling this option will also uninstall the following modules \n"
 "%s"
+msgstr ""
+
+#. module: base
+#: model:ir.ui.view,arch_db:base.res_config_settings_view_form
+msgid "Discard"
 msgstr ""
 
 #. module: base
@@ -8298,7 +8335,6 @@ msgstr ""
 #. module: base
 #: model:ir.actions.act_window,name:base.action_partner_employee_form
 #: model:ir.module.category,name:base.module_category_human_resources
-#: model:ir.ui.view,arch_db:base.user_groups_view
 msgid "Employees"
 msgstr ""
 
@@ -8457,13 +8493,13 @@ msgid "Events Sales"
 msgstr ""
 
 #. module: base
-#: model:ir.module.module,description:base.module_gamification_sale_crm
-msgid "Example of goal definitions and challenges that can be used related to the usage of the CRM Sale module."
+#: model:ir.ui.view,arch_db:base.view_server_action_form
+msgid "Example of Python code"
 msgstr ""
 
 #. module: base
-#: model:ir.ui.view,arch_db:base.view_server_action_form
-msgid "Example of python code"
+#: model:ir.module.module,description:base.module_gamification_sale_crm
+msgid "Example of goal definitions and challenges that can be used related to the usage of the CRM Sale module."
 msgstr ""
 
 #. module: base
@@ -8720,7 +8756,7 @@ msgid "Fichier d'Échange Informatisé (FEC) pour la France\n"
 "La structure du fichier FEC généré par ce module a été vérifiée avec le logiciel\n"
 "*Test Compta Demat* version 1_00_05 disponible sur\n"
 "`le site de la direction générale des finances publiques <http://www.economie.gouv.fr/dgfip/outil-test-des-fichiers-des-ecritures-comptables-fec>`\n"
-"en utilisant une base de donnée Flectra réelle.\n"
+"en utilisant une base de donnée Odoo réelle.\n"
 "\n"
 "Configuration\n"
 "=============\n"
@@ -8977,7 +9013,7 @@ msgstr ""
 
 #. module: base
 #: model:ir.ui.view,arch_db:base.wizard_lang_export
-msgid "For more details about translating Flectra in your language, please refer to the"
+msgid "For more details about translating Odoo in your language, please refer to the"
 msgstr ""
 
 #. module: base
@@ -9022,11 +9058,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:base.field_res_partner_email_formatted
 #: model:ir.model.fields,field_description:base.field_res_users_email_formatted
 msgid "Formatted Email"
-msgstr ""
-
-#. module: base
-#: model:ir.module.module,summary:base.module_sms_fortytwo
-msgid "FortyTwo SMS Gateway"
 msgstr ""
 
 #. module: base
@@ -9219,6 +9250,13 @@ msgid "General Settings"
 msgstr ""
 
 #. module: base
+#: model:ir.actions.act_window,name:base.action_wizard_update_translations
+#: model:ir.ui.menu,name:base.menu_wizard_update_translations
+#: model:ir.ui.view,arch_db:base.wizard_update_translations
+msgid "Generate Missing Terms"
+msgstr ""
+
+#. module: base
 #: model:ir.ui.view,arch_db:base.ir_property_view_search
 msgid "Generic"
 msgstr ""
@@ -9303,7 +9341,7 @@ msgid "Google Calendar\n"
 "---------------\n"
 "\n"
 "Get your meetings, your leaves... Get your calendar anywhere and never\n"
-"forget an event, fully synchronized with the Flectra <a href=\"https://www.flectra.com/page/crm\">Open Source CRM</a>.\n"
+"forget an event, fully synchronized with the Odoo <a href=\"https://www.odoo.com/page/crm\">Open Source CRM</a>.\n"
 "\n"
 "Keep an eye on your events\n"
 "--------------------------\n"
@@ -9343,13 +9381,13 @@ msgid "Google Calendar\n"
 "Be notified\n"
 "-----------\n"
 "\n"
-"You can ask to have a alarm of type 'notification' in your Flectra.  You will have\n"
-"a notification in you Flectra which ever the page you are.\n"
+"You can ask to have a alarm of type 'notification' in your Odoo.  You will have\n"
+"a notification in you Odoo which ever the page you are.\n"
 "\n"
 "Google Calendar\n"
 "---------------\n"
 "\n"
-"With the plugin Google\\_calendar, you can synchronize your Flectra calendar with Google Calendar.\n"
+"With the plugin Google\\_calendar, you can synchronize your Odoo calendar with Google Calendar.\n"
 "\n"
 ""
 msgstr ""
@@ -9610,7 +9648,7 @@ msgstr ""
 
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_server_action_form
-msgid "Help with Python expressions."
+msgid "Help with Python expressions"
 msgstr ""
 
 #. module: base
@@ -9945,11 +9983,6 @@ msgid "ID"
 msgstr ""
 
 #. module: base
-#: model:ir.model.fields,help:base.field_ir_act_server_xml_id
-msgid "ID of the action if defined in a XML file"
-msgstr ""
-
-#. module: base
 #: model:ir.model.fields,help:base.field_ir_model_data_res_id
 msgid "ID of the target record in the database"
 msgstr ""
@@ -10102,7 +10135,7 @@ msgstr ""
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_ui_menu_groups_id
-msgid "If you have groups, the visibility of this menu will be based on these groups. If this field is empty, Flectra will compute visibility based on the related object's read access."
+msgid "If you have groups, the visibility of this menu will be based on these groups. If this field is empty, Odoo will compute visibility based on the related object's read access."
 msgstr ""
 
 #. module: base
@@ -10202,6 +10235,11 @@ msgid "In Apps"
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_iap
+msgid "In-App Purchases"
+msgstr ""
+
+#. module: base
 #: model:ir.ui.view,arch_db:base.view_currency_search
 #: model:ir.ui.view,arch_db:base.view_view_search
 msgid "Inactive"
@@ -10274,8 +10312,12 @@ msgid "Indonesia"
 msgstr ""
 
 #. module: base
+#: model:ir.actions.act_window,name:base.res_partner_industry_action
+#: model:ir.model,name:base.model_res_partner_industry
 #: model:ir.model.fields,field_description:base.field_res_partner_industry_id
 #: model:ir.model.fields,field_description:base.field_res_users_industry_id
+#: model:ir.ui.view,arch_db:base.res_partner_industry_view_form
+#: model:ir.ui.view,arch_db:base.res_partner_industry_view_tree
 msgid "Industry"
 msgstr ""
 
@@ -10487,7 +10529,7 @@ msgid "Introspection report on objects"
 msgstr ""
 
 #. module: base
-#: code:addons/models.py:3482
+#: code:addons/models.py:3483
 #, python-format
 msgid "Invalid \"order\" specified. A valid \"order\" specification is a comma-separated list of valid field names (optionally followed by asc/desc for the direction)"
 msgstr ""
@@ -10770,7 +10812,7 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,summary:base.module_website_helpdesk_forum
-msgid "Knowledge base for helpdesk based on Flectra Forum"
+msgid "Knowledge base for helpdesk based on Odoo Forum"
 msgstr ""
 
 #. module: base
@@ -10830,7 +10872,7 @@ msgid "Language Name"
 msgstr ""
 
 #. module: base
-#: code:addons/base/module/wizard/base_language_install.py:28
+#: code:addons/base/module/wizard/base_language_install.py:39
 #, python-format
 msgid "Language Pack"
 msgstr ""
@@ -11551,8 +11593,8 @@ msgstr ""
 msgid "Manage Recruitment and Job applications\n"
 "---------------------------------------\n"
 "\n"
-"Publish, promote and organize your job offers with the Flectra\n"
-"<a href=\"https://www.flectra.com/page/recruitment\">Open Source Recruitment Application</a>.\n"
+"Publish, promote and organize your job offers with the Odoo\n"
+"<a href=\"https://www.odoo.com/page/recruitment\">Open Source Recruitment Application</a>.\n"
 "\n"
 "Organize your job board, promote your job announces and keep track of\n"
 "application submissions easily. Follow every applicant and build up a database\n"
@@ -11592,7 +11634,7 @@ msgstr ""
 
 #. module: base
 #: model:ir.actions.act_window,help:base.grant_menu_access
-msgid "Manage and customize the items available and displayed in your Flectra system menu. You can delete an item by clicking on the box at the beginning of each line and then delete it through the button that appeared. Items can be assigned to specific groups in order to make them accessible to some users within the system."
+msgid "Manage and customize the items available and displayed in your Odoo system menu. You can delete an item by clicking on the box at the beginning of each line and then delete it through the button that appeared. Items can be assigned to specific groups in order to make them accessible to some users within the system."
 msgstr ""
 
 #. module: base
@@ -11898,7 +11940,7 @@ msgid "Missing document(s)"
 msgstr ""
 
 #. module: base
-#: code:addons/models.py:5134
+#: code:addons/models.py:5135
 #, python-format
 msgid "Missing required value for the field '%s' (%s)"
 msgstr ""
@@ -12086,6 +12128,13 @@ msgstr ""
 #. module: base
 #: model:ir.model,name:base.model_ir_module_module_exclusion
 msgid "Module exclusion"
+msgstr ""
+
+#. module: base
+#: code:addons/convert.py:829
+#, python-format
+msgid "Module loading %s failed: file %s could not be processed:\n"
+" %s"
 msgstr ""
 
 #. module: base
@@ -12383,13 +12432,13 @@ msgid "No gap"
 msgstr ""
 
 #. module: base
-#: code:addons/fields.py:2189
+#: code:addons/fields.py:2222
 #, python-format
 msgid "No inverse field %r found for %r"
 msgstr ""
 
 #. module: base
-#: code:addons/base/module/wizard/base_update_translations.py:33
+#: code:addons/base/module/wizard/base_update_translations.py:26
 #, python-format
 msgid "No language with code \"%s\" exists"
 msgstr ""
@@ -12527,6 +12576,12 @@ msgid "Object"
 msgstr ""
 
 #. module: base
+#: code:addons/model.py:148
+#, python-format
+msgid "Object %s doesn't exist"
+msgstr ""
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields_model
 msgid "Object Name"
 msgstr ""
@@ -12544,12 +12599,12 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_website_blog
-msgid "Flectra Blogs\n"
+msgid "Odoo Blogs\n"
 "----------\n"
 "\n"
-"Write, Design, Promote and Engage with <a href=\"https://www.flectra.com/page/blog-engine\">Flectra Blogs</a>.\n"
+"Write, Design, Promote and Engage with <a href=\"https://www.odoo.com/page/blog-engine\">Odoo Blogs</a>.\n"
 "\n"
-"Express yourself with the Flectra enterprise grade blogging platform. Write\n"
+"Express yourself with the Odoo enterprise grade blogging platform. Write\n"
 "beautiful blog posts, engage with visitors, translate content and moderate\n"
 "social streams.\n"
 "\n"
@@ -12596,17 +12651,17 @@ msgid "Flectra Blogs\n"
 "Google Analytics Integration\n"
 "----------------------------\n"
 "\n"
-"Get a clear visibility of your sales funnel. Flectra's Google Analytics trackers\n"
+"Get a clear visibility of your sales funnel. Odoo's Google Analytics trackers\n"
 "are configured by default to track all kinds of events related to shopping\n"
 "carts, call-to-actions, etc.\n"
 "\n"
-"As Flectra marketing tools (mass mailing, campaigns, etc) are also linked with\n"
+"As Odoo marketing tools (mass mailing, campaigns, etc) are also linked with\n"
 "Google Analytics, you get a 360° view of your business.\n"
 "\n"
 "SEO Optimized Blog Posts\n"
 "------------------------\n"
 "\n"
-"SEO tools are ready to use, with no configuration required. Flectra suggests\n"
+"SEO tools are ready to use, with no configuration required. Odoo suggests\n"
 "keywords for your titles according to Google's most searched terms, Google\n"
 "Analytics tracks interests of your visitors, sitemaps are created automatically\n"
 "for quick Google indexing, etc.\n"
@@ -12633,18 +12688,18 @@ msgid "Flectra Blogs\n"
 "This lets you organize your publishing process according to your needs.\n"
 "\n"
 "Other access rights are related to business objects (products, people, events,\n"
-"etc) and directly following Flectra's standard access rights management, so you do\n"
+"etc) and directly following Odoo's standard access rights management, so you do\n"
 "not have to configure things twice.\n"
 ""
 msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_crm
-msgid "Flectra CRM\n"
+msgid "Odoo CRM\n"
 "--------\n"
 "\n"
-"Boost sales productivity, improve win rates, grow revenue with the Flectra\n"
-"<a href=\"https://www.flectra.com/page/crm\">Open Source CRM</a>.\n"
+"Boost sales productivity, improve win rates, grow revenue with the Odoo\n"
+"<a href=\"https://www.odoo.com/page/crm\">Open Source CRM</a>.\n"
 "\n"
 "Manage your sales funnel with no effort. Attract leads, follow-up on phone\n"
 "calls and meetings. Analyse the quality of your leads to make informed\n"
@@ -12683,7 +12738,7 @@ msgid "Flectra CRM\n"
 "company uses Microsoft Outlook or Gmail, no one needs to change the way they\n"
 "work, so everyone stays productive.\n"
 "\n"
-"Route, sort and filter incoming emails automatically. Flectra CRM handles incoming\n"
+"Route, sort and filter incoming emails automatically. Odoo CRM handles incoming\n"
 "emails and route them to the right opportunities or sales channel. New leads are\n"
 "created on the fly and interested salespersons are notified automatically.\n"
 "\n"
@@ -12697,7 +12752,7 @@ msgid "Flectra CRM\n"
 "Lead Automation and Marketing Campaigns\n"
 "---------------------------------------\n"
 "\n"
-"Drive performance by automating tasks with Flectra <a href=\"https://www.flectra.com/page/crm\">CRM</a>.\n"
+"Drive performance by automating tasks with Odoo <a href=\"https://www.odoo.com/page/crm\">CRM</a>.\n"
 "\n"
 "Use our marketing campaigns to automate lead acquisition, follow ups and\n"
 "promotions. Define automated actions (e.g. ask a salesperson to call, send an\n"
@@ -12742,16 +12797,16 @@ msgstr ""
 
 #. module: base
 #: selection:ir.module.module,license:0
-msgid "Flectra Enterprise Edition License v1.0"
+msgid "Odoo Enterprise Edition License v1.0"
 msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_mail
-msgid "Flectra Enterprise Social Network\n"
+msgid "Odoo Enterprise Social Network\n"
 "------------------------------\n"
 "\n"
 "Connect with experts, follow what interests you, share documents and promote\n"
-"best practices with Flectra <a href=\"https://www.flectra.com/page/enterprise-social-network\">Enterprise Social Network</a>. Get work done with\n"
+"best practices with Odoo <a href=\"https://www.odoo.com/page/enterprise-social-network\">Enterprise Social Network</a>. Get work done with\n"
 "effective collaboration across departments, geographies, documents and business\n"
 "applications. All of this while decreasing email overload.\n"
 "\n"
@@ -12759,7 +12814,7 @@ msgid "Flectra Enterprise Social Network\n"
 "--------------------\n"
 "\n"
 "Next time you have a question for the marketing, sales, R&D or any other\n"
-"department, don't send an email blast-post the question to Flectra and get answers\n"
+"department, don't send an email blast-post the question to Odoo and get answers\n"
 "from the right persons.\n"
 "\n"
 "Follow what interests you\n"
@@ -12806,10 +12861,10 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_hr
-msgid "Flectra Human Resources\n"
+msgid "Odoo Human Resources\n"
 "--------------------\n"
 "\n"
-"With Flectra <a href=\"https://www.flectra.com/page/employees\">Human Resources</a>,\n"
+"With Odoo <a href=\"https://www.odoo.com/page/employees\">Human Resources</a>,\n"
 "manage the most important asset in your company: People\n"
 "\n"
 "Get all your HR operations managed easily: knowledge sharing, recruitments,\n"
@@ -12829,7 +12884,7 @@ msgid "Flectra Human Resources\n"
 "Streamline Your Recruitment Process\n"
 "-----------------------------------\n"
 "\n"
-"Index resumes, track applicants, search profiles with <a href=\"https://www.flectra.com/page/employees\">Flectra HR</a>.\n"
+"Index resumes, track applicants, search profiles with <a href=\"https://www.odoo.com/page/employees\">Odoo HR</a>.\n"
 "\n"
 "Post job offers and keep track of each application received. Follow applicants\n"
 "in your recruitment process with the smart kanban view.\n"
@@ -12864,7 +12919,7 @@ msgid "Flectra Human Resources\n"
 "Keep Track of Employee Expenses\n"
 "-------------------------------\n"
 "\n"
-"Get rid of the paper work and follow employee's expenses directly in Flectra.\n"
+"Get rid of the paper work and follow employee's expenses directly in Odoo.\n"
 "Don't loose time or money by controlling the full flow: expense validation,\n"
 "reimbursement of employees, posting in the accounting and re-invoicing to\n"
 "customers.\n"
@@ -12873,7 +12928,7 @@ msgid "Flectra Human Resources\n"
 "--------------------------\n"
 "\n"
 "Set-up appraisals plans and/or surveys for your employees and watch their\n"
-"evolution. Define steps for interviews and Flectra will notify managers or\n"
+"evolution. Define steps for interviews and Odoo will notify managers or\n"
 "subordinates automatically to prepare appraisals. Keep track of the progress of\n"
 "your staff periodically.\n"
 "\n"
@@ -12903,13 +12958,13 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_mrp
-msgid "Flectra Manufacturing Resource Planning\n"
+msgid "Odoo Manufacturing Resource Planning\n"
 "------------------------------------\n"
 "\n"
 "Manage Bill of Materials, plan manufacturing orders, track work orders with the\n"
-"Flectra <a href=\"https://www.flectra.com/page/manufacturing\">Open Source MRP</a> app.\n"
+"Odoo <a href=\"https://www.odoo.com/page/manufacturing\">Open Source MRP</a> app.\n"
 "\n"
-"Get all your assembly or manufacturing operations managed by Flectra. Schedule\n"
+"Get all your assembly or manufacturing operations managed by Odoo. Schedule\n"
 "manufacturing orders and work orders automatically. Review the proposed\n"
 "planning with the smart kanban and gantt views. Use the advanced analytics\n"
 "features to detect bottleneck in resources capacities and inventory locations.\n"
@@ -12931,7 +12986,7 @@ msgid "Flectra Manufacturing Resource Planning\n"
 "Get Flexibility In All Operations\n"
 "---------------------------------\n"
 "\n"
-"Edit manually all proposed operations at any level of the progress. With Flectra,\n"
+"Edit manually all proposed operations at any level of the progress. With Odoo,\n"
 "you will not be frustrated by a rigid system.\n"
 "\n"
 "Schedule Work Orders\n"
@@ -12970,11 +13025,11 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_mass_mailing
-msgid "Flectra Mass Mailing\n"
+msgid "Odoo Mass Mailing\n"
 "-----------------\n"
 "\n"
 "Easily send mass mailing to your leads, opportunities or customers\n"
-"with Flectra <a href=\"https://www.flectra.com/page/mailing#\">Mass Mailing</a>. Track\n"
+"with Odoo <a href=\"https://www.odoo.com/page/mailing#\">Mass Mailing</a>. Track\n"
 "marketing campaigns performance to improve conversion rates. Design\n"
 "professional emails and reuse templates in a few clicks.\n"
 "\n"
@@ -12990,7 +13045,7 @@ msgid "Flectra Mass Mailing\n"
 "Organize Marketing Campaigns\n"
 "----------------------------\n"
 "\n"
-"Design, Send, Track by Campaigns with our <a href=\"https://www.flectra.com/page/mailing\">Lead Automation</a> app.\n"
+"Design, Send, Track by Campaigns with our <a href=\"https://www.odoo.com/page/mailing\">Lead Automation</a> app.\n"
 "\n"
 "Get real time statistics on campaigns performance to improve your conversion\n"
 "rate. Track mails sent, received, opened and answered.\n"
@@ -12998,14 +13053,14 @@ msgid "Flectra Mass Mailing\n"
 "Easily manage your marketing campaigns, discussion groups, leads and\n"
 "opportunities in one simple and powerful platform.\n"
 "\n"
-"Integrated with Flectra Apps\n"
+"Integrated with Odoo Apps\n"
 "-------------------------\n"
 "\n"
-"Get access to mass mailing features from every Flectra app to improve the way your\n"
+"Get access to mass mailing features from every Odoo app to improve the way your\n"
 "users communicate.\n"
 "\n"
-"Send template of emails from Flectra <a href=\"https://www.flectra.com/page/mailing\">CRM opportunities</a>, select leads based\n"
-"on marketing segments, send <a href=\"https://www.flectra.com/page/recruitment\">job offers</a> and automate\n"
+"Send template of emails from Odoo <a href=\"https://www.odoo.com/page/mailing\">CRM opportunities</a>, select leads based\n"
+"on marketing segments, send <a href=\"https://www.odoo.com/page/recruitment\">job offers</a> and automate\n"
 "answers to applicants, reuse email template in the lead automation marketing\n"
 "campaigns.\n"
 "\n"
@@ -13016,7 +13071,7 @@ msgid "Flectra Mass Mailing\n"
 "------------------------\n"
 "\n"
 "Get a clean lead database that improves over the time using the performance of\n"
-"your mails. Flectra handle bounce mails efficiently, flag erroneous leads\n"
+"your mails. Odoo handle bounce mails efficiently, flag erroneous leads\n"
 "accordingly and gives you statistics on the quality of your leads.\n"
 "\n"
 "One click emails send\n"
@@ -13036,7 +13091,7 @@ msgid "Flectra Mass Mailing\n"
 "The chatter feature enables you to communicate faster and more efficiently with\n"
 "your customer. Get documents created automatically (leads, opportunities,\n"
 "tasks, ...) based on answers to your mass mailing campaigns Follow the\n"
-"discussion directly on the business documents within Flectra or via email.\n"
+"discussion directly on the business documents within Odoo or via email.\n"
 "\n"
 "Get all the negotiations and discussions attached to the right document and\n"
 "relevent managers notified on specific events.\n"
@@ -13060,9 +13115,9 @@ msgid "Flectra Mass Mailing\n"
 "company's bottom line.\n"
 "\n"
 "Integrate a contact form in your website easily. Forms submissions create leads\n"
-"automatically in Flectra CRM. Leads can be used in marketing campaigns.\n"
+"automatically in Odoo CRM. Leads can be used in marketing campaigns.\n"
 "\n"
-"Manage your <a href=\"https://www.flectra.com/page/crm\">sales funnel</a> with no\n"
+"Manage your <a href=\"https://www.odoo.com/page/crm\">sales funnel</a> with no\n"
 "effort. Attract leads, follow-up on phone calls and meetings. Analyse the\n"
 "quality of your leads to make informed decisions and save time by integrating\n"
 "emails directly into the application.\n"
@@ -13072,20 +13127,20 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_mx_reports
-msgid "Flectra Mexican Localization Reports"
+msgid "Odoo Mexican Localization Reports"
 msgstr ""
 
 #. module: base
 #: model:ir.module.module,summary:base.module_web_mobile
-msgid "Flectra Mobile Core module"
+msgid "Odoo Mobile Core module"
 msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_note
-msgid "Flectra Notes\n"
+msgid "Odoo Notes\n"
 "----------\n"
 "\n"
-"Organize yourself with efficient <a href=\"https://www.flectra.com/page/notes\">todo lists and notes</a>.\n"
+"Organize yourself with efficient <a href=\"https://www.odoo.com/page/notes\">todo lists and notes</a>.\n"
 "From personal tasks to collaborative meeting minutes, increase your user's\n"
 "productivity by giving them the tools to prioritize their work, share their\n"
 "ideas and collaborate on documents.\n"
@@ -13112,7 +13167,7 @@ msgid "Flectra Notes\n"
 "\n"
 "### Customize to your own workflow\n"
 "\n"
-"Everyone has their own way to organize activities. Flectra Notes' smart kanban approach allows every user to customize their own steps to process it's to-dos and notes.\n"
+"Everyone has their own way to organize activities. Odoo Notes' smart kanban approach allows every user to customize their own steps to process it's to-dos and notes.\n"
 "\n"
 "### A Creative Person\n"
 "\n"
@@ -13145,10 +13200,10 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_point_of_sale
-msgid "Flectra Point of Sale\n"
+msgid "Odoo Point of Sale\n"
 "-----------------------------\n"
 "\n"
-"Flectra's <a href=\"https://www.flectra.com/page/point-of-sale\">Point of Sale</a>\n"
+"Odoo's <a href=\"https://www.odoo.com/page/point-of-sale\">Point of Sale</a>\n"
 "introduces a super clean interface with no installation required that runs\n"
 "online and offline on modern hardwares.\n"
 "\n"
@@ -13161,7 +13216,7 @@ msgid "Flectra Point of Sale\n"
 "\n"
 "### In your web browser\n"
 "\n"
-"Flectra's POS is a web application that can run on any device that can display\n"
+"Odoo's POS is a web application that can run on any device that can display\n"
 "websites with little to no setup required.\n"
 "\n"
 "### Touchscreen or Keyboard ?\n"
@@ -13179,7 +13234,7 @@ msgid "Flectra Point of Sale\n"
 "Online and Offline\n"
 "------------------\n"
 "\n"
-"### Flectra's POS stays reliable even if your connection isn't\n"
+"### Odoo's POS stays reliable even if your connection isn't\n"
 "\n"
 "Deploy new stores with just an internet connection: **no installation, no\n"
 "specific hardware required**. It works with any **iPad, Tablet PC, laptop** or\n"
@@ -13194,7 +13249,7 @@ msgid "Flectra Point of Sale\n"
 "\n"
 "### Simple and beautifull\n"
 "\n"
-"Say goodbye to ugly, outdated POS software and enjoy the Flectra web interface\n"
+"Say goodbye to ugly, outdated POS software and enjoy the Odoo web interface\n"
 "designed for modern retailer.\n"
 "\n"
 "### Designed for Productivity\n"
@@ -13228,7 +13283,7 @@ msgid "Flectra Point of Sale\n"
 "----------------------------------\n"
 "\n"
 "Produce customer invoices in just a few clicks. Control sales and cash in real\n"
-"time and use Flectra's powerful reporting to make smarter decisions to improve\n"
+"time and use Odoo's powerful reporting to make smarter decisions to improve\n"
 "your store's efficiency.\n"
 "\n"
 "No more hassle of having to integrate softwares: get all your sales and\n"
@@ -13241,7 +13296,7 @@ msgid "Flectra Point of Sale\n"
 "selected stores. Work on a unified customer base. No complex interface is\n"
 "required to pilot a global strategy amongst all your stores.\n"
 "\n"
-"With Flectra as a backend, you have a system proven to be perfectly suitable for\n"
+"With Odoo as a backend, you have a system proven to be perfectly suitable for\n"
 "small stores or large multinationals.\n"
 "\n"
 "Know your customers - in store and out\n"
@@ -13251,7 +13306,7 @@ msgid "Flectra Point of Sale\n"
 "channels to develop accurate customer profile and communicate with shoppers as\n"
 "they make buying decisions, in store or online.\n"
 "\n"
-"With Flectra, you get a 360° customer view, including cross-channel sales,\n"
+"With Odoo, you get a 360° customer view, including cross-channel sales,\n"
 "interaction history, profiles, and more.\n"
 "\n"
 ""
@@ -13259,21 +13314,21 @@ msgstr ""
 
 #. module: base
 #: selection:ir.module.module,license:0
-msgid "Flectra Proprietary License v1.0"
+msgid "Odoo Proprietary License v1.0"
 msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_web_settings_dashboard
-msgid "Flectra Settings Dashboard"
+msgid "Odoo Settings Dashboard"
 msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_purchase
-msgid "Flectra Supply Chain\n"
+msgid "Odoo Supply Chain\n"
 "-----------------\n"
 "\n"
-"Automate requisition-to-pay, control invoicing with the Flectra\n"
-"<a href=\"https://www.flectra.com/page/purchase\">Open Source Supply Chain</a>.\n"
+"Automate requisition-to-pay, control invoicing with the Odoo\n"
+"<a href=\"https://www.odoo.com/page/purchase\">Open Source Supply Chain</a>.\n"
 "\n"
 "Automate procurement propositions, launch request for quotations, track\n"
 "purchase orders, manage vendors' information, control products reception and\n"
@@ -13310,7 +13365,7 @@ msgid "Flectra Supply Chain\n"
 "\n"
 "Use the costing method that reflects your business: standard price, average\n"
 "price, fifo or lifo. Get your accounting entries and the right inventory\n"
-"valuation in real-time; Flectra manages everything for you, transparently.\n"
+"valuation in real-time; Odoo manages everything for you, transparently.\n"
 "\n"
 "Import Vendor Pricelists\n"
 "--------------------------\n"
@@ -13337,16 +13392,16 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_web_diagram
-msgid "Flectra Web Diagram"
+msgid "Odoo Web Diagram"
 msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_website
-msgid "Flectra Website Builder\n"
+msgid "Odoo Website Builder\n"
 "--------------------\n"
 "\n"
-"Get an awesome and <a href=\"https://www.flectra.com/page/website-builder\">free website</a>,\n"
-"easily customizable with the Flectra <a href=\"https://www.flectra.com/page/website-builder\">website builder</a>.\n"
+"Get an awesome and <a href=\"https://www.odoo.com/page/website-builder\">free website</a>,\n"
+"easily customizable with the Odoo <a href=\"https://www.odoo.com/page/website-builder\">website builder</a>.\n"
 "\n"
 "Create enterprise grade website with our super easy builder. Use finely\n"
 "designed building blocks and edit everything inline.\n"
@@ -13357,7 +13412,7 @@ msgid "Flectra Website Builder\n"
 "Edit Anything Inline\n"
 "--------------------\n"
 "\n"
-"Create beautiful websites with no technical knowledge. Flectra's unique *'edit\n"
+"Create beautiful websites with no technical knowledge. Odoo's unique *'edit\n"
 "inline'* approach makes website creation surprisingly easy. No more complex\n"
 "backend; just click anywhere to change any content.\n"
 "\n"
@@ -13367,7 +13422,7 @@ msgid "Flectra Website Builder\n"
 "Awesome. Astonishingly Beautiful.\n"
 "---------------------------------\n"
 "\n"
-"Flectra's building blocks allow to design modern websites that are not possible\n"
+"Odoo's building blocks allow to design modern websites that are not possible\n"
 "with traditional WYSIWYG page editors.\n"
 "\n"
 "Whether it's for products descriptions, blogs or static pages, you don't need\n"
@@ -13381,7 +13436,7 @@ msgid "Flectra Website Builder\n"
 "call-to-actions, jobs announces, events, customer references, blogs, etc.\n"
 "\n"
 "Traditional eCommerce and CMS have poorly designed backends as it's not their\n"
-"core focus. With the Flectra integration, you benefit from the best management\n"
+"core focus. With the Odoo integration, you benefit from the best management\n"
 "software to follow-up on your orders, your jobs applicants, your leads, etc.\n"
 "\n"
 "A Great Mobile Experience\n"
@@ -13405,7 +13460,7 @@ msgid "Flectra Website Builder\n"
 "Multi-Languages Made Easy\n"
 "-------------------------\n"
 "\n"
-"Get your website translated in multiple languages with no effort. Flectra proposes\n"
+"Get your website translated in multiple languages with no effort. Odoo proposes\n"
 "and propagates translations automatically across pages, following what you edit\n"
 "on the master page.\n"
 "\n"
@@ -13422,7 +13477,7 @@ msgid "Flectra Website Builder\n"
 "[bootstrap](http://getbootstrap.com/) CSS.\n"
 "\n"
 "Customize every page on the fly with the integrated template editor. Distribute\n"
-"your work easily as an Flectra module.\n"
+"your work easily as an Odoo module.\n"
 "\n"
 "Fluid Grid Layouting\n"
 "--------------------\n"
@@ -13443,7 +13498,7 @@ msgid "Flectra Website Builder\n"
 "Test new color scheme easily; you can change your theme at any time in just a\n"
 "click.\n"
 "\n"
-"Integrated With Flectra Apps\n"
+"Integrated With Odoo Apps\n"
 "-------------------------\n"
 "\n"
 "### e-Commerce\n"
@@ -13464,12 +13519,12 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_website_sale
-msgid "Flectra e-Commerce\n"
+msgid "Odoo e-Commerce\n"
 "---------------\n"
 "\n"
 "### Optimize sales with an awesome online store.\n"
 "\n"
-"Flectra is an <a href=\"https://www.flectra.com/page/e-commerce\">Open Source eCommerce</a>\n"
+"Odoo is an <a href=\"https://www.odoo.com/page/e-commerce\">Open Source eCommerce</a>\n"
 "unlike anything you have ever seen before. Get an awesome catalog of products\n"
 "and great product description pages.\n"
 "\n"
@@ -13479,7 +13534,7 @@ msgid "Flectra e-Commerce\n"
 "Create Awesome Product Pages\n"
 "----------------------------\n"
 "\n"
-"Flectra's unique *'edit inline'* and building blocks approach makes product pages\n"
+"Odoo's unique *'edit inline'* and building blocks approach makes product pages\n"
 "creation surprisingly easy. \"Want to change the price of a product? or put it\n"
 "in bold? Want to add a banner for a specific product?\" just click and change.\n"
 "What you see is what you get. Really.\n"
@@ -13493,7 +13548,7 @@ msgid "Flectra e-Commerce\n"
 "The built-in cross-selling feature helps you offer extra products related to\n"
 "what the shopper put in his cart. (e.g. accessories)\n"
 "\n"
-"Flectra's upselling algorythm allows you to show visitors similar but more\n"
+"Odoo's upselling algorythm allows you to show visitors similar but more\n"
 "expensive products than the one in view, with incentives.\n"
 "\n"
 "The inline editing feature allows you to easily change a price, launch a\n"
@@ -13502,17 +13557,17 @@ msgid "Flectra e-Commerce\n"
 "A Clean Google Analytics Integration\n"
 "------------------------------------\n"
 "\n"
-"Get a clear visibility of your sales funnel. Flectra's Google Analytics trackers\n"
+"Get a clear visibility of your sales funnel. Odoo's Google Analytics trackers\n"
 "are configured by default to track all kind of events related to shopping\n"
 "carts, call-to-actions, etc.\n"
 "\n"
-"As Flectra marketing tools (mass mailing, campaigns, etc) are also linked with\n"
+"As Odoo marketing tools (mass mailing, campaigns, etc) are also linked with\n"
 "Google Analytics, you get a complete view of your business.\n"
 "\n"
 "Target New Markets\n"
 "------------------\n"
 "\n"
-"Get your website translated in multiple languages with no effort. Flectra proposes\n"
+"Get your website translated in multiple languages with no effort. Odoo proposes\n"
 "and propagates translations automatically across pages.\n"
 "\n"
 "Our translation \"on demand\" features allows you to benefit from professional\n"
@@ -13532,7 +13587,7 @@ msgid "Flectra e-Commerce\n"
 "Acquire New Customers\n"
 "---------------------\n"
 "\n"
-"SEO tools are ready to use, with no configuration required. Flectra suggests\n"
+"SEO tools are ready to use, with no configuration required. Odoo suggests\n"
 "keywords according to Google most searched terms, Google Analytics tracks your\n"
 "shopping cart events, sitemap are created automatically for Google indexation,\n"
 "etc.\n"
@@ -13543,7 +13598,7 @@ msgid "Flectra e-Commerce\n"
 "Leverage Social Media\n"
 "---------------------\n"
 "\n"
-"Create new landing pages easily with the Flectra inline edition feature. Send\n"
+"Create new landing pages easily with the Odoo inline edition feature. Send\n"
 "visitors of your different marketing campaigns to specific landing pages to\n"
 "optimize conversions.\n"
 "\n"
@@ -13558,13 +13613,13 @@ msgid "Flectra e-Commerce\n"
 "geolocalisation feature), define specific pricelists, launch a loyalty program\n"
 "(offer specific discounts to your best customers or resellers), etc.\n"
 "\n"
-"Benefit from the power of Flectra, in your online store: a powerfull tax engine,\n"
+"Benefit from the power of Odoo, in your online store: a powerfull tax engine,\n"
 "flexible pricing structures, a real inventory management solution, a reseller\n"
 "interface, support for products with different behaviours; physical goods,\n"
 "events, services, variants and options, etc.\n"
 "\n"
 "You don't need to interface with your warehouse, sales or accounting software.\n"
-"Everything is integrated with Flectra. No pain, real time.\n"
+"Everything is integrated with Odoo. No pain, real time.\n"
 "\n"
 "A Clean Checkout Process\n"
 "------------------------\n"
@@ -13624,21 +13679,21 @@ msgstr ""
 #. module: base
 #: model:ir.actions.act_window,help:base.action_partner_customer_form
 #: model:ir.actions.act_window,help:base.action_partner_form
-msgid "Flectra helps you easily track all activities related to\n"
+msgid "Odoo helps you easily track all activities related to\n"
 "                a customer: discussions, history of business opportunities,\n"
 "                documents, etc."
 msgstr ""
 
 #. module: base
 #: model:ir.actions.act_window,help:base.action_partner_supplier_form
-msgid "Flectra helps you easily track all activities related to\n"
+msgid "Odoo helps you easily track all activities related to\n"
 "                a supplier: discussions, history of purchases,\n"
 "                documents, etc."
 msgstr ""
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_sequence_padding
-msgid "Flectra will automatically adds some '0' on the left of the 'Next Number' to get the required padding size."
+msgid "Odoo will automatically adds some '0' on the left of the 'Next Number' to get the required padding size."
 msgstr ""
 
 #. module: base
@@ -13777,7 +13832,7 @@ msgid "Open Source Job Board\n"
 "\n"
 "### Get rid of old WYSIWYG editors\n"
 "\n"
-"Get a clean and professional look for your job annouces. Flectra's unique *'edit inline'* approach makes website and job descriptions creation surprisingly easy.\n"
+"Get a clean and professional look for your job annouces. Odoo's unique *'edit inline'* approach makes website and job descriptions creation surprisingly easy.\n"
 "\n"
 "Drag & Drop well designed *'Building Blocks'* to create beautifull job descriptions and announces that emphasizes the quality of your company.\n"
 "\n"
@@ -13906,7 +13961,7 @@ msgid "Organize Events, Trainings & Webinars\n"
 "\n"
 "Add a talk proposal form on your events to allow visitors to submit talks and speakers. Organize the validation process of every talk, and schedule easily.\n"
 "\n"
-"Flectra's unique frontend and backend integration makes organization and publication so easy. Easily design beautiful speaker biographies and talks description.\n"
+"Odoo's unique frontend and backend integration makes organization and publication so easy. Easily design beautiful speaker biographies and talks description.\n"
 "\n"
 "Agenda and List of Talks\n"
 "------------------------\n"
@@ -13922,7 +13977,7 @@ msgid "Organize Events, Trainings & Webinars\n"
 "\n"
 "Add sponsors to your events and publish sponsors per level (e.g. bronze, silver, gold) on the bottom of every page of the event.\n"
 "\n"
-"Sell sponsorship packages online through the Flectra eCommerce for a full sales cycle integration.\n"
+"Sell sponsorship packages online through the Odoo eCommerce for a full sales cycle integration.\n"
 "\n"
 "Communicate Efficiently\n"
 "-----------------------\n"
@@ -13939,7 +13994,7 @@ msgid "Organize Events, Trainings & Webinars\n"
 "\n"
 "### Schedule, Promote, Sell, Organize\n"
 "\n"
-"Organize, promote and sell events online. Whether you organize meetings, conferences, trainings or webinars, Flectra gives you all the features you need to manage your events.\n"
+"Organize, promote and sell events online. Whether you organize meetings, conferences, trainings or webinars, Odoo gives you all the features you need to manage your events.\n"
 "\n"
 "Create Awesome Event Pages\n"
 "--------------------------\n"
@@ -13948,7 +14003,7 @@ msgid "Organize Events, Trainings & Webinars\n"
 "\n"
 "Create beautiful event pages by drag & droping well designed *'Building Blocks'*. Publish event photos, speakers, schedule, etc.\n"
 "\n"
-"Flectra's unique *'edit inline'* approach makes website creation surprisingly easy. \"Want to introduce a speaker? to change the price of a ticket? to update a banner? promote sponsors?\" just click and change.\n"
+"Odoo's unique *'edit inline'* approach makes website creation surprisingly easy. \"Want to introduce a speaker? to change the price of a ticket? to update a banner? promote sponsors?\" just click and change.\n"
 "\n"
 "Sell Tickets Online\n"
 "-------------------\n"
@@ -13964,9 +14019,9 @@ msgid "Organize Events, Trainings & Webinars\n"
 "\n"
 "### Control your sales funnel with Google Analytics\n"
 "\n"
-"Get a clear visibility of your sales funnel. Flectra's Google Analytics trackers are configured by default to track all kind of events related to shopping carts, call-to-actions, etc.\n"
+"Get a clear visibility of your sales funnel. Odoo's Google Analytics trackers are configured by default to track all kind of events related to shopping carts, call-to-actions, etc.\n"
 "\n"
-"As Flectra marketing tools (mass mailing, campaigns, etc) are also linked with Google Analytics, you get a full view of your business.\n"
+"As Odoo marketing tools (mass mailing, campaigns, etc) are also linked with Google Analytics, you get a full view of your business.\n"
 "\n"
 "Promote Events Efficiently\n"
 "--------------------------\n"
@@ -13978,7 +14033,7 @@ msgid "Organize Events, Trainings & Webinars\n"
 "Designer-Friendly Themes\n"
 "------------------------\n"
 "\n"
-"### Designers love working on Flectra\n"
+"### Designers love working on Odoo\n"
 "\n"
 "Themes are awesome and easy to design. You don't need to develop to create new pages, themes or building blocks. We use a clean HTML structure, a [bootstrap](http://getbootstrap.com/) CSS and our modularity allows to distribute your themes easily.\n"
 "\n"
@@ -13989,7 +14044,7 @@ msgid "Organize Events, Trainings & Webinars\n"
 "\n"
 "### SEO tools at your finger tips\n"
 "\n"
-"SEO tools are ready to use, with no configuration required. Flectra suggests keywords according to Google most searched terms, Google Analytics tracks your shopping cart events and sitemap are created automatically.\n"
+"SEO tools are ready to use, with no configuration required. Odoo suggests keywords according to Google most searched terms, Google Analytics tracks your shopping cart events and sitemap are created automatically.\n"
 "\n"
 "We even do structured content automatically to promote your events and products efficiently in Google.\n"
 "\n"
@@ -13998,7 +14053,7 @@ msgid "Organize Events, Trainings & Webinars\n"
 "\n"
 "### Optimize: from Ads to Conversions\n"
 "\n"
-"Create new landing pages easily with the Flectra inline edition feature. Send visitors of your different marketing campaigns to event landing pages to optimize conversions.\n"
+"Create new landing pages easily with the Odoo inline edition feature. Send visitors of your different marketing campaigns to event landing pages to optimize conversions.\n"
 "\n"
 "And Much More...\n"
 "----------------\n"
@@ -14595,7 +14650,7 @@ msgstr ""
 #. module: base
 #: model:res.groups,comment:base.group_portal
 msgid "Portal members have specific access rights (such as record rules and restricted menus).\n"
-"                They usually do not belong to the usual Flectra groups."
+"                They usually do not belong to the usual Odoo groups."
 msgstr ""
 
 #. module: base
@@ -14802,7 +14857,7 @@ msgid "Project Management\n"
 "### Infinitely flexible. Incredibly easy to use.\n"
 "\n"
 "\n"
-"Flectra's collaborative and realtime <a href=\"https://www.flectra.com/page/project-management\">open source project management</a>\n"
+"Odoo's collaborative and realtime <a href=\"https://www.odoo.com/page/project-management\">open source project management</a>\n"
 "helps your team get work done. Keep track of everything, from the big picture\n"
 "to the minute details, from the customer contract to the billing.\n"
 "\n"
@@ -14934,7 +14989,7 @@ msgstr ""
 #. module: base
 #: model:res.groups,comment:base.group_public
 msgid "Public users have specific access rights (such as record rules and restricted menus).\n"
-"                They usually do not belong to the usual Flectra groups."
+"                They usually do not belong to the usual Odoo groups."
 msgstr ""
 
 #. module: base
@@ -15149,7 +15204,7 @@ msgstr ""
 
 #. module: base
 #: code:addons/base/ir/ir_actions.py:230
-#: code:addons/models.py:3875
+#: code:addons/models.py:3876
 #, python-format
 msgid "Record does not exist or has been deleted."
 msgstr ""
@@ -15550,18 +15605,13 @@ msgid "SEPA Direct Debit"
 msgstr ""
 
 #. module: base
-#: model:ir.module.module,shortdesc:base.module_sms_fortytwo
-msgid "SMS FortyTwo Provider"
-msgstr ""
-
-#. module: base
 #: model:ir.module.module,summary:base.module_sms
 msgid "SMS Text Messaging"
 msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sms
-msgid "SMS base"
+msgid "SMS gateway"
 msgstr ""
 
 #. module: base
@@ -15844,16 +15894,6 @@ msgid "Second: %(sec)s"
 msgstr ""
 
 #. module: base
-#: model:ir.actions.act_window,name:base.res_partner_industry_action
-#: model:ir.model,name:base.model_res_partner_industry
-#: model:ir.model.fields,field_description:base.field_res_partner_industry_id
-#: model:ir.model.fields,field_description:base.field_res_users_industry_id
-#: model:ir.ui.view,arch_db:base.res_partner_industry_view_form
-#: model:ir.ui.view,arch_db:base.res_partner_industry_view_tree
-msgid "Sector of Activity"
-msgstr ""
-
-#. module: base
 #: model:ir.ui.menu,name:base.menu_security
 #: model:ir.ui.view,arch_db:base.act_report_xml_view
 #: model:ir.ui.view,arch_db:base.view_window_action_form
@@ -15869,6 +15909,12 @@ msgstr ""
 #: code:addons/base/ir/ir_fields.py:305
 #, python-format
 msgid "See all possible values"
+msgstr ""
+
+#. module: base
+#: code:addons/common.py:42
+#, python-format
+msgid "See http://openerp.com"
 msgstr ""
 
 #. module: base
@@ -15917,11 +15963,6 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,summary:base.module_sale_timesheet
 msgid "Sell based on timesheets"
-msgstr ""
-
-#. module: base
-#: selection:ir.actions.server,state:0
-msgid "Send Email"
 msgstr ""
 
 #. module: base
@@ -16325,7 +16366,7 @@ msgid "Sort"
 msgstr ""
 
 #. module: base
-#: code:addons/models.py:3615
+#: code:addons/models.py:3616
 #, python-format
 msgid "Sorting field %s not found on model %s"
 msgstr ""
@@ -16685,18 +16726,6 @@ msgid "Synchronization with the external timesheet application"
 msgstr ""
 
 #. module: base
-#: model:ir.actions.act_window,name:base.action_wizard_update_translations
-#: model:ir.ui.menu,name:base.menu_wizard_update_translations
-#: model:ir.ui.view,arch_db:base.wizard_update_translations
-msgid "Synchronize Terms"
-msgstr ""
-
-#. module: base
-#: model:ir.ui.view,arch_db:base.wizard_update_translations
-msgid "Synchronize Translation"
-msgstr ""
-
-#. module: base
 #: model:res.country,name:base.sy
 msgid "Syria"
 msgstr ""
@@ -16737,7 +16766,7 @@ msgstr ""
 #. module: base
 #: model:ir.ui.view,arch_db:base.wizard_lang_export
 msgid "TGZ format: this is a compressed archive containing a PO file, directly suitable\n"
-"                                for uploading to Flectra's translation platform,"
+"                                for uploading to Odoo's translation platform,"
 msgstr ""
 
 #. module: base
@@ -16840,7 +16869,6 @@ msgstr ""
 #. module: base
 #: model:ir.module.category,name:base.module_category_hidden
 #: model:ir.module.category,name:base.module_category_technical_settings
-#: model:ir.ui.view,arch_db:base.user_groups_view
 msgid "Technical Settings"
 msgstr ""
 
@@ -16994,7 +17022,7 @@ msgstr ""
 
 #. module: base
 #: model:ir.actions.act_window,help:base.act_ir_actions_todo_form
-msgid "The configuration wizards are used to help you configure a new instance of Flectra. They are launched during the installation of new modules, but you can choose to restart some wizards manually from this menu."
+msgid "The configuration wizards are used to help you configure a new instance of Odoo. They are launched during the installation of new modules, but you can choose to restart some wizards manually from this menu."
 msgstr ""
 
 #. module: base
@@ -17149,6 +17177,14 @@ msgid "The only predefined variables are"
 msgstr ""
 
 #. module: base
+#: code:addons/model.py:121
+#, python-format
+msgid "The operation cannot be completed, probably due to the following:\n"
+"- deletion: you may be trying to delete a record while other records still reference it\n"
+"- creation/update: a mandatory field is not correctly set"
+msgstr ""
+
+#. module: base
 #: model:ir.model.fields,help:base.field_ir_model_fields_domain
 msgid "The optional domain to restrict possible values for relationship fields, specified as a Python expression defining a list of triplets. For example: [('color','=','red')]"
 msgstr ""
@@ -17242,13 +17278,13 @@ msgid "The user this filter is private to. When left empty the filter is public 
 msgstr ""
 
 #. module: base
-#: code:addons/models.py:5166
+#: code:addons/models.py:5167
 #, python-format
 msgid "The value for the field '%s' already exists (this is probably '%s' in the current model)."
 msgstr ""
 
 #. module: base
-#: code:addons/models.py:5172
+#: code:addons/models.py:5173
 #, python-format
 msgid "The values for the fields '%s' already exist (they are probably '%s' in the current model)."
 msgstr ""
@@ -17315,9 +17351,9 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_no
-msgid "This is the module to manage the accounting chart for Norway in Flectra.\n"
+msgid "This is the module to manage the accounting chart for Norway in Odoo.\n"
 "\n"
-"Updated for Flectra 9 by Bringsvor Consulting AS <www.bringsvor.com>\n"
+"Updated for Odoo 9 by Bringsvor Consulting AS <www.bringsvor.com>\n"
 ""
 msgstr ""
 
@@ -17447,6 +17483,11 @@ msgstr ""
 #: code:addons/base/module/module.py:720
 #, python-format
 msgid "To enable it, make sure this directory exists and is writable on the server:"
+msgstr ""
+
+#. module: base
+#: model:ir.ui.view,arch_db:base.view_server_action_form
+msgid "To return an action, assign: <code>action = {...}</code>"
 msgstr ""
 
 #. module: base
@@ -17777,7 +17818,7 @@ msgid "Unable to delete this document because it is used as a default property"
 msgstr ""
 
 #. module: base
-#: code:addons/base/ir/ir_actions_report.py:622
+#: code:addons/base/ir/ir_actions_report.py:624
 #, python-format
 msgid "Unable to find Wkhtmltopdf on this system. The PDF can not be created."
 msgstr ""
@@ -17891,6 +17932,12 @@ msgstr ""
 #: code:addons/base/ir/ir_fields.py:164
 #, python-format
 msgid "Unknown value '%s' for boolean field '%%(field)s', assuming '%s'"
+msgstr ""
+
+#. module: base
+#: code:addons/translate.py:708
+#, python-format
+msgid "Unrecognized extension: must be one of .csv, .po, or .tgz (received .%s)."
 msgstr ""
 
 #. module: base
@@ -18404,7 +18451,7 @@ msgstr ""
 
 #. module: base
 #: model:ir.actions.act_window,help:base.action_ui_view
-msgid "Views allows you to personalize each view of Flectra. You can add new fields, move fields, rename them or delete the ones that you do not need."
+msgid "Views allows you to personalize each view of Odoo. You can add new fields, move fields, rename them or delete the ones that you do not need."
 msgstr ""
 
 #. module: base
@@ -18473,7 +18520,7 @@ msgid "Warning!"
 msgstr ""
 
 #. module: base
-#: code:addons/models.py:4884
+#: code:addons/models.py:4885
 #, python-format
 msgid "Warnings"
 msgstr ""
@@ -18765,13 +18812,13 @@ msgid "Wizards to be Launched"
 msgstr ""
 
 #. module: base
-#: code:addons/base/ir/ir_actions_report.py:393
+#: code:addons/base/ir/ir_actions_report.py:394
 #, python-format
 msgid "Wkhtmltopdf failed (error code: %s). Memory limit too low or maximum file number of subprocess reached. Message : %s"
 msgstr ""
 
 #. module: base
-#: code:addons/base/ir/ir_actions_report.py:396
+#: code:addons/base/ir/ir_actions_report.py:397
 #, python-format
 msgid "Wkhtmltopdf failed (error code: %s). Message: %s"
 msgstr ""
@@ -18848,7 +18895,7 @@ msgstr ""
 #. module: base
 #: code:addons/base/res/res_users.py:377
 #, python-format
-msgid "You can not remove the admin user as it is used internally for resources created by Flectra (updates, module installation, ...)"
+msgid "You can not remove the admin user as it is used internally for resources created by Odoo (updates, module installation, ...)"
 msgstr ""
 
 #. module: base
@@ -18926,7 +18973,7 @@ msgid "Your Contact Form\n"
 "### Integrate contact forms with your leads\n"
 "\n"
 "This simple application integrates a contact form in your \"Contact us\" page.\n"
-"Forms submissions create leads automatically in <a href=\"https://www.flectra.com/page/crm\">Flectra CRM</a>.\n"
+"Forms submissions create leads automatically in <a href=\"https://www.odoo.com/page/crm\">Odoo CRM</a>.\n"
 "\n"
 "Easy Contact Page\n"
 "-----------------\n"
@@ -19133,7 +19180,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:base.view_company_form
 #: model:ir.ui.view,arch_db:base.view_partner_address_form
 #: model:ir.ui.view,arch_db:base.view_partner_form
-msgid "e.g. www.flectra.com"
+msgid "e.g. www.odoo.com"
 msgstr ""
 
 #. module: base
@@ -19159,11 +19206,6 @@ msgstr ""
 #. module: base
 #: model:ir.ui.view,arch_db:base.view_users_simple_form
 msgid "email@yourcompany.com"
-msgstr ""
-
-#. module: base
-#: model:ir.ui.view,arch_db:base.view_server_action_form
-msgid "env: Flectra Environement on which the action is triggered"
 msgstr ""
 
 #. module: base
@@ -19473,11 +19515,6 @@ msgid "ir.ui.view.custom"
 msgstr ""
 
 #. module: base
-#: model:ir.ui.view,arch_db:base.view_server_action_form
-msgid "log(message, level='info'): a logging function to create ir_logging records"
-msgstr ""
-
-#. module: base
 #: selection:ir.model.fields,ttype:0
 msgid "many2many"
 msgstr ""
@@ -19485,11 +19522,6 @@ msgstr ""
 #. module: base
 #: selection:ir.model.fields,ttype:0
 msgid "many2one"
-msgstr ""
-
-#. module: base
-#: model:ir.ui.view,arch_db:base.view_server_action_form
-msgid "model: Flectra Model of the record on which the action is triggered; is a void recordset"
 msgstr ""
 
 #. module: base
@@ -19533,16 +19565,6 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_pos_sale
 msgid "pos_sale"
-msgstr ""
-
-#. module: base
-#: model:ir.ui.view,arch_db:base.view_server_action_form
-msgid "record: browse record on which the action is triggered"
-msgstr ""
-
-#. module: base
-#: model:ir.ui.view,arch_db:base.view_server_action_form
-msgid "records: record set of records on which the action is triggered in multi mode"
 msgstr ""
 
 #. module: base
@@ -19658,11 +19680,6 @@ msgstr ""
 #. module: base
 #: selection:ir.model.fields,ttype:0
 msgid "text"
-msgstr ""
-
-#. module: base
-#: model:ir.ui.view,arch_db:base.view_server_action_form
-msgid "time, datetime, timezone: Python module"
 msgstr ""
 
 #. module: base

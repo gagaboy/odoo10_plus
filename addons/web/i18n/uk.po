@@ -1,21 +1,22 @@
-# Translation of Flectra Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * web
 # 
 # Translators:
 # Bohdan Lisnenko <lem8r.ka11a@gmail.com>, 2017
 # ТАрас <tratatuta@i.ua>, 2017
-# Martin Trigaux <mat@flectrahq.com>, 2017
+# Martin Trigaux <mat@odoo.com>, 2017
 # Yaroslav Molochko <onorua@gmail.com>, 2017
 # Zoriana Zaiats <sorenabell@quintagroup.com>, 2017
+# Аліна Семенюк <alinasemeniuk1@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Flectra Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 11:26+0000\n"
-"PO-Revision-Date: 2017-10-02 11:26+0000\n"
-"Last-Translator: Zoriana Zaiats <sorenabell@quintagroup.com>, 2017\n"
-"Language-Team: Ukrainian (https://www.transifex.com/flectra/teams/41243/uk/)\n"
+"POT-Creation-Date: 2017-10-10 11:35+0000\n"
+"PO-Revision-Date: 2017-10-10 11:35+0000\n"
+"Last-Translator: Аліна Семенюк <alinasemeniuk1@gmail.com>, 2017\n"
+"Language-Team: Ukrainian (https://www.transifex.com/odoo/teams/41243/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -227,8 +228,8 @@ msgstr "<span class=\"oe_logo_edit\">Редагувати інформацію �
 
 #. module: web
 #: model:ir.ui.view,arch_db:web.menu_secondary
-msgid "<span>Flectra</span>"
-msgstr "<span>Flectra</span>"
+msgid "<span>Odoo</span>"
+msgstr "<span>Odoo</span>"
 
 #. module: web
 #. openerp-web
@@ -304,7 +305,7 @@ msgstr "Активно"
 
 #. module: web
 #. openerp-web
-#: code:addons/web/static/src/js/fields/relational_fields.js:1196
+#: code:addons/web/static/src/js/fields/relational_fields.js:1197
 #: code:addons/web/static/src/xml/base.xml:1184
 #: code:addons/web/static/src/xml/kanban.xml:54
 #: code:addons/web/static/src/xml/kanban.xml:64
@@ -328,7 +329,7 @@ msgstr "Додати умову"
 
 #. module: web
 #. openerp-web
-#: code:addons/web/static/src/js/views/list/list_editable_renderer.js:514
+#: code:addons/web/static/src/js/views/list/list_editable_renderer.js:512
 #, python-format
 msgid "Add an item"
 msgstr "Додати елемент"
@@ -377,7 +378,7 @@ msgstr "Додати..."
 
 #. module: web
 #. openerp-web
-#: code:addons/web/static/src/js/fields/relational_fields.js:1219
+#: code:addons/web/static/src/js/fields/relational_fields.js:1220
 #, python-format
 msgid "Add: "
 msgstr "Додати:"
@@ -589,10 +590,10 @@ msgstr ""
 
 #. module: web
 #. openerp-web
-#: code:addons/web/controllers/main.py:776
-#: code:addons/web/controllers/main.py:778
-#: code:addons/web/controllers/main.py:783
-#: code:addons/web/controllers/main.py:784
+#: code:addons/web/controllers/main.py:779
+#: code:addons/web/controllers/main.py:781
+#: code:addons/web/controllers/main.py:786
+#: code:addons/web/controllers/main.py:787
 #: code:addons/web/static/src/js/widgets/change_password.js:27
 #: code:addons/web/static/src/xml/base.xml:175
 #, python-format
@@ -754,7 +755,7 @@ msgstr ""
 
 #. module: web
 #. openerp-web
-#: code:addons/web/static/src/js/fields/relational_fields.js:366
+#: code:addons/web/static/src/js/fields/relational_fields.js:367
 #, python-format
 msgid "Create \"<strong>%s</strong>\""
 msgstr "Створити \"<strong>%s</strong>\""
@@ -768,7 +769,7 @@ msgstr "Створити %s"
 
 #. module: web
 #. openerp-web
-#: code:addons/web/static/src/js/fields/relational_fields.js:375
+#: code:addons/web/static/src/js/fields/relational_fields.js:376
 #, python-format
 msgid "Create and Edit..."
 msgstr "Створити і редагувати..."
@@ -782,7 +783,7 @@ msgstr "Створити і редагувати"
 
 #. module: web
 #. openerp-web
-#: code:addons/web/static/src/js/fields/relational_fields.js:404
+#: code:addons/web/static/src/js/fields/relational_fields.js:405
 #: code:addons/web/static/src/js/views/calendar/calendar_quick_create.js:85
 #, python-format
 msgid "Create: "
@@ -989,7 +990,7 @@ msgstr "Редагувати вигляд пошуку"
 #: code:addons/web/static/src/xml/kanban.xml:22
 #, python-format
 msgid "Edit Stage"
-msgstr ""
+msgstr "Редагувати етап"
 
 #. module: web
 #: model:ir.ui.view,arch_db:web.login
@@ -1012,7 +1013,7 @@ msgid "Error"
 msgstr "Помилка"
 
 #. module: web
-#: code:addons/web/controllers/main.py:784
+#: code:addons/web/controllers/main.py:787
 #, python-format
 msgid "Error, password not changed !"
 msgstr "Помилка, пароль не змінено !"
@@ -1214,8 +1215,8 @@ msgstr "Вікно"
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:1338
 #, python-format
-msgid "Get this feature and much more with Flectra Enterprise!"
-msgstr "Отримайте цю функцію та багато іншого з Flectra Enterprise!"
+msgid "Get this feature and much more with Odoo Enterprise!"
+msgstr "Отримайте цю функцію та багато іншого з Odoo Enterprise!"
 
 #. module: web
 #. openerp-web
@@ -1295,8 +1296,8 @@ msgid "Invalid data"
 msgstr "Некоректні дані"
 
 #. module: web
-#: code:addons/web/controllers/main.py:680
-#: code:addons/web/controllers/main.py:694
+#: code:addons/web/controllers/main.py:683
+#: code:addons/web/controllers/main.py:697
 #, python-format
 msgid ""
 "Invalid database name. Only alphanumerical characters, underscore, hyphen "
@@ -1340,7 +1341,7 @@ msgid "Kanban"
 msgstr "Канбан"
 
 #. module: web
-#: code:addons/web/controllers/main.py:791
+#: code:addons/web/controllers/main.py:794
 #, python-format
 msgid "Languages"
 msgstr "Мови"
@@ -1563,8 +1564,8 @@ msgstr "Перемістити вгору"
 #. openerp-web
 #: code:addons/web/static/src/xml/base.xml:1323
 #, python-format
-msgid "My Flectra.com account"
-msgstr "Мій обліковий запис Flectra.com"
+msgid "My Odoo.com account"
+msgstr "Мій обліковий запис Odoo.com"
 
 #. module: web
 #. openerp-web
@@ -1667,7 +1668,7 @@ msgstr ""
 
 #. module: web
 #. openerp-web
-#: code:addons/web/static/src/js/fields/relational_fields.js:381
+#: code:addons/web/static/src/js/fields/relational_fields.js:382
 #, python-format
 msgid "No results to show..."
 msgstr "Немає результатів для відображення..."
@@ -1698,15 +1699,15 @@ msgstr "Об'єкт:"
 #. openerp-web
 #: code:addons/web/static/src/js/core/dialog.js:51
 #, python-format
-msgid "Flectra"
-msgstr "Flectra"
+msgid "Odoo"
+msgstr "Odoo"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/apps.js:148
 #, python-format
-msgid "Flectra Apps will be available soon"
-msgstr "Додатки Flectra незабаром будуть доступні"
+msgid "Odoo Apps will be available soon"
+msgstr "Додатки Odoo незабаром будуть доступні"
 
 #. module: web
 #. openerp-web
@@ -1714,28 +1715,28 @@ msgstr "Додатки Flectra незабаром будуть доступні"
 #: code:addons/web/static/src/js/chrome/abstract_web_client.js:194
 #: code:addons/web/static/src/js/services/crash_manager.js:156
 #, python-format
-msgid "Flectra Client Error"
+msgid "Odoo Client Error"
 msgstr ""
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/fields/upgrade_fields.js:86
 #, python-format
-msgid "Flectra Enterprise"
-msgstr "Flectra Корпоративна"
+msgid "Odoo Enterprise"
+msgstr "Odoo Корпоративна"
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:118
 #, python-format
-msgid "Flectra Error"
+msgid "Odoo Error"
 msgstr ""
 
 #. module: web
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:58
 #, python-format
-msgid "Flectra Session Expired"
+msgid "Odoo Session Expired"
 msgstr ""
 
 #. module: web
@@ -1743,7 +1744,7 @@ msgstr ""
 #: code:addons/web/static/src/js/services/crash_manager.js:108
 #: code:addons/web/static/src/js/services/crash_manager.js:197
 #, python-format
-msgid "Flectra Warning"
+msgid "Odoo Warning"
 msgstr ""
 
 #. module: web
@@ -1830,7 +1831,7 @@ msgstr "Відкритий перегляд"
 
 #. module: web
 #. openerp-web
-#: code:addons/web/static/src/js/fields/relational_fields.js:469
+#: code:addons/web/static/src/js/fields/relational_fields.js:470
 #: code:addons/web/static/src/js/views/calendar/calendar_controller.js:277
 #: code:addons/web/static/src/js/views/form/form_controller.js:475
 #: code:addons/web/static/src/js/views/form/form_controller.js:494
@@ -1901,6 +1902,13 @@ msgstr "Зведена таблиця"
 
 #. module: web
 #. openerp-web
+#: code:addons/web/static/src/js/views/list/list_renderer.js:331
+#, python-format
+msgid "Please click on the \"save\" button first"
+msgstr ""
+
+#. module: web
+#. openerp-web
 #: code:addons/web/static/src/js/widgets/data_export.js:168
 #, python-format
 msgid "Please enter save field list name"
@@ -1953,8 +1961,8 @@ msgstr "За підтримки"
 
 #. module: web
 #: model:ir.ui.view,arch_db:web.login_layout
-msgid "Powered by <span>Flectra</span>"
-msgstr "Створено в <span>Flectra</span>"
+msgid "Powered by <span>Odoo</span>"
+msgstr "Створено в <span>Odoo</span>"
 
 #. module: web
 #. openerp-web
@@ -2137,7 +2145,7 @@ msgstr "Шукати %(field)s : %(value)s"
 
 #. module: web
 #. openerp-web
-#: code:addons/web/static/src/js/fields/relational_fields.js:342
+#: code:addons/web/static/src/js/fields/relational_fields.js:343
 #, python-format
 msgid "Search More..."
 msgstr "Шукати ще..."
@@ -2151,7 +2159,7 @@ msgstr "Пошук..."
 
 #. module: web
 #. openerp-web
-#: code:addons/web/static/src/js/fields/relational_fields.js:404
+#: code:addons/web/static/src/js/fields/relational_fields.js:405
 #, python-format
 msgid "Search: "
 msgstr "Пошук:"
@@ -2241,7 +2249,7 @@ msgid "Size:"
 msgstr "Розмір:"
 
 #. module: web
-#: code:addons/web/controllers/main.py:1102
+#: code:addons/web/controllers/main.py:1105
 #, python-format
 msgid "Something horrible happened"
 msgstr "Сталося щось жахливе"
@@ -2361,13 +2369,13 @@ msgid "The following fields are invalid:"
 msgstr "Невірно заповнені поля:"
 
 #. module: web
-#: code:addons/web/controllers/main.py:778
+#: code:addons/web/controllers/main.py:781
 #, python-format
 msgid "The new password and its confirmation must be identical."
 msgstr "Новий пароль та його підтвердження повинні співпадати."
 
 #. module: web
-#: code:addons/web/controllers/main.py:783
+#: code:addons/web/controllers/main.py:786
 #, python-format
 msgid ""
 "The old password you provided is incorrect, your password was not changed."
@@ -2391,7 +2399,7 @@ msgstr "Вибраний файл перевищує максимальний р
 
 #. module: web
 #. openerp-web
-#: code:addons/web/static/src/js/fields/relational_fields.js:1283
+#: code:addons/web/static/src/js/fields/relational_fields.js:1284
 #, python-format
 msgid ""
 "The type of the field '%s' must be a many2many field with a relation to "
@@ -2401,7 +2409,7 @@ msgstr ""
 "'ir.attachment'."
 
 #. module: web
-#: code:addons/web/controllers/main.py:1439
+#: code:addons/web/controllers/main.py:1442
 #, python-format
 msgid ""
 "There are too many rows (%s rows, limit: 65535) to export as Excel 97-2003 "
@@ -2450,10 +2458,10 @@ msgstr ""
 #, python-format
 msgid ""
 "Timezone Mismatch : The timezone of your browser doesn't match the selected "
-"one. The time in Flectra is displayed according to your field timezone."
+"one. The time in Odoo is displayed according to your field timezone."
 msgstr ""
 "Невідповідність часового поясу : часовий пояс Вашого браузера не відповідає "
-"вибраному. Час у Flectra відображається відповідно часового поясу Вашого поля."
+"вибраному. Час у Odoo відображається відповідно часового поясу Вашого поля."
 
 #. module: web
 #. openerp-web
@@ -2537,8 +2545,8 @@ msgstr "Розархівувати"
 #: code:addons/web/static/src/js/views/graph/graph_model.js:179
 #: code:addons/web/static/src/js/views/kanban/kanban_column.js:73
 #: code:addons/web/static/src/js/views/kanban/kanban_column.js:76
-#: code:addons/web/static/src/js/views/list/list_renderer.js:413
-#: code:addons/web/static/src/js/views/list/list_renderer.js:416
+#: code:addons/web/static/src/js/views/list/list_renderer.js:422
+#: code:addons/web/static/src/js/views/list/list_renderer.js:425
 #: code:addons/web/static/src/js/views/pivot/pivot_model.js:689
 #, python-format
 msgid "Undefined"
@@ -2609,7 +2617,7 @@ msgstr "Завантажте файл"
 
 #. module: web
 #. openerp-web
-#: code:addons/web/static/src/js/fields/relational_fields.js:1441
+#: code:addons/web/static/src/js/fields/relational_fields.js:1442
 #, python-format
 msgid "Uploading Error"
 msgstr "Помилка вивантаження"
@@ -2663,6 +2671,7 @@ msgstr "Показати метадані"
 #: code:addons/web/static/src/js/services/crash_manager.js:13
 #: code:addons/web/static/src/js/services/crash_manager.js:14
 #: code:addons/web/static/src/js/views/basic/basic_controller.js:78
+#: code:addons/web/static/src/js/views/list/list_renderer.js:331
 #, python-format
 msgid "Warning"
 msgstr "Попередження"
@@ -2769,7 +2778,7 @@ msgid "You cannot follow relations for this field chain construction"
 msgstr ""
 
 #. module: web
-#: code:addons/web/controllers/main.py:776
+#: code:addons/web/controllers/main.py:779
 #, python-format
 msgid "You cannot leave any password empty."
 msgstr "Потрібно заповнити всі паролі."
@@ -2819,9 +2828,9 @@ msgstr ""
 #. openerp-web
 #: code:addons/web/static/src/js/services/crash_manager.js:58
 #, python-format
-msgid "Your Flectra session expired. Please refresh the current web page."
+msgid "Your Odoo session expired. Please refresh the current web page."
 msgstr ""
-"Ваш сеанс Flectra закінчився. Будь ласка, перезавантажте поточну сторінку."
+"Ваш сеанс Odoo закінчився. Будь ласка, перезавантажте поточну сторінку."
 
 #. module: web
 #. openerp-web
@@ -2832,6 +2841,9 @@ msgid ""
 "shown in html.<br><br><a href=\"http://wkhtmltopdf.org/\" "
 "target=\"_blank\">wkhtmltopdf.org</a>"
 msgstr ""
+"Ваша установка Wkhtmltopdf, здається, зламана. Звіт буде показано у форматі "
+"html.<br><br><a href=\"http://wkhtmltopdf.org/\" "
+"target=\"_blank\">wkhtmltopdf.org</a>"
 
 #. module: web
 #. openerp-web

@@ -1,19 +1,20 @@
-# Translation of Flectra Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * account_test
 # 
 # Translators:
 # Bohdan Lisnenko <lem8r.ka11a@gmail.com>, 2017
-# Martin Trigaux <mat@flectrahq.com>, 2017
+# Martin Trigaux <mat@odoo.com>, 2017
 # ТАрас <tratatuta@i.ua>, 2017
+# Аліна Семенюк <alinasemeniuk1@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Flectra Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-20 09:53+0000\n"
 "PO-Revision-Date: 2017-09-20 09:53+0000\n"
-"Last-Translator: ТАрас <tratatuta@i.ua>, 2017\n"
-"Language-Team: Ukrainian (https://www.transifex.com/flectra/teams/41243/uk/)\n"
+"Last-Translator: Аліна Семенюк <alinasemeniuk1@gmail.com>, 2017\n"
+"Language-Team: Ukrainian (https://www.transifex.com/odoo/teams/41243/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -39,7 +40,7 @@ msgstr "<strong>Назва:</strong>"
 #: model:ir.actions.report,name:account_test.account_assert_test_report
 #: model:ir.ui.menu,name:account_test.menu_action_license
 msgid "Accounting Tests"
-msgstr ""
+msgstr "Тести для бухобліку"
 
 #. module: account_test
 #: model:ir.ui.view,arch_db:account_test.report_accounttest

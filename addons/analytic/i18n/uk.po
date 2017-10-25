@@ -1,4 +1,4 @@
-# Translation of Flectra Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * analytic
 # 
@@ -6,16 +6,17 @@
 # Bohdan Lisnenko <lem8r.ka11a@gmail.com>, 2017
 # ТАрас <tratatuta@i.ua>, 2017
 # Zoriana Zaiats <sorenabell@quintagroup.com>, 2017
-# Martin Trigaux <mat@flectrahq.com>, 2017
+# Martin Trigaux <mat@odoo.com>, 2017
 # Анатолій Пономаренко <aponomarenko020@gmail.com>, 2017
+# Аліна Семенюк <alinasemeniuk1@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Flectra Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-20 09:53+0000\n"
 "PO-Revision-Date: 2017-09-20 09:53+0000\n"
-"Last-Translator: Анатолій Пономаренко <aponomarenko020@gmail.com>, 2017\n"
-"Language-Team: Ukrainian (https://www.transifex.com/flectra/teams/41243/uk/)\n"
+"Last-Translator: Аліна Семенюк <alinasemeniuk1@gmail.com>, 2017\n"
+"Language-Team: Ukrainian (https://www.transifex.com/odoo/teams/41243/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -236,12 +237,14 @@ msgid ""
 "If the active field is set to False, it will allow you to hide the account "
 "without removing it."
 msgstr ""
+"Якщо активне поле встановлено на помилковий, це дозволить вам приховати "
+"обліковий запис, не видаливши його."
 
 #. module: analytic
 #: model:ir.actions.act_window,help:analytic.account_analytic_line_action
 #: model:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid ""
-"In Flectra, sales orders and projects are implemented using\n"
+"In Odoo, sales orders and projects are implemented using\n"
 "                analytic accounts. You can track costs and revenues to analyse\n"
 "                your margins easily."
 msgstr ""

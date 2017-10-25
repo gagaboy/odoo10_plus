@@ -1,9 +1,9 @@
-# Translation of Flectra Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * sale
 # 
 # Translators:
-# Martin Trigaux <mat@flectrahq.com>, 2017
+# Martin Trigaux <mat@odoo.com>, 2017
 # Piotr Szlązak <szlazakpiotr@gmail.com>, 2017
 # Judyta Kaźmierczak <judyta.kazmierczak@openglobe.pl>, 2017
 # zbik2607 <darek@krokus.com.pl>, 2017
@@ -16,14 +16,16 @@
 # Arek Smagacz <arek.smagacz@gmail.com>, 2017
 # m_aciek <maciej.olko@gmail.com>, 2017
 # Zdzisław Krajewski <zdzichucb@gmail.com>, 2017
+# Tadeusz Karpiński <tadeuszkarpinski@gmail.com>, 2017
+# Monika Grzelak <m.e.grzelak@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Flectra Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
-"Last-Translator: Zdzisław Krajewski <zdzichucb@gmail.com>, 2017\n"
-"Language-Team: Polish (https://www.transifex.com/flectra/teams/41243/pl/)\n"
+"Last-Translator: Monika Grzelak <m.e.grzelak@gmail.com>, 2017\n"
+"Language-Team: Polish (https://www.transifex.com/odoo/teams/41243/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -212,7 +214,7 @@ msgid ""
 "                      </tr>\n"
 "                      <tr>\n"
 "                        <td align=\"center\">\n"
-"                            Powered by <a target=\"_blank\" href=\"https://www.flectrahq.com\">Flectra</a>.\n"
+"                            Powered by <a target=\"_blank\" href=\"https://www.odoo.com\">Odoo</a>.\n"
 "                        </td>\n"
 "                      </tr>\n"
 "                    </tbody>\n"
@@ -610,7 +612,7 @@ msgstr "Anulowano"
 #. module: sale
 #: model:ir.ui.menu,name:sale.product_menu_catalog
 msgid "Catalog"
-msgstr ""
+msgstr "Katalog"
 
 #. module: sale
 #: model:ir.model.fields,help:sale.field_crm_team_use_quotations
@@ -652,32 +654,32 @@ msgstr "Firma"
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.res_config_settings_view_form
 msgid "Compute shipping costs and ship with DHL"
-msgstr ""
+msgstr "Oblicz koszty wysyłki i prześlij kurierem DHL"
 
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.res_config_settings_view_form
 msgid "Compute shipping costs and ship with FedEx"
-msgstr ""
+msgstr "Oblicz koszty wysyłki i prześlij kurierem FedEx"
 
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.res_config_settings_view_form
 msgid "Compute shipping costs and ship with UPS"
-msgstr ""
+msgstr "Oblicz koszty wysyłki i prześlij kurierem UPS"
 
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.res_config_settings_view_form
 msgid "Compute shipping costs and ship with USPS"
-msgstr ""
+msgstr "Oblicz koszty wysyłki i prześlij kurierem USPS"
 
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.res_config_settings_view_form
 msgid "Compute shipping costs and ship with bpost"
-msgstr ""
+msgstr "Oblicz koszty wysyłki i prześlij kurierem bpost"
 
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.res_config_settings_view_form
 msgid "Compute shipping costs on orders"
-msgstr ""
+msgstr "Oblicz koszty wysyłki zamówień"
 
 #. module: sale
 #: model:ir.ui.menu,name:sale.menu_sale_config
@@ -1400,7 +1402,7 @@ msgstr ""
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.view_sales_order_filter
 msgid "My Activities"
-msgstr ""
+msgstr "Moje aktywności"
 
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.view_sales_order_filter
@@ -1820,7 +1822,7 @@ msgstr "Kategoria produktu"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_line_product_image
 msgid "Product Image"
-msgstr ""
+msgstr "Obraz produktu"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_report_all_channels_sales_product_qty
@@ -2694,7 +2696,7 @@ msgstr "Kwota bez podatku"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_report_price_subtotal
 msgid "Untaxed Total"
-msgstr ""
+msgstr "ilość nieopodatkowana:"
 
 #. module: sale
 #: model:ir.ui.view,arch_db:sale.sale_order_view_search_inherit_sale

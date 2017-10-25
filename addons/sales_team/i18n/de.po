@@ -1,4 +1,4 @@
-# Translation of Flectra Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * sales_team
 # 
@@ -8,7 +8,7 @@
 # Henry Mineehen <info@mineehen.de>, 2017
 # Renzo Meister <info@jamotion.ch>, 2017
 # darenkster <inactive+darenkster@transifex.com>, 2017
-# Martin Trigaux <mat@flectrahq.com>, 2017
+# Martin Trigaux <mat@odoo.com>, 2017
 # Tina Rittmüller <tr@ife.de>, 2017
 # aNj <anj2j@yahoo.de>, 2017
 # Ermin Trevisan <trevi@twanda.com>, 2017
@@ -17,14 +17,16 @@
 # JackTheHunter <Maximilian.N98@gmail.com>, 2017
 # Philipp Hug <philipp@hug.cx>, 2017
 # Malte Jansen <work@maltejansen.de>, 2017
+# Constantin Ehrenstein <transifex@skiller.eu>, 2017
+# Nico Dor <nicolas.dorweiler@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Flectra Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 10.saas~18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-10-02 11:26+0000\n"
 "PO-Revision-Date: 2017-10-02 11:26+0000\n"
-"Last-Translator: Malte Jansen <work@maltejansen.de>, 2017\n"
-"Language-Team: German (https://www.transifex.com/flectra/teams/41243/de/)\n"
+"Last-Translator: Nico Dor <nicolas.dorweiler@gmail.com>, 2017\n"
+"Language-Team: German (https://www.transifex.com/odoo/teams/41243/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -39,7 +41,7 @@ msgstr "<span>Neu</span>"
 #. module: sales_team
 #: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
 msgid "<span>Reporting</span>"
-msgstr ""
+msgstr "<span>Berichte</span>"
 
 #. module: sales_team
 #: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_view_kanban
@@ -80,12 +82,12 @@ msgstr ""
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_user_id
 msgid "Channel Leader"
-msgstr ""
+msgstr "Kanal Leitung"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_member_ids
 msgid "Channel Members"
-msgstr ""
+msgstr "Kanal Mitglieder"
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_team_type
@@ -96,7 +98,7 @@ msgstr "Kanaltyp"
 #: model:ir.actions.act_window,help:sales_team.crm_team_salesteams_act
 #: model:ir.actions.act_window,help:sales_team.sales_team_config_action
 msgid "Click here to define a new sales channel."
-msgstr ""
+msgstr "Hier klicken um neuen Verkaufskanal zu definieren."
 
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_color
@@ -281,13 +283,13 @@ msgstr "Monat"
 #. module: sales_team
 #: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
 msgid "My Favorites"
-msgstr ""
+msgstr "Meine Favoriten"
 
 #. module: sales_team
 #: code:addons/sales_team/models/crm_team.py:255
 #, python-format
 msgid "Not Defined"
-msgstr ""
+msgstr "Nicht definiert"
 
 #. module: sales_team
 #: selection:crm.team,dashboard_graph_model:0
@@ -361,7 +363,7 @@ msgstr "Einstellungen"
 #. module: sales_team
 #: model:ir.model.fields,field_description:sales_team.field_crm_team_is_favorite
 msgid "Show on dashboard"
-msgstr ""
+msgstr "Auf dem Dashboard anzeigen"
 
 #. module: sales_team
 #: model:ir.ui.view,arch_db:sales_team.crm_team_salesteams_search
@@ -376,12 +378,12 @@ msgstr "Teammitglieder"
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team_color
 msgid "The color of the channel"
-msgstr ""
+msgstr "Die Farbe des Kanals"
 
 #. module: sales_team
 #: model:ir.model.fields,help:sales_team.field_crm_team_reply_to
 msgid ""
-"The email address put in the 'Reply-To' of all emails sent by Flectra about "
+"The email address put in the 'Reply-To' of all emails sent by Odoo about "
 "cases in this sales channel"
 msgstr ""
 
@@ -429,12 +431,12 @@ msgstr ""
 #. module: sales_team
 #: model:res.groups,name:sales_team.group_sale_salesman_all_leads
 msgid "User: All Documents"
-msgstr ""
+msgstr "User: Alle Dokumente"
 
 #. module: sales_team
 #: model:res.groups,name:sales_team.group_sale_salesman
 msgid "User: Own Documents Only"
-msgstr ""
+msgstr "User: Nur eigene Dokumente "
 
 #. module: sales_team
 #: model:ir.model,name:sales_team.model_res_users

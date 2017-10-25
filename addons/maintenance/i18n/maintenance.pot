@@ -1,13 +1,13 @@
-# Translation of Flectra Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 #	* maintenance
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Flectra Server 10.saas~18\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-02 11:27+0000\n"
-"PO-Revision-Date: 2017-10-02 11:27+0000\n"
+"POT-Creation-Date: 2017-10-24 09:00+0000\n"
+"PO-Revision-Date: 2017-10-24 09:00+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -384,7 +384,7 @@ msgid "Equipment Categories"
 msgstr ""
 
 #. module: maintenance
-#: model:ir.model.fields,field_description:maintenance.field_maintenance_equipment_category_id_3448
+#: model:ir.model.fields,field_description:maintenance.field_maintenance_equipment_category_id_3470
 msgid "Equipment Category"
 msgstr ""
 
@@ -972,12 +972,12 @@ msgstr ""
 
 #. module: maintenance
 #: model:ir.model.fields,help:maintenance.field_maintenance_equipment_category_alias_model_id
-msgid "The model (Flectra Document Kind) to which this alias corresponds. Any incoming email that does not reply to an existing record will cause the creation of a new record of this model (e.g. a Project Task)"
+msgid "The model (Odoo Document Kind) to which this alias corresponds. Any incoming email that does not reply to an existing record will cause the creation of a new record of this model (e.g. a Project Task)"
 msgstr ""
 
 #. module: maintenance
 #: model:ir.model.fields,help:maintenance.field_maintenance_equipment_category_alias_name
-msgid "The name of the email alias, e.g. 'jobs' if you want to catch emails for <jobs@example.flectrahq.com>"
+msgid "The name of the email alias, e.g. 'jobs' if you want to catch emails for <jobs@example.odoo.com>"
 msgstr ""
 
 #. module: maintenance
@@ -994,14 +994,14 @@ msgstr ""
 #: model:ir.actions.act_window,help:maintenance.hr_equipment_action
 msgid "This application helps you to track equipments used by employees.\n"
 "                Create some laptop, printer or phone and link each equipment to\n"
-"                an employee or departement. You will manage allocations, issues\n"
+"                an employee or department. You will manage allocations, issues\n"
 "                and maintenance of equipment."
 msgstr ""
 
 #. module: maintenance
 #: model:ir.actions.act_window,help:maintenance.hr_equipment_action_from_category_form
 msgid "This application helps you to track equipments used by employees.\n"
-"                Create some laptop, printer or phone and link each equipment to an employee or departement.\n"
+"                Create some laptop, printer or phone and link each equipment to an employee or department.\n"
 "                You will manage allocations, issues and maintenance of equipment."
 msgstr ""
 
