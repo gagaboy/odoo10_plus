@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <record id="view_res_branch_form" model="ir.ui.view">
+        <field name="name">res.branch.form</field>
+        <field name="model">res.branch</field>
+        <field name="arch" type="xml">
+            <form string="Branch">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <group col="4">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="partner_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_res_branch_tree" model="ir.ui.view">
+        <field name="name">res.branch.tree</field>
+        <field name="model">res.branch</field>
+        <field name="arch" type="xml">
+            <tree string="Branch">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_res_branch_search" model="ir.ui.view">
+        <field name="name">res.branch.search</field>
+        <field name="model">res.branch</field>
+        <field name="arch" type="xml">
+            <search string="Search Branch">
+                <field name="name" string="Branch"/>
+                <field name="code" string="Code"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_res_branch_tree" model="ir.actions.act_window">
+        <field name="name">Branches</field>
+        <field name="res_model">res.branch</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to start a new Operating Unit.
+          </p>
+        </field>
+    </record>
+
+    <menuitem action="action_res_branch_tree"
+             id="menu_action_res_branch_tree"
+             parent="base.menu_users"/>
+</flectra>

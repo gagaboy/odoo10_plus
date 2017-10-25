@@ -190,6 +190,27 @@ class Users(models.Model):
     def _companies_count(self):
         return self.env['res.company'].sudo().search_count([])
 
+
+    @api.model
+    def branch_default_get(self, user):
+        if not user:
+            user = self._uid
+        return self.env['res.users'].browse(user).default_branch_id
+
+    @api.model
+    def _get_default_branch(self):
+        return self.branch_default_get(self._uid)
+
+    branch_ids = fields.Many2many('res.branch',
+                                  'res_barnch_users_rel',
+                                  'user_id',
+                                  'branch_id',
+                                  'Branches')
+    default_branch_id = fields.Many2one('res.branch', 'Default branch',
+                                        default=_get_default_branch,
+                                        domain="[('company_id','=',company_id)"
+                                               "]")
+
     partner_id = fields.Many2one('res.partner', required=True, ondelete='restrict', auto_join=True,
         string='Related Partner', help='Partner-related data of the user')
     login = fields.Char(required=True, help="Used to log into the system")

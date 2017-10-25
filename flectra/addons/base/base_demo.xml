@@ -86,5 +86,19 @@
         <record id="base.group_portal" model="res.groups"><!-- Add the demo user to the portal (and therefore to the portal member group) -->
             <field name="users" eval="[(4,ref('demo_user0'))]"/>
         </record>
+
+        <record id="data_branch_1" model="res.branch">
+            <field name="name">New York</field>
+            <field name="code">NY</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="data_branch_2" model="res.branch">
+            <field name="name">Washington</field>
+            <field name="code">WA</field>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+        <record id="base.user_root" model="res.users">
+            <field name="branch_ids" eval="[(6,0,[ref('data_branch_1'),])]"/>
+        </record>
     </data>
 </flectra>

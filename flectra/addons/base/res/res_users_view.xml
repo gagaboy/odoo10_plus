@@ -197,6 +197,10 @@
                                     <field string="Current Company" name="company_id" context="{'user_preference': 0}"/>
                                     <field string="Companies count" name="companies_count" invisible="1"/>
                                 </group>
+                                <group string="Allowed Branches">
+                                        <field name="default_branch_id" domain="[('company_id','=',company_id)]"/>
+                                        <field name="branch_ids" widget="many2many_tags" domain="[('company_id','=',company_id)]"/>
+                                </group>
                                 <field name="groups_id"/>
                             </page>
                             <page string="Preferences">
