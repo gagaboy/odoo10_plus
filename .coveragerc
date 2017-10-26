@@ -1,0 +1,25 @@
+# Config file .coveragerc
+# adapt the include for your project
+
+[report]
+include =
+    */yk134/flectra/*
+
+omit =
+    */tests/*
+    *__init__.py
+
+# Regexes for lines to exclude from consideration
+exclude_lines =
+    # Have to re-enable the standard pragma
+    pragma: no cover
+
+    # Don't complain about null context checking
+    if context is None:
+
+    # Don't complain about odoo basic imports checking
+    from flectra import models, fields, api
+
+    # Don't complain about odoo basic imports checking
+    from flectra*
+    
