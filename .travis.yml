@@ -27,9 +27,9 @@ addons:
       - libjpeg-dev
       - zlib1g-dev 
       - libfontconfig1
-      - coverage
-      - coveralls
-      - codecov
+      - python3-coverage
+      - python3-coveralls
+      - python3-codecov
 
 language: python
 
