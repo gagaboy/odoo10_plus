@@ -4,7 +4,7 @@ from flectra import api, fields, models, tools, SUPERUSER_ID, _
 from flectra.exceptions import UserError, AccessError
 from flectra.tools.safe_eval import safe_eval
 from flectra.tools.misc import find_in_path
-from flectra.tools import config
+from flectra.tools import config,pycompact
 from flectra.sql_db import TestCursor
 from flectra.http import request
 
@@ -466,7 +466,6 @@ class IrActionsReport(models.Model):
             res_company=user.company_id,
             website=website,
             web_base_url=self.env['ir.config_parameter'].sudo().get_param('web.base.url', default=''),
-            to_text=odoo.tools.pycompat.to_text,
         )
         return view_obj.render_template(template, values)
 
