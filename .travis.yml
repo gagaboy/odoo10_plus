@@ -37,6 +37,7 @@ install:
   - git clone https://github.com/flectrahq/build-tools.git ${HOME}/build-tools
   - export PATH=${HOME}/build-tools/travis:${PATH}
   - travis_install_flectra
+  - pip install -r ${HOME}/build-tools/requirements.txt
 
 script:
   - travis_test_flectra
