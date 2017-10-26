@@ -4,7 +4,7 @@ from flectra import api, fields, models, tools, SUPERUSER_ID, _
 from flectra.exceptions import UserError, AccessError
 from flectra.tools.safe_eval import safe_eval
 from flectra.tools.misc import find_in_path
-from flectra.tools import config,pycompact
+from flectra.tools import config
 from flectra.sql_db import TestCursor
 from flectra.http import request
 
