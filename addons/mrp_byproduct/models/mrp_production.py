@@ -3,7 +3,7 @@
 
 from flectra import api, models
 
-from odoo.tools import float_round
+from flectra.tools import float_round
 
 
 class MrpProduction(models.Model):
