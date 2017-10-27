@@ -43,7 +43,6 @@ class ResConfigSettings(models.TransientModel):
     module_account_batch_deposit = fields.Boolean(string='Use batch deposit',
         help='This allows you to group received checks before you deposit them to the bank.\n'
              '-This installs the module account_batch_deposit.')
-    module_account_sepa = fields.Boolean(string='Use SEPA payments')
     module_account_sepa_direct_debit = fields.Boolean(string='Use SEPA Direct Debit')
     module_account_plaid = fields.Boolean(string="Plaid Connector")
     module_account_yodlee = fields.Boolean("Bank Interface - Sync your bank feeds automatically")
@@ -52,7 +51,6 @@ class ResConfigSettings(models.TransientModel):
     module_account_bank_statement_import_csv = fields.Boolean("Import in .csv format")
     module_account_bank_statement_import_camt = fields.Boolean("Import in CAMT.053 format")
     module_currency_rate_live = fields.Boolean(string="Allow Currency Rate Live")
-    module_print_docsaway = fields.Boolean(string="Docsaway")
     module_product_margin = fields.Boolean(string="Allow Product Margin")
     module_l10n_eu_service = fields.Boolean(string="EU Digital Goods VAT")
     module_account_taxcloud = fields.Boolean(string="Account TaxCloud")
