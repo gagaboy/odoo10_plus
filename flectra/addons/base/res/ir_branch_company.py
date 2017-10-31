@@ -8,8 +8,8 @@ class IrBranchCompanyMixin(models.AbstractModel):
     _name = "ir.branch.company.mixin"
 
     branch_id = fields.Many2one(
-        'res.branch', 'Branch', ondelete="restrict",
-        default=lambda self: self.env.user.default_branch_id)
+        'res.branch', 'Branch', ondelete="restrict")
     company_id = fields.Many2one(
         'res.company', 'Company', ondelete="restrict",
         default=lambda self: self.env.user.company_id)
+
