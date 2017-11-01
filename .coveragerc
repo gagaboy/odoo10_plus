@@ -6,7 +6,6 @@ include =
     */flectrahq/flectra/*
 
 omit =
-    */tests/*
     *__init__.py
 
 # Regexes for lines to exclude from consideration
@@ -18,8 +17,9 @@ exclude_lines =
     if context is None:
 
     # Don't complain about odoo basic imports checking
-    from flectra import models, fields, api
+    # from flectra import models, fields, api
 
     # Don't complain about odoo basic imports checking
-    from flectra*
+    from *
+    import *
     
