@@ -34,4 +34,19 @@ class ResBranch(models.Model):
         partner_id = self.env['res.partner'].create({'name': vals['name']})
         vals.update({'partner_id': partner_id.id})
         res = super(ResBranch, self).create(vals)
+        vals.pop("name", None)
+        vals.pop("code", None)
+        vals.pop("partner_id", None)
+        vals.update({'branch_id': res.id})
+        partner_id.write(vals)
+        return res
+
+    @api.multi
+    def write(self, vals):
+        res = super(ResBranch, self).write(vals)
+        vals.pop("name", None)
+        vals.pop("code", None)
+        ctx = self.env.context.copy()
+        if 'branch' not in ctx:
+            self.partner_id.write(vals)
         return res
