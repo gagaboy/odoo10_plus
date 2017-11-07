@@ -80,4 +80,27 @@
     <menuitem action="action_res_branch_tree"
              id="menu_action_res_branch_tree"
              parent="base.menu_users"/>
+
+
+    <record id="view_branch_users_form" model="ir.ui.view">
+        <field name="name">res.users.form.branch</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='access_rights']/group[1]" position="replace">
+                <group>
+                    <group string="Multi Companies" attrs="{'invisible': [('companies_count', '&lt;=', 1)]}">
+                        <field string="Allowed Companies" name="company_ids" widget="many2many_tags"/>
+                        <field string="Current Company" name="company_id" context="{'user_preference': 0}"/>
+                        <field string="Companies count" name="companies_count" invisible="1"/>
+                    </group>
+                    <group string="Allowed Branches">
+                            <field name="default_branch_id" domain="[('company_id','=',company_id)]"/>
+                            <field name="branch_ids" widget="many2many_tags" domain="[('company_id','=',company_id)]"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
 </flectra>

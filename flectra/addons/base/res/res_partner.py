@@ -127,7 +127,7 @@ class PartnerTitle(models.Model):
 
 class Partner(models.Model):
     _description = 'Contact'
-    _inherit = ['format.address.mixin', 'ir.branch.company.mixin']
+    _inherit = ['format.address.mixin']
     _name = "res.partner"
     _order = "display_name"
 
@@ -461,13 +461,7 @@ class Partner(models.Model):
         # (this is to allow the code from res_users to write to the partner!) or
         # if setting the company_id to False (this is compatible with any user
         # company)
-        field_list = ['street', 'street2', 'zip', 'city', 'state_id',
-                      'country_id', 'email', 'phone', 'mobile']
-        branch_vals = dict((f, vals[f]) for f in field_list if f in vals)
-        if branch_vals and self.branch_id:
-            ctx = self.env.context.copy()
-            ctx.update({'branch': True})
-            self.branch_id.with_context(ctx).write(branch_vals)
+
         if vals.get('website'):
             vals['website'] = self._clean_website(vals['website'])
         if vals.get('parent_id'):
