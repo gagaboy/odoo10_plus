@@ -6,7 +6,9 @@ include =
     */flectrahq/flectra/*
 
 omit =
+    */tests/*
     *__init__.py
+    *__manifest__.py
 
 # Regexes for lines to exclude from consideration
 exclude_lines =
@@ -22,4 +24,3 @@ exclude_lines =
     # Don't complain about odoo basic imports checking
     from *
     import *
-    
