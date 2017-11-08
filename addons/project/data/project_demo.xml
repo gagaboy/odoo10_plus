@@ -110,7 +110,7 @@
             <field name="name">Project Scrum</field>
             <field name="user_id" ref="base.user_root"/>
             <field name="company_id" ref="base.main_company"/>
-            <field name="branch_id" ref="base.data_branch_1"/>
+            <field name="branch_id" ref="base_branch_company.data_branch_1"/>
             <field name="privacy_visibility">employees</field>
             <field name="partner_id">1</field>
             <field name="sequence">10</field>
