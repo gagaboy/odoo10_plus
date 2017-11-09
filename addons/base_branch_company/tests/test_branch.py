@@ -2,7 +2,8 @@
 # Part of Flectra. See LICENSE file for full copyright and licensing details.
 
 from flectra.tests.common import TransactionCase
-
+import logging
+_logger = logging.getLogger(__name__)
 
 class TestMultiBranch(TransactionCase):
     def setUp(self):
@@ -52,12 +53,17 @@ class TestMultiBranch(TransactionCase):
             'email': 'test@123.example.com',
             'branch_id': self.branch0.id
         })
-        self.branch_partner1.sudo(user=self.test_user0).write(
-            {"name": 'Test Partner11'})
-        self.branch_partner2.sudo(user=self.test_user0).write(
-            {"name": 'Test Partner22'})
-        self.branch_partner0.sudo(user=self.test_user0).write(
-            {"name": 'Test Partner22'})
+        try:
+            self.branch_partner1.sudo(user=self.test_user0).write(
+                {"name": 'Test Partner11'})
+            self.branch_partner2.sudo(user=self.test_user0).write(
+                {"name": 'Test Partner22'})
+            self.branch_partner0.sudo(user=self.test_user0).write(
+                {"name": 'Test Partner22'})
+        except Exception as e:
+            _logger.exception(e)
+
+
 
 
 
