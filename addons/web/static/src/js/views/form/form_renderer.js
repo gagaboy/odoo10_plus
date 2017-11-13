@@ -819,11 +819,6 @@ var FormRenderer = BasicRenderer.extend({
             if (config.debug || widget.attrs.help || widget.field.help) {
                 self._addFieldTooltip(widget, $label);
             }
-            if (widget.attrs.widget === 'upgrade_boolean') {
-                // this widget needs a reference to its $label to be correctly
-                // rendered
-                widget.renderWithLabel($label);
-            }
         });
     },
     /**
