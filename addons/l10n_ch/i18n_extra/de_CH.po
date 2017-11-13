@@ -1649,13 +1649,13 @@ msgstr "Zu zahlende MwSt. bei 7.7% (incl.)"
 #: model:account.tax,name:l10n_ch.1_vat_80
 #: model:account.tax.template,name:l10n_ch.vat_80
 msgid "VAT due at 8.0%"
-msgstr "Zu zahlende MwSt. bei 8.0% (NRZ)"
+msgstr "Zu zahlende MwSt. bei 8.0%"
 
 #. module: l10n_ch
 #: model:account.tax,name:l10n_ch.1_vat_80_incl
 #: model:account.tax.template,name:l10n_ch.vat_80_incl
 msgid "VAT due at 8.0% (incl.)"
-msgstr "Zu zahlende MwSt. bei 8.0% (inkl. NRZ)"
+msgstr "Zu zahlende MwSt. bei 8.0% (inkl.)"
 
 #. module: l10n_ch
 #: model:account.account,name:l10n_ch.1_ch_coa_3940
