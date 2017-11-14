@@ -9,6 +9,7 @@ var Menu = require('web.Menu');
 var session = require('web.session');
 var SystrayMenu = require('web.SystrayMenu');
 var UserMenu = require('web.UserMenu');
+var config = require('web.config');
 
 return AbstractWebClient.extend({
     events: {
@@ -34,6 +35,11 @@ return AbstractWebClient.extend({
         this.menu = new Menu(this);
         this.menu.setElement(this.$el.parents().find('.oe_application_menu_placeholder'));
         this.menu.on('menu_click', this, this.on_menu_action);
+        if (config.device.size_class < config.device.SIZES.SM) {
+            this.menu.is_menus_lite_mode = false;
+        }else{
+            this.menu.is_menus_lite_mode = 'menus_lite_mode' in window.sessionStorage ? true : false;
+        }
 
         // Create the user menu (rendered client-side)
         this.user_menu = new UserMenu(this);

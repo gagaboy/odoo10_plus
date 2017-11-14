@@ -820,6 +820,7 @@ var FormRenderer = BasicRenderer.extend({
                 self._addFieldTooltip(widget, $label);
             }
         });
+        this.$el.find('.o_notebook ul.nav-tabs').tabCollapse();
     },
     /**
      * Sets id attribute of given widget to idForLabel

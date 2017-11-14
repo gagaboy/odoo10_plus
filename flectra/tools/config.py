@@ -75,7 +75,7 @@ class configmanager(object):
             'admin_passwd': 'admin',
             'csv_internal_sep': ',',
             'publisher_warranty_url':
-                'http://services.flectrahq.com/publisher-warranty/',
+                'https://services.flectrahq.com/publisher-warranty/',
             'reportgz': False,
             'root_path': None,
         }

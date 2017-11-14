@@ -364,7 +364,7 @@
 </t>
 
 <div t-name="ListView" class="table-responsive">
-    <table class="o_list_view table table-condensed table-striped">
+    <table class="o_list_view table table-condensed table-hover">
         <t t-set="columns_count" t-value="visible_columns.length + (options.selectable ? 1 : 0) + (options.deletable ? 1 : 0)"/>
         <thead>
             <tr t-if="options.header">
@@ -1227,8 +1227,8 @@
 
 <t t-name="Throbber">
     <div>
-        <div class="oe_blockui_spin" style="height: 50px">
-            <img src="/web/static/src/img/spin.png" style="animation: fa-spin 1s infinite steps(12);"/>
+        <div class="oe_blockui_spin mt32 mb32" style="height: 50px">
+            <img src="/web/static/src/img/gears.svg"/>
         </div>
         <br />
         <div class="oe_throbber_message" style="color:white"></div>
@@ -1307,7 +1307,7 @@
     <li class="o_user_menu">
         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">
             <img class="img-circle oe_topbar_avatar" t-att-src="_s + '/web/static/src/img/user_menu_avatar.png'"/>
-            <span class="oe_topbar_name"/>
+            <span class="oe_topbar_name hidden-xs"/>
         </a>
         <ul class="dropdown-menu" role="menu">
             <t t-call="UserMenu.Actions"/>

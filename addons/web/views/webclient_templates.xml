@@ -143,6 +143,7 @@
         <script type="text/javascript" src="/web/static/lib/py.js/lib/py.js"></script>
         <!-- Special case: core.js declares $.browser needed by ba-bbq -->
         <script type="text/javascript" src="/web/static/lib/jquery.ba-bbq/jquery.ba-bbq.js"></script>
+        <script type="text/javascript" src="/web/static/lib/jquery.nav-tabs-to-accordion/jquery.nav-tabs-to-accordion.js"></script>
 
         <script type="text/javascript" src="/web/static/src/js/core/domain.js"></script>
         <script type="text/javascript" src="/web/static/src/js/core/pyeval.js"></script>
@@ -174,6 +175,7 @@
         <script type="text/javascript" src="/web/static/src/js/widgets/switch_company_menu.js"></script>
         <script type="text/javascript" src="/web/static/src/js/chrome/user_menu.js"></script>
         <script type="text/javascript" src="/web/static/src/js/chrome/menu.js"></script>
+        <script type="text/javascript" src="/web/static/src/js/chrome/apps.js"></script>
         <script type="text/javascript" src="/web/static/src/js/chrome/search_view.js"></script>
         <script type="text/javascript" src="/web/static/src/js/chrome/search_filters.js"></script>
         <script type="text/javascript" src="/web/static/src/js/chrome/search_inputs.js"></script>
@@ -235,12 +237,21 @@
         <script type="text/javascript" src="/web/static/src/js/report/utils.js"/>
         <script type="text/javascript" src="/web/static/src/js/report/client_action.js"/>
         <link rel="stylesheet" type="text/less" href="/web/static/src/less/report_backend.less"/>
+
+        <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/bootswatch_dark.less"/>
+        <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/menu_launcher.less"/>
+        <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/flectra_style.less"/>
+        <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/search_view.less"/>
+        <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/form_view.less"/>
+        <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/list_view.less"/>
+        <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/control_panel.less"/>
     </template>
 
     <template id="web.assets_frontend" name="Website Assets">
         <t t-call="web.less_helpers"/>
 
         <link rel="stylesheet" type="text/less" href="/web/static/src/less/import_bootstrap.less"/>
+        <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/login_form.less"/>
 
         <script type="text/javascript" src="/web/static/src/js/services/session.js"></script>
     </template>
@@ -282,7 +293,7 @@
 
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 o_database_list">
-                    <div class="text-center">
+                    <div class="text-center mt32">
                         <img t-attf-src="/web/binary/company_logo{{ '?dbname='+db if db else '' }}"/>
                     </div>
                     <t t-raw="0"/>
@@ -307,7 +318,7 @@
                     <div class="input-group">
                         <input type="text" name="db" t-att-value="request.db" id="db" class="form-control" required="required" readonly="readonly"/>
                         <span class="input-group-btn">
-                          <a href="/web/database/selector" class="btn btn-default">Select <i class="fa fa-database"></i></a>
+                          <a href="/web/database/selector" class="btn"><i class="fa fa-database"/></a>
                         </span>
                     </div>
                 </div>
@@ -338,25 +349,63 @@
     </template>
 
     <template id="web.menu">
-        <ul class="nav navbar-nav navbar-left oe_application_menu_placeholder" style="display: none;">
-            <li t-foreach="menu_data['children']" t-as="menu">
-                <t t-call="web.menu_link"/>
-            </li>
-            <li id="menu_more_container" class="dropdown" style="display: none;">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
-                <ul id="menu_more" class="dropdown-menu"></ul>
-            </li>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right oe_user_menu_placeholder" style="display: none;"/>
-        <ul class="nav navbar-nav navbar-right oe_systray" style="display: none;"/>
+        <ul class="nav navbar-nav pull-right oe_user_menu_placeholder" style="display: none;"/>
+        <ul class="nav navbar-nav pull-right oe_systray" style="display: none;"/>
+    </template>
+    <template id="web.menu_launcher">
+        <div class="f_launcher_content">
+            <ul style="display: none;" class="oe_application_menu_placeholder hidden">
+                <li t-foreach="menu_data['children']" t-as="menu">
+                    <t t-call="web.menu_link"/>
+                </li>
+            </ul>
+            <ul id="menu_launcher">
+                <li t-foreach="menu_data['children']" t-as="menu" class="panel">
+                    <div class="oe_main_menu_container"
+                         data-toggle="tooltip"
+                         data-placement="right"
+                         t-att-title="menu['name']">
+                        <a t-att-href="'#menu_id=%s&amp;action=%s' % (menu['id'], menu['action'] and menu['action'].split(',')[1] or '')"
+                            class="oe_main_menu"
+                            t-att-data-menu="menu['id']"
+                            t-att-data-menu-xmlid="menu.get('xmlid')"
+                            t-att-data-action-model="menu['action'] and menu['action'].split(',')[0] or None"
+                            t-att-data-action-id="menu['action'] and menu['action'].split(',')[1] or None">
+                                <div class="active_indicator"/>
+                                <div class="app_icon">
+                                    <img t-att-src="str(menu['web_icon']).replace(',','/') if menu['web_icon'] else '/base/static/description/icon.png'"/>
+                                </div>
+                                <div class="app_name">
+                                    <span class="oe_menu_text">
+                                        <t t-esc="menu['name']"/>
+                                    </span>
+                                </div>
+                        </a>
+                        <div class="more-less">
+                            <a data-toggle="collapse" data-parent="#menu_launcher" t-att-href="'#collapse-%s' %(menu['id'])">
+                                <i t-att-class="'fa fa-chevron-down' if menu['children'] else 'hidden'"/>
+                            </a>
+                        </div>
+                    </div>
+                    <div t-att-id="'collapse-%s' % ( menu['id'] )" class="oe_secondary_menu collapse" t-att-data-menu-parent="menu['id']">
+                        <t t-foreach="menu['children']" t-as="menu">
+                            <div class="oe_secondary_menu_section" t-att-data-menu-xmlid="menu.get('xmlid')">
+                                <t t-if="menu['children']">
+                                    <t t-esc="menu['name']"/>
+                                </t>
+                                <t t-if="not menu['children']">
+                                    <t t-call="web.menu_link"/>
+                                </t>
+                            </div>
+                            <t t-call="web.menu_secondary_submenu"/>
+                        </t>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </template>
     <template id="web.menu_secondary">
-        <a class="o_sub_menu_logo" t-att-href="'/web/?debug' if debug else '/web'">
-            <span class="oe_logo_edit">Edit Company data</span>
-            <img src='/web/binary/company_logo'/>
-        </a>
-        <div class="o_sub_menu_content">
+        <div class="o_menu_content">
             <t t-foreach="menu_data['children']" t-as="menu">
                 <div style="display: none" class="oe_secondary_menu" t-att-data-menu-parent="menu['id']">
                     <t t-foreach="menu['children']" t-as="menu">
@@ -578,20 +627,22 @@
             <t t-set="body_classname" t-value="'o_web_client'"/>
 
             <nav id="oe_main_menu_navbar" class="navbar navbar-inverse" groups="base.group_user,base.group_portal">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                <div class="f_toggle_buttons">
+                    <a id="mobile_toggle" class="hidden-sm hidden-md hidden-lg"><i class="fa fa-bars fa-2x"/></a>
+                    <a id="f_apps_search"><i class="hidden-xs fa fa-search fa-2x"/></a>
                 </div>
-                <div class="navbar-collapse collapse">
+                <div class="f_menu_systray">
                     <t t-call="web.menu"/>
                 </div>
             </nav>
             <div class="o_main">
-                <div class="o_sub_menu" groups="base.group_user,base.group_portal">
-                    <t t-call="web.menu_secondary"/>
+                <div class="f_launcher">
+                    <t t-call="web.menu_launcher"/>
+                </div>
+                <div class="o_collapse_btn hidden-xs">
+                    <a href="javascript:void(0);" class="hr">
+                        <i class="fa fa-angle-left"/>
+                    </a>
                 </div>
                 <div class="o_main_content"/>
             </div>
