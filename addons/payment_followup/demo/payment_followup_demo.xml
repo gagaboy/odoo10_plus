@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra noupdate="1">
+
+    <record model="payment.followup.line" id="payment_followup_line_demo_4">
+        <field name="name">Final Request For Payment: Email</field>
+        <field name="template_id" ref="payment_followup_mail_template_2"/>
+        <field name="payment_followup_id" ref="payment_followup_demo"/>
+        <field name="waiting_period">50</field>
+        <field name="reminder_mail">True</field>
+        <field name="number">4</field>
+        <field name="communication">
+            Dear Sir,
+            Our Ref: %(partner_name)s,
+
+            Final Request For Payment
+
+            Further to our previous correspondence, your account is still overdue for payment. We would respectfully remind you that you have exceeded the trading terms for these outstanding amounts and we would be grateful to receive your remittance within a week to avoid this overdue amount being passed to commercial debt recovery service CreditXS for collection.
+
+            We look forward to hearing from you.
+
+            Yours sincerely
+        </field>
+    </record>
+
+    <record model="payment.followup.line" id="payment_followup_line_demo_5">
+        <field name="name">Final Request For Payment: Letter</field>
+        <field name="template_id" ref="payment_followup_mail_template_2"/>
+        <field name="payment_followup_id" ref="payment_followup_demo"/>
+        <field name="waiting_period">60</field>
+        <field name="reminder_mail">False</field>
+        <field name="reminder_communication">True</field>
+        <field name="number">5</field>
+        <field name="communication">
+            Dear Sir,
+            Our Ref: %(partner_name)s,
+
+            Final Request For Payment
+
+            Further to our previous correspondence, your account is still overdue for payment. We would respectfully remind you that you have exceeded the trading terms for these outstanding amounts and we would be grateful to receive your remittance within a week to avoid this overdue amount being passed to commercial debt recovery service CreditXS for collection.
+
+            We look forward to hearing from you.
+
+            Yours sincerely
+        </field>
+    </record>
+</flectra>

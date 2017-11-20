@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_payment_followup_line,payment.followup.line,model_payment_followup_line,account.group_account_invoice,1,0,0,0
+access_payment_followup_line_manager,payment.followup.line.manager,model_payment_followup_line,account.group_account_manager,1,1,1,1
+access_payment_followup_accountant,payment.followup.line.user,model_payment_followup,account.group_account_invoice,1,0,0,0
+access_payment_followup_manager,payment.followup.manager,model_payment_followup,account.group_account_manager,1,1,1,1
+access_payment_followup_statistics,payment.followup.statistics,model_payment_followup_statistics,account.group_account_invoice,1,1,0,0
+access_partner_followup_statistics_manager,partner.followup.statistics.manager,model_partner_followup_statistics,account.group_account_user,1,1,0,0

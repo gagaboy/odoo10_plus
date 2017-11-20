@@ -42,6 +42,7 @@
         'data/mail_channel_demo.xml',
     ],
     'installable': True,
+    'post_init_hook': 'post_init',
     'application': True,
     'qweb': [
         'static/src/xml/activity.xml',

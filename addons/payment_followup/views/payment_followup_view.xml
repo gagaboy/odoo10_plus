@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="view_payment_followup_line_tree" model="ir.ui.view">
+        <field name="name">payment.followup.line.tree</field>
+        <field name="model">payment.followup.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="waiting_period"/>
+                <field name="reminder_mail"/>
+                <field name="reminder_communication"/>
+                <field name="manual_activity"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_payment_followup_line_form" model="ir.ui.view">
+        <field name="name">payment.followup.line.form</field>
+        <field name="model">payment.followup.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <label for="name" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name" placeholder="Name"/>
+                    </h1>
+                    <separator string="Activities"/>
+                    <div>
+                        <field name="manual_activity"/>
+                        <label for="manual_activity"/>
+                        <field name="reminder_mail" class="oe_inline"/>
+                        <label for="reminder_mail"/>
+                        <field name="reminder_communication" class="oe_inline"/>
+                        <label for="reminder_communication"/>
+                    </div>
+                    <group>
+                        <field name="payment_followup_id"/>
+                        <field name="waiting_period"/>
+                    </group>
+                    <separator string="Manual Activity"/>
+                    <group attrs="{'invisible': [('manual_activity', '=', False)]}">
+                        <field name="user_id"/>
+                        <field name="todo_activity"
+                               attrs="{'required': [('manual_activity', '!=', False)]}"
+                               placeholder="Action to be taken for customer follow-up..."/>
+                    </group>
+
+                    <group attrs="{'invisible': [('reminder_mail', '=', False)]}">
+                        <field name="template_id" attrs="{'required': [('reminder_mail', '!=', False)]}"/>
+                    </group>
+
+                    <separator string="Communication Mail"/>
+                    <group attrs="{'invisible': [('reminder_mail', '=', False), ('reminder_communication', '=', False)]}">
+                        <p colspan="2" class="oe_grey">
+                            Mention mail content as per communication needs to be done with partner.
+                            <br/>
+                            <br/>
+                            Following keywords can be used in mail:
+                            <br/>
+                            <br/>
+                            <table>
+                                <tr>
+                                    <td t-translation="off">%%(partner_name)s</td>
+                                    <td>: Partner's Name</td>
+                                </tr>
+                                <tr>
+                                    <td t-translation="off">%%(date)s</td>
+                                    <td>: Date</td>
+                                </tr>
+                                <tr>
+                                    <td t-translation="off">%%(user_signature)s</td>
+                                    <td>: User</td>
+                                </tr>
+                                <tr>
+                                    <td t-translation="off">%%(company_name)s</td>
+                                    <td>: User's Company</td>
+                                </tr>
+                            </table>
+                        </p>
+                        <field name="communication" nolabel="1" colspan="2"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_payment_followup_levels" model="ir.actions.act_window">
+        <field name="name">Levels of Payment Follow-up</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">payment.followup.line</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem action="action_payment_followup_levels" id="payment_followup_level_menu"
+              parent="menu_payment_followup_finance" name="Levels Payment Follow-up"/>
+
+</flectra>

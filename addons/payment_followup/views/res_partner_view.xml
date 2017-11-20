@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="view_res_partner_tree" model="ir.ui.view">
+        <field name="name">res.partner.followup.tree</field>
+        <field name="model">res.partner</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <tree create="false" delete="false">
+                <field name="display_name"/>
+                <field name="upcoming_activity_date"/>
+                <field name="upcoming_activity"/>
+                <field name="user_id"/>
+                <field name="expected_payment_date"/>
+                <field name="followup_line_id"/>
+                <field name="overdue_amt"/>
+                <field name="amt_tobe_paid"/>
+                <field name="user_id" invisible="1"/>
+                <field name="country_id" invisible="1"/>
+                <field name="parent_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_res_partner_tree_inherited" model="ir.ui.view">
+        <field name="name">res.partner.followup.inherit.tree</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='display_name']" position="after">
+                <field name="user_id" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_res_partner_search" model="ir.ui.view">
+        <field name="name">Search</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[1]" position="after">
+                <group string="Follow-up">
+                    <filter string="My Follow-ups" domain="[('user_id','=', uid)]" name="my"/>
+                    <filter string="TODO Follow-Ups"
+                            domain="[('overdue_amt', '&gt;', 0.0),('expected_payment_date','&lt;=', time.strftime('%%Y-%%m-%%d'))]"
+                            name="todo"/>
+                    <separator/>
+                    <filter string="Overdue Amount"
+                            domain="[('overdue_amt', '&gt;', 0.0)]"
+                            name="overdue_amount"/>
+                    <filter string="Follow-Ups w/o responsible Users" domain="[('user_id', '=', False)]"/>
+                </group>
+            </xpath>
+            <xpath expr="//group[1]" position="inside">
+                <filter string="User" context="{'group_by':'user_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_res_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.followup.form.view</field>
+        <field name="model">res.partner</field>
+        <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="print_overdue_payment" type="object" string="Print Overdue Follow-up Payments"
+                                groups="account.group_account_manager" icon="fa-print"
+                                attrs="{'invisible':[('amt_tobe_paid', '&lt;=', 0.0)]}"/>
+                        <button name="send_overdue_mail" type="object" string="Email Overdue Payment"
+                                groups="account.group_account_manager" icon="fa-envelope"
+                                attrs="{'invisible':[('amt_tobe_paid', '&lt;=', 0.0)]}"/>
+                    </div>
+                    <h1>
+                        <field name="name" readonly="1"/>
+                    </h1>
+                    <p attrs="{'invisible':[('followup_date','=', False)]}">
+                        The newest follow-up <field name="followup_line_id" class="oe_inline"/> on date <field name="followup_date" class="oe_inline"/>.
+                    </p>
+                    <group>
+                        <field name="user_id" class="oe_inline"/>
+                        <label for="upcoming_activity" string="Upcoming Activity"/>
+                        <div>
+                            <field name="upcoming_activity_date" class="oe_inline"/>
+                            <button name="set_action_done" type="object" string="⇾ Complete"
+                                    class="oe_link" attrs="{'invisible':[('upcoming_activity_date','=', False)]}"
+                                    groups="account.group_account_manager"/>
+                            <field name="upcoming_activity"
+                                   placeholder="Action to be done..."/>
+                        </div>
+                    </group>
+                    <label for="comment" class="oe_edit_only"/>
+                    <field name="comment"
+                           placeholder="Note..."/>
+                    <separator string="Transaction History"/>
+                    <field name="move_line_ids">
+                        <tree editable="bottom" create="false" delete="false"
+                              decoration-danger="(not date_maturity or date_maturity&lt;current_date) and amount_balance&gt;0">
+                            <field name="date" readonly="True"/>
+                            <field name="company_id" readonly="True" groups="base.group_multi_company"/>
+                            <field name="move_id" readonly="True"/>
+                            <field name="blocked"/>
+                            <field name="payment_followup_line_id"/>
+                            <field name="date_maturity" readonly="True"/>
+                            <field name="amount_balance" readonly="True"/>
+                            <field name="payment_followup_line_id" invisible='1'/>
+                        </tree>
+                    </field>
+                    <group class="oe_subtotal_footer oe_right">
+                        <field name="amt_tobe_paid"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_res_partner_view" model="ir.actions.act_window">
+        <field name="name">Manual Follow-Ups</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_res_partner_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('view_res_partner_form')})]"/>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('amt_tobe_paid', '>', 0.0)]</field>
+        <field name="context">{'Followupfirst':True, 'search_default_todo': True}</field>
+        <field name="search_view_id" ref="view_res_partner_search"/>
+    </record>
+
+    <record id="view_res_patner_form_inherited" model="ir.ui.view">
+        <field name="name">res.partner.followup.form.inherit</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="model">res.partner</field>
+        <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button name="open_follow_ups" type="object" string="Follow Ups"
+                        groups="account.group_account_manager" icon="fa-arrow-up"/>
+            </xpath>
+        </field>
+    </record>
+
+    <menuitem id="payment_followup_menu" action="action_res_partner_view"
+              parent="menu_payment_followup_finance" name="Do Manual Follow-Ups" sequence="3"/>
+
+    <record id="action_followup_by_partner" model="ir.actions.act_window">
+        <field name="name">My Follow-Ups</field>
+        <field name="view_id" ref="view_res_partner_tree"/>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('amt_tobe_paid', '>', 0.0)]</field>
+        <field name="context">{'Followupfirst':True, 'search_default_todo': True, 'search_default_my': True}</field>
+        <field name="search_view_id" ref="view_res_partner_search"/>
+    </record>
+
+    <menuitem id="menu_sale_followup" parent="menu_payment_followup_finance" sequence="1"
+              action="action_followup_by_partner" groups="account.group_account_invoice"/>
+
+</flectra>

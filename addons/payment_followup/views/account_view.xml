@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="view_move_line_form_inherited" model="ir.ui.view">
+        <field name="name">account.move.line.form.followup</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_form"/>
+        <field name="arch" type="xml">
+            <field name="date_maturity" position="after">
+                <field name="payment_followup_line_id"/>
+                <field name="date_payment_followup"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_move_line_tree" model="ir.ui.view">
+        <field name="name">account.move.line.tree.view</field>
+        <field name="model">account.move.line</field>
+        <field eval="32" name="priority"/>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="date"/>
+                <field name="move_id"/>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="account_id"/>
+                <field name="payment_followup_line_id"/>
+                <field name="date_payment_followup"/>
+                <field name="debit" sum="Total Debit"/>
+                <field name="credit" sum="Total Credit"/>
+                <field name="date_maturity"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_move_line_reconcile_tree" model="ir.ui.view">
+        <field name="name">account.move.line.tree</field>
+        <field name="model">account.move.line</field>
+        <field name="arch" type="xml">
+            <tree create="false">
+                <field name="date"/>
+                <field name="move_id"/>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="account_id"/>
+                <field name="journal_id" invisible="1"/>
+                <field name="full_reconcile_id"/>
+                <field name="debit" sum="Total Debit"/>
+                <field name="credit" sum="Total Credit"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="account_manual_reconcile_action" model="ir.actions.act_window">
+        <field name="context">{'search_default_unreconciled': 1,'view_mode':True}</field>
+        <field name="name">Journal Items to Reconcile</field>
+        <field name="res_model">account.move.line</field>
+        <field name="view_id" ref="view_move_line_reconcile_tree"/>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem
+            name="Payment and Reconciled Invoices"
+            action="account_manual_reconcile_action"
+            parent="menu_payment_followup_finance"
+            sequence="0"
+            id="menu_payment_followup_reconcile_invoices"/>
+
+</flectra>

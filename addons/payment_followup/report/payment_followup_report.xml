@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="view_statistics_graph" model="ir.ui.view">
+        <field name="name">payment_followup_statistics_graph</field>
+        <field name="model">payment.followup.statistics</field>
+        <field name="arch" type="xml">
+            <graph string="Follow-up lines">
+                <field name="payment_followup_id" type="row"/>
+                <field name="date_payment_followup" type="col"/>
+                <field name="amount_balance" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_statistics_search" model="ir.ui.view">
+        <field name="name">payment_followup_statistics_search</field>
+        <field name="model">payment.followup.statistics</field>
+        <field name="arch" type="xml">
+            <search string="Follow-ups Sent">
+                <field name="first_move_date"/>
+                <field name="last_move_date"/>
+                <filter string="This Fiscal year" name="fiscalyear" domain="[('period_id','in','current_year')]"/>
+                <separator/>
+                <filter string="Not Litigation" domain="[('blocked','=', False)]"/>
+                <field name="partner_id"/>
+                <field name="amount_balance"/>
+                <group expand="1" string="Group By">
+                    <filter string="Partner" context="{'group_by':'partner_id'}"/>
+                    <filter string="Litigation" context="{'group_by':'blocked'}"/>
+                    <filter string="Follow-up Level" name="followup_level" context="{'group_by':'payment_followup_id'}"/>
+                    <filter string="Company" groups="base.group_multi_company" context="{'group_by':'company_id'}"/>
+                    <separator/>
+                    <filter string="Latest Follow-up Month" context="{'group_by':'date_payment_followup:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="payment_followup_statistics_action" model="ir.actions.act_window">
+        <field name="name">Follow-ups Sent</field>
+        <field name="res_model">payment.followup.statistics</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">graph</field>
+        <field name="context">{'search_default_followup_level':1}</field>
+        <field name="search_view_id" ref="view_statistics_search"/>
+    </record>
+
+    <menuitem id="menu_payment_followup_finance" parent="account.menu_finance" name="Payment Follow-up"
+              groups="account.group_account_invoice"/>
+
+    <menuitem action="payment_followup_statistics_action" id="menu_payment_followup_statistics_action"
+              parent="account.menu_finance" groups="account.group_account_invoice"
+              name="Follow-Ups Analysis" sequence="10"/>
+
+</flectra>

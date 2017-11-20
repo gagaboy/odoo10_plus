@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra noupdate="1">
+
+    <record model="mail.template" id="payment_followup_mail_template">
+        <field name="name">Request For Payment</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="lang">${object.lang}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="subject">${user.company_id.name} Payment Reminder</field>
+        <field name="email_from">${(user.email or '')|safe}</field>
+        <field name="email_to">${object.email|safe}</field>
+        <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+
+    <p> Dear Sir, </p>
+    <p> Our Ref: ${object.name},</p>
+    <p>
+    It has come to our attention that your account is overdue for payment.
+
+    We are not aware of any disputes or reason for non-payment, therefore we would respectfully remind you that you have exceeded the trading terms for these outstanding amounts and we would be grateful to receive your remittance as soon as possible.
+
+    The details of the outstanding invoices are as follows:
+</p>
+<br/>
+${object.get_followup_details() | safe}
+<br/>
+We look forward to hearing from you.
+<br/>
+Yours sincerely
+<br/>
+${user.name}
+<br/>
+</div>
+            ]]></field>
+    </record>
+
+    <record model="mail.template" id="payment_followup_mail_template_1">
+        <field name="name">Second Request For Payment</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="lang">${object.lang}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="subject">${user.company_id.name} Payment Reminder</field>
+        <field name="email_from">${(user.email or '')|safe}</field>
+        <field name="email_to">${object.email|safe}</field>
+        <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+    
+    <p> Dear Sir, </p>
+    <p> Our Ref: ${object.name},</p>
+    <p>
+    Second Request For Payment
+
+    Further to our previous correspondence, your account is still overdue for payment. We would respectfully remind you that you have exceeded the trading terms for these outstanding amounts and we would be grateful to receive your remittance by return.
+
+    The details of the outstanding invoices are as follows:
+</p>
+<br/>
+${object.get_followup_details() | safe}
+<br/>
+We look forward to hearing from you.
+<br/>
+Yours sincerely
+<br/>
+${user.name}
+<br/>
+</div>
+            ]]></field>
+    </record>
+
+    <record model="mail.template" id="payment_followup_mail_template_2">
+        <field name="name">Final Request For Payment</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="lang">${object.lang}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="subject">${user.company_id.name} Payment Reminder</field>
+        <field name="email_from">${(user.email or '')|safe}</field>
+        <field name="email_to">${object.email|safe}</field>
+        <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+    
+    <p> Dear Sir, </p>
+    <p> Our Ref: ${object.name},</p>
+    <p>
+    Final Request For Payment
+
+    Further to our previous correspondence, your account is still overdue for payment. We would respectfully remind you that you have exceeded the trading terms for these outstanding amounts and we would be grateful to receive your remittance within a week to avoid this overdue amount being passed to commercial debt recovery service CreditXS for collection.
+
+    The details of the outstanding invoices are as follows:
+</p>
+<br/>
+${object.get_followup_details() | safe}
+<br/>
+We look forward to hearing from you.
+<br/>
+Yours sincerely
+<br/>
+${user.name}
+<br/>
+</div>
+            ]]></field>
+    </record>
+
+    <record model="mail.template" id="email_template_payment_followup_default">
+        <field name="name">Request For Payment</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="lang">${object.lang}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="subject">${user.company_id.name} Payment Reminder</field>
+        <field name="email_from">${(user.email or '')|safe}</field>
+        <field name="email_to">${object.email|safe}</field>
+        <field name="body_html"><![CDATA[
+<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+    
+    <p> Dear Sir, </p>
+    <p> Our Ref: ${object.name},</p>
+    <p>
+    It has come to our attention that your account is overdue for payment.
+
+    We are not aware of any disputes or reason for non-payment, therefore we would respectfully remind you that you have exceeded the trading terms for these outstanding amounts and we would be grateful to receive your remittance as soon as possible.
+
+    The details of the outstanding invoices are as follows:
+</p>
+<br/>
+${object.get_followup_details() | safe}
+<br/>
+We look forward to hearing from you.
+<br/>
+Yours sincerely
+<br/>
+${user.name}
+<br/>
+</div>
+            ]]></field>
+    </record>
+
+    <record model="payment.followup" forcecreate="False" id="payment_followup_demo">
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+
+    <record model="payment.followup.line" forcecreate="False" id="payment_followup_line_demo" >
+        <field name="name">Request For Payment</field>
+        <field name="template_id" ref="payment_followup_mail_template_2"/>
+        <field name="number">0</field>
+        <field name="waiting_period">15</field>
+        <field name="payment_followup_id" ref="payment_followup_demo"/>
+        <field name="reminder_mail">True</field>
+        <field name="communication">
+            Dear Sir,
+            Our Ref: %(partner_name)s,
+
+            It has come to our attention that your account is overdue for payment.
+
+            We are not aware of any disputes or reason for non-payment, therefore we would respectfully remind you that you have exceeded the trading terms for these outstanding amounts and we would be grateful to receive your remittance as soon as possible.
+
+            We look forward to hearing from you.
+
+            Yours sincerely
+        </field>
+        <field name="template_id" ref="payment_followup_mail_template"/>
+    </record>
+
+    <record model="payment.followup.line" forcecreate="False" id="payment_followup_line_demo_1">
+        <field name="name">Second Request For Payment</field>
+        <field name="template_id" ref="payment_followup_mail_template"/>
+        <field name="payment_followup_id" ref="payment_followup_demo"/>
+        <field name="waiting_period">30</field>
+        <field name="reminder_mail">True</field>
+        <field name="reminder_communication">True</field>
+        <field name="number">1</field>
+        <field name="communication">
+            Dear Sir,
+            Our Ref: %(partner_name)s,
+
+            Second Request For Payment
+
+            Further to our previous correspondence, your account is still overdue for payment. We would respectfully remind you that you have exceeded the trading terms for these outstanding amounts and we would be grateful to receive your remittance by return.
+
+            We look forward to hearing from you.
+
+            Yours sincerely
+        </field>
+    </record>
+
+    <record model="payment.followup.line" forcecreate="False" id="payment_followup_line_demo_2">
+        <field name="name">Final Request For Payment</field>
+        <field name="manual_activity">True</field>
+        <field name="todo_activity">Final Request For Payment</field>
+        <field name="template_id" ref="payment_followup_mail_template_2"/>
+        <field name="payment_followup_id" ref="payment_followup_demo"/>
+        <field name="waiting_period">40</field>
+        <field name="reminder_mail">False</field>
+        <field name="number">3</field>
+        <field name="communication">
+            Dear Sir,
+            Our Ref: %(partner_name)s,
+
+            Final Request For Payment
+
+            Further to our previous correspondence, your account is still overdue for payment. We would respectfully remind you that you have exceeded the trading terms for these outstanding amounts and we would be grateful to receive your remittance within a week to avoid this overdue amount being passed to commercial debt recovery service CreditXS for collection.
+
+            We look forward to hearing from you.
+
+            Yours sincerely
+        </field>
+    </record>
+
+</flectra>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <report
+            id="action_report_payment_followup"
+            model="payment.followup"
+            string="Payment Follow-up Report"
+            report_type="qweb-pdf"
+            name="payment_followup.report_payment_followup"
+            file="payment_followup.report_payment_followup"
+            menu="False"/>
+
+</flectra>
