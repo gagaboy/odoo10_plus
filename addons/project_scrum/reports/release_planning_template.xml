@@ -3,9 +3,9 @@
     <data>
         <template id="release_planning_template_id">
             <t t-call="web.external_layout">
-                <div class="page" style="page-break-after:always;" t-foreach="docs" t-as="object">
+                <div class="page" style="page-break-after: always;" t-foreach="docs" t-as="object">
                     <div class="oe_structure">
-                        <div class="col-xs-12">
+                        <div class="col-xs-12 mt16">
                             <table class="table">
                                 <tr>
                                     <th>
@@ -43,8 +43,7 @@
                                     </td>
                                 </tr>
                             </table>
-                            <br/>
-                            <br/>
+                            <h3 class="text-center">Task Details</h3>
                             <table class="table">
                                 <tr>
                                     <th>Task Title</th>

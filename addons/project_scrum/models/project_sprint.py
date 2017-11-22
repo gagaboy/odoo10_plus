@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# Part of Flectra. See LICENSE file for full copyright and licensing details.
 
 from flectra import models, fields, api, _
 from flectra.exceptions import ValidationError
@@ -77,26 +77,31 @@ class ProjectSprint(models.Model):
         "Duration (In Days)", compute='days_calculate', store=True,
         track_visibility="onchange")
 
-    @api.one
+    @api.multi
     def _get_task_count(self):
-        self.number_of_tasks = self.env['project.task'].search_count([
-            ('sprint_id', '=', self.id)])
+        for record in self:
+            record.number_of_tasks = record.env['project.task'].search_count([
+                ('sprint_id', '=', record.id)])
 
     number_of_tasks = fields.Integer(
         string="# of tasks", compute="_get_task_count")
 
-    @api.one
+    @api.multi
     def _get_story_count(self):
-        self.number_of_stories = self.env['project.story'].search_count([
-            ('sprint_id', '=', self.id)])
+        for record in self:
+            count = record.env['project.story'].search_count([
+                ('sprint_id', '=', record.id)])
+            record.number_of_stories = count
 
     number_of_stories = fields.Integer(
         string="# of stories", compute="_get_story_count")
 
-    @api.one
+    @api.multi
     def _get_retrospective_count(self):
-        self.number_of_retrospectives = self.env['retrospective'].search_count(
-            [('sprint_id', '=', self.id)])
+        for record in self:
+            count = record.env['retrospective'].search_count([
+                ('sprint_id', '=', record.id)])
+            record.number_of_retrospectives = count
 
     number_of_retrospectives = fields.Integer(
         string="# of Retrospectives", compute="_get_retrospective_count")
@@ -110,12 +115,13 @@ class ProjectSprint(models.Model):
         for record in self:
             task_ids = self.env['project.task'].search([
                 ('sprint_id', '=', record.id)])
+            velocity = record.estimated_velocity or 1.0
             for task in task_ids:
                 data.append({
                     'task': task.task_seq or '/',
                     'velocity': task.velocity or 0,
                     'per': round(((float(task.velocity) * 100) / float(
-                        record.estimated_velocity)), 2)
+                        velocity)), 2)
                 })
             record.tasks_json = data
 
@@ -162,9 +168,11 @@ class ProjectSprint(models.Model):
             'view_type': 'form',
             'view_mode': 'tree,form',
             'res_model': model,
-            'domain': [
-                ('sprint_id', '=', self.id),
-            ]
+            'domain': [('sprint_id', '=', self.id)],
+            'context': {
+                'default_sprint_id': self.id,
+                'default_project_id': self.project_id.id
+            }
         }
 
     @api.multi
@@ -185,7 +193,8 @@ class ProjectSprint(models.Model):
 
     @api.constrains('start_date', 'end_date')
     def check_dates(self):
-        if self.start_date > self.end_date:
+        if self.start_date and self.end_date and (
+                self.start_date > self.end_date):
             raise ValidationError(
                 "Start Date can not be greater than End date, Dude!")
 
@@ -194,74 +203,79 @@ class ProjectSprint(models.Model):
         self.holiday_count = 0.0
         self.holiday_days = 0.0
 
-    @api.one
+    @api.multi
     @api.depends('project_id', 'project_id.no_of_days', 'start_date',
                  'end_date')
     def calculate_business_days(self):
-        if self.start_date and self.end_date:
-            days_dict = {
-                0: (1, 2, 3, 4, 5, 6, 7),
-                1: (2, 3, 4, 5, 6, 7),
-                2: (3, 4, 5, 6, 7),
-                3: (4, 5, 6, 7),
-                4: (5, 6, 7),
-                5: (6, 7),
-                6: (7,),
-                7: (),
-            }
-            start = datetime.strptime(self.start_date, "%Y-%m-%d").date()
-            end = datetime.strptime(self.end_date, "%Y-%m-%d").date()
-            delta = timedelta(days=1)
-            days = 0
+        for record in self:
+            if record.start_date and record.end_date:
+                days_dict = {
+                    0: (1, 2, 3, 4, 5, 6, 7),
+                    1: (2, 3, 4, 5, 6, 7),
+                    2: (3, 4, 5, 6, 7),
+                    3: (4, 5, 6, 7),
+                    4: (5, 6, 7),
+                    5: (6, 7),
+                    6: (7,),
+                    7: (),
+                }
+                start = datetime.strptime(record.start_date, "%Y-%m-%d").date()
+                end = datetime.strptime(record.end_date, "%Y-%m-%d").date()
+                delta = timedelta(days=1)
+                days = 0
 
-            if self.project_id and end > start:
-                working_days = self.project_id.no_of_days
-                non_working_days = days_dict[working_days]
+                if record.project_id and end > start:
+                    working_days = record.project_id.no_of_days
+                    non_working_days = days_dict[working_days]
 
-                while end != start:
-                    end -= delta
-                    if end.isoweekday() not in non_working_days:
-                        days += 1
+                    while end != start:
+                        end -= delta
+                        if end.isoweekday() not in non_working_days:
+                            days += 1
 
-                self.working_days = days
+                    record.working_days = days
 
-    @api.one
+    @api.multi
     @api.depends('project_id', 'project_id.no_of_hours', 'productivity_hours')
     def calculate_productivity_per(self):
-        if self.productivity_hours and self.project_id \
-                and self.project_id.no_of_hours > 0:
-            per = (
-                self.productivity_hours / self.project_id.no_of_hours) * 100
-            self.productivity_per = per
+        for record in self:
+            project_id = record.project_id
+            no_of_hours = project_id.no_of_hours if project_id else 0
+            prod_hours = record.productivity_hours
+            if project_id and no_of_hours > 0 and prod_hours:
+                record.productivity_per = (prod_hours / no_of_hours) * 100
 
-    @api.one
+    @api.multi
     @api.depends('project_id', 'project_id.no_of_hours', 'holiday_count')
     def calculate_holiday_days(self):
-        if self.holiday_type == 'days' and self.project_id:
-            hours = self.holiday_count * self.project_id.no_of_hours
-            self.holiday_days = hours
+        for record in self:
+            if record.holiday_type == 'days' and record.project_id:
+                hours = record.holiday_count * record.project_id.no_of_hours
+                record.holiday_days = hours
 
-    @api.one
+    @api.multi
     @api.depends('project_id', 'task_line', 'task_line.velocity')
     def calculate_estimated_velocity(self):
-        task_ids = self.env['project.task'].search([
-            ('sprint_id', '=', self.id)
-        ])
-        total_velocity = sum([
-            task.velocity for task in task_ids if task.velocity])
-        self.estimated_velocity = total_velocity
+        for record in self:
+            task_ids = record.env['project.task'].search([
+                ('sprint_id', '=', record.id)
+            ])
+            total_velocity = sum([
+                task.velocity for task in task_ids if task.velocity])
+            record.estimated_velocity = total_velocity
 
-    @api.one
+    @api.multi
     @api.depends('project_id', 'end_date', 'task_line', 'task_line.velocity',
                  'task_line.stage_id')
     def calculate_actual_velocity(self):
-        task_ids = self.env['project.task'].search([
-            ('sprint_id', '=', self.id),
-            ('actual_end_date', '<=', self.end_date),
-        ])
-        total_velocity = sum([
-            task.velocity for task in task_ids if task.velocity])
-        self.actual_velocity = total_velocity
+        for record in self:
+            task_ids = record.env['project.task'].search([
+                ('sprint_id', '=', record.id),
+                ('actual_end_date', '<=', record.end_date),
+            ])
+            total_velocity = sum([
+                task.velocity for task in task_ids if task.velocity])
+            record.actual_velocity = total_velocity
 
     @api.onchange('duration')
     def onchange_start_date(self):
@@ -343,7 +357,6 @@ class ProjectSprint(models.Model):
     @api.multi
     def write(self, vals):
         res = super(ProjectSprint, self).write(vals)
-        partner_list = []
 
         if 'team_id' in vals:
             team_id = self.env['project.team'].browse(vals['team_id'])
@@ -356,7 +369,7 @@ class ProjectSprint(models.Model):
         ])
         delete_team_id.unlink()
 
-        partner_list += [member.partner_id.id for member in team_id.member_ids]
+        partner_list = [member.partner_id.id for member in team_id.member_ids]
         for follower in partner_list:
             if follower:
                 mail_follower_ids = self.env['mail.followers'].sudo().search([
@@ -409,39 +422,42 @@ class Project(models.Model):
 class SprintPlanningLine(models.Model):
     _name = "sprint.planning.line"
 
-    @api.one
+    @api.multi
     @api.depends('available_per', 'sprint_id.project_id',
                  'sprint_id.project_id.no_of_hours',
                  'sprint_id', 'sprint_id.working_days')
     def calculate_hours(self):
-        project_id = self.sprint_id.project_id
-        no_of_hours = project_id and project_id.no_of_hours or 0.0
-        calc = (
-            self.available_per *
-            self.sprint_id.working_days * no_of_hours) / 100
-        self.productivity_hours = float(calc)
+        for record in self:
+            project_id = record.sprint_id.project_id
+            no_of_hours = project_id and project_id.no_of_hours or 0.0
+            calc = (
+                record.available_per *
+                record.sprint_id.working_days * no_of_hours) / 100
+            record.productivity_hours = float(calc)
 
-    @api.one
+    @api.multi
     @api.depends('sprint_id', 'available_per', 'sprint_id.working_days',
                  'sprint_id.productivity_hours')
     def calculate_sprint_hours(self):
-        hours = (self.available_per * self.sprint_id.working_days *
-                 self.sprint_id.productivity_hours) / 100
-        self.sprint_hours = hours
+        for record in self:
+            hours = (record.available_per * record.sprint_id.working_days *
+                     record.sprint_id.productivity_hours) / 100
+            record.sprint_hours = hours
 
-    @api.one
+    @api.multi
     @api.depends('sprint_id', 'sprint_id.holiday_count',
                  'sprint_id.holiday_days', 'sprint_hours', 'off_hours')
     def calculate_total_hours(self):
-        if self.sprint_id.holiday_type == 'hours':
-            hours = (
-                self.sprint_hours - self.sprint_id.holiday_count -
-                self.off_hours)
-        else:
-            hours = (
-                self.sprint_hours - self.sprint_id.holiday_days -
-                self.off_hours)
-        self.total_hours = hours
+        for record in self:
+            if record.sprint_id.holiday_type == 'hours':
+                hours = (
+                    record.sprint_hours - record.sprint_id.holiday_count -
+                    record.off_hours)
+            else:
+                hours = (
+                    record.sprint_hours - record.sprint_id.holiday_days -
+                    record.off_hours)
+            record.total_hours = hours
 
     sprint_id = fields.Many2one('project.sprint', string="Sprint")
     user_id = fields.Many2one('res.users', string="User")
@@ -472,6 +488,7 @@ class ResUsers(models.Model):
 
 class ProjectTask(models.Model):
     _inherit = "project.task"
+
     sprint_id = fields.Many2one(
         'project.sprint', string="Sprint", track_visibility="onchange")
     velocity = fields.Integer(string="Velocity", track_visibility="onchange")
@@ -491,21 +508,25 @@ class ProjectTask(models.Model):
         if self.sprint_id:
             start_date = self.sprint_id.start_date
             end_date = self.sprint_id.end_date
-            if self.start_date < start_date:
+
+            if self.start_date and start_date and (
+                    self.start_date < start_date):
                 raise ValidationError(
                     "Start date is not valid according to the Sprint.")
 
-            if self.end_date > end_date:
+            if self.end_date and end_date and (self.end_date > end_date):
                 raise ValidationError(
                     "End date is not valid according to the Sprint.")
 
     @api.model
     def create(self, vals):
         res = super(ProjectTask, self).create(vals)
-        partner_list = []
 
-        partner_list += [member.partner_id.id
-                         for member in res.sprint_id.team_id.member_ids]
+        partner_list = [
+            member.partner_id.id
+            for member in res.sprint_id.team_id.member_ids
+        ]
+
         for follower in partner_list:
             if follower:
                 mail_follower_ids = self.env['mail.followers'].sudo().search([
@@ -528,7 +549,6 @@ class ProjectTask(models.Model):
             vals['task_seq'] = self.env['ir.sequence'].next_by_code(
                 'project.task')
         res = super(ProjectTask, self).write(vals)
-        partner_list = []
 
         data = []
         for record in self:
@@ -557,7 +577,7 @@ class ProjectTask(models.Model):
         ])
         delete_team_id.unlink()
 
-        partner_list += [member.partner_id.id for member in team_id.member_ids]
+        partner_list = [member.partner_id.id for member in team_id.member_ids]
         for follower in partner_list:
             if follower:
                 mail_follower_ids = self.env['mail.followers'].sudo().search([

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# Part of Flectra. See LICENSE file for full copyright and licensing details.
 
 from .test_scrum_common import TestScrumCommon
 from .test_scrum_team import TestScrumTeam

@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# Part of Flectra. See LICENSE file for full copyright and licensing details.
 
 from flectra import fields, models, api, _
 
@@ -53,12 +53,14 @@ class ProjectStory(models.Model):
             'view_type': 'form',
             'view_mode': 'tree,form',
             'res_model': 'project.task',
-            'domain': [
-                ('sprint_id', '=', self.sprint_id.id)
-            ]
+            'domain': [('sprint_id', '=', self.sprint_id.id)],
+            'context': {
+                'default_sprint_id': self.sprint_id.id,
+                'default_project_id': self.sprint_id.project_id.id,
+            }
         }
 
-    @api.one
+    @api.multi
     @api.depends('sprint_id')
     def calculate_estimated_velocity(self):
         task_ids = self.env['project.task'].search([
@@ -68,7 +70,7 @@ class ProjectStory(models.Model):
             [task.velocity for task in task_ids if task.velocity])
         self.estimated_velocity = total_velocity
 
-    @api.one
+    @api.multi
     @api.depends('sprint_id', 'sprint_id.end_date')
     def calculate_actual_velocity(self):
         task_ids = self.env['project.task'].search([
@@ -87,9 +89,8 @@ class ProjectStory(models.Model):
     @api.model
     def create(self, vals):
         res = super(ProjectStory, self).create(vals)
-        partner_list = []
 
-        partner_list += [
+        partner_list = [
             member.partner_id.id for member in res.sprint_id.team_id.member_ids
         ]
 
@@ -113,8 +114,6 @@ class ProjectStory(models.Model):
     @api.multi
     def write(self, vals):
         res = super(ProjectStory, self).write(vals)
-        partner_list = []
-
         delete_team_id = self.env['mail.followers'].sudo().search([
             ('team_id', '!=', self.sprint_id.team_id.id),
             ('res_id', '=', self.id),
@@ -122,8 +121,10 @@ class ProjectStory(models.Model):
 
         delete_team_id.unlink()
 
-        partner_list += [member.partner_id.id
-                         for member in self.sprint_id.team_id.member_ids]
+        partner_list = [
+            member.partner_id.id for member in
+            self.sprint_id.team_id.member_ids
+        ]
 
         for follower in partner_list:
             if follower:

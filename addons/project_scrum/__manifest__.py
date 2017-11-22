@@ -1,8 +1,11 @@
-# -*- coding: utf-8 -*-
+# Part of Flectra. See LICENSE file for full copyright and licensing details.
+
 {
     'name': 'Project Scrum',
     'version': '1.0',
     'category': 'Project',
+    'author': 'Flectra',
+    'website': 'https://flectrahq.com',
     'sequence': 40,
     'summary': 'A module for Scrum implementation',
     'depends': [
