@@ -1,0 +1,87 @@
+#switcher-body {
+    .container {
+        background: #fff;
+        margin: 50px auto;
+        border: 1px solid #dedede;
+        padding: 40px;
+    }
+}
+
+.changer-body {
+    z-index: 900;
+    position: fixed;
+    left: 0px;
+    top: 85px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400 !important;
+    i {
+        color: #fff;
+        font-size: 21px;
+    }
+    .btn {
+        margin-top: 10px;
+    }
+    .close-icon {
+        cursor: pointer;
+        text-align: center;
+        //background:@brand-primary;
+        color: @brand-primary;
+        padding: 2px;
+        //float: right;
+        height: 40px;
+        line-height: 40px;
+        -webkit-border-radius: 0 20px 20px 0;
+        -moz-border-radius: 0 20px 20px 0;
+        border-radius: 0 20px 20px 0;
+        // width:40px;
+
+        i {
+            color: @brand-primary;
+        }
+    }
+    .form_holder {
+        border: 1px solid #ddd;
+        border-radius: 0;
+        cursor: pointer;
+        font-size: 16px;
+        background: #ffffff;
+        float: right;
+        //padding:20px;
+        width: 453px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        p {
+            font-size: 12px;
+        }
+    }
+}
+
+.changer-body select:active, .changer-body select:focus, .changer-body select:hover, .changer-body .button:active, .changer-body .button:focus, .changer-body .button:hover, .changer-body .btn:active, .changer-body .btn:focus, .changer-body .btn:hover, .changer-body .button:active, .changer-body .button:focus, .changer-body .button:hover {
+    box-shadow: none !important;
+}
+
+.changer-body, .changer-body p {
+    color: #545454 !important;
+}
+
+.modal.left.fade #lines_customize_modal_backend {
+    left: -320px;
+    -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+    transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.left.fade.in #lines_customize_modal_backend {
+    left: 0;
+}
+
+.modal.left #lines_customize_modal_backend {
+    position: fixed;
+    margin: auto;
+    width: 320px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+}

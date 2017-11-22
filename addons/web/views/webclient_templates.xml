@@ -245,6 +245,89 @@
         <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/form_view.less"/>
         <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/list_view.less"/>
         <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/control_panel.less"/>
+
+        <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/colors.less"/>
+        <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/customize_model.less"/>
+        <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/switcher_backend.less"/>
+        <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/variables.less"/>
+        <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font.less"/>
+
+        <script type="text/javascript" src="/web/static/src/js/backend_theme_customizer/backend_theme_customizer.js"/>
+        <script type="text/javascript" src="/web/static/src/js/backend_theme_customizer/customize_switcher.js"/>
+    </template>
+
+    <!-- Backend Theme Customizer Main Color -->
+    <template id="colors_blue" name="option_colors_blue" inherit_id="web.assets_backend" active="True" >
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/blue.less"/>
+        </xpath>
+    </template>
+
+    <template id="colors_light_green" name="option_colors_light_green" inherit_id="web.assets_backend" active="False" >
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/light_green.less"/>
+        </xpath>
+    </template>
+
+    <template id="colors_maroon" name="option_colors_maroon" inherit_id="web.assets_backend" active="False" >
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/maroon.less"/>
+        </xpath>
+    </template>
+
+    <template id="colors_minerals" name="option_colors_minerals" inherit_id="web.assets_backend" active="False" >
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/minerals.less"/>
+        </xpath>
+    </template>
+
+    <template id="colors_paw" name="option_colors_paw" inherit_id="web.assets_backend" active="False" >
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/paw.less"/>
+        </xpath>
+    </template>
+
+    <template id="colors_spice" name="option_colors_spice" inherit_id="web.assets_backend" active="False" >
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/spice.less"/>
+        </xpath>
+    </template>
+
+    <!-- Backend Theme Customizer Font -->
+    <template id="font_comic_sans" name="font_comic_sans" inherit_id="web.assets_backend" active="False" >
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/font_comic_sans.less"/>
+        </xpath>
+    </template>
+
+    <template id="font_rubik" name="font_rubik" inherit_id="web.assets_backend" active="True" >
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/font_rubik.less"/>
+        </xpath>
+    </template>
+
+    <template id="font_nunito" name="font_nunito" inherit_id="web.assets_backend" active="False" >
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/font_nunito.less"/>
+        </xpath>
+    </template>
+
+    <template id="font_varela_round" name="font_varela_round" inherit_id="web.assets_backend" active="False" >
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/font_varela_round.less"/>
+        </xpath>
+    </template>
+
+    <template id="font_poppins" name="font_poppins" inherit_id="web.assets_backend" active="False" >
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/font_poppins.less"/>
+        </xpath>
+    </template>
+
+    <template id="font_handlee" name="font_handlee" inherit_id="web.assets_backend" active="False" >
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/font_handlee.less"/>
+        </xpath>
     </template>
 
     <template id="web.assets_frontend" name="Website Assets">

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <!--Customize Model-->
+    <t t-name="web.customize_menu">
+        <li id="theme_customize_backend">
+            <a href="javascript:void(0);" title="Theme Customizer">
+                <i class="fa fa-cog fa-spin"/>
+            </a>
+        </li>
+    </t>
+
+    <t t-name="web.theme_customize_backend">
+        <div id="theme_customize_backend_modal" class="modal left fade">
+            <div id="lines_customize_modal_backend">
+                <div id="switcher-body">
+                    <div class="changer-body">
+                        <div class="form_holder">
+                            <div class="close-icon mt8">
+                                <button type="button" class="close"
+                                        data-dismiss="modal"
+                                        style="width: 42px;height: 32px;">
+                                    <i class="fa fa-close fa-1x"></i>
+                                    <span class="sr-only">Close</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <ul class="nav nav-pills nav-justified mt16 mb16">
+                                    <li class="active">
+                                        <a data-toggle="pill" href="#home">
+                                            Color
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="pill"
+                                           href="#menu1">Font
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="home" class="tab-pane fade in active">
+                                        <div class="row">
+                                            <!-- Schemes -->
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt16 mb16 scheme_color_blue">
+                                                <label class="icon checked">
+                                                    <input id="scheme_color_blue"
+                                                           type="radio"
+                                                           name="scheme_color_var"
+                                                           data-xmlid="web.colors_blue"
+                                                           active="True"/>
+                                                    <span class="blue-primary"></span>
+                                                    <span class="blue-success"></span>
+                                                    <span class="blue-info"></span>
+                                                    <span class="blue-warning"></span>
+                                                    <span class="blue-danger"></span>
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt16 mb16 scheme_color_light_green">
+                                                <label class="icon">
+                                                    <input id="scheme_color_light_green"
+                                                           type="radio"
+                                                           name="scheme_color_var"
+                                                           data-xmlid="web.colors_light_green"/>
+                                                    <span class="light_green-primary"></span>
+                                                    <span class="light_green-success"></span>
+                                                    <span class="light_green-info"></span>
+                                                    <span class="light_green-warning"></span>
+                                                    <span class="light_green-danger"></span>
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt16 mb16 scheme_color_maroon">
+                                                <label class="icon">
+                                                    <input id="scheme_color_maroon"
+                                                           type="radio"
+                                                           name="scheme_color_var"
+                                                           data-xmlid="web.colors_maroon"/>
+                                                    <span class="maroon-primary"></span>
+                                                    <span class="maroon-success"></span>
+                                                    <span class="maroon-info"></span>
+                                                    <span class="maroon-warning"></span>
+                                                    <span class="maroon-danger"></span>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt16 mb16 scheme_color_minerals">
+                                                <label class="icon">
+                                                    <input id="scheme_color_minerals"
+                                                           type="radio"
+                                                           name="scheme_color_var"
+                                                           data-xmlid="web.colors_minerals"/>
+                                                    <span class="minerals-primary"></span>
+                                                    <span class="minerals-success"></span>
+                                                    <span class="minerals-info"></span>
+                                                    <span class="minerals-warning"></span>
+                                                    <span class="minerals-danger"></span>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt16 mb16 scheme_color_paw">
+                                                <label class="icon">
+                                                    <input id="scheme_color_paw"
+                                                           type="radio"
+                                                           name="scheme_color_var"
+                                                           data-xmlid="web.colors_paw"/>
+                                                    <span class="paw-primary"></span>
+                                                    <span class="paw-success"></span>
+                                                    <span class="paw-info"></span>
+                                                    <span class="paw-warning"></span>
+                                                    <span class="paw-danger"></span>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt16 mb16 scheme_color_spice">
+                                                <label class="icon">
+                                                    <input id="scheme_color_spice"
+                                                           type="radio"
+                                                           name="scheme_color_var"
+                                                           data-xmlid="web.colors_spice"/>
+                                                    <span class="spice-primary"></span>
+                                                    <span class="spice-success"></span>
+                                                    <span class="spice-info"></span>
+                                                    <span class="spice-warning"></span>
+                                                    <span class="spice-danger"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="menu1" class="tab-pane fade">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt8 mb8 ">
+                                                <label class="icon  font_comic_sans mt8 mb8">
+                                                    <input name="font_var"
+                                                           type="radio"
+                                                           id="font_oxygen"
+                                                           data-xmlid="web.font_comic_sans"
+                                                           active="True"/>
+                                                    <h4 style="font-family:ComicRegular; font-size: 25px; display: inline;">
+                                                        Comic Sans
+                                                    </h4>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt8 mb8 ">
+                                                <label class="icon checked font_rubik mt8 mb8">
+                                                    <input name="font_var"
+                                                           type="radio"
+                                                           id="font_rubik"
+                                                           data-xmlid="web.font_rubik"/>
+                                                    <h4 style="font-family: 'Rubik'; font-size: 25px; display: inline;">
+                                                        Rubik
+                                                    </h4>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt8 mb8 ">
+                                                <label class="icon  font_nunito mt8 mb8">
+                                                    <input name="font_var"
+                                                           type="radio"
+                                                           id="font_nunito"
+                                                           data-xmlid="web.font_nunito"/>
+                                                    <h4 style="font-family: 'Nunito'; font-size: 25px; display: inline;">
+                                                        Nunito
+                                                    </h4>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt8 mb8 ">
+                                                <label class="icon font_varela_round mt8 mb8">
+                                                    <input name="font_var"
+                                                           type="radio"
+                                                           id="font_varela_round"
+                                                           data-xmlid="web.font_varela_round"/>
+                                                    <h4 style="font-family: VarelaRound-Regular; font-size: 25px; display: inline;">
+                                                        Varela
+                                                    </h4>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt8 mb8 ">
+                                                <label class="icon font_poppins mt8 mb8">
+                                                    <input name="font_var"
+                                                           type="radio"
+                                                           id="font_poppins"
+                                                           data-xmlid="web.font_poppins"/>
+                                                    <h4 style="font-family: Poppins; font-size: 25px; display:inline">
+                                                        Poppins
+                                                    </h4>
+                                                </label>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mt8 mb8 ">
+                                                <label class="icon font_handlee mt8 mb8">
+                                                    <input name="font_var"
+                                                           type="radio"
+                                                           id="font_handlee"
+                                                           data-xmlid="web.font_handlee"/>
+                                                    <h4 style="font-family: Handlee; font-size: 25px; display:inline;">
+                                                        Handlee
+                                                    </h4>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="f_color_palette_loading" style="display: none;">
+                <div style="left: 50%; top: 40%; position: absolute;">
+                    <img class="img img-responsive" src="/web/static/src/img/gears.svg"/>
+                    <span style="color: #ffffff; font-size: 20px;">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
