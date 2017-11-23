@@ -20,11 +20,6 @@
             <field name="login">andy@demo.com</field>
         </record>
 
-        <record id="demo_project_1" model="project.project">
-            <field name="no_of_hours">08.00</field>
-            <field name="no_of_days">5</field>
-        </record>
-
         <!--
             project.team Demo Data
         -->

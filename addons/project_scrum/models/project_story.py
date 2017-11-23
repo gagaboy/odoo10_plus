@@ -63,23 +63,25 @@ class ProjectStory(models.Model):
     @api.multi
     @api.depends('sprint_id')
     def calculate_estimated_velocity(self):
-        task_ids = self.env['project.task'].search([
-            ('sprint_id', '=', self.sprint_id.id)
-        ])
-        total_velocity = sum(
-            [task.velocity for task in task_ids if task.velocity])
-        self.estimated_velocity = total_velocity
+        for story in self:
+            task_ids = story.env['project.task'].search([
+                ('sprint_id', '=', story.sprint_id.id)
+            ])
+            total_velocity = sum([
+                task.velocity for task in task_ids if task.velocity])
+            story.estimated_velocity = total_velocity
 
     @api.multi
     @api.depends('sprint_id', 'sprint_id.end_date')
     def calculate_actual_velocity(self):
-        task_ids = self.env['project.task'].search([
-            ('sprint_id', '=', self.sprint_id.id),
-            ('actual_end_date', '<=', self.sprint_id.end_date)
-        ])
-        total_velocity = sum(
-            [task.velocity for task in task_ids if task.velocity])
-        self.actual_velocity = total_velocity
+        for story in self:
+            task_ids = story.env['project.task'].search([
+                ('sprint_id', '=', story.sprint_id.id),
+                ('actual_end_date', '<=', story.sprint_id.end_date)
+            ])
+            total_velocity = sum([
+                task.velocity for task in task_ids if task.velocity])
+            story.actual_velocity = total_velocity
 
     @api.onchange('sprint_id')
     def onchange_project(self):

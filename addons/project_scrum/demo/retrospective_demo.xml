@@ -43,7 +43,7 @@
             retrospective.lines Demo Data
         -->
         <record id="retrospective_line_1" model="retrospective.lines">
-            <field name="message">Tasks have done well.</field>
+            <field name="message">Tasks have been done well.</field>
             <field name="retrospective_id" ref="project_scrum.retrospective_1"/>
         </record>
 

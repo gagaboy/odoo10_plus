@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <flectra>
     <data noupdate="1">
+        <record id="resource.resource_calendar_std" model="resource.calendar">
+            <field name="no_of_hours">8</field>
+            <field name="no_of_days">5</field>
+        </record>
+
+        <record id="resource.resource_calendar_std_35h" model="resource.calendar">
+            <field name="no_of_hours">7</field>
+            <field name="no_of_days">5</field>
+        </record>
 
         <record id="demo_project_1" model="project.project">
             <field name="name">Project Scrum</field>
@@ -10,8 +19,6 @@
             <field name="privacy_visibility">employees</field>
             <field name="partner_id">1</field>
             <field name="sequence">10</field>
-            <field name="no_of_hours">08.00</field>
-            <field name="no_of_days">5</field>
             <field name="resource_calendar_id">1</field>
             <field name="type_ids"
                    eval="[(6, 0, [ref('project.project_stage_0'),

@@ -9,7 +9,7 @@
     'sequence': 40,
     'summary': 'A module for Scrum implementation',
     'depends': [
-        'project',
+        'project', 'resource'
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -36,7 +36,6 @@
         'demo/project_release_planning_demo.xml',
         'demo/retrospective_demo.xml',
         'demo/project_task_demo.xml',
-        'demo/project_demo.xml',
     ],
     'qweb': [
         'static/src/xml/scrum_dashboard.xml',

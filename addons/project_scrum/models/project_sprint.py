@@ -405,18 +405,35 @@ class ProjectSprint(models.Model):
 class Project(models.Model):
     _inherit = "project.project"
 
-    @api.constrains('no_of_hours', 'no_of_days')
-    def check_days(self):
-        if self.no_of_hours < 1 or self.no_of_hours > 24:
-            raise ValidationError(
-                'No. of hours per day should be in range 1 - 24.')
+    @api.multi
+    def _sprint_count(self):
+        for project in self:
+            count = project.env['project.sprint'].search_count([
+                ('project_id', '=', project.id)
+            ])
+            project.sprint_count = count
 
-        if self.no_of_days < 1 or self.no_of_days > 7:
-            raise ValidationError(
-                'No. of days per week should be in range 1 - 7.')
+    sprint_count = fields.Integer(
+        compute="_sprint_count", string="No. of sprints related to")
 
-    no_of_hours = fields.Float(string="Working Hour(s) per Day")
-    no_of_days = fields.Integer(string="Working Day(s) per Week")
+    @api.multi
+    def show_sprints(self):
+        self.ensure_one()
+        return {
+            'name': ("Sprints"),
+            'type': 'ir.actions.act_window',
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'res_model': 'project.sprint',
+            'domain': [('project_id', '=', self.id)]
+        }
+
+    no_of_hours = fields.Integer(
+        related="resource_calendar_id.no_of_hours",
+        string="Working Hour(s) per Day", store=True)
+    no_of_days = fields.Integer(
+        related="resource_calendar_id.no_of_days",
+        string="Working Day(s) per Week", store=True)
 
 
 class SprintPlanningLine(models.Model):
@@ -599,3 +616,48 @@ class MailFollowers(models.Model):
     _inherit = "mail.followers"
 
     team_id = fields.Many2one("project.team", string="Project Team")
+
+
+class ResourceCalendar(models.Model):
+    _inherit = "resource.calendar"
+
+    no_of_hours = fields.Integer(string="No. of Hour(s) a Day")
+    no_of_days = fields.Integer(string="No. of Day(s) a Week")
+
+    @api.multi
+    @api.constrains('no_of_hours', 'no_of_days', 'attendance_ids')
+    def _check_days_hours(self):
+        week_days = {
+            0: 'Monday',
+            1: 'Tuesday',
+            2: 'Wednesday',
+            3: 'Thursday',
+            4: 'Friday',
+            5: 'Saturday',
+            6: 'Sunday'
+        }
+
+        for resource in self:
+            res = {}
+            current_hours = resource.no_of_hours
+            current_days = resource.no_of_days
+            for attendance in resource.attendance_ids:
+                day = attendance.dayofweek
+                diff = abs(attendance.hour_from - attendance.hour_to)
+                if day not in res:
+                    res[day] = diff
+                else:
+                    res[day] += diff
+
+            if len(res) > current_days:
+                raise ValidationError(
+                    "You can not Add Working Hour(s) for more than %s\
+                    different days." % current_days)
+
+            for data in sorted(list(res.items())):
+                day, hours = data
+                if hours > current_hours:
+                    raise ValidationError(
+                        "Invalid hours for %s!\n\nWorking hours per day should\
+                        not be greater than %s." % (
+                            week_days[int(day)], current_hours))
