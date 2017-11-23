@@ -44,6 +44,12 @@
                     </field>
                 </group>
             </xpath>
+
+            <xpath expr="//notebook/page[@name='settings']" position="after">
+                <page string="Stages">
+                    <field name="task_type_ids"/>
+                </page>
+            </xpath>
         </field>
     </record>
 
