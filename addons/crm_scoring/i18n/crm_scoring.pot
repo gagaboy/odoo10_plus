@@ -1,0 +1,353 @@
+# Translation of Flectra Server.
+# This file contains the translation of the following modules:
+#	* crm_scoring
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Flectra Server 1.0alpha\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-20 10:47+0000\n"
+"PO-Revision-Date: 2017-12-20 10:47+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: crm_scoring
+#: selection:crm.lead.score,score_rule_type:0
+msgid "Archive"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_is_event_based
+msgid "Based on Event?"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.ui.view,arch_db:crm_scoring.view_crm_lead_score_form
+msgid "Channels"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model,name:crm_scoring.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: crm_scoring
+#: selection:crm.lead.score,profile_scoring_type:0
+#: model:ir.actions.act_window,name:crm_scoring.action_crm_lead_contact_status
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_contact_status_id
+#: model:ir.model.fields,field_description:crm_scoring.field_res_partner_contact_status_id
+#: model:ir.model.fields,field_description:crm_scoring.field_res_users_contact_status_id
+#: model:ir.ui.menu,name:crm_scoring.menu_lead_contacts_status
+msgid "Contact Status"
+msgstr ""
+
+#. module: crm_scoring
+#: selection:crm.lead.score,profile_scoring_type:0
+#: model:ir.actions.act_window,name:crm_scoring.action_crm_lead_contact_type
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_contact_type_id
+#: model:ir.model.fields,field_description:crm_scoring.field_res_partner_contact_type_id
+#: model:ir.model.fields,field_description:crm_scoring.field_res_users_contact_type_id
+#: model:ir.ui.menu,name:crm_scoring.menu_lead_contacts_type
+#: model:ir.ui.view,arch_db:crm_scoring.view_crm_lead_score_form
+msgid "Contact Type"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.ui.view,arch_db:crm_scoring.view_crm_lead_score_form
+msgid "Contact status"
+msgstr ""
+
+#. module: crm_scoring
+#: selection:crm.lead.score,profile_scoring_type:0
+#: model:ir.model.fields,field_description:crm_scoring.field_country_scoring_country_id
+msgid "Country"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.ui.view,arch_db:crm_scoring.view_crm_lead_score_form
+msgid "Country Scoring"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_status_scoring_create_uid
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_type_scoring_create_uid
+#: model:ir.model.fields,field_description:crm_scoring.field_country_scoring_create_uid
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_status_create_uid
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_type_create_uid
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_create_uid
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_team_scoring_create_uid
+#: model:ir.model.fields,field_description:crm_scoring.field_partner_title_scoring_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_status_scoring_create_date
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_type_scoring_create_date
+#: model:ir.model.fields,field_description:crm_scoring.field_country_scoring_create_date
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_status_create_date
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_type_create_date
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_create_date
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_team_scoring_create_date
+#: model:ir.model.fields,field_description:crm_scoring.field_partner_title_scoring_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_is_running
+msgid "Currently Running?"
+msgstr ""
+
+#. module: crm_scoring
+#: selection:crm.lead.score,score_rule_type:0
+msgid "Delete"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_status_scoring_display_name
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_type_scoring_display_name
+#: model:ir.model.fields,field_description:crm_scoring.field_country_scoring_display_name
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_status_display_name
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_type_display_name
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_display_name
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_team_scoring_display_name
+#: model:ir.model.fields,field_description:crm_scoring.field_partner_title_scoring_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_status_scoring_id
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_type_scoring_id
+#: model:ir.model.fields,field_description:crm_scoring.field_country_scoring_id
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_status_id
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_type_id
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_id
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_team_scoring_id
+#: model:ir.model.fields,field_description:crm_scoring.field_partner_title_scoring_id
+msgid "ID"
+msgstr ""
+
+#. module: crm_scoring
+#: code:addons/crm_scoring/models/crm_lead_score.py:99
+#, python-format
+msgid "Invalid Score!\n"
+"\n"
+"Score must be in range 1 - 10."
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_status_scoring___last_update
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_type_scoring___last_update
+#: model:ir.model.fields,field_description:crm_scoring.field_country_scoring___last_update
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_status___last_update
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_type___last_update
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score___last_update
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_team_scoring___last_update
+#: model:ir.model.fields,field_description:crm_scoring.field_partner_title_scoring___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_status_scoring_write_uid
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_type_scoring_write_uid
+#: model:ir.model.fields,field_description:crm_scoring.field_country_scoring_write_uid
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_status_write_uid
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_type_write_uid
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_write_uid
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_team_scoring_write_uid
+#: model:ir.model.fields,field_description:crm_scoring.field_partner_title_scoring_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_status_scoring_write_date
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_type_scoring_write_date
+#: model:ir.model.fields,field_description:crm_scoring.field_country_scoring_write_date
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_status_write_date
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_type_write_date
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_write_date
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_team_scoring_write_date
+#: model:ir.model.fields,field_description:crm_scoring.field_partner_title_scoring_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_status_scoring_score_id
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_type_scoring_score_id
+#: model:ir.model.fields,field_description:crm_scoring.field_country_scoring_score_id
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_team_scoring_score_id
+#: model:ir.model.fields,field_description:crm_scoring.field_partner_title_scoring_score_id
+msgid "Lead Score"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model,name:crm_scoring.model_crm_lead_score
+msgid "Lead Soring Rule"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model,name:crm_scoring.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.ui.menu,name:crm_scoring.leads_management_main_menu
+msgid "Leads Management"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_status_name
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_contacts_type_name
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_name
+#: model:ir.ui.view,arch_db:crm_scoring.view_crm_lead_score_form
+msgid "Name"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_partner_title_scoring_partner_title_id
+msgid "Partner Title"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_channels_scoring_ids
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_country_scoring_ids
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_status_scoring_ids
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_title_scoring_ids
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_type_scoring_ids
+#: model:ir.ui.view,arch_db:crm_scoring.view_crm_lead_score_form
+msgid "Profile Scoring"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_profile_scoring_type
+msgid "Profile Scoring Type"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_is_prospective_lead
+msgid "Prospective Lead?"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.ui.view,arch_db:crm_scoring.view_crm_lead_search_inherited
+msgid "Prospective Leads"
+msgstr ""
+
+#. module: crm_scoring
+#: selection:crm.lead.score,profile_scoring_type:0
+msgid "Sales Channels"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_status_scoring_score
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_type_scoring_score
+#: model:ir.model.fields,field_description:crm_scoring.field_country_scoring_score
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_lead_score
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_team_scoring_score
+#: model:ir.model.fields,field_description:crm_scoring.field_partner_title_scoring_score
+msgid "Score"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_score_score_rule_type
+msgid "Score Rule Type"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.actions.act_window,name:crm_scoring.action_crm_lead_scoring
+#: model:ir.ui.view,arch_db:crm_scoring.view_crm_lead_score_form
+#: model:ir.ui.view,arch_db:crm_scoring.view_crm_lead_score_tree
+#: model:ir.ui.view,arch_db:crm_scoring.view_lead_contact_status_form
+#: model:ir.ui.view,arch_db:crm_scoring.view_lead_contact_status_tree
+#: model:ir.ui.view,arch_db:crm_scoring.view_lead_contact_type_form
+#: model:ir.ui.view,arch_db:crm_scoring.view_lead_contact_type_tree
+msgid "Scores"
+msgstr ""
+
+#. module: crm_scoring
+#: selection:crm.lead.score,score_rule_type:0
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_status_scoring_status_id
+msgid "Scoring"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_lead_scoring_rule_id
+msgid "Scoring Rule"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.ui.menu,name:crm_scoring.scores_menu
+msgid "Scoring Rules"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_crm_team_scoring_team_id
+msgid "Team"
+msgstr ""
+
+#. module: crm_scoring
+#: code:addons/crm_scoring/models/crm_lead_score.py:28
+#: code:addons/crm_scoring/models/crm_lead_score.py:42
+#, python-format
+msgid "There's already one rule defined for '%s' type!"
+msgstr ""
+
+#. module: crm_scoring
+#: selection:crm.lead.score,profile_scoring_type:0
+msgid "Title"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.ui.view,arch_db:crm_scoring.view_crm_lead_score_form
+msgid "Title Scoring"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model.fields,field_description:crm_scoring.field_contacts_type_scoring_type_id
+msgid "Type"
+msgstr ""
+
+#. module: crm_scoring
+#: code:addons/crm_scoring/models/crm_lead_score.py:76
+#, python-format
+msgid "You can not add same type twice!"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model,name:crm_scoring.model_contacts_status_scoring
+msgid "contacts.status.scoring"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model,name:crm_scoring.model_contacts_type_scoring
+msgid "contacts.type.scoring"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model,name:crm_scoring.model_country_scoring
+msgid "country.scoring"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model,name:crm_scoring.model_crm_contacts_status
+msgid "crm.contacts.status"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model,name:crm_scoring.model_crm_contacts_type
+msgid "crm.contacts.type"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model,name:crm_scoring.model_crm_team_scoring
+msgid "crm.team.scoring"
+msgstr ""
+
+#. module: crm_scoring
+#: model:ir.model,name:crm_scoring.model_partner_title_scoring
+msgid "partner.title.scoring"
+msgstr ""
+

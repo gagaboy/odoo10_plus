@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <!-- Score Form View -->
+    <record id="view_crm_lead_score_form" model="ir.ui.view">
+        <field name="name">CRM Lean Score Form</field>
+        <field name="model">crm.lead.score</field>
+        <field name="arch" type="xml">
+            <form string="Scores">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Name"/>
+                        </h1>
+                    </div>
+                    <group col="4" colspan="4">
+                        <field name="score_rule_type"/>
+                        <field name="is_event_based"/>
+                        <field name="profile_scoring_type"/>
+                        <field name="is_running"/>
+                    </group>
+                    <notebook>
+                        <page string="Profile Scoring">
+                            <field name="type_scoring_ids" nolabel="1" widget="one2many_list" attrs="{'invisible': [('profile_scoring_type', '!=', 'contact_type')]}">
+                                <tree string="Contact Type" editable="bottom">
+                                    <field name="type_id" required="1"/>
+                                    <field name="score"/>
+                                    <field name="score_id" invisible="1"/>
+                                </tree>
+                            </field>
+                            <field name="status_scoring_ids" nolabel="1" widget="one2many_list" attrs="{'invisible': [('profile_scoring_type', '!=', 'contact_status')]}">
+                                <tree string="Contact status" editable="bottom">
+                                    <field name="status_id" required="1"/>
+                                    <field name="score"/>
+                                    <field name="score_id" invisible="1"/>
+                                </tree>
+                            </field>
+                            <field name="channels_scoring_ids" nolabel="1" widget="one2many_list" attrs="{'invisible': [('profile_scoring_type', '!=', 'sales_channels')]}">
+                                <tree string="Channels" editable="bottom">
+                                    <field name="team_id" required="1"/>
+                                    <field name="score"/>
+                                    <field name="score_id" invisible="1"/>
+                                </tree>
+                            </field>
+                            <field name="title_scoring_ids" nolabel="1" widget="one2many_list" attrs="{'invisible': [('profile_scoring_type', '!=', 'title')]}">
+                                <tree string="Title Scoring" editable="bottom">
+                                    <field name="partner_title_id" required="1"/>
+                                    <field name="score"/>
+                                    <field name="score_id" invisible="1"/>
+                                </tree>
+                            </field>
+                            <field name="country_scoring_ids" nolabel="1" widget="one2many_list" attrs="{'invisible': [('profile_scoring_type', '!=', 'country')]}">
+                                <tree string="Country Scoring" editable="bottom">
+                                    <field name="country_id" required="1"/>
+                                    <field name="score"/>
+                                    <field name="score_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Score Tree View -->
+    <record model="ir.ui.view" id="view_crm_lead_score_tree">
+        <field name="name">Website Crm Score Tree</field>
+        <field name="model">crm.lead.score</field>
+        <field name="arch" type="xml">
+            <tree string="Scores">
+                <field name="name"/>
+                <field name="score_rule_type"/>
+                <field name="profile_scoring_type"/>
+                <field name="is_event_based"/>
+                <field name="is_running"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Score Action - tree - form -->
+    <record model="ir.actions.act_window" id="action_crm_lead_scoring">
+        <field name="name">Scores</field>
+        <field name="res_model">crm.lead.score</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Score Menu Item -->
+    <menuitem id="leads_management_main_menu" name="Leads Management"
+        sequence="10" parent="crm.crm_menu_root"/>
+
+    <menuitem id="scores_menu" name="Scoring Rules" parent="leads_management_main_menu"
+        action="action_crm_lead_scoring"/>
+
+</flectra>

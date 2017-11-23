@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <data noupdate="True">
+        <!-- Contacts Type -->
+        <record id="crm_score_lead_contact_type1" model="crm.contacts.type">
+            <field name="name">Lead</field>
+        </record>
+
+        <record id="crm_score_lead_contact_type2" model="crm.contacts.type">
+            <field name="name">Sales Qualified Lead</field>
+        </record>
+
+        <record id="crm_score_lead_contact_type3" model="crm.contacts.type">
+            <field name="name">Customer</field>
+        </record>
+
+        <record id="crm_score_lead_contact_type4" model="crm.contacts.type">
+            <field name="name">Competitor</field>
+        </record>
+
+        <record id="crm_score_lead_contact_type5" model="crm.contacts.type">
+            <field name="name">Analyst</field>
+        </record>
+
+        <!-- Contacts Status -->
+        <record id="crm_score_lead_profile_contact_status1" model="crm.contacts.status">
+            <field name="name">Cold</field>
+        </record>
+
+        <record id="crm_score_lead_profile_contact_status2" model="crm.contacts.status">
+            <field name="name">Warm</field>
+        </record>
+
+        <record id="crm_score_lead_profile_contact_status3" model="crm.contacts.status">
+            <field name="name">Hot</field>
+        </record>
+
+        <record id="crm_score_lead_profile_contact_status4" model="crm.contacts.status">
+            <field name="name">Qualified</field>
+        </record>
+
+        <record id="crm_score_lead_profile_contact_status5" model="crm.contacts.status">
+            <field name="name">Ready to close</field>
+        </record>
+
+        <record id="crm_score_lead_profile_contact_status6" model="crm.contacts.status">
+            <field name="name">Opportunity</field>
+        </record>
+
+        <record id="crm_score_lead_profile_contact_status7" model="crm.contacts.status">
+            <field name="name">Active</field>
+        </record>
+
+        <record id="crm_score_lead_profile_contact_status8" model="crm.contacts.status">
+            <field name="name">Inactive</field>
+        </record>
+
+        <record id="crm_score_lead_profile_contact_status9" model="crm.contacts.status">
+            <field name="name">Positive</field>
+        </record>
+
+        <record id="crm_score_lead_profile_contact_status10" model="crm.contacts.status">
+            <field name="name">Neutral</field>
+        </record>
+
+        <record id="crm_score_lead_profile_contact_status11" model="crm.contacts.status">
+            <field name="name">Negative</field>
+        </record>
+
+        <record id="crm_score_lead_profile_contact_status12" model="crm.contacts.status">
+            <field name="name">NLWC</field>
+        </record>
+
+        <record id="crm_score_lead_profile_contact_status13" model="crm.contacts.status">
+            <field name="name">Not Contacted</field>
+        </record>
+
+        <record id="crm_score_lead_profile_contact_status14" model="crm.contacts.status">
+            <field name="name">Attempted Contact</field>
+        </record>
+
+        <record id="crm_score_lead_profile_contact_status15" model="crm.contacts.status">
+            <field name="name">Contacted</field>
+        </record>
+
+        <!-- Lead Scores -->
+        <record id="crm_lead_score1" model="crm.lead.score">
+            <field name="name">Type</field>
+            <field name="profile_scoring_type">contact_type</field>
+            <field name="is_running">True</field>
+        </record>
+
+        <record id="crm_lead_score2" model="crm.lead.score">
+            <field name="name">Status</field>
+            <field name="profile_scoring_type">contact_status</field>
+            <field name="is_event_based">True</field>
+            <field name="is_running">True</field>
+        </record>
+
+        <record id="crm_lead_score3" model="crm.lead.score">
+            <field name="name">Channel</field>
+            <field name="profile_scoring_type">sales_channels</field>
+            <field name="is_running">True</field>
+        </record>
+
+        <!-- Profile Scoring lines -->
+        <record id="profile_scoring_line1" model="contacts.type.scoring">
+            <field name="score_id" ref="crm_lead_score1"/>
+            <field name="type_id" ref="crm_score_lead_contact_type5"/>
+            <field name="score">8</field>
+        </record>
+
+        <record id="profile_scoring_line2" model="contacts.status.scoring">
+            <field name="score_id" ref="crm_lead_score2"/>
+            <field name="status_id" ref="crm_score_lead_profile_contact_status1"/>
+            <field name="score">4</field>
+        </record>
+
+        <record id="profile_scoring_line3" model="crm.team.scoring">
+            <field name="score_id" ref="crm_lead_score3"/>
+            <field name="team_id" ref="sales_team.team_sales_department"/>
+            <field name="score">6</field>
+        </record>
+    </data>
+</flectra>

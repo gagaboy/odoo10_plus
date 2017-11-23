@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <record id="inherit_crm_lead_score_form_view" model="ir.ui.view">
+        <field name="name">inherit.crm.lead.form.score</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+        <field name="arch" type="xml">
+            <field name="priority" position="after">
+                <field name="scoring_rule_id" options="{'no_create': True, 'no_create_edit': True}" invisible="1"/>
+                <field name="lead_score"/>
+            </field>
+            <field name="team_id" position="after">
+                <field name="contact_type_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                <field name="contact_status_id" options="{'no_create': True, 'no_create_edit': True}"/>
+            </field>
+            <field name="tag_ids" position="after">
+                <field name="is_prospective_lead"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_crm_lead_search_inherited" model="ir.ui.view">
+        <field name="name">inherit.crm.lead.search</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_crm_case_leads_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='activities_upcoming_all']" position="after">
+                <separator/>
+                <filter name="prospective_leads" string="Prospective Leads" domain="[('is_prospective_lead', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+</flectra>

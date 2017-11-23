@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <record model="ir.ui.view" id="view_lead_contact_type_form">
+        <field name="name">CRM Contacts Type Form</field>
+        <field name="model">crm.contacts.type</field>
+        <field name="arch" type="xml">
+            <form string="Scores">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Score Tree View -->
+    <record model="ir.ui.view" id="view_lead_contact_type_tree">
+        <field name="name">CRM Contacts Type Tree</field>
+        <field name="model">crm.contacts.type</field>
+        <field name="arch" type="xml">
+            <tree string="Scores">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Score Action - tree - form -->
+    <record model="ir.actions.act_window" id="action_crm_lead_contact_type">
+        <field name="name">Contact Type</field>
+        <field name="res_model">crm.contacts.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="view_lead_contact_status_form">
+        <field name="name">CRM Contact Status Form</field>
+        <field name="model">crm.contacts.status</field>
+        <field name="arch" type="xml">
+            <form string="Scores">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Score Tree View -->
+    <record model="ir.ui.view" id="view_lead_contact_status_tree">
+        <field name="name">CRM Contact Status Tree</field>
+        <field name="model">crm.contacts.status</field>
+        <field name="arch" type="xml">
+            <tree string="Scores">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Score Action - tree - form -->
+    <record model="ir.actions.act_window" id="action_crm_lead_contact_status">
+        <field name="name">Contact Status</field>
+        <field name="res_model">crm.contacts.status</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Score Configuration Menu Item -->
+    <menuitem
+        id="menu_lead_contacts_type"
+        name="Contact Type"
+        parent="contacts.res_partner_menu_config"
+        sequence="4"
+        action="action_crm_lead_contact_type"
+    />
+
+    <menuitem
+        id="menu_lead_contacts_status"
+        name="Contact Status"
+        parent="contacts.res_partner_menu_config"
+        sequence="4"
+        action="action_crm_lead_contact_status"
+    />
+</flectra>
