@@ -9,6 +9,7 @@ var Menu = require('web.Menu');
 var session = require('web.session');
 var SystrayMenu = require('web.SystrayMenu');
 var UserMenu = require('web.UserMenu');
+var UserProfile = require('web.UserProfile');
 var config = require('web.config');
 
 return AbstractWebClient.extend({
@@ -43,8 +44,11 @@ return AbstractWebClient.extend({
 
         // Create the user menu (rendered client-side)
         this.user_menu = new UserMenu(this);
+        this.user_profile = new UserProfile(this);
         var $user_menu_placeholder = $('body').find('.oe_user_menu_placeholder').show();
+        var $oe_application_menu_placeholder = $('body').find('.f_launcher_content');
         var user_menu_loaded = this.user_menu.appendTo($user_menu_placeholder);
+        this.user_profile.prependTo($oe_application_menu_placeholder);
 
         // Create the systray menu (rendered server-side)
         this.systray_menu = new SystrayMenu(this);

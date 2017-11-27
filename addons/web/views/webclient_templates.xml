@@ -160,6 +160,7 @@
         <script type="text/javascript" src="/web/static/src/js/services/session.js"></script>
         <script type="text/javascript" src="/web/static/src/js/widgets/auto_complete.js"></script>
         <script type="text/javascript" src="/web/static/src/js/widgets/change_password.js"></script>
+        <script type="text/javascript" src="/web/static/src/js/chrome/user_logout.js"></script>
         <script type="text/javascript" src="/web/static/src/js/widgets/debug_manager.js"></script>
         <script type="text/javascript" src="/web/static/src/js/widgets/data_export.js"></script>
         <script type="text/javascript" src="/web/static/src/js/widgets/date_picker.js"></script>
@@ -253,6 +254,7 @@
 
         <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/bootswatch_dark.less"/>
         <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/menu_launcher.less"/>
+        <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/navbar.less"/>
         <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/flectra_style.less"/>
         <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/search_view.less"/>
         <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme/form_view.less"/>
@@ -261,7 +263,6 @@
 
         <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/colors.less"/>
         <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/customize_model.less"/>
-        <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/switcher_backend.less"/>
         <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/variables.less"/>
         <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font.less"/>
 
@@ -270,76 +271,76 @@
     </template>
 
     <!-- Backend Theme Customizer Main Color -->
-    <template id="colors_blue" name="option_colors_blue" inherit_id="web.assets_backend" active="True" >
+    <template id="color_muddy_rainbow" name="option_color_muddy_rainbow" inherit_id="web.assets_backend" active="True" >
         <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/blue.less"/>
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/muddy_rainbow.less"/>
         </xpath>
     </template>
 
-    <template id="colors_light_green" name="option_colors_light_green" inherit_id="web.assets_backend" active="False" >
+    <template id="color_dark_nostalgia" name="option_color_dark_nostalgia" inherit_id="web.assets_backend" active="False" >
         <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/light_green.less"/>
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/dark_nostalgia.less"/>
         </xpath>
     </template>
 
-    <template id="colors_maroon" name="option_colors_maroon" inherit_id="web.assets_backend" active="False" >
+    <template id="color_warm_sunset" name="option_color_warm_sunset" inherit_id="web.assets_backend" active="False" >
         <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/maroon.less"/>
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/warm_sunset.less"/>
         </xpath>
     </template>
 
-    <template id="colors_minerals" name="option_colors_minerals" inherit_id="web.assets_backend" active="False" >
+    <template id="color_peaches_plums" name="option_color_peaches_plums" inherit_id="web.assets_backend" active="False" >
         <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/minerals.less"/>
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/peaches_plums.less"/>
         </xpath>
     </template>
 
-    <template id="colors_paw" name="option_colors_paw" inherit_id="web.assets_backend" active="False" >
+    <template id="color_lapine" name="option_color_lapine" inherit_id="web.assets_backend" active="False" >
         <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/paw.less"/>
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/lapine.less"/>
         </xpath>
     </template>
 
-    <template id="colors_spice" name="option_colors_spice" inherit_id="web.assets_backend" active="False" >
+    <template id="color_sunset_dunes" name="option_color_sunset_dunes" inherit_id="web.assets_backend" active="False" >
         <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/spice.less"/>
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/color_options/sunset_dunes.less"/>
         </xpath>
     </template>
 
     <!-- Backend Theme Customizer Font -->
-    <template id="font_comic_sans" name="font_comic_sans" inherit_id="web.assets_backend" active="False" >
+    <template id="font_work_sans" name="font_work_sans" inherit_id="web.assets_backend" active="True" >
         <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/font_comic_sans.less"/>
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/work_sans.less"/>
         </xpath>
     </template>
 
-    <template id="font_rubik" name="font_rubik" inherit_id="web.assets_backend" active="True" >
+    <template id="font_expletus_sans" name="font_expletus_sans" inherit_id="web.assets_backend" active="False" >
         <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/font_rubik.less"/>
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/expletus_sans.less"/>
         </xpath>
     </template>
 
-    <template id="font_nunito" name="font_nunito" inherit_id="web.assets_backend" active="False" >
+    <template id="font_philosopher" name="font_philosopher" inherit_id="web.assets_backend" active="False" >
         <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/font_nunito.less"/>
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/philosopher.less"/>
         </xpath>
     </template>
 
-    <template id="font_varela_round" name="font_varela_round" inherit_id="web.assets_backend" active="False" >
+    <template id="font_titillium_web" name="font_titillium_web" inherit_id="web.assets_backend" active="False" >
         <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/font_varela_round.less"/>
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/titillium_web.less"/>
         </xpath>
     </template>
 
-    <template id="font_poppins" name="font_poppins" inherit_id="web.assets_backend" active="False" >
+    <template id="font_averia_libre" name="font_averia_libre" inherit_id="web.assets_backend" active="False" >
         <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/font_poppins.less"/>
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/averia_libre.less"/>
         </xpath>
     </template>
 
-    <template id="font_handlee" name="font_handlee" inherit_id="web.assets_backend" active="False" >
+    <template id="font_tillana" name="font_tillana" inherit_id="web.assets_backend" active="False" >
         <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/font_handlee.less"/>
+            <link rel="stylesheet" type="text/less" href="/web/static/src/less/backend_theme_customizer/font_options/tillana.less"/>
         </xpath>
     </template>
 
@@ -445,7 +446,6 @@
     </template>
 
     <template id="web.menu">
-        <ul class="nav navbar-nav pull-right oe_user_menu_placeholder" style="display: none;"/>
         <ul class="nav navbar-nav pull-right oe_systray" style="display: none;"/>
     </template>
     <template id="web.menu_launcher">
@@ -467,7 +467,6 @@
                             t-att-data-menu-xmlid="menu.get('xmlid')"
                             t-att-data-action-model="menu['action'] and menu['action'].split(',')[0] or None"
                             t-att-data-action-id="menu['action'] and menu['action'].split(',')[1] or None">
-                                <div class="active_indicator"/>
                                 <div class="app_icon">
                                     <img t-att-src="str(menu['web_icon']).replace(',','/') if menu['web_icon'] else '/base/static/description/icon.png'"/>
                                 </div>
@@ -723,9 +722,30 @@
             <t t-set="body_classname" t-value="'o_web_client'"/>
 
             <nav id="oe_main_menu_navbar" class="navbar navbar-inverse" groups="base.group_user,base.group_portal">
+                <div class="color-line">
+                    <div class="color color-1"/>
+                    <div class="color color-2"/>
+                    <div class="color color-3"/>
+                    <div class="color color-4"/>
+                    <div class="color color-5"/>
+                </div>
                 <div class="f_toggle_buttons">
-                    <a id="mobile_toggle" class="hidden-sm hidden-md hidden-lg"><i class="fa fa-bars fa-2x"/></a>
-                    <a id="f_apps_search"><i class="hidden-xs fa fa-search fa-2x"/></a>
+                    <ul class="nav navbar-nav">
+                        <li class="f_company_name hidden-xs">
+                            <a class="o_sub_menu_logo" t-att-href="'/web/?debug' if debug else '/web'">
+                                <img src='/web/binary/company_logo'/>
+                            </a>
+                        </li>
+                        <li id="f_menu_toggle">
+                            <a href="#"><i class="fa fa-bars"/></a>
+                        </li>
+                        <li id="f_user_toggle">
+                            <a href="#"><i class="fa fa-user"/></a>
+                        </li>
+                        <li id="f_apps_search" class="hidden-xs">
+                            <a href="#"><i class="fa fa-search"/></a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="f_menu_systray">
                     <t t-call="web.menu"/>
@@ -734,11 +754,6 @@
             <div class="o_main">
                 <div class="f_launcher">
                     <t t-call="web.menu_launcher"/>
-                </div>
-                <div class="o_collapse_btn hidden-xs">
-                    <a href="javascript:void(0);" class="hr">
-                        <i class="fa fa-angle-left"/>
-                    </a>
                 </div>
                 <div class="o_main_content"/>
             </div>

@@ -447,6 +447,9 @@ class Home(http.Controller):
         request.uid = request.session.uid
         try:
             context = request.env['ir.http'].webclient_rendering_context()
+            res_company = request.env['res.company'].sudo().search(
+                [('id', '=', json.loads(context['session_info'])['company_id'])])
+            context.update({'company_name': res_company.name})
             response = request.render('web.webclient_bootstrap', qcontext=context)
             response.headers['X-Frame-Options'] = 'DENY'
             return response

@@ -13,23 +13,12 @@ var session = require('web.session');
 
 var CustomizeMenu = Widget.extend({
     template: 'web.customize_menu',
-    events: {
-        "click": "on_click",
-    },
-    on_click: function (event) {
-        theme_customize_backend();
+    start: function () {
+        this._super.apply(this, arguments);
+        this.theme = new Theme();
+        this.theme.appendTo("#theme_customize_backend ul");
     },
 });
-
-function theme_customize_backend() {
-    if (Theme.open && !Theme.open.isDestroyed()) return;
-    Theme.open = new Theme();
-    Theme.open.appendTo("body");
-    var error = window.getComputedStyle(document.body, ':before').getPropertyValue('content');
-    if (error && error !== 'none') {
-        themeError(eval(error));
-    }
-}
 
 if (session.is_superuser) {
     SystrayMenu.Items.push(CustomizeMenu);

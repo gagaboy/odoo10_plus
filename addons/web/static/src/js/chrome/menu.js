@@ -49,44 +49,37 @@ var Menu = Widget.extend({
             .on('hidden.bs.collapse', toggleIcon)
             .on('shown.bs.collapse', toggleIcon);
 
-        this.$el.parents().find('.o_collapse_btn').click(function (event) {
+        this.$el.parents().find('li#f_menu_toggle a').click(function (event) {
             event.preventDefault();
             if (self.is_menus_lite_mode) {
-                $(this).find('i').addClass('fa-angle-left').removeClass('fa-angle-right');
-                self.$secondary_menus.find('.oe_main_menu_container.active .more-less a').trigger('click');
                 window.sessionStorage.removeItem('menus_lite_mode');
             } else {
-                var $in = self.$secondary_menus.find('.in');
-                if($in.length){
-                    self.$secondary_menus.find('.more-less a[href="#' + $in.attr('id') + '"]').trigger('click');
-                }
-                $(this).find('i').addClass('fa-angle-right').removeClass('fa-angle-left');
                 window.sessionStorage.setItem('menus_lite_mode', true);
             }
-            self.$secondary_menus.toggleClass('f_menus_lite');
+            if (config.device.size_class < config.device.SIZES.SM) {
+                self.$secondary_menus.toggleClass('f_hide');
+            } else {
+                self.$secondary_menus.toggleClass('f_launcher_close');
+            }
             self.is_menus_lite_mode = !self.is_menus_lite_mode;
         });
 
-        this.$el.parents().find('#mobile_toggle').click(function (event) {
-            event.preventDefault();
-            if (config.device.size_class < config.device.SIZES.SM) {
-                if (parseInt(self.$secondary_menus.css('zIndex')) > -1) {
-                    self.$secondary_menus.addClass('f_hide');
-                } else {
-                    self.$secondary_menus.removeClass('f_hide');
-                }
-                var $in = self.$secondary_menus.find('.in');
-                if(!$in.length){
-                    self.$secondary_menus.find('.oe_main_menu_container.active .more-less a').trigger('click');
-                }
-            }
-        });
-
-        this.$el.parents().find('#f_apps_search').click(function (event) {
+        this.$el.parents().find('li#f_apps_search a').click(function (event) {
             event.preventDefault();
             $(this).find('i').toggleClass('fa-search fa-times');
-            self.$el.parents().find('.o_web_client').toggleClass('launcher_opened');
+            self.$el.parents().find('.f_search_launcher').toggleClass('launcher_opened');
             self.$el.parents().find('.f_search_launcher .f_apps_search_input').focus();
+        });
+
+        this.$el.parents().find('li#f_user_toggle a').click(function (event) {
+            event.preventDefault();
+            self.$el.parents().find('.user_profile').toggleClass('close_profile');
+            if(self.$el.parents().find('.f_launcher_close').length || self.$el.parents().find('.f_launcher.f_hide').length){
+                self.$el.parents().find('.f_launcher').removeClass('f_launcher_close').removeClass('f_hide');
+                self.$el.parents().find('.user_profile').removeClass('close_profile');
+                window.sessionStorage.removeItem('menus_lite_mode');
+                self.is_menus_lite_mode = false;
+            }
         });
 
         // Hide second level submenus
@@ -98,23 +91,18 @@ var Menu = Widget.extend({
 
         var lazyreflow = _.debounce(this.reflow.bind(this), 200);
         core.bus.on('resize', this, function() {
-            var $in = self.$secondary_menus.find('.in');
             if ($(window).width() < 768 ) {
                 lazyreflow('all_outside');
-                self.$secondary_menus.addClass('f_hide');
+                self.$secondary_menus.addClass('f_hide').removeClass('f_launcher_close');
                 self.is_menus_lite_mode = false;
-                if(!$in.length && !self.is_menus_lite_mode){
-                    self.$secondary_menus.find('.oe_main_menu_container.active .more-less a').trigger('click');
-                }
             } else {
                 lazyreflow();
                 self.$secondary_menus.removeClass('f_hide');
                 self.is_menus_lite_mode = 'menus_lite_mode' in window.sessionStorage ? true : false;
-                if($in.length && self.is_menus_lite_mode){
-                    self.$secondary_menus.find('.more-less a[href="#' + $in.attr('id') + '"]').trigger('click');
+                if (self.is_menus_lite_mode) {
+                    self.$secondary_menus.addClass('f_launcher_close');
                 }
             }
-            self.$secondary_menus.toggleClass('f_menus_lite',self.is_menus_lite_mode);
         });
         core.bus.trigger('resize');
 
@@ -196,9 +184,8 @@ var Menu = Widget.extend({
         if(this._isMainMenuClick || this.isLoadflag) {
             var href_id = $sub_menu.attr('id');
             if (href_id && $sub_menu.attr('class').indexOf('in') === -1) {
-                this.$secondary_menus.removeClass('f_menus_lite');
-                    window.sessionStorage.removeItem('menus_lite_mode');
-                    this.is_menus_lite_mode = false;
+                window.sessionStorage.removeItem('menus_lite_mode');
+                this.is_menus_lite_mode = false;
                 if (!this.is_menus_lite_mode) {
                     this.$secondary_menus.find("a[href='#" + href_id + "']").trigger('click');
                 }
@@ -213,15 +200,8 @@ var Menu = Widget.extend({
                     .addClass('fa-chevron-down')
                     .removeClass('fa-chevron-up');
             }
-
-        }
-
-        if(this.is_menus_lite_mode){
-            this.$el.parents().find('.o_collapse_btn').find('i').addClass('fa-angle-right').removeClass('fa-angle-left');
-            this.$secondary_menus.addClass('f_menus_lite');
-        }else{
-            this.$el.parents().find('.o_collapse_btn').find('i').addClass('fa-angle-left').removeClass('fa-angle-right');
-            this.$secondary_menus.removeClass('f_menus_lite');
+            this.$el.parents().find('.f_search_launcher').removeClass('launcher_opened');
+            this.$el.parents().find('#f_apps_search').find('i').addClass('fa-search').removeClass('fa-times');
         }
 
         if (config.device.size_class < config.device.SIZES.SM) {
@@ -319,6 +299,7 @@ var Menu = Widget.extend({
     },
     on_menu_click: function(ev) {
         ev.preventDefault();
+        if(!parseInt($(ev.currentTarget).data('menu'))) return;
         this._isMainMenuClick = $(ev.currentTarget).attr('class').indexOf('oe_main_menu') !== -1 ? true : false;
         this.menu_click($(ev.currentTarget).data('menu'));
     },

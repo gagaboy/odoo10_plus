@@ -1,14 +1,11 @@
 .o_web_client {
     > .o_main {
         .o_view_manager_content {
-            background-color: #ffffff;
+            background-color: @flectra-color-silver;
         }
-        .f_menus_lite {
+        .f_launcher_close {
             .f_launcher_content {
-                width: 45px !important;
-                .app_name {
-                    display: none;
-                }
+                width: 0 !important;
             }
         }
 
@@ -20,8 +17,8 @@
         }
 
         .f_launcher {
-            border-right: 2px solid @brand-primary;
-            background-color: #333333;
+            border-right: 1px solid @launcher-menu-border;
+            background-color: @launcher-menu-bg;
             .f_launcher_content::-webkit-scrollbar {
                 display: none;
             }
@@ -31,24 +28,75 @@
                 .o-transition(all, 300ms);
                 overflow-y: auto;
                 padding-bottom: 30px;
+
+                .user_profile {
+                    padding: 10px;
+                    height: 110px;
+                    border-bottom: @flectra-main-color-muted;
+                    background: linear-gradient(320deg, mix(@flectra-brand-primary, #000000, 70%) 35%, transparent 0%),
+                    linear-gradient(250deg, mix(@flectra-brand-primary, #000000, 80%) 40%, transparent 0%),
+                    linear-gradient(190deg, mix(@flectra-brand-primary, #000000, 50%) 30%, transparent 0%),
+                    linear-gradient(10deg, mix(@flectra-brand-primary, #000000, 90%) 30%, transparent 100%),
+                    linear-gradient(0deg, black 100%, transparent 0%);
+                    background-size: 100%;
+                    .o-transition(all, 0.5s);
+                    .profile_pic {
+                        text-align: center;
+                        img {
+                            max-width: 60px;
+                            max-height: 100%;
+                        }
+                    }
+                    .profile_info {
+                        width: 100%;
+                        text-align: center;
+                        padding: 6px 0;
+                        > .dropdown {
+                            > a {
+                                cursor: pointer;
+                                font-size: 15px;
+                                color: #ffffff;
+                                font-weight: bold;
+                            }
+                            > ul {
+                                right: 0;
+                                > li {
+                                    text-align: center;
+                                    margin: 5px;
+                                }
+                            }
+                        }
+                    }
+                    &.close_profile {
+                        height: 0 !important;
+                        padding: 0;
+                        z-index: -1;
+                        position: relative;
+                        .o-transition(all, 0.1s);
+                    }
+                }
                 ul {
                     list-style-type: none;
                     padding: 0;
                     > li.panel {
-                        background-color: mix(@brand-primary, #ffffff, 8%);
+                        background-color: #ffffff;
                         margin: 0;
                         border-radius: 0;
+                        &:first-child > .oe_main_menu_container {
+                            border-top: 1px solid @launcher-menu-border;
+                        }
                         > .oe_main_menu_container {
                             display: flex;
                             width: 100%;
-                            background-color: #333333;
-                            height: 38px;
+                            background-color: @launcher-menu-bg;
+                            border-bottom: 1px solid @launcher-menu-border;
+                            height: 45px;
                             > a {
                                 display: flex;
                                 width: 100%;
                                 position: relative;
                                 .app_icon, .app_name {
-                                    padding: 5px 5px 5px 10px;
+                                    padding: 8px 5px 8px 10px;
                                 }
                                 .app_icon {
                                     > img {
@@ -58,55 +106,62 @@
                                 }
                                 .app_name {
                                     font-size: 15px;
-                                    color: mix(@brand-primary, #ffffff, 8%);
+                                    color: @flectra-main-text-color;
                                     margin: 4px 0;
                                     white-space: nowrap;
                                     overflow: hidden;
                                     text-overflow: ellipsis;
                                     max-width: 122px;
+                                    font-weight: bold;
                                 }
                             }
                             .more-less {
-                                margin: 10px;
+                                margin: 13px;
                                 > a {
                                     cursor: pointer;
-                                    color: mix(@brand-primary, #ffffff, 8%);
+                                    color: @flectra-main-text-color;
                                 }
                             }
                             &.active {
-                                background-color: @brand-primary;
-                                .active_indicator {
-                                    position: absolute;
-                                    height: 30px;
-                                    width: 3px;
-                                    background-color: mix(@brand-primary, #ffffff, 8%);
-                                    margin: 4px 2px;
+                                background-color: mix(@brand-primary, #ffffff, 30%);
+                                &:hover {
+                                    background-color: mix(@brand-primary, #ffffff, 30%);
                                 }
+                            }
+                            &:hover {
+                                background-color: #ffffff;
                             }
                         }
                     }
                 }
                 .oe_secondary_menu_section {
                     font-weight: bold;
-                    color: @brand-primary;
                     text-align: left;
                     font-size: 14px;
                     text-transform: uppercase;
-                    margin: 8px 0 8px 8px;
+                    padding: 8px 0 8px 8px;
+                    border-bottom: 1px solid @launcher-menu-border;
+                    > a, > a:hover {
+                        color: @flectra-main-text-color;
+                    }
+                    &.active > a {
+                        color: @brand-primary;
+                    }
                 }
                 .oe_secondary_submenu {
                     line-height: 1.1em;
-                    > li:not(.active) > a {
-                        color: @flectra-main-text-color;
-                        &:hover, &:focus {
-                            color: @btn-default-color;
-                            background-color: @flectra-main-text-color;
+                    > li {
+                        > a {
+                            padding: 10px 4px 10px 18px;
+                            color: @flectra-main-text-color;
+                            &:hover, &:focus {
+                                color: @flectra-main-text-color;
+                                background-color: @flectra-color-silver;
+                            }
                         }
-                    }
-                    > li > a {
-                        padding: 10px 4px 10px 18px;
-                        > .badge {
-                            margin-top: -1px;
+                        &.active > a {
+                            color: @brand-primary;
+                            background-color: @launcher-menu-bg;
                         }
                     }
                     .oe_secondary_submenu {
@@ -156,34 +211,28 @@
             }
         }
         .f_search_launcher {
-            height: 100%;
-            width: 0;
+            width: calc(~"100% - 400px");
+            height: 0;
             position: fixed;
-            z-index: 1052;
-            top: 32px;
-            left: 0;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.3) 70%, fade(@brand-primary, 80%) 100%);
-            overflow-x: hidden;
+            z-index: 999;
+            top: 62px;
+            left: 266px;
+            background-color: @launcher-menu-bg;
+            overflow: hidden;
+            .box-shadow(inset 0 -15px 15px -18px #000000);
             .o-transition(all, 300ms);
             .f_search_launcher_content {
                 position: relative;
                 width: 100%;
-                .f_app_header {
-                    width: 100%;
-                    text-align: center;
-                }
                 .f_apps_search_box {
-                    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
-                    background-color: rgba(255, 255, 255, 0.9);
                     align-items: center;
                     display: flex;
-                    height: 55px;
-                    border: 3px solid @brand-primary;
-                    margin: 32px 0 32px 0;
+                    height: 56px;
+                    border-bottom: 1px solid @launcher-menu-border;
                     .f_apps_search_icon {
                         padding: 8px;
-                        font-size: 24px;
-                        color: @brand-primary;
+                        font-size: 20px;
+                        color: @flectra-main-text-color;
                     }
                     #f_clear_apps_search {
                         cursor: pointer;
@@ -194,12 +243,12 @@
                     .f_apps_search_input {
                         border: none;
                         padding: 5px;
-                        color: @brand-primary;
-                        font-size: 25px;
+                        color: @flectra-main-text-color;
+                        font-size: 20px;
                         background-color: transparent;
 
                         .f-input-placeholder() {
-                            color: @brand-primary;
+                            color: @flectra-main-text-color;
                             opacity: 0.4;
                         }
 
@@ -220,174 +269,96 @@
                             border-bottom: none;
                         }
                     }
-                    @media (max-width: @screen-xs-max) {
-                        margin: 10px 0 10px 0;
-                    }
                 }
-                .f_apps_content {
-                    .f_app {
-                        width: 16.66%;
-                        text-align: center;
-                        padding: 20px;
-                        float: left;
-                        .f_app_icon {
-                            max-width: 60px;
-                            max-height: 100%;
-                            width: 100%;
-                        }
-                        .f_app_label {
-                            color: #000000;
-                            white-space: nowrap;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            padding-top: 5px;
-                        }
-                        &:hover {
-                            background-color: fade(@brand-primary, 60%);
-                        }
-                        @media (max-width: @screen-xs-max) {
+                .f_apps_container {
+                    .o-flex-display();
+                    .o-flex-flow(column, nowrap);
+                    .o-align-items(center);
+                    .o-flex(1, 0, auto);
+                    width: 100%;
+                    overflow-y: auto;
+                    .f_apps_content {
+                        .o-flex(0, 0, auto);
+                        width: 100%;
+                        .clearfix();
+                        margin: 10px 0;
+                        .f_app {
                             width: 25%;
-                            padding: 10px;
+                            text-align: center;
+                            padding: 20px;
+                            float: left;
+                            @media (min-width: @screen-xs-min) {
+                                width: 25%;
+                            }
+                            @media (max-width: @screen-xs-max) {
+                                padding: 10px;
+                                .f_app_label {
+                                    font-size: small;
+                                }
+                            }
+                            @media (min-width: 882px) {
+                                width: 20%;
+                            }
+                            @media (min-width: @screen-md-min) {
+                                width: 16.66%;
+                            }
+                            @media (min-width: @screen-lg-min) {
+                                width: 12.5%;
+                            }
+                            @media (min-width: 1440px) {
+                                width: 10%;
+                            }
+                            .f_app_icon {
+                                max-width: 45px;
+                                max-height: 100%;
+                                width: 100%;
+                            }
                             .f_app_label {
-                                font-size: small;
+                                color: #000000;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                padding-top: 5px;
+                            }
+                            &:hover {
+                                background-color: fade(@brand-primary, 60%);
                             }
                         }
                     }
+                    .f_app_footer {
+                        .o-flex-display();
+                        .o-flex(1, 0, auto);
+                        align-items: flex-end;
+                        margin: 10px 0;
+                        > img {
+                            max-width: 100px;
+                        }
+                    }
                 }
             }
-        }
-        .o_collapse_btn {
-            width: 15px;
-            cursor: pointer;
-            background-color: #FFFFFF;
-            > .hr {
-                height: 100%;
-                position: fixed;
-                top: calc(50% ~'+' 40px);
-                > .fa {
-                    color: @brand-primary;
-                    font-weight: bold;
-                    font-size: 19px;
-                    padding-left: 1px;
+            &.launcher_opened {
+                border: 1px solid @launcher-menu-border;
+                border-top: 0;
+                height: 356px;
+                .f_apps_container {
+                    height: 300px;
                 }
-            }
-            &:hover {
-                > .hr {
-                    > .fa {
-                        color: fade(@brand-primary, 50%) !important;
+                @media (max-width: @screen-xs-max) {
+                    height: 100%;
+                    width: 100%;
+                    left: auto;
+                    .f_apps_container {
+                        height: 100%;
+                    }
+
+                    @media (max-width: 480px) {
+                        top: 46px;
                     }
                 }
             }
         }
         .o_mail_chat .o_mail_chat_sidebar .o_mail_sidebar_title h4 {
             color: #777777;
-        }
-    }
-
-    nav#oe_main_menu_navbar {
-        display: flex;
-        box-shadow: 0px -2px 10px #000000;
-        .f_toggle_buttons {
-            #mobile_toggle > i, #f_apps_search > i {
-                font-size: 20px;
-                color: white;
-                padding: 6px 14px 6px 14px;
-                cursor: pointer;
-                background-color: @brand-primary;
-                margin: 0;
-            }
-        }
-        .f_menu_systray {
-            width: 100%;
-            > ul.navbar-nav {
-                display: flex;
-                > li {
-                    > a {
-                        margin-top: 3px;
-                        cursor: pointer;
-                        > .o_notification_counter {
-                            background-color: @brand-success;
-                            top: 2px;
-                        }
-                        > i {
-                            font-size: 16px;
-                        }
-                        &:hover, &:focus {
-                            background-color: @brand-primary;
-                        }
-                    }
-                    > ul {
-                        left: auto;
-                        right: 0;
-                    }
-                }
-                @media (max-width: @screen-xs-max) {
-                    margin: 0 -16px;
-                    margin-right: 16px;
-                    margin-top: -1px;
-                    > li.open .dropdown-menu {
-                        top: 32px;
-                        left: 0;
-                        bottom: 0;
-                        right: 0;
-                        position: fixed;
-                        width: auto;
-                        background-color: #ffffff;
-                    }
-
-                    ul.dropdown-menu > li > a {
-                        color: @flectra-main-text-color;
-                    }
-                }
-            }
-        }
-    }
-
-    &.launcher_opened {
-        #oe_main_menu_navbar {
-            .o-transition(all, 500ms);
-            background-color: #FFFFFF;
-            .f_toggle_buttons {
-                #mobile_toggle > i, #f_apps_search > i {
-                    background-color: white;
-                    color: @brand-primary;
-                }
-            }
-            .f_menu_systray {
-                > ul.navbar-nav {
-                    > li {
-                        > a {
-                            color: @brand-primary;
-                            background-color: #ffffff !important;
-                            .o-transition(all, 700ms);
-                        }
-                    }
-                }
-            }
-
-            .dropdown-menu {
-                z-index: 1054;
-            }
-            .f_toggle_buttons {
-                > a {
-                    > i {
-                        background-color: #FFFFFF;
-                        color: @brand-primary;
-                    }
-                }
-            }
-        }
-
-        .f_launcher, .o_collapse_btn, .o_main_content {
-            filter: blur(10px);
-            .o-transition(all, 500ms);
-        }
-        .f_launcher {
-            margin-top: 20px;
-        }
-        .f_search_launcher {
-            width: 100% !important;
-            left: 0;
         }
     }
     .o_loading {

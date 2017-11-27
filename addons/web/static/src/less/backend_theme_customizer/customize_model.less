@@ -1,251 +1,109 @@
 /* CUSTOMIZE THEME - MODAL */
 
-#theme_customize_backend_modal {
-    overflow: visible;
-    z-index: 1020;
-    display: block;
-
-    label input {
-        display: none;
-    }
-
-    &.modal.fade:not(.in) .modal-dialog {
-        .translate3d(50%, 0, 0);
-    }
-
-    #lines_customize_modal_backend {
-        text-transform: inherit;
-        .modal-dialog {
-            top: 106px;
-            right: 0;
-            height: 100vh;
-            .modal-content {
-                height: auto;
-                border-top-left-radius: 17px;
-                width: 460px;
+#theme_customize_backend {
+    .backend_theme_customizer_content {
+        background-color: #333333;
+        padding: 10px;
+        width: 220px;
+        .color_box {
+            input[type="radio"] {
+                display: none;
             }
-        }
-        .modal-header,
-        .modal-footer {
-            background-color: #000;
-            color: #fff;
-            border-radius: 15px;
-            height: 10%;
-            min-height: 70px;
-        }
-        .modal-header {
-            .modal-title {
-                line-height: 1.2;
-                font-family: 'Roboto Slab';
-                font-size: 34px;
+
+            input[type="radio"] + label {
+                cursor: pointer;
+                display: block;
             }
-            .close {
-                width: 32px;
-                height: 32px;
-                line-height: 28px;
-                margin-top: 4px;
-                background-color: #fff;
-                color: @gray-darker;
-                opacity: 0.5;
-                font-size: 1.3em;
-                &:hover {
-                    opacity: 1;
-                    background-color: @brand-primary;
-                    color: #fff;
+
+            input[type="radio"] + label {
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                vertical-align: middle;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            input[type="radio"]:checked + label {
+                border: 3px solid mix(@brand-primary, #ffffff, 30%);
+            }
+            .color_box_header {
+                color: mix(@brand-primary, #ffffff, 30%);
+            }
+            .color_box_content {
+                display: flex;
+                .color_radio {
+                    padding: 4px;
                 }
             }
         }
-
-        .modal-body {
-            padding: 16px;
-            height: auto;
-            background-color: #FFFFFF;
-        }
-
-        .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
-            color: #fff;
-            background-color: @brand-primary;
-        }
-        .icon {
-            text-align: left;
-            clear: both;
-            font-weight: normal;
-        }
-        .icon:before {
-            content: '\f111';
-            font-family: 'FontAwesome';
-            font-size: 18px;
-            margin-right: 8px;
-            margin-bottom: 10px;
-            color: #ccc;
-            float: left;
-        }
-        .icon:hover {
-            color: @gray-darker;
-            cursor: pointer;
-        }
-        .icon:hover:before {
-            content: '\f058';
-            font-family: 'FontAwesome';
-            color: #000;
-        }
-        .icon.checked:before {
-            content: '\f058';
-            font-family: 'FontAwesome';
-            color: @brand-primary;
-        }
-        .icon span {
-            float: left;
-            width: 30px;
-            height: 30px;
+        .font_box {
+            .font_box_header {
+                color: mix(@brand-primary, #ffffff, 30%);
+            }
+            .font_box_content {
+                .font_radio {
+                    padding: 0 5px;
+                    color: mix(@brand-primary, #ffffff, 30%);
+                    display: inline-block;
+                    width: 45%;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    > * {
+                        cursor: pointer;
+                    }
+                    &:hover, &:focus {
+                        color: #ffffff;
+                    }
+                }
+            }
         }
     }
 
     //Custom Color Settings
 
-    /* blue */
-    .blue-primary {
-        background-color: @blue-primary;
-    }
-    .blue-success {
-        background-color: @blue-success;
-    }
-    .blue-info {
-        background-color: @blue-info;
-    }
-    .blue-warning {
-        background-color: @blue-warning;
-    }
-    .blue-danger {
-        background-color: @blue-danger;
+    /* Muddy Rainbow */
+    .muddy-rainbow-primary {
+        background-color: @muddy-rainbow-primary;
     }
 
-    /* light_green */
-    .light_green-primary {
-        background-color: @light_green-primary;
-    }
-    .light_green-success {
-        background-color: @light_green-success;
-    }
-    .light_green-info {
-        background-color: @light_green-info;
-    }
-    .light_green-warning {
-        background-color: @light_green-warning;
-    }
-    .light_green-danger {
-        background-color: @light_green-danger;
+    /* Dark Nostalgia */
+    .dark-nostalgia-primary {
+        background-color: @dark-nostalgia-primary;
     }
 
-    /* maroon */
-    .maroon-primary {
-        background-color: @maroon-primary;
-    }
-    .maroon-success {
-        background-color: @maroon-success;
-    }
-    .maroon-info {
-        background-color: @maroon-info;
-    }
-    .maroon-warning {
-        background-color: @maroon-warning;
-    }
-    .maroon-danger {
-        background-color: @maroon-danger;
+    /* Warm Sunset */
+    .warm-sunset-primary {
+        background-color: @warm-sunset-primary;
     }
 
-    /* minerals */
-    .minerals-primary {
-        background-color: @minerals-primary;
-    }
-    .minerals-success {
-        background-color: @minerals-success;
-    }
-    .minerals-info {
-        background-color: @minerals-info;
-    }
-    .minerals-warning {
-        background-color: @minerals-warning;
-    }
-    .minerals-danger {
-        background-color: @minerals-danger;
+    /* Peaches And Plums */
+    .peaches-plums-primary {
+        background-color: @peaches-plums-primary;
     }
 
-    /* paw */
-    .paw-primary {
-        background-color: @paw-primary;
-    }
-    .paw-success {
-        background-color: @paw-success;
-    }
-    .paw-info {
-        background-color: @paw-info;
-    }
-    .paw-warning {
-        background-color: @paw-warning;
-    }
-    .paw-danger {
-        background-color: @paw-danger;
+    /* Lapine */
+    .lapine-primary {
+        background-color: @lapine-primary;
     }
 
-    /* spice */
-    .spice-primary {
-        background-color: @spice-primary;
+    /* Sunset Dunes */
+    .sunset-dunes-primary {
+        background-color: @sunset-dunes-primary;
     }
-    .spice-success {
-        background-color: @spice-success;
-    }
-    .spice-info {
-        background-color: @spice-info;
-    }
-    .spice-warning {
-        background-color: @spice-warning;
-    }
-    .spice-danger {
-        background-color: @spice-danger;
-    }
-    .f_color_palette_loading {
-        background-color: rgba(0, 0, 0, 0.5);
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+
+    .dropdown-menu {
+        padding: 0;
     }
 }
 
-//Custom Customize Panel Setting Changes
-
-#theme_customize_backend_modal {
-    .nav-pills > li > a {
-        color: @brand-primary;
-
-        &:hover {
-            border-bottom: 4px solid @brand-primary;
-            background: transparent;
-
-        }
-    }
-
-    .nav-pills > li.active > a {
-        color: @brand-primary !important;
-        border-bottom: 4px solid @brand-primary;
-        background: transparent !important;
-    }
-}
-
-//-----------------Customize Model-----------//
-
-@media (max-width: 767px) {
-    .changer-body {
-        .modal-body {
-            .nav-justified > li {
-                float: left;
-            }
-        }
-    }
-
-    #switcher-body > div > div > div.close-icon.mt8 > button {
-        float: left;
-    }
+.f_color_palette_loading {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1060;
 }

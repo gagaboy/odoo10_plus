@@ -1356,6 +1356,37 @@
     <li><a href="#" data-menu="logout">Log out</a></li>
 </t>
 
+<t t-name="UserProfile">
+    <div class="user_profile close_profile">
+        <div class="profile_pic">
+            <img class="img-circle" t-att-src="_s + '/web/static/src/img/user_menu_avatar.png'"/>
+        </div>
+        <div class="profile_info">
+            <div class="dropdown">
+                <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+                    <span class="profile_name"/>
+                    <span class="caret"/>
+                </a>
+                <t t-call="UserProfile.Actions"/>
+            </div>
+        </div>
+    </div>
+</t>
+
+<t t-name="UserProfile.Actions">
+    <ul class="dropdown-menu">
+        <li><a href="#" data-menu="documentation">Documentation</a></li>
+        <li><a href="#" data-menu="support">Support</a></li>
+        <li><a href="#" data-menu="settings">Preferences</a></li>
+        <li class="divider"/>
+        <li><a href="#" data-menu="logout">Log out</a></li>
+    </ul>
+</t>
+
+<t t-name="UserLogout.Action">
+    <li class="o_user_logout" ><a href="#" data-menu="logout" title="Logout"><i class="fa fa-sign-out"/></a></li>
+</t>
+
 <t t-name="SwitchCompanyMenu">
     <li class="o_switch_company_menu">
         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">
