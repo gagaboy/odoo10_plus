@@ -434,7 +434,9 @@ class Project(models.Model):
     no_of_days = fields.Integer(
         related="resource_calendar_id.no_of_days",
         string="Working Day(s) per Week", store=True)
-    task_type_ids = fields.Many2many("project.task.type", string="Task Types")
+    task_type_ids = fields.Many2many(
+        'project.task.type', 'project_task_type_rel', 'project_id', 'type_id',
+        string='Project(s)')
 
 
 class SprintPlanningLine(models.Model):

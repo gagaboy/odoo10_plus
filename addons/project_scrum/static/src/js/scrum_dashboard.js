@@ -84,7 +84,7 @@ flectra.define('project_scrum.dashboard', function(require) {
                 }
             }
             try {
-                var sprint_burndown_chart = $("#scrum_chart").get(0).getContext("2d");
+                var sprint_burndown_chart = $("#scrum_chart")[0].getContext("2d");
                 sprint_burndown_chart.canvas.height = 55;
 
                 // This will get the first returned node in the jQuery collection.
