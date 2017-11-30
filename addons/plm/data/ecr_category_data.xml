@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra noupdate="1">
+
+    <record id="ecr_category_part" model="plm.category">
+        <field name="name">PART OBSOLESCENCE</field>
+    </record>
+
+    <record id="ecr_category_customer" model="plm.category">
+        <field name="name">CUSTOMER CHANGE REQ</field>
+    </record>
+
+    <record id="ecr_category_design" model="plm.category">
+        <field name="name">DESIGN IMPROVEMENT</field>
+    </record>
+
+    <record id="ecr_category_cost" model="plm.category">
+        <field name="name">COST REDUCTION</field>
+    </record>
+
+    <record id="ecr_category_drawing" model="plm.category">
+        <field name="name">DRAWING ERROR</field>
+    </record>
+
+    <record id="ecr_category_update" model="plm.category">
+        <field name="name">ADMINISTRATIVE UPDATE</field>
+    </record>
+
+</flectra>

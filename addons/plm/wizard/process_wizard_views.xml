@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <record id="process_wizard_form_view" model="ir.ui.view">
+        <field name="name">process.wizard.view</field>
+        <field name="model">process.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="category_id"
+                               domain="['|', ('reviewer', '=', user_id),
+                               ('approver', '=', user_id)]"/>
+                        <field name="user_id" readonly="1" invisible="1"/>
+                        <field name="reason_id" required="1"
+                               domain="[('action', '=', action)]"/>
+                        <field name="reason" required="1"/>
+                        <field name="action" readonly="1"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_send_for_process" string="Process"
+                            type="object" class="oe_highlight"/>
+                    or
+                    <button special="cancel" string="Cancel"
+                            class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_process_wizard" model="ir.actions.act_window">
+        <field name="name">Process</field>
+        <field name="res_model">process.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="process_wizard_form_view"/>
+        <field name="target">new</field>
+    </record>
+</flectra>

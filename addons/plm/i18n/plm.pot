@@ -1,0 +1,1269 @@
+# Translation of Flectra Server.
+# This file contains the translation of the following modules:
+#	* plm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Flectra Server 1.0alpha\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-20 10:15+0000\n"
+"PO-Revision-Date: 2017-12-20 10:15+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_total_change_order
+msgid "# ECOs"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,help:plm.field_plm_team_alias_defaults
+msgid "A Python dictionary that will be evaluated to provide default values when creating new records for this alias."
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_acceptance_action
+#: model:ir.model.fields,field_description:plm.field_process_wizard_action
+msgid "Action"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_reason_action
+msgid "Action "
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_bom_version_tree_view
+#: model:ir.ui.view,arch_db:plm.mrp_bom_view_form_inherit_engineering_change_order
+#: model:ir.ui.view,arch_db:plm.mrp_routing_view_form_inherit_engineering_change_order
+#: model:ir.ui.view,arch_db:plm.plm_bom_version_tree_view
+msgid "Activate"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_activation
+msgid "Activation"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_activation
+msgid "Activation "
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_activated_on
+msgid "Activation Date "
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_team_active
+#: selection:mrp.bom,state:0
+#: selection:mrp.routing,state:0
+msgid "Active"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_active
+msgid "Active "
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_acceptance_active_approver
+msgid "Active Approver "
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_acceptance_active_reviewer
+msgid "Active Reviewer "
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_team_alias_id
+msgid "Alias"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_team_alias_contact
+msgid "Alias Contact Security"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_team_alias_name
+msgid "Alias Name"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_team_alias_domain
+msgid "Alias domain"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_team_alias_model_id
+msgid "Aliased Model"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_applicability
+msgid "Applicability"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_approval_ids
+#: model:ir.ui.view,arch_db:plm.engineering_change_request_form_view
+msgid "Approvals"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,help:plm.field_engineering_change_request_approval_ids
+msgid "Approvals by stage"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request.acceptance,action:0
+#: model:ir.ui.view,arch_db:plm.engineering_change_request_form_view
+#: selection:plm.reason,action:0
+#: selection:process.wizard,action:0
+msgid "Approve"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request,state:0
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_approved_boolean
+msgid "Approved"
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/wizard/process.py:35
+#, python-format
+msgid "Approved. Please select different category."
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request.acceptance,name:0
+#: model:res.groups,name:plm.group_engineering_change_request_approver
+#: selection:res.users,type_of_user:0
+msgid "Approver"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_category_approver
+msgid "Approver "
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request,activation:0
+msgid "As soon as possible"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request,activation:0
+msgid "At Date"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.order,activation:0
+msgid "At the Earliest"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_bom_id
+msgid "BOM"
+msgstr ""
+
+#. module: plm
+#: model:ir.model,name:plm.model_mrp_bom
+msgid "Bill of Material"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.order,applicability:0
+msgid "Bill of Materials"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.order,applicability:0
+msgid "BoM and Routing"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.engineering_change_order_kanban_view_data
+msgid "BoM:"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.engineering_change_request_form_view
+#: model:ir.ui.view,arch_db:plm.process_wizard_form_view
+msgid "Cancel"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request,state:0
+msgid "Cancelled"
+msgstr ""
+
+#. module: plm
+#: model:ir.actions.act_window,name:plm.action_plm_category
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_category_ids
+#: model:ir.ui.menu,name:plm.plm_categories_sub_menu
+#: model:ir.ui.view,arch_db:plm.plm_category_form_view
+msgid "Categories"
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/engineering_change_request.py:297
+#, python-format
+msgid "Categories must have Approver and Reviewer."
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_acceptance_category_ids
+#: model:ir.model.fields,field_description:plm.field_plm_category_name
+#: model:ir.model.fields,field_description:plm.field_process_wizard_category_id
+msgid "Category"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_color
+msgid "Color"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_color
+#: model:ir.model.fields,field_description:plm.field_plm_category_color
+msgid "Color Index"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_comments
+msgid "Comments "
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_company_id
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_company_id
+msgid "Company"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.menu,name:plm.plm_categories_main_menu
+msgid "Configuration"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.engineering_change_request_form_view
+msgid "Confirm"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request,state:0
+msgid "Confirmed"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_production_form_view_inherit
+msgid "Create ECR"
+msgstr ""
+
+#. module: plm
+#: model:ir.actions.act_window,help:plm.engineering_change_order_action_main
+#: model:ir.actions.act_window,help:plm.engineering_change_order_action_product_tmpl
+msgid "Create Engineering Change Orders"
+msgstr ""
+
+#. module: plm
+#: model:ir.actions.act_window,name:plm.create_engineering_change_order_form_view
+msgid "Create an ECO"
+msgstr ""
+
+#. module: plm
+#: model:ir.actions.act_window,name:plm.create_engineering_change_request_form_view
+msgid "Create an ECR"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_reason_create_uid
+#: model:ir.model.fields,field_description:plm.field_plm_team_create_uid
+#: model:ir.model.fields,field_description:plm.field_process_wizard_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_reason_create_date
+#: model:ir.model.fields,field_description:plm.field_plm_team_create_date
+#: model:ir.model.fields,field_description:plm.field_process_wizard_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_ecr_date
+#: model:ir.model.fields,field_description:plm.field_process_wizard_process_date
+msgid "Date"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_acceptance_date
+msgid "Date "
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_team_alias_defaults
+msgid "Default Values"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.engineering_change_order_kanban_view_data
+#: model:ir.ui.view,arch_db:plm.engineering_change_request_kanban_view_data
+msgid "Delete"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_description
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_description_request
+#: model:ir.ui.view,arch_db:plm.engineering_change_order_view_form
+msgid "Description"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.engineering_change_order_view_form
+msgid "Description of the change                                    and its reason ..."
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_display_name
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_acceptance_display_name
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_display_name
+#: model:ir.model.fields,field_description:plm.field_plm_category_display_name
+#: model:ir.model.fields,field_description:plm.field_plm_reason_display_name
+#: model:ir.model.fields,field_description:plm.field_plm_team_display_name
+#: model:ir.model.fields,field_description:plm.field_process_wizard_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.order,state:0
+#: model:ir.ui.view,arch_db:plm.engineering_change_order_view_form
+msgid "Done"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.order,state:0
+#: selection:engineering.change.request,state:0
+#: model:ir.ui.view,arch_db:plm.mrp_bom_version_tree_view
+#: model:ir.ui.view,arch_db:plm.mrp_bom_view_form_inherit_engineering_change_order
+#: model:ir.ui.view,arch_db:plm.mrp_routing_view_form_inherit_engineering_change_order
+#: model:ir.ui.view,arch_db:plm.plm_bom_version_tree_view
+#: selection:mrp.bom,state:0
+#: selection:mrp.routing,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_dwg_no
+msgid "Dwg. No."
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_bom_view_form_inherit_engineering_change_order
+#: model:ir.ui.view,arch_db:plm.mrp_routing_view_form_inherit_engineering_change_order
+msgid "ECO"
+msgstr ""
+
+#. module: plm
+#: model:mail.message.subtype,description:plm.mt_engineering_change_order_create
+#: model:mail.message.subtype,name:plm.mt_engineering_change_order_create
+#: model:mail.message.subtype,name:plm.mt_plm_team_eco_create
+msgid "ECO Create"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_change_order_ids
+#: model:ir.model.fields,field_description:plm.field_mrp_bom_change_order_ids
+msgid "ECO to be applied"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.engineering_change_request_form_view
+#: model:ir.ui.view,arch_db:plm.mrp_bom_view_form_inherit_engineering_change_order
+#: model:ir.ui.view,arch_db:plm.mrp_routing_view_form_inherit_engineering_change_order
+msgid "ECO(s)"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_mrp_routing_change_order_ids
+#: model:ir.model.fields,field_description:plm.field_product_product_change_order_ids
+#: model:ir.model.fields,field_description:plm.field_product_template_change_order_ids
+#: model:ir.ui.view,arch_db:plm.product_template_view_form_inherit_engineering_change_order
+msgid "ECOs"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_ecr_id
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_acceptance_ecr_id
+#: model:ir.model.fields,field_description:plm.field_mrp_production_change_request_ids
+msgid "ECR"
+msgstr ""
+
+#. module: plm
+#: model:mail.message.subtype,description:plm.mt_plm_approve
+#: model:mail.message.subtype,name:plm.mt_plm_approve
+#: model:mail.message.subtype,name:plm.mt_plm_team_approve
+msgid "ECR Approve"
+msgstr ""
+
+#. module: plm
+#: model:mail.message.subtype,description:plm.mt_ecr_create
+#: model:mail.message.subtype,name:plm.mt_ecr_create
+#: model:mail.message.subtype,name:plm.mt_ecr_team_create
+msgid "ECR Create"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_ecr_date
+msgid "ECR Date"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_name
+msgid "ECR No."
+msgstr ""
+
+#. module: plm
+#: model:mail.message.subtype,description:plm.mt_plm_reject
+#: model:mail.message.subtype,name:plm.mt_plm_reject
+#: model:mail.message.subtype,name:plm.mt_plm_team_reject
+msgid "ECR Reject"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_ecr_requester
+msgid "ECR Requester"
+msgstr ""
+
+#. module: plm
+#: model:mail.message.subtype,description:plm.mt_plm_review
+#: model:mail.message.subtype,name:plm.mt_plm_review
+#: model:mail.message.subtype,name:plm.mt_plm_team_review
+msgid "ECR Review"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.engineering_change_request_form_view
+msgid "ECR approvals"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_production_form_view_inherit
+msgid "ECR(s)"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request,priority:0
+msgid "EXTREMELY URGENT"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.engineering_change_order_kanban_view_data
+#: model:ir.ui.view,arch_db:plm.engineering_change_request_kanban_view_data
+msgid "Edit"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_effective_date
+msgid "Effective Date "
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/engineering_change_order.py:72
+#, python-format
+msgid "Effectivity Date Should be greater than ECR Date"
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/engineering_change_request.py:289
+#, python-format
+msgid "Effectivity Date should be grater than ECR Date"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.plm_team_form_view
+msgid "Email Alias"
+msgstr ""
+
+#. module: plm
+#: model:ir.model,name:plm.model_engineering_change_order
+msgid "Engineering Change Order"
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/engineering_change_order.py:144
+#, python-format
+msgid "Engineering Change Order BoM"
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/engineering_change_order.py:168
+#, python-format
+msgid "Engineering Change Order Routing"
+msgstr ""
+
+#. module: plm
+#: model:ir.actions.act_window,name:plm.engineering_change_order_action_main
+#: model:ir.actions.act_window,name:plm.engineering_change_order_action_product_tmpl
+#: model:ir.ui.menu,name:plm.menu_engineering_change_orders
+msgid "Engineering Change Orders"
+msgstr ""
+
+#. module: plm
+#: model:ir.actions.act_window,name:plm.action_engineering_change_request
+#: model:ir.ui.menu,name:plm.engineering_change_request_menu
+#: model:ir.ui.view,arch_db:plm.engineering_change_request_form_view
+msgid "Engineering Change Request"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,help:plm.field_engineering_change_order_activated_on
+msgid "For reference only."
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,help:plm.field_mrp_routing_sequence
+msgid "Gives the sequence order when displaying a list of routing."
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_bom_version_tree_view
+#: model:ir.ui.view,arch_db:plm.mrp_bom_view_form_inherit_engineering_change_order
+#: model:ir.ui.view,arch_db:plm.mrp_routing_view_form_inherit_engineering_change_order
+#: model:ir.ui.view,arch_db:plm.plm_bom_version_tree_view
+#: selection:mrp.bom,state:0
+#: selection:mrp.routing,state:0
+msgid "Historical"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_mrp_bom_historical_date
+#: model:ir.model.fields,field_description:plm.field_mrp_routing_historical_date
+msgid "Historical Date "
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_id
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_acceptance_id
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_id
+#: model:ir.model.fields,field_description:plm.field_plm_category_id
+#: model:ir.model.fields,field_description:plm.field_plm_reason_id
+#: model:ir.model.fields,field_description:plm.field_plm_team_id
+#: model:ir.model.fields,field_description:plm.field_process_wizard_id
+msgid "ID"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,help:plm.field_plm_team_alias_parent_thread_id
+msgid "ID of the parent record holding the alias (example: project holding the task creation alias)"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,help:plm.field_engineering_change_order_active
+msgid "If the active field is set to False, itwill allow you to hide the engineeringchange order without removing it."
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,help:plm.field_plm_team_active
+msgid "If the active field is set to false,it will allow you to hide the plm teamwithout removing it."
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.order,state:0
+#: model:ir.ui.view,arch_db:plm.engineering_change_order_view_form
+msgid "In Progress"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order___last_update
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request___last_update
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_acceptance___last_update
+#: model:ir.model.fields,field_description:plm.field_plm_category___last_update
+#: model:ir.model.fields,field_description:plm.field_plm_reason___last_update
+#: model:ir.model.fields,field_description:plm.field_plm_team___last_update
+#: model:ir.model.fields,field_description:plm.field_process_wizard___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_write_uid
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_acceptance_write_uid
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_write_uid
+#: model:ir.model.fields,field_description:plm.field_plm_category_write_uid
+#: model:ir.model.fields,field_description:plm.field_plm_reason_write_uid
+#: model:ir.model.fields,field_description:plm.field_plm_team_write_uid
+#: model:ir.model.fields,field_description:plm.field_process_wizard_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_write_date
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_acceptance_write_date
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_write_date
+#: model:ir.model.fields,field_description:plm.field_plm_category_write_date
+#: model:ir.model.fields,field_description:plm.field_plm_reason_write_date
+#: model:ir.model.fields,field_description:plm.field_plm_team_write_date
+#: model:ir.model.fields,field_description:plm.field_process_wizard_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: plm
+#: model:mail.message.subtype,description:plm.mt_active
+#: model:mail.message.subtype,name:plm.mt_active
+msgid "MRP BoM Active"
+msgstr ""
+
+#. module: plm
+#: model:ir.module.category,description:plm.module_category_engineering_change_request
+#: model:ir.module.category,description:plm.module_category_engineering_change_request111
+msgid "Maintain Product Lifecycle Management for\n"
+"            BoM and Routing.\n"
+"        "
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/engineering_change_request.py:324
+#: code:addons/plm/models/engineering_change_request.py:339
+#, python-format
+msgid "Make To Order"
+msgstr ""
+
+#. module: plm
+#: model:res.groups,name:plm.group_engineering_change_request_manager
+#: selection:res.users,type_of_user:0
+msgid "Manager"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.order,activation:0
+msgid "Manual"
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/engineering_change_request.py:325
+#: code:addons/plm/models/engineering_change_request.py:340
+#, python-format
+msgid "Manufacture"
+msgstr ""
+
+#. module: plm
+#: model:ir.model,name:plm.model_mrp_production
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_manufacture_order
+msgid "Manufacturing Order"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request,production_status:0
+msgid "Manufacturing Order On Hold"
+msgstr ""
+
+#. module: plm
+#: model:res.groups,name:plm.group_engineering_change_request_member
+#: selection:res.users,type_of_user:0
+msgid "Member"
+msgstr ""
+
+#. module: plm
+#: model:res.groups,comment:plm.group_engineering_change_request_member
+msgid "Member who can view Change Orders and\n"
+"            Change Requests"
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/plm_team.py:48
+#, python-format
+msgid "More than one Approver is not allowed for Approve"
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/plm_team.py:45
+#, python-format
+msgid "More than one Reviewer is not allowed for Review"
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/plm_category.py:42
+#, python-format
+msgid "Must be assign Approver"
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/plm_category.py:39
+#, python-format
+msgid "Must be assign Reviewer"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request,priority:0
+msgid "NORMAL"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_name
+#: model:ir.model.fields,field_description:plm.field_mrp_bom_name
+msgid "Name"
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/engineering_change_order.py:14
+#: code:addons/plm/models/engineering_change_order.py:106
+#: code:addons/plm/models/engineering_change_order.py:110
+#: code:addons/plm/models/engineering_change_order.py:113
+#: code:addons/plm/models/engineering_change_request.py:50
+#: code:addons/plm/models/engineering_change_request.py:306
+#: code:addons/plm/models/engineering_change_request.py:310
+#: code:addons/plm/models/engineering_change_request.py:313
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.order,type:0
+#: selection:engineering.change.request,type:0
+#: selection:mrp.bom,change_order_type:0
+#: selection:mrp.routing,change_order_type:0
+msgid "New Product Introduction"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_latest_routing_id
+msgid "New Routing"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_bom_version_tree_view
+#: model:ir.ui.view,arch_db:plm.mrp_bom_view_form_inherit_engineering_change_order
+#: model:ir.ui.view,arch_db:plm.mrp_routing_view_form_inherit_engineering_change_order
+#: model:ir.ui.view,arch_db:plm.plm_bom_version_tree_view
+msgid "New version"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_process_wizard_notes
+msgid "Notes "
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_mrp_bom_old_versions
+#: model:ir.model.fields,field_description:plm.field_mrp_routing_old_versions
+msgid "Old Versions "
+msgstr ""
+
+#. module: plm
+#: model:res.groups,comment:plm.group_engineering_change_request_requester
+msgid "One who can request for ECR, ECO and also can\n"
+"            manage Routing and BoM."
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.engineering_change_order_view_form
+msgid "Open BOM"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.engineering_change_order_view_form
+msgid "Open Routing"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,help:plm.field_plm_team_alias_force_thread_id
+msgid "Optional ID of a thread (record) to which all incoming messages will be attached, even if they did not reply to it. If set, this will disable the creation of new records completely."
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.engineering_change_request_form_view
+msgid "Other Information"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_team_alias_user_id
+msgid "Owner"
+msgstr ""
+
+#. module: plm
+#: model:ir.module.category,name:plm.module_category_engineering_change_request
+#: model:ir.module.category,name:plm.module_category_engineering_change_request111
+#: model:ir.ui.menu,name:plm.plm_menu
+#: model:ir.ui.menu,name:plm.plm_menu_root
+msgid "PLM"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_team_name
+msgid "PLM Team"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_team_member_ids
+msgid "PLM Team Members"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_mrp_routing_parent_routing
+msgid "Parent BoM"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_mrp_bom_parent_bom
+msgid "Parent BoM "
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_team_alias_parent_model_id
+msgid "Parent Model"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_team_alias_parent_thread_id
+msgid "Parent Record Thread ID"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,help:plm.field_plm_team_alias_parent_model_id
+msgid "Parent model holding the alias. The model holding the alias reference is not necessarily the model given by alias_model_id (example: project (parent_model) and task (model))"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.order,type:0
+#: selection:engineering.change.request,type:0
+#: selection:mrp.bom,change_order_type:0
+#: selection:mrp.routing,change_order_type:0
+msgid "Permanent"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,help:plm.field_plm_team_alias_contact
+msgid "Policy to post a message on the document using the mailgateway.\n"
+"- everyone: everyone can post\n"
+"- partners: only authenticated partners\n"
+"- followers: only followers of the related document or members of following channels\n"
+""
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_priority
+msgid "Priority"
+msgstr ""
+
+#. module: plm
+#: model:ir.actions.act_window,name:plm.action_process_wizard
+#: model:ir.ui.view,arch_db:plm.process_wizard_form_view
+msgid "Process"
+msgstr ""
+
+#. module: plm
+#: model:ir.model,name:plm.model_product_product
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_product_id
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_product_tmpl_id
+msgid "Product"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_product_tmpl_id
+msgid "Product "
+msgstr ""
+
+#. module: plm
+#: model:ir.model,name:plm.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request,production_status:0
+msgid "Production On Hold"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_production_status
+msgid "Production Status "
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_acceptance_reason_id
+#: model:ir.model.fields,field_description:plm.field_process_wizard_reason_id
+msgid "Reason"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_reason_name
+msgid "Reason "
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_reason_request
+msgid "Reason For Request"
+msgstr ""
+
+#. module: plm
+#: model:ir.actions.act_window,name:plm.action_plm_reason
+#: model:ir.ui.menu,name:plm.plm_reason_sub_menu
+#: model:ir.ui.view,arch_db:plm.plm_reason_form_view
+msgid "Reasons"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_team_alias_force_thread_id
+msgid "Record Thread ID"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request.acceptance,action:0
+#: model:ir.ui.view,arch_db:plm.engineering_change_request_form_view
+#: selection:plm.reason,action:0
+#: selection:process.wizard,action:0
+msgid "Reject"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request,state:0
+msgid "Rejected"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_acceptance_reason
+#: model:ir.model.fields,field_description:plm.field_process_wizard_reason
+msgid "Remarks"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_requested_by
+msgid "Requested By "
+msgstr ""
+
+#. module: plm
+#: model:res.groups,name:plm.group_engineering_change_request_requester
+#: selection:res.users,type_of_user:0
+msgid "Requester"
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/engineering_change_request.py:301
+#, python-format
+msgid "Requester and Approver or Reviewer ofCategories must be different users."
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.engineering_change_request_form_view
+msgid "Reset"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.engineering_change_request_form_view
+msgid "Reset to draft"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_user_id
+msgid "Responsible"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request.acceptance,action:0
+#: model:ir.ui.view,arch_db:plm.engineering_change_request_form_view
+#: selection:plm.reason,action:0
+#: selection:process.wizard,action:0
+msgid "Review"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request,state:0
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_reviewed_boolean
+msgid "Reviewed"
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/wizard/process.py:40
+#, python-format
+msgid "Reviewed. Please select different category."
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request.acceptance,name:0
+#: model:res.groups,name:plm.group_engineering_change_request_reviewer
+#: selection:res.users,type_of_user:0
+msgid "Reviewer"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_category_reviewer
+msgid "Reviewer "
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_acceptance_name
+msgid "Role"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.order,applicability:0
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_routing_id
+msgid "Routing"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.engineering_change_order_kanban_view_data
+msgid "Routing:"
+msgstr ""
+
+#. module: plm
+#: model:ir.model,name:plm.model_mrp_routing
+msgid "Routings"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_sale_id
+#: model:ir.model.fields,field_description:plm.field_mrp_production_sale_id
+msgid "Sale Order"
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/res_users.py:48
+#: code:addons/plm/models/res_users.py:65
+#, python-format
+msgid "Select either Approver or Reviewer"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_mrp_routing_sequence
+msgid "Sequence "
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_mrp_bom_state
+#: model:ir.model.fields,field_description:plm.field_mrp_routing_state
+msgid "State "
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_state
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_state
+msgid "Status"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_plm_category_team_id
+msgid "Team"
+msgstr ""
+
+#. module: plm
+#: model:ir.actions.act_window,name:plm.action_plm_team
+#: model:ir.ui.menu,name:plm.plm_team_menu
+#: model:ir.ui.view,arch_db:plm.plm_team_form_view
+msgid "Team Members"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.order,type:0
+#: selection:engineering.change.request,type:0
+#: selection:mrp.bom,change_order_type:0
+#: selection:mrp.routing,change_order_type:0
+msgid "Temporary"
+msgstr ""
+
+#. module: plm
+#: model:res.groups,comment:plm.group_engineering_change_request_approver
+msgid "The PLM user who has rights to 'Approve' and\n"
+"        'Reject' Change Requests.\n"
+"        "
+msgstr ""
+
+#. module: plm
+#: model:res.groups,comment:plm.group_engineering_change_request_reviewer
+msgid "The PLM user who has rights to 'Review' and\n"
+"        'Reject' Change Requests."
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,help:plm.field_plm_team_alias_model_id
+msgid "The model (Flectra Document Kind) to which this alias corresponds. Any incoming email that does not reply to an existing record will cause the creation of a new record of this model (e.g. a Project Task)"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,help:plm.field_plm_team_alias_name
+msgid "The name of the email alias, e.g. 'jobs' if you want to catch emails for <jobs@example.flectrahq.com>"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,help:plm.field_plm_team_alias_user_id
+msgid "The owner of records created upon receiving emails on this alias. If this field is not set the system will attempt to find the right owner based on the sender (From) address, or will use the Administrator account if no system user is found for that address."
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_mrp_bom_total_change_order
+#: model:ir.model.fields,field_description:plm.field_mrp_production_total_change_order
+#: model:ir.model.fields,field_description:plm.field_mrp_routing_total_change_order
+#: model:ir.model.fields,field_description:plm.field_product_product_total_change_order
+#: model:ir.model.fields,field_description:plm.field_product_template_total_change_order
+msgid "Total Change Orders"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_order_type
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_type
+#: model:ir.model.fields,field_description:plm.field_mrp_bom_change_order_type
+#: model:ir.model.fields,field_description:plm.field_mrp_routing_change_order_type
+#: model:ir.model.fields,field_description:plm.field_res_users_type_of_user
+msgid "Type"
+msgstr ""
+
+#. module: plm
+#: selection:engineering.change.request,priority:0
+msgid "URGENT"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_engineering_change_request_acceptance_user_id
+#: model:ir.model.fields,field_description:plm.field_process_wizard_user_id
+msgid "User"
+msgstr ""
+
+#. module: plm
+#: model:res.groups,comment:plm.group_engineering_change_request_manager
+msgid "User who is able to manage BoM, Routing, ECR\n"
+"            and ECO related entire processes.\n"
+"        "
+msgstr ""
+
+#. module: plm
+#: model:ir.model,name:plm.model_res_users
+msgid "Users"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,field_description:plm.field_mrp_bom_version
+#: model:ir.model.fields,field_description:plm.field_mrp_routing_version
+msgid "Version"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_bom_view_form_inherit_engineering_change_order
+#: model:ir.ui.view,arch_db:plm.mrp_routing_view_form_inherit_engineering_change_order
+msgid "Versions"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_bom_view_form_inherit_engineering_change_order
+msgid "You are going to create a new version                             of this BoM. Are you sure?"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_routing_view_form_inherit_engineering_change_order
+msgid "You are going to create a new version                             of this Routing. Are you sure?"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_bom_version_tree_view
+msgid "You are going to create a new version                         of this BoM. Are you sure?"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.plm_bom_version_tree_view
+msgid "You are going to create a new version                         of this Routing. Are you sure?"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_bom_view_form_inherit_engineering_change_order
+msgid "You are going to historize an BoM.                             Doing, not be able to unlock it unless you                             make a copy. Are you sure you                             want to proceed?"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_bom_version_tree_view
+msgid "You are going to historize an BoM.                         Doing, not be able to unlock it unless you make                         a copy. Are you sure you want to proceed?"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_routing_view_form_inherit_engineering_change_order
+msgid "You are going to historize an Routing.                             Doing, not be able to unlock it unless you make                             a copy. Are you sure you want to proceed?"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.plm_bom_version_tree_view
+msgid "You are going to historize an Routing.                         Doing, not be able to unlock it unless you                         make a copy. Are you sure you want to                         proceed?"
+msgstr ""
+
+#. module: plm
+#: model:ir.model.fields,help:plm.field_engineering_change_order_type
+#: model:ir.model.fields,help:plm.field_engineering_change_request_type
+msgid "You can either upload a file from your computer or copy/paste an internet link to your file."
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/engineering_change_order.py:121
+#, python-format
+msgid "You can not delete a Confirmed ECO!Try to cancel it before."
+msgstr ""
+
+#. module: plm
+#: code:addons/plm/models/engineering_change_request.py:260
+#, python-format
+msgid "You can not delete aConfirmed ECR! Try to cancel it before."
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_bom_version_tree_view
+msgid "You will activate the BoM. If                         you haven't set a route yet, then you won't be                         able to do it after this. Are you sure you want                         to proceed?"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_bom_view_form_inherit_engineering_change_order
+msgid "You will activate the BoM. If you                             haven't set a route yet, then you won't be able                             to do it after this. Are you sure you want to                             proceed?"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.mrp_routing_view_form_inherit_engineering_change_order
+msgid "You will activate the Routing.                             If you haven't set a route yet, then you won't                             be able to do it after this. Are you sure you                             want to proceed?"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.plm_bom_version_tree_view
+msgid "You will activate the Routing.                         If you haven't set a route yet, then you won't                         be able to do it after this.                         Are you sure you want to proceed?"
+msgstr ""
+
+#. module: plm
+#: model:ir.model,name:plm.model_engineering_change_request
+msgid "engineering.change.request"
+msgstr ""
+
+#. module: plm
+#: model:ir.model,name:plm.model_engineering_change_request_acceptance
+msgid "engineering.change.request.acceptance"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.engineering_change_order_kanban_view_data
+msgid "oe_kanban_text_red"
+msgstr ""
+
+#. module: plm
+#: model:ir.ui.view,arch_db:plm.process_wizard_form_view
+msgid "or"
+msgstr ""
+
+#. module: plm
+#: model:ir.model,name:plm.model_plm_category
+msgid "plm.category"
+msgstr ""
+
+#. module: plm
+#: model:ir.model,name:plm.model_plm_reason
+msgid "plm.reason"
+msgstr ""
+
+#. module: plm
+#: model:ir.model,name:plm.model_plm_team
+msgid "plm.team"
+msgstr ""
+
+#. module: plm
+#: model:ir.model,name:plm.model_process_wizard
+msgid "process.wizard"
+msgstr ""
+

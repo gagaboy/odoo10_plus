@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="mrp_production_form_view_inherit" model="ir.ui.view">
+        <field name="name">mrp.production.form.inherit</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <div class="oe_button_box" position="inside">
+                <button class="oe_stat_button" name="button_engineering_change_request"
+                        type="object" icon="fa-cogs">
+                    <field string="ECR(s)" name="total_change_order" widget="statinfo"/>
+                </button>
+            </div>
+            <button name="button_plan" position="after">
+                <button name="create_ecr" type="object" attrs="{'invisible':
+                ['|',('state', '!=', 'confirmed')]}"
+                        string="Create ECR" class="oe_highlight"/>
+            </button>
+            <field name="product_id" position="after">
+                <field name="sale_id"/>
+            </field>
+        </field>
+    </record>
+
+</flectra>

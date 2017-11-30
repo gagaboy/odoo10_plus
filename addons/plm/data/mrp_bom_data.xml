@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra noupdate="1">
+
+    <record id="mt_active" model="mail.message.subtype">
+        <field name="name">MRP BoM Active</field>
+        <field name="res_model">mrp.bom</field>
+        <field name="default" eval="False"/>
+        <field name="description">MRP BoM Active</field>
+    </record>
+
+    <record id="mrp.mrp_bom_manufacture" model="mrp.bom">
+        <field name="name">Computer Case</field>
+    </record>
+
+    <record id="mrp.mrp_bom_kit" model="mrp.bom">
+        <field name="name">Self Build Kit</field>
+    </record>
+
+    <record id="mrp.mrp_bom_desk" model="mrp.bom">
+        <field name="name">Table</field>
+    </record>
+
+    <record id="mrp.mrp_bom_laptop_cust" model="mrp.bom">
+        <field name="name">Laptop Customized</field>
+    </record>
+
+    <record id="mrp.mrp_bom_laptop_cust_rout" model="mrp.bom">
+        <field name="name">Laptop Customized</field>
+    </record>
+
+    <record id="mrp.mrp_bom_3" model="mrp.bom">
+        <field name="name">HDD on Demand</field>
+    </record>
+
+</flectra>

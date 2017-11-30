@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra noupdate="1">
+
+    <record id="mt_ecr_create" model="mail.message.subtype">
+        <field name="name">ECR Create</field>
+        <field name="res_model">engineering.change.request</field>
+        <field name="default" eval="False"/>
+        <field name="description">ECR Create</field>
+    </record>
+
+    <record id="mt_ecr_team_create" model="mail.message.subtype">
+        <field name="name">ECR Create</field>
+        <field name="sequence">21</field>
+        <field name="res_model">plm.team</field>
+        <field name="parent_id" eval="ref('plm.mt_ecr_create')"/>
+        <field name="relation_field">requested_by</field>
+    </record>
+
+    <record id="mt_plm_review" model="mail.message.subtype">
+        <field name="name">ECR Review</field>
+        <field name="res_model">engineering.change.request</field>
+        <field name="default" eval="False"/>
+        <field name="description">ECR Review</field>
+    </record>
+
+    <record id="mt_plm_team_review" model="mail.message.subtype">
+        <field name="name">ECR Review</field>
+        <field name="sequence">21</field>
+        <field name="res_model">plm.team</field>
+        <field name="parent_id" eval="ref('plm.mt_plm_review')"/>
+        <field name="relation_field">category_ids.team_id</field>
+    </record>
+
+    <record id="mt_plm_approve" model="mail.message.subtype">
+        <field name="name">ECR Approve</field>
+        <field name="res_model">engineering.change.request</field>
+        <field name="default" eval="False"/>
+        <field name="description">ECR Approve</field>
+    </record>
+
+    <record id="mt_plm_team_approve" model="mail.message.subtype">
+        <field name="name">ECR Approve</field>
+        <field name="sequence">21</field>
+        <field name="res_model">plm.team</field>
+        <field name="parent_id" eval="ref('plm.mt_plm_approve')"/>
+        <field name="relation_field">category_ids.team_id</field>
+    </record>
+
+    <record id="mt_plm_reject" model="mail.message.subtype">
+        <field name="name">ECR Reject</field>
+        <field name="res_model">engineering.change.request</field>
+        <field name="default" eval="False"/>
+        <field name="description">ECR Reject</field>
+    </record>
+
+    <record id="mt_plm_team_reject" model="mail.message.subtype">
+        <field name="name">ECR Reject</field>
+        <field name="sequence">21</field>
+        <field name="res_model">plm.team</field>
+        <field name="parent_id" eval="ref('plm.mt_plm_reject')"/>
+        <field name="relation_field">category_ids.team_id</field>
+    </record>
+
+    <record id="mt_engineering_change_order_create"
+            model="mail.message.subtype">
+        <field name="name">ECO Create</field>
+        <field name="res_model">engineering.change.order</field>
+        <field name="default" eval="False"/>
+        <field name="description">ECO Create</field>
+    </record>
+
+    <record id="mt_plm_team_eco_create" model="mail.message.subtype">
+        <field name="name">ECO Create</field>
+        <field name="sequence">21</field>
+        <field name="res_model">plm.team</field>
+        <field name="parent_id"
+               eval="ref('plm.mt_engineering_change_order_create')"/>
+        <field name="relation_field">ecr_id.category_ids.team_id</field>
+    </record>
+
+</flectra>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record model="ir.actions.act_window" id="mrp.mrp_routing_action">
+        <field name="domain">['|',('active','=',True),('active','=',False)]
+        </field>
+    </record>
+
+    <record id="mrp.mrp_routing_tree_view" model="ir.ui.view">
+        <field name="name">mrp.routing.tree</field>
+        <field name="model">mrp.routing</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="sequence"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="plm_bom_version_tree_view">
+        <field name="name">mrp.routing.tree</field>
+        <field name="model">mrp.routing</field>
+        <field name="inherit_id" ref="mrp.mrp_routing_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="sequence" position="before">
+                <field name="active"/>
+                <field name="version"/>
+                <field name="state"/>
+                <field name="historical_date"/>
+                <field name="change_order_type"/>
+                <button name="button_draft" type="object" string="Draft"
+                        attrs="{'invisible':[('state','!=','active')]}"
+                        class="oe_highlight"
+                        icon="fa-times-circle text-success"/>
+                <button name="button_activate" type="object"
+                        string="Activate"
+                        attrs="{'invisible':[
+                        ('state','not in',(False, 'draft'))]}"
+                        class="oe_highlight" icon="fa-archive"
+                        confirm="You will activate the Routing.
+                        If you haven't set a route yet, then you won't
+                        be able to do it after this.
+                        Are you sure you want to proceed?"/>
+                <button name="button_new_version" type="object"
+                        string="New version"
+                        attrs="{'invisible':['|',
+                        ('state','==','historical'),
+                        ('change_order_type','=','temporary')]}"
+                        class="oe_highlight"
+                        icon="fa-check text-success"
+                        confirm="You are going to create a new version
+                        of this Routing. Are you sure?"/>
+                <button name="button_historical" type="object"
+                        string="Historical"
+                        attrs="{'invisible':[('state','!=','active')]}"
+                        class="oe_highlight"
+                        icon="fa-times-circle text-danger"
+                        confirm="You are going to historize an Routing.
+                        Doing, not be able to unlock it unless you
+                        make a copy. Are you sure you want to
+                        proceed?"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="mrp_routing_view_form_inherit_engineering_change_order" model="ir.ui.view">
+        <field name="name">mrp.routing.view.form.inherit.plm</field>
+        <field name="model">mrp.routing</field>
+        <field name="inherit_id" ref="mrp.mrp_routing_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet" position="before">
+                <header>
+                    <button name="button_draft" type="object" string="Draft"
+                            attrs="{'invisible':[('state','!=','active')]}"
+                            class="oe_highlight"/>
+                    <button name="button_activate" type="object"
+                            string="Activate"
+                            attrs="{'invisible':[
+                            ('state','not in',(False, 'draft'))]}"
+                            class="oe_highlight"
+                            confirm="You will activate the Routing.
+                            If you haven't set a route yet, then you won't
+                            be able to do it after this. Are you sure you
+                            want to proceed?"/>
+                    <button name="button_new_version" type="object"
+                            string="New version"
+                            attrs="{'invisible':['|',
+                            ('state','==','historical'),
+                            ('change_order_type','=','temporary')]}"
+                            class="oe_highlight"
+                            confirm="You are going to create a new version
+                            of this Routing. Are you sure?"/>
+                    <button name="button_historical" type="object"
+                            string="Historical"
+                            attrs="{'invisible':[('state','!=','active')]}"
+                            class="oe_highlight"
+                            confirm="You are going to historize an Routing.
+                            Doing, not be able to unlock it unless you make
+                            a copy. Are you sure you want to proceed?"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,active,historical"/>
+                </header>
+            </xpath>
+            <button name="toggle_active" position="before">
+                <button class="oe_stat_button" name="action_engineering_change_order"
+                        type="object" icon="fa-cogs">
+                    <field string="ECO(s)" name="total_change_order" widget="statinfo"/>
+                </button>
+            </button>
+            <field name="company_id" position="after">
+                <field name="change_order_type"/>
+                <field name="version"/>
+                <field name="historical_date" attrs="{'invisible': [
+                ('state','!=','historical')]}"/>
+            </field>
+            <notebook position="inside">
+                <page string="Versions">
+                    <field name="old_versions"/>
+                </page>
+                <page string="ECO">
+                    <field name="change_order_ids"/>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+</flectra>
