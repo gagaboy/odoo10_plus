@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra noupdate="1">
+
+    <record id="hr.employee_jep" model="hr.employee">
+        <field name="user_id" ref="base.user_demo"/>
+    </record>
+
+    <record id="hr_activity_sheet_demo" model="hr.activity.sheet">
+        <field name="employee_id" ref="hr.employee_jep"/>
+        <field name="start_date" eval="DateTime.today()"/>
+        <field name="end_date" eval="DateTime.today() + relativedelta(days=6)"/>
+    </record>
+
+</flectra>

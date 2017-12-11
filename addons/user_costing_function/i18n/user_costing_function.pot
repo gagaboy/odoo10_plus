@@ -1,0 +1,116 @@
+# Translation of Flectra Server.
+# This file contains the translation of the following modules:
+#	* user_costing_function
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Flectra Server 1.0alpha\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-25 09:46+0000\n"
+"PO-Revision-Date: 2017-12-25 09:46+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: user_costing_function
+#: model:ir.model,name:user_costing_function.model_account_analytic_account
+#: model:ir.model.fields,field_description:user_costing_function.field_user_costing_function_account_id
+msgid "Analytic Account"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.model,name:user_costing_function.model_account_analytic_line
+msgid "Analytic Line"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.model.fields,field_description:user_costing_function.field_user_costing_function_cost
+msgid "Cost Price"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.model,name:user_costing_function.model_user_costing_function
+msgid "Costing Price per User"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.model.fields,field_description:user_costing_function.field_user_costing_function_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.model.fields,field_description:user_costing_function.field_user_costing_function_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.model.fields,help:user_costing_function.field_user_costing_function_uom_id
+msgid "Default Unit of Measure used for all stock operation."
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.model.fields,field_description:user_costing_function.field_user_costing_function_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.model.fields,field_description:user_costing_function.field_user_costing_function_id
+msgid "ID"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.ui.view,arch_db:user_costing_function.account_analytic_account_form_inherit_user_costing
+msgid "Invoice Costing Rate per User"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.ui.view,arch_db:user_costing_function.user_costing_function_form
+msgid "Invoice Data"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.model.fields,field_description:user_costing_function.field_user_costing_function___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.model.fields,field_description:user_costing_function.field_user_costing_function_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.model.fields,field_description:user_costing_function.field_user_costing_function_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.model.fields,field_description:user_costing_function.field_user_costing_function_product_id
+msgid "Service"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.model.fields,field_description:user_costing_function.field_user_costing_function_uom_id
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.model.fields,field_description:user_costing_function.field_user_costing_function_user_id
+msgid "User"
+msgstr ""
+
+#. module: user_costing_function
+#: model:ir.model.fields,field_description:user_costing_function.field_account_analytic_account_user_costing_ids
+#: model:ir.model.fields,field_description:user_costing_function.field_project_project_user_costing_ids
+msgid "Users/Products Rel."
+msgstr ""
+
+#. module: user_costing_function
+#: code:addons/user_costing_function/models/user_costing_function.py:90
+#, python-format
+msgid "Warning!\n"
+"Please define expense account forproduct: \"%s\" (id:%d)"
+msgstr ""
+

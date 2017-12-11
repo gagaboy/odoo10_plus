@@ -68,6 +68,21 @@ class ResConfigSettings(models.TransientModel):
 
     module_delivery = fields.Boolean("Shipping Costs")
     module_product_email_template = fields.Boolean("Specific Email")
+    module_account_costing_analysis = fields.Boolean(
+        'Use contracts management',
+        help='Allows to define your customer contracts conditions: invoicing '
+        'method (fixed price, on timesheet, advance invoice), the exact '
+        'pricing (650€/day for a developer), the duration (one year support '
+        'contract).\nYou will be able to follow the progress of the contract '
+        'and invoice automatically.\n-It installs the '
+        'account_costing_analysis module.')
+    module_user_costing_function = fields.Boolean(
+        "One employee can have different roles per contract",
+        help='Allows you to define what is the default function of a specific '
+        'user on a given account.\nThis is mostly used when a user encodes his'
+        ' timesheet. The values are retrieved and the fields are '
+        'auto-filled. But the possibility to change these values is still '
+        'available.\n-This installs the module user_costing_function.')
 
     @api.onchange('multi_sales_price', 'multi_sales_price_method')
     def _onchange_sale_price(self):
@@ -76,6 +91,14 @@ class ResConfigSettings(models.TransientModel):
                 'multi_sales_price_method': 'percentage',
             })
         self.sale_pricelist_setting = self.multi_sales_price and self.multi_sales_price_method or 'fixed'
+
+    @api.onchange('module_account_costing_analysis')
+    def onchange_timesheet(self):
+        return {'value': {
+            'timesheet': self.module_account_costing_analysis or False,
+            'module_account_costing_analysis':
+                self.module_account_costing_analysis or False,
+        }}
 
     @api.onchange('sale_show_tax')
     def _onchange_sale_tax(self):
@@ -140,6 +163,10 @@ class ResConfigSettings(models.TransientModel):
             sale_pricelist_setting=sale_pricelist_setting,
             portal_confirmation=sale_portal_confirmation_options in ('pay', 'sign'),
             portal_confirmation_options=sale_portal_confirmation_options if sale_portal_confirmation_options in ('pay', 'sign') else False,
+            module_account_costing_analysis=self.env['ir.config_parameter'].sudo().get_param(
+                'account_costing_analysis.module_account_costing_analysis'),
+            module_user_costing_function=self.env['ir.config_parameter'].sudo().get_param(
+                'user_costing_function.module_user_costing_function'),
         )
         return res
 
@@ -153,4 +180,8 @@ class ResConfigSettings(models.TransientModel):
         ICPSudo.set_param("sale.default_deposit_product_id", self.default_deposit_product_id.id)
         ICPSudo.set_param('sale.sale_pricelist_setting', self.sale_pricelist_setting)
         ICPSudo.set_param('sale.sale_show_tax', self.sale_show_tax)
+        ICPSudo.set_param('user_costing_function.module_user_costing_function',
+                          self.module_user_costing_function)
+        ICPSudo.set_param('account_costing_analysis.module_account_costing_analysis',
+                          self.module_account_costing_analysis)
         ICPSudo.set_param('sale.sale_portal_confirmation_options', self.portal_confirmation_options if self.portal_confirmation_options in ('pay', 'sign') else 'none')

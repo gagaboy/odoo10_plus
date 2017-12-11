@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ucf_account_manager,ucf_account_manager,model_user_costing_function,account.group_account_manager,1,1,1,1
+access_ucf_manager,ucf_manager,model_user_costing_function,account.group_account_manager,1,1,1,1
+access_ucf_hr_manager,ucf_hr_manager,model_user_costing_function,hr.group_hr_manager,1,1,1,1
+access_ucf_user,ucf_user,model_user_costing_function,account.group_account_manager,1,0,0,0
+access_ucf_hr_user,ucf_hr_user,model_user_costing_function,hr.group_hr_user,1,0,0,0
+access_ucf_all,ucf_all,model_user_costing_function,base.group_user,1,0,0,0

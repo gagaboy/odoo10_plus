@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="hr_activity_sheet_tree_view" model="ir.ui.view">
+        <field name="name">Activities Sheet Tree</field>
+        <field name="model">hr.activity.sheet</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="state == 'draft'"
+                  decoration-muted="state == 'approved'"
+                  decoration-bf="message_needaction == True">
+                <field name="employee_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field invisible="1" name="department_id"/>
+                <field name="state"/>
+                <field invisible="1" name="message_needaction"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_analytic_line_form_inherited" model="ir.ui.view">
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_form"/>
+        <field name="name">account.analytic.line.form</field>
+        <field name="arch" type="xml">
+            <field name="date" position="after">
+                <field name="activity_sheet_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_analytic_line_search_inherited" model="ir.ui.view">
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_search"/>
+        <field name="name">account.analytic.line.search</field>
+        <field name="arch" type="xml">
+            <field name="date" position="before">
+                <field name="activity_sheet_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="hr_activity_sheet_form_view" model="ir.ui.view">
+        <field name="name">Activities Form</field>
+        <field name="model">hr.activity.sheet</field>
+        <field name="arch" type="xml">
+            <form string="Activities">
+                <header>
+                    <button name="set_activity_unapproved" states="draft" string="Submit to Manager" type="object"
+                            class="oe_highlight"/>
+                    <button name="set_activity_approved" states="unapproved" string="Approve" type="object"
+                            groups="hr_timesheet.group_hr_timesheet_user" class="oe_highlight"/>
+                    <button name="set_activity_draft" states="approved" string="Set to Draft" type="object"
+                            groups="hr_timesheet.group_hr_timesheet_user"/>
+                    <button name="set_activity_draft" states="unapproved" string="Refuse" type="object"
+                            groups="hr_timesheet.group_hr_timesheet_user"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="new,unapproved,approved"
+                           required="1" readonly="1"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="employee_id" class="oe_edit_only"/>
+                        <h1>
+                            <field name="employee_id" required="1" class="oe_inline" placeholder="Employee's Name"/>
+                        </h1>
+                        <field name="user_id" invisible="1" readonly="1"/>
+                    </div>
+                    <group>
+                        <group>
+                            <label for="start_date" string="Activity Range"/>
+                            <div>
+                                <field name="start_date" class="oe_inline" readonly="1" required="1"/>
+                                to
+                                <field name="end_date" class="oe_inline" readonly="1" required="1"/>
+                            </div>
+                            <field name="name" invisible="1"/>
+                            <field name="department_id" invisible="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Details">
+                            <field context="{'employee_id': employee_id, 'user_id':user_id, 'activity_start_date': start_date, 'activity_end_date': end_date}"
+                                   name="activity_ids" nolabel="1" readonly="1">
+                                <tree editable="bottom">
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="project_id" required="1"/>
+                                    <field name="unit_amount" widget="float_time" string="Hours" sum="Hours"/>
+                                    <field name="user_id" invisible="1"/>
+                                    <field name="account_id" invisible="1"/>
+                                </tree>
+                                <form string="Activities Sheet">
+                                    <group>
+                                        <field name="date"/>
+                                        <field name="name"/>
+                                        <field name="project_id"/>
+                                        <field name="unit_amount" widget="float_time" string="Hours"/>
+                                        <field name="user_id" invisible="1"/>
+                                        <field name="account_id" invisible="1"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_activity_sheet_search_view" model="ir.ui.view">
+        <field name="model">hr.activity.sheet</field>
+        <field name="name">hr.activity.sheet.filter</field>
+        <field name="arch" type="xml">
+            <search string="Search Activities Sheet">
+                <field name="start_date"/>
+                <filter name="new" string="Draft Activities" domain="[('state','in',('draft', 'new'))]"
+                        help="New Activity"/>
+                <filter name="to_approve" string="Unapproved Activities"
+                        domain="[('state','=','unapproved')]"
+                        help="Unapproveed Activity"/>
+                <filter string="Unread Messages" name="message_needaction"
+                        domain="[('message_needaction','=',True)]"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <group expand="0" string="Group By">
+                    <filter string="Employees" domain="[]" context="{'group_by':'employee_id'}"/>
+                    <filter string="Department" domain="[]" context="{'group_by':'department_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="hr_activity_sheet_action" model="ir.actions.act_window">
+        <field name="res_model">hr.activity.sheet</field>
+        <field name="name">My Activities</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="hr_activity_sheet_search_view"/>
+        <field name="domain">[('employee_id.user_id', '=', uid)]</field>
+    </record>
+
+    <record id="hr_activity_sheet_action_form_view" model="ir.actions.act_window">
+        <field name="res_model">hr.activity.sheet</field>
+        <field name="name">Unapproved Activities</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="context">{'search_default_to_approve':1}</field>
+        <field name="search_view_id" ref="hr_activity_sheet_search_view"/>
+    </record>
+
+    <record id="hr_activity_sheet_account_form_view" model="ir.ui.view">
+        <field name="model">hr.activity.sheet.account</field>
+        <field name="name">Activity Sheet Account Form</field>
+        <field name="arch" type="xml">
+            <form string="Activities Accounts">
+                <group col="4">
+                    <field name="activity_sheet_id" readonly="1"/>
+                    <field name="name" groups="analytic.group_analytic_accounting"/>
+                    <field name="utilized_hour" sum="Total Hours" readonly="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_activity_account_search_view" model="ir.ui.view">
+        <field name="model">hr.activity.sheet.account</field>
+        <field name="name">Activities Sheet Account Search</field>
+        <field name="arch" type="xml">
+            <search string="Activities Account">
+                <field name="name" groups="analytic.group_analytic_accounting"/>
+                <field name="activity_sheet_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_view_activity_sheet_tree">
+        <field name="view_id" ref="hr_activity_sheet_tree_view"/>
+        <field name="act_window_id" ref="hr_activity_sheet_action_form_view"/>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <record id="action_hr_activity_sheet_for_employee" model="ir.actions.act_window">
+        <field name="res_model">hr.activity.sheet</field>
+        <field name="name">Activities</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="context">
+            {'search_default_employee_id': [active_id], 'default_employee_id': active_id}
+        </field>
+    </record>
+
+    <record id="action_hr_activity_sheet_for_department" model="ir.actions.act_window">
+        <field name="res_model">hr.activity.sheet</field>
+        <field name="name">Activities Unapproved</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{
+            'search_default_department_id': [active_id],
+            'default_department_id': active_id,
+            'search_default_to_approve': 1}
+        </field>
+    </record>
+
+    <record id="hr_timesheet.timesheet_menu_activity_mine" model="ir.ui.menu">
+        <field name="name">Activities</field>
+        <field name="groups_id" eval="[(6,0,[ref('hide_activity_menu_mine')])]"/>
+    </record>
+
+    <record id="hr_activity_sheet_account_tree_view" model="ir.ui.view">
+        <field name="model">hr.activity.sheet.account</field>
+        <field name="name">Activities Sheet Account Tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="activity_sheet_id"/>
+                <field name="name" groups="analytic.group_analytic_accounting"/>
+                <field name="utilized_hour" sum="Total Hours"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_hr_activity_sheet"
+              action="action_activity_sheet"
+              parent="hr_timesheet.menu_hr_time_tracking"
+              name="Activity"
+              sequence="2"/>
+
+    <menuitem id="menu_hr_activity_sheet_action"
+              action="hr_activity_sheet_action"
+              parent="hr_timesheet.menu_hr_time_tracking"
+              sequence="3"/>
+
+
+    <menuitem id="menu_activity_unapproved" name="Unappoved"
+              parent="hr_timesheet.timesheet_menu_root"
+              sequence="7" />
+
+    <menuitem id="menu_hr_activity_sheet_action_form_view"
+              action="hr_activity_sheet_action_form_view"
+              parent="menu_activity_unapproved"
+              groups="hr_timesheet.group_hr_timesheet_user"
+              sequence="11" />
+
+</flectra>

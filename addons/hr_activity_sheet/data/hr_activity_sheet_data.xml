@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra noupdate="1">
+
+    <record model="mail.message.subtype" id="mt_unapproved_activity">
+        <field name="name">Activities To Approve</field>
+        <field name="description">Activities To Approve</field>
+        <field name="res_model">hr.activity.sheet</field>
+        <field name="default" eval="True"/>
+    </record>
+
+    <record model="mail.message.subtype" id="mt_unapproved_activity_department">
+        <field name="name">Activities to Approve</field>
+        <field name="res_model">hr.department</field>
+        <field name="parent_id" eval="ref('mt_unapproved_activity')"/>
+        <field name="relation_field">department_id</field>
+        <field name="default" eval="False"/>
+    </record>
+
+    <record model="mail.message.subtype" id="mt_approve_activity">
+        <field name="name">Activities Approved</field>
+        <field name="description">Activities Approved</field>
+        <field name="res_model">hr.activity.sheet</field>
+        <field name="default" eval="True"/>
+    </record>
+
+    <record model="mail.message.subtype" id="mt_approve_activity_department">
+        <field name="name">Activities Approved</field>
+        <field name="res_model">hr.department</field>
+        <field name="parent_id" eval="ref('mt_approve_activity')"/>
+        <field name="relation_field">department_id</field>
+        <field name="default" eval="False"/>
+    </record>
+
+    <record id="action_activity_sheet" model="ir.actions.server">
+        <field name="name">My Activities</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_latest_activity"/>
+        <field name="code">
+            action = model.get_latest_activity()
+        </field>
+        <field name="state">code</field>
+    </record>
+
+</flectra>

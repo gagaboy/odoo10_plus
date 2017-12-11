@@ -1,0 +1,100 @@
+# Translation of Flectra Server.
+# This file contains the translation of the following modules:
+#	* project_activity
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Flectra Server 1.0alpha\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-25 07:08+0000\n"
+"PO-Revision-Date: 2017-12-25 07:08+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_activity
+#: code:addons/project_activity/models/project_activity.py:28
+#: model:ir.ui.view,arch_db:project_activity.project_form_view_inherited
+#, python-format
+msgid "Activities"
+msgstr ""
+
+#. module: project_activity
+#: model:ir.ui.menu,name:project_activity.menu_activity_invoicing
+msgid "Activity Invoicing"
+msgstr ""
+
+#. module: project_activity
+#: model:ir.model,name:project_activity.model_account_analytic_line
+msgid "Analytic Line"
+msgstr ""
+
+#. module: project_activity
+#: model:ir.model,name:project_activity.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: project_activity
+#: model:ir.ui.view,arch_db:project_activity.analytic_line_form_view_inherit
+#: model:ir.ui.view,arch_db:project_activity.analytic_line_search_view_inherited
+#: model:ir.ui.view,arch_db:project_activity.analytic_line_tree_view_inherited
+msgid "Contract"
+msgstr ""
+
+#. module: project_activity
+#: model:ir.actions.act_window,name:project_activity.action_overdue
+msgid "Customers Contract"
+msgstr ""
+
+#. module: project_activity
+#: model:ir.ui.view,arch_db:project_activity.project_kanban_view_inherited
+msgid "Hours"
+msgstr ""
+
+#. module: project_activity
+#: code:addons/project_activity/models/project_activity.py:59
+#, python-format
+msgid "Invalid Account! \n"
+"Account selected is not active."
+msgstr ""
+
+#. module: project_activity
+#: code:addons/project_activity/models/project_activity.py:15
+#, python-format
+msgid "Invalid Action! \n"
+"Unable to delete project partner"
+msgstr ""
+
+#. module: project_activity
+#: model:ir.actions.act_window,name:project_activity.action_activity_invoice_task
+msgid "Invoice Activities on Tasks"
+msgstr ""
+
+#. module: project_activity
+#: model:ir.ui.view,arch_db:project_activity.project_search_view_inherited
+msgid "Invoiceable"
+msgstr ""
+
+#. module: project_activity
+#: model:ir.model,name:project_activity.model_project_project
+msgid "Project"
+msgstr ""
+
+#. module: project_activity
+#: model:ir.ui.menu,name:project_activity.menu_customer_contract
+msgid "Renew Contracts"
+msgstr ""
+
+#. module: project_activity
+#: model:ir.model,name:project_activity.model_project_task
+msgid "Task"
+msgstr ""
+
+#. module: project_activity
+#: model:ir.ui.menu,name:project_activity.menu_activity_invoice_task
+msgid "Task Activity Invoicing"
+msgstr ""
+

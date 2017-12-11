@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra noupdate="1">
+
+    <record id="contract_new_agrolait" model="account.analytic.account">
+        <field name="name">New Contract</field>
+        <field name="partner_id" ref="base.res_partner_2"/>
+        <field name="type">contract</field>
+        <field name="state">open</field>
+        <field name="use_timesheets">True</field>
+        <field name="use_tasks">True</field>
+        <field name="quantity_max">100</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="pricelist_id" ref="product.list0"/>
+         <field name="to_invoice" ref="hr_activity_invoice.activity_factor_1"/>
+    </record>
+
+    <!-- Analytic Lines -->
+    <record id="activity_description" model="account.analytic.line">
+        <field name="date" eval="datetime.today()"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="name">Providing service</field>
+        <field name="product_id" ref="product.product_product_1"/>
+        <field name="unit_amount">1</field>
+        <field name="amount">-30.75</field>
+         <field name="to_invoice" ref="hr_activity_invoice.activity_factor_1"/>
+        <field name="account_id" ref="contract_new_agrolait"/>
+    </record>
+
+    <record id="invoice_costing_price_rate_per_user" model="user.costing.function">
+        <field name="product_id" ref="product.product_product_1"/>
+        <field name="cost">50</field>
+        <field name="account_id" ref="contract_new_agrolait"/>
+        <field name="user_id" ref="base.user_root"/>
+    </record>
+
+</flectra>
