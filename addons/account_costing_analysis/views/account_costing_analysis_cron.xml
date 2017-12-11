@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<flectra>
+
+    <record id="email_template_expiration_reminder" model="mail.template">
+        <field name="name">Expiration reminder</field>
+        <field name="subject">Expiration of Service ${user.company_id.name}</field>
+        <field name="model_id" ref="base.model_res_users"/>
+        <field name="email_from">${(object.email or '')|safe}</field>
+        <field name="email_to">${object.email | safe}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="lang">${object.lang}</field>
+        <field name="body_html"><![CDATA[
+            Hello ${object.name},
+
+            <table border="1" cellpadding="5" cellspacing="5">
+                <tr>
+                    <th>Customer</th>
+                    <th>Contract</th>
+                    <th>Prepaid Units</th>
+                    <th>Dates</th>
+                    <th>Contact</th>
+                </tr>
+                % for partner_id, account_ids in vals:
+                    % for account_id in account_ids:
+                    <tr>
+                        <td>${partner_id.name}</td>
+                        <td><a href="${ctx["base_url"]}/#action=${ctx["action_id"]}&id=${account_id.id}&view_type=form">${account_id.name}</a></td>
+                        <td>${account_id.date_start} to ${account_id.date and account_id.date or '???'}</td>
+                        <td>
+                        % if account_id.quantity_max != 0.0:
+                            ${account_id.left_hours}/${account_id.quantity_max} units
+                        % endif
+                        </td>
+                        <td>${account_id.partner_id.phone or ''}, ${account_id.partner_id.email or ''}</td>
+                    </tr>
+                    % endfor
+                % endfor
+            </table>
+
+            % if "new" in ctx["data"]:
+                <h2>These Contracts have been expired:</h2>
+                ${account_table(ctx["data"]["new"].iteritems())}
+            % endif
+
+            % if "old" in ctx["data"]:
+                <h2>Following expired Contracts are to be processed: </h2>
+                ${account_table(ctx["data"]["old"].iteritems())}
+            % endif
+
+            % if "future" in ctx["data"]:
+                <h2>Following Contracts will be expired in less than a month: </h2>
+                ${account_table(ctx["data"]["future"].iteritems())}
+            % endif
+
+            <p>
+                View Contracts to renew by this menu.:
+            </p>
+            <ul>
+                <li>Sales / Invoicing / Contracts to Renew</li>
+            </ul>
+            <p>
+                Thanks,
+            </p>
+
+            <pre>
+            --
+            Flectra Automatic Email
+            </pre>
+        ]]>
+        </field>
+    </record>
+
+   <record id="recurring_invoices_cron" model="ir.cron">
+        <field name="name">Recurring Invoices</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="model_id" ref="model_account_analytic_account"/>
+        <field name="code">model._cron_contract_invoice_recurring()</field>
+    </record>
+
+   <record id="expiration_remainder_cron" model="ir.cron">
+        <field name="name">Contract Expiration</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">weeks</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="model_id" ref="model_account_analytic_account"/>
+        <field name="code">model._cron_contract_exp_reminder()</field>
+    </record>
+
+</flectra>

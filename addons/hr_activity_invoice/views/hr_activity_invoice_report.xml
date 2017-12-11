@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <report id="action_analytic_revenue_report" name="hr_activity_invoice.report_analyticrevenue"
+        file="hr_activity_invoice.report_analyticrevenue" model="account.analytic.line"
+        menu="False" report_type="qweb-pdf" string="Timesheet Revenue" />
+
+</flectra>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record model="ir.ui.view" id="view_analytic_account_close_report_form">
+        <field name="name">report.analytic.account.close.form</field>
+        <field name="model">report.analytic.account.close</field>
+        <field name="arch" type="xml">
+            <form string="Expired Accounts">
+                <group col="4">
+                    <field name="partner_id"/>
+                    <field name="quantity_max"/>
+                    <field name="year" groups="analytic.group_analytic_accounting"/>
+                    <field name="quantity"/>
+                    <field name="date_deadline"/>
+                    <field name="balance"/>
+                    <field name="state"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_analytic_account_close_report_tree" model="ir.ui.view">
+        <field name="name">report.analytic.account.close.tree</field>
+        <field name="model">report.analytic.account.close</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner_id"/>
+                <field name="quantity_max"/>
+                <field name="year" groups="analytic.group_analytic_accounting"/>
+                <field name="quantity"/>
+                <field name="date_deadline"/>
+                <field name="balance"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_analytic_account_close_report_graph">
+        <field name="name">report.analytic.account.close.graph</field>
+        <field name="model">report.analytic.account.close</field>
+        <field name="arch" type="xml">
+            <graph string="Expired Accounts" type="bar">
+                <field name="partner_id"/>
+                <field name="quantity_max" operator="+"/>
+                <field name="quantity" operator="+"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_action_analytic_account_tree" model="ir.actions.act_window">
+        <field name="name">Expired Accounts</field>
+        <field name="res_model">report.analytic.account.close</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,graph</field>
+        <field name="domain">[('state', '=', 'open')]</field>
+    </record>
+
+    <record model="ir.ui.view" id="account_analytic_line_to_invoice_view_form">
+        <field name="name">report.account.analytic.line.to.invoice</field>
+        <field name="model">report.account.analytic.line.to.invoice</field>
+        <field name="arch" type="xml">
+            <form string="Lines to Invoice">
+                <group col="4">
+                    <field name="account_id" groups="analytic.group_analytic_accounting"/>
+                    <field name="month"/>
+                    <field name="year"/>
+                    <newline/>
+                    <field name="product_id"/>
+                    <field name="product_uom_id"/>
+                    <newline/>
+                    <field name="unit_amount"/>
+                    <field name="amount"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="account_analytic_line_to_invoice_view_tree" model="ir.ui.view">
+        <field name="name">report.account.analytic.line.to.invoice.tree</field>
+        <field name="model">report.account.analytic.line.to.invoice</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_id"/>
+                <field name="account_id" groups="analytic.group_analytic_accounting"/>
+                <field name="amount"/>
+                <field name="month"/>
+                <field name="year"/>
+                <field name="product_uom_id"/>
+                <field name="sale_price"/>
+                <field name="unit_amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="account_report_analytic_line_to_invoice_view_graph" model="ir.ui.view">
+        <field name="name">report.account.analytic.line.to.invoice.graph</field>
+        <field name="model">report.account.analytic.line.to.invoice</field>
+        <field name="arch" type="xml">
+            <graph string="Lines" type="bar">
+                <field name="year"/>
+                <field name="sale_price" operator="+"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="account_report_analytic_line_to_invoice_view_filter" model="ir.ui.view">
+        <field name="name">report.account.analytic.line.to.invoice.search</field>
+        <field name="model">report.account.analytic.line.to.invoice</field>
+        <field name="arch" type="xml">
+            <search string="Lines to Invoice">
+                <field name="account_id" groups="analytic.group_analytic_accounting"/>
+                <field name="product_id"/>
+                <field name="month"/>
+                <field name="year"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="act_acc_analytic_acc_2_report" model="ir.actions.act_window">
+        <field name="domain">[]</field>
+        <field name="context">{
+            'search_default_to_invoice': 1
+            'search_default_account_id': [active_id],
+            'default_account_id': active_id,
+        }
+        </field>
+        <field name="name">To Invoice</field>
+        <field name="src_model">account.analytic.account</field>
+        <field name="res_model">account.analytic.line</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_account_analytic_line_to_invoice_report">
+        <field name="name">Analytic Lines to Invoice</field>
+        <field name="res_model">report.account.analytic.line.to.invoice</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,graph</field>
+        <field name="search_view_id" ref="account_report_analytic_line_to_invoice_view_filter"/>
+    </record>
+
+</flectra>

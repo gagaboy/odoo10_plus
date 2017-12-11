@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="account_costing_project_form" model="ir.ui.view">
+        <field name="name">Inherit project form : Invoicing Data</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <p attrs="{'invisible': [('analytic_account_id','=',False)]}">
+                    To invoice or setup invoicing and renewal options, go to the related contract:
+                    <field name="analytic_account_id" readonly="1" required="0" class="oe_inline" nolabel="1"/>.
+                </p>
+            </xpath>
+
+        </field>
+    </record>
+
+</flectra>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record model="res.users" id="base.user_root">
+        <field name="groups_id" eval="[(4, ref('sale.group_analytic_accounting'))]"/>
+    </record>
+
+    <record id="required_group_template" model="res.groups">
+        <field name="name">Force templates use in contracts</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+        <field name="comment">the template field of the analytic accounts and contracts will be required.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+</flectra>

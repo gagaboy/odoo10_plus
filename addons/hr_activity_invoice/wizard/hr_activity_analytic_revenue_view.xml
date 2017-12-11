@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="view_account_analytic_revenue" model="ir.ui.view">
+        <field name="name">Timesheet Revenue</field>
+        <field name="model">account.analytic.revenue</field>
+        <field name="arch" type="xml">
+            <form string="Timesheet Revenue">
+                <sheet>
+                    <group>
+                        <field name="date_from" class="oe_inline"/>
+                        <field name="date_to" class="oe_inline"/>
+                    </group>
+                    <group col="2">
+                        <group>
+                            <field name="journal_ids" widget="many2many_tags"
+                                options="{'no_create': True, 'no_create_edit': True}"/>
+                            <field name="employee_ids" widget="many2many_tags"
+                                options="{'no_create': True, 'no_create_edit': True}"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="print_report" string="Print Report" class="oe_highlight" type="object"/>
+                    or
+                    <button string="Cancel" special="cancel" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_account_analytic_revenue" model="ir.actions.act_window">
+        <field name="name">Timesheet Revenue</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">account.analytic.revenue</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_account_analytic_revenue" action="action_account_analytic_revenue"
+        parent="hr_timesheet.menu_timesheets_reports" sequence="3"/>
+
+</flectra>

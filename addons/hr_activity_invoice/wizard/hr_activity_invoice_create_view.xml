@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="view_hr_activity_invoice_create_form" model="ir.ui.view">
+        <field name="name">hr.activity.invoice.create.form</field>
+        <field name="model">hr.activity.invoice.create</field>
+        <field name="arch" type="xml">
+            <form string="Invoice Create">
+                <notebook>
+                    <page string="Billing">
+                        <group cols="2">
+                            <group string="Details">
+                                <field name="name"/>
+                                <field name="price"/>
+                                <field name="date"/>
+                                <field name="time"/>
+                            </group>
+                            <group string="Want to use a specific product?">
+                                <field name="product_id" options="{'no_create': True, 'no_create_edit': True}"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+                <footer>
+                    <button string="Create Invoices" name="create_invoice" class="oe_highlight" type="object"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_activity_invoice_create" model="ir.actions.act_window">
+        <field name="name">Create Invoice</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.activity.invoice.create</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="analytic.model_account_analytic_line"/>
+    </record>
+
+</flectra>
