@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="quality_test_tree_view" model="ir.ui.view">
+        <field name="name">qc.test.tree</field>
+        <field name="model">qc.test</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="reference"/>
+                <field name="responsible_id"/>
+                <field name="applied_on"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="quality_test_form_view" model="ir.ui.view">
+        <field name="name">qc.test.form</field>
+        <field name="model">qc.test</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="QC Test">
+                <header>
+                    <button name="do_review" type="object"
+                            class="oe_stat_button"
+                            attrs="{'invisible': [('state', '!=', 'draft')]}"
+                            string="Review"/>
+                    <button name="do_approve" type="object"
+                            class="oe_stat_button"
+                            attrs="{'invisible': [('state', '!=', 'review')]}"
+                            string="Approve"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,review,approve"/>
+                </header>
+                <sheet>
+                    <h2>
+                        <field name="name"/>
+                    </h2>
+                    <group>
+                        <field name="reference"
+                               attrs="{'readonly':[('state', '=', 'approve')]}"/>
+                        <field name="qc_team_id"
+                               attrs="{'readonly':[('state', '=', 'approve')]}"/>
+                        <field name="responsible_id"
+                               attrs="{'readonly':[('state', '=', 'approve')]}"/>
+                    </group>
+                    <group>
+                        <field name="active"
+                               attrs="{'readonly':[('state', '=', 'approve')]}"/>
+                    </group>
+                    <group>
+                        <field name="applied_on" widget="radio"
+                               attrs="{'readonly':[('state', '=', 'approve')]}"/>
+                        <field name="categ_id"
+                               attrs="{'invisible':[('applied_on', '!=', '2_product_category')],
+                              'readonly':[('state', '=', 'approve')],
+                               'required':[('applied_on', '=', '2_product_category')]}"/>
+                        <field name="product_tmpl_id"
+                               attrs="{'invisible':[('applied_on', '!=', '1_product')],
+                               'readonly':[('state', '=', 'approve')],
+                               'required':[('applied_on', '=', '1_product')]}"
+                               string="Product"/>
+                        <field name="product_id"
+                               attrs="{'invisible':[('applied_on', '!=', '0_product_variant')],
+                               'readonly':[('state', '=', 'approve')],
+                               'required':[('applied_on', '=', '0_product_variant')]}"
+                               string="Product Variant"/>
+                        <field name="picking_type_ids"
+                               attrs="{'readonly':[('state', '=', 'approve')]}"
+                               widget="many2many_tags" required="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Quantitative">
+                            <group>
+                                <field name="quantitative_ids" nolabel="1"
+                                       attrs="{'readonly':[('state', '=', 'approve')]}">
+                                    <tree editable="bottom">
+                                        <field name="name" required="1"/>
+                                        <field name="type" invisible="1"/>
+                                        <field name="uom_id" attrs="{'readonly':[
+                                               ('type', '=', 'qualitative')]}"/>
+                                        <field name="min_dimension"
+                                               attrs="{'readonly':[
+                                               ('type', '=', 'qualitative')]}"/>
+                                        <field name="min_value"
+                                               attrs="{'readonly':[
+                                               ('type', '=', 'qualitative')]}"/>
+                                        <field name="max_value"
+                                               attrs="{'readonly':[
+                                               ('type', '=', 'qualitative')]}"/>
+                                        <field name="max_dimension"
+                                               attrs="{'readonly':[
+                                               ('type', '=', 'qualitative')]}"/>
+                                    </tree>
+                                    <form string="Quantitative">
+                                        <group>
+                                            <field name="name" required="1"/>
+                                            <field name="type" invisible="1"/>
+                                            <field name="uom_id" attrs="{'readonly':[
+                                               ('type', '=', 'qualitative')]}"/>
+                                            <field name="min_dimension"
+                                                   attrs="{'readonly':[
+                                                   ('type', '=', 'qualitative')]}"/>
+                                            <field name="min_value"
+                                                   attrs="{'readonly':[
+                                                   ('type', '=', 'qualitative')]}"/>
+                                            <field name="max_value"
+                                                   attrs="{'readonly':[
+                                                   ('type', '=', 'qualitative')]}"/>
+                                            <field name="max_dimension"
+                                                   attrs="{'readonly':[
+                                                   ('type', '=', 'qualitative')]}"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </group>
+                        </page>
+                        <page string="Qualitative">
+                            <group>
+                                <field name="qualitative_ids" nolabel="1"
+                                       attrs="{'readonly':[('state', '=', 'approve')]}">
+                                    <tree>
+                                        <field name="name" required="1"/>
+                                        <field name="type" invisible="1"/>
+                                    </tree>
+                                    <form string="Qualitative">
+                                        <group>
+                                            <field name="name" required="1"/>
+                                            <field name="type" invisible="1"/>
+                                        </group>
+                                        <notebook>
+                                            <page string="Questions">
+                                                <group>
+                                                    <field
+                                                            name="question_ids"
+                                                            nolabel="1">
+                                                        <tree
+                                                                editable="bottom">
+                                                            <field
+                                                                    name="question"/>
+                                                            <field
+                                                                    name="answer"
+                                                                    widget="radio"
+                                                                    invisible="1"/>
+                                                        </tree>
+                                                        <form>
+                                                            <group>
+                                                                <field
+                                                                        name="question"/>
+                                                                <field
+                                                                        name="answer"
+                                                                        widget="radio"/>
+                                                            </group>
+                                                        </form>
+                                                    </field>
+                                                </group>
+                                            </page>
+                                        </notebook>
+                                    </form>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"
+                           widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"
+                           options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_qc_test_view" model="ir.actions.act_window">
+        <field name="name">QC Test</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">qc.test</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="qc_menu_root"
+              name="Quality Assurance Management"
+              web_icon="quality_assurance_management,static/description/icon.png"
+              sequence="1"/>
+
+    <menuitem id="quality_menu"
+              name="Quality Assurance Management"
+              parent="qc_menu_root"
+              sequence="2"/>
+
+    <menuitem id="qc_categories_main_menu"
+              name="Configuration"
+              parent="qc_menu_root"
+              sequence="4"/>
+
+    <menuitem id="qc_test_menu"
+              parent="qc_categories_main_menu"
+              action="action_qc_test_view"
+              sequence="3"/>
+
+</flectra>

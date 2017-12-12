@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="incident_report_tree_view" model="ir.ui.view">
+        <field name="name">incident.report.tree</field>
+        <field name="model">incident.report</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="product_tmpl_id"/>
+                <field name="responsible_id"/>
+                <field name="qc_team_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="incident_report_form_view" model="ir.ui.view">
+        <field name="name">incident.report.form</field>
+        <field name="model">incident.report</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="Incident Report">
+                <header>
+                    <button name="action_confirm" type="object"
+                            class="oe_stat_button"
+                            attrs="{'invisible': [('state', '!=', 'new')]}"
+                            string="Confirm"/>
+                    <button name="action_inprogress" type="object"
+                            class="oe_stat_button"
+                            attrs="{'invisible': [('state', '!=', 'confirm')]}"
+                            string="In Progress"/>
+                    <button name="action_done" type="object"
+                            class="oe_stat_button"
+                            attrs="{'invisible': [
+                            ('state', '!=', 'in_progress')]}"
+                            string="Done"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="new, confirm, in_progress, done"/>
+                </header>
+                <sheet>
+                    <h1>
+                        <field name="name" readonly="1"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="product_tmpl_id" required="1"
+                                   attrs="{'readonly':[
+                                   ('state', '=', 'done')]}"/>
+                            <field name="qc_team_id" required="1"
+                                   attrs="{'readonly':[
+                                   ('state', '=', 'done')]}"/>
+                            <field name="responsible_id"
+                                   attrs="{'readonly':[
+                                   ('state', '=', 'done')]}"/>
+                        </group>
+                        <group>
+                            <field name="start_date"
+                                   attrs="{'readonly':[
+                                   ('state', '=', 'done')]}"/>
+                            <field name="end_date" readonly="1"
+                                   attrs="{'readonly':[
+                                   ('state', '=', 'done')]}"/>
+                            <field name="inspection_reason_id" required="1"
+                                   attrs="{'readonly':[
+                                   ('state', '=', 'done')]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Improvements">
+                            <group>
+                                <field name="improvements" nolabel="1"
+                                       required="1"
+                                       attrs="{'readonly':[
+                                       ('state', '=', 'done')]}"/>
+                            </group>
+                        </page>
+                        <page string="Protections">
+                            <group>
+                                <field name="protections" nolabel="1"
+                                       required="1"
+                                       attrs="{'readonly':[(
+                                       'state', '=', 'done')]}"/>
+                            </group>
+                        </page>
+                        <page string="Remarks">
+                            <group>
+                                <field name="remarks" nolabel="1"
+                                       attrs="{'readonly':[
+                                       ('state', '=', 'done')]}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"
+                           widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_incident_report_view" model="ir.actions.act_window">
+        <field name="name">Incident Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">incident.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="incident_report_main_menu"
+              name="Incident Report"
+              parent="qc_menu_root"
+              sequence="3"/>
+    <menuitem id="incident_report_sub_menu"
+              parent="incident_report_main_menu"
+              action="action_incident_report_view"
+              sequence="3"/>
+
+</flectra>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra noupdate="1">
+
+    <record id="sequence_incident_report" model="ir.sequence">
+        <field name="name">Incident Report</field>
+        <field name="code">incident.report</field>
+        <field name="prefix">INC/%(range_year)s/</field>
+        <field name="padding">3</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+    </record>
+
+    <record id="sequence_qc_test" model="ir.sequence">
+        <field name="name">QC Test</field>
+        <field name="code">qc.test</field>
+        <field name="prefix">Test/%(range_year)s/</field>
+        <field name="padding">3</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+    </record>
+
+    <record id="sequence_qc_inspection" model="ir.sequence">
+        <field name="name">QC Inspection</field>
+        <field name="code">qc.inspection</field>
+        <field name="prefix">INS/%(range_year)s/</field>
+        <field name="padding">3</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+    </record>
+
+    <record id="mt_qc_create" model="mail.message.subtype">
+        <field name="name">Inspection Create</field>
+        <field name="res_model">qc.inspection</field>
+        <field name="default" eval="False"/>
+        <field name="description">QC Create</field>
+    </record>
+
+    <record id="mt_qc_team_create" model="mail.message.subtype">
+        <field name="name">Inspection Create</field>
+        <field name="sequence">21</field>
+        <field name="res_model">qc.team</field>
+        <field name="parent_id"
+               eval="ref('quality_assurance_management.mt_qc_create')"/>
+        <field name="relation_field">qc_team_id</field>
+    </record>
+
+    <record id="mt_qc_fail" model="mail.message.subtype">
+        <field name="name">Inspection Fail</field>
+        <field name="res_model">qc.inspection</field>
+        <field name="default" eval="False"/>
+        <field name="description">QC Fail</field>
+    </record>
+
+    <record id="mt_qc_team_fail" model="mail.message.subtype">
+        <field name="name">Inspection Fail</field>
+        <field name="sequence">21</field>
+        <field name="res_model">qc.team</field>
+        <field name="parent_id"
+               eval="ref('quality_assurance_management.mt_qc_fail')"/>
+        <field name="relation_field">qc_team_id</field>
+    </record>
+
+</flectra>

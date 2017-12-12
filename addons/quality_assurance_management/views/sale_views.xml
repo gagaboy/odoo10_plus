@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="inherit_inspection_sale_order_form_view" model="ir.ui.view">
+        <field name="name">inherit.sale.order.form.view</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <field name="payment_term_id" position="after">
+                <field name="picking_type_id" invisible="1"/>
+            </field>
+            <notebook position="inside">
+                <page string="Inspection">
+                    <field name="inspection_ids"/>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+</flectra>

@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_qc_test,qc.test,model_qc_test,group_inspection_user,1,0,0,0
+access_qc_test,qc.test,model_qc_test,group_inspection_manager,1,1,1,1
+access_qc_team,qc.team,model_qc_team,group_inspection_user,1,0,0,0
+access_qc_team,qc.team,model_qc_team,group_inspection_manager,1,1,1,1
+access_quantitative_quality,quantitative.quality,model_quantitative_quality,group_inspection_user,1,0,0,0
+access_quantitative_quality,quantitative.quality,model_quantitative_quality,group_inspection_manager,1,1,1,1
+access_qualitative_quality,qualitative.quality,model_qualitative_quality,group_inspection_user,1,0,0,0
+access_qualitative_quality,qualitative.quality,model_qualitative_quality,group_inspection_manager,1,1,1,1
+access_qc_inspection,qc.inspection,model_qc_inspection,group_inspection_user,1,0,0,0
+access_qc_inspection,qc.inspection,model_qc_inspection,group_inspection_manager,1,1,1,1
+access_quality_questions,quality.questions,model_quality_questions,group_inspection_user,1,0,0,0
+access_quality_questions,quality.questions,model_quality_questions,group_inspection_manager,1,1,1,1
+access_incident_report,inncident.report,model_incident_report,group_inspection_user,1,0,0,0
+access_incident_report,inncident.report,model_incident_report,group_inspection_manager,1,1,1,1
+access_insection_reason,inspection.reason,model_inspection_reason,group_inspection_user,1,0,0,0
+access_insection_reason,inspection.reason,model_inspection_reason,group_inspection_manager,1,1,1,1

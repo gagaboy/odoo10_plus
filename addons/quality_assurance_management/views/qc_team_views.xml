@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="qc_team_tree_view" model="ir.ui.view">
+        <field name="name">qc.team.tree</field>
+        <field name="model">qc.team</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="qc_team_form_view" model="ir.ui.view">
+        <field name="name">qc.team.form</field>
+        <field name="model">qc.team</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="QC Team">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <group name="group_alias">
+                        <label for="alias_name" string="Email Alias"/>
+                        <div name="alias_def">
+                            <field name="alias_id"
+                                   class="oe_read_only oe_inline"
+                                   string="Email Alias" required="0"/>
+                            <div class="oe_edit_only oe_inline"
+                                 name="edit_alias" style="display: inline;">
+                                <field name="alias_name" class="oe_inline"/>
+                                @
+                                <field name="alias_domain"
+                                       class="oe_inline" readonly="1"/>
+                            </div>
+                        </div>
+                    </group>
+                    <group>
+                        <field name="todo_inspection" invisible="1"/>
+                        <field name="pass_inspection" invisible="1"/>
+                        <field name="fail_inspection" invisible="1"/>
+                    </group>
+                    <notebook>
+                        <page name="members" string="Team Members">
+                            <field name="member_ids" widget="many2many">
+                                <kanban quick_create="false" create="true"
+                                        delete="true">
+                                    <field name="id"/>
+                                    <field name="name"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div class="oe_kanban_global_click"
+                                                 style="max-width: 200px">
+                                                <div class="o_kanban_record_top">
+                                                    <img t-att-src="kanban_image('res.users',
+							   'image_small', record.id.raw_value)"
+                                                         height="40" width="40"
+                                                         class="oe_avatar
+									oe_kanban_avatar_smallboxn mb0"/>
+                                                    <div class="o_kanban_record_headings ml8">
+                                                        <strong class="o_kanban_record_title">
+                                                            <field name="name"/>
+                                                        </strong>
+                                                    </div>
+                                                    <a t-if="! read_only_mode"
+                                                       type="delete"
+                                                       class="text-danger">
+                                                        <i class="fa fa-times"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                            </field>
+                        </page>
+                        <page string="Dashboard" name="dashboard">
+                            <group string="Graph" name="graph">
+                                <field name="dashboard_graph_period"/>
+                                <field name="dashboard_graph_group"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"
+                           widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"
+                           options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="qc_team_view_kanban" model="ir.ui.view">
+        <field name="name">qc.team.kanban</field>
+        <field name="model">qc.team</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_content oe_kanban_global_click">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <template id="assets_backend" name="qc_team assets"
+              inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet"
+                  href="/quality_assurance_management/static/src/less/qc_team_dashboard.less"/>
+        </xpath>
+    </template>
+
+    <record id="action_qc_team" model="ir.actions.act_window">
+        <field name="name">QC Team</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">qc.team</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="qc_team_menu"
+              parent="qc_categories_main_menu"
+              action="action_qc_team"
+              sequence="2"/>
+
+</flectra>

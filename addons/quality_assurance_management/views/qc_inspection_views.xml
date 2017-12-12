@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="inspection_tree_view" model="ir.ui.view">
+        <field name="name">qc.inspection.tree</field>
+        <field name="model">qc.inspection</field>
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <tree create="false">
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="product_qty"/>
+                <field name="partner_id"/>
+                <field name="reference"/>
+                <field name="ref_date"/>
+                <field name="picking_type_id"/>
+                <field name="quality_state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="inspection_view_kanban" model="ir.ui.view">
+        <field name="name">qc.inspection.view.kanban</field>
+        <field name="model">qc.inspection</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="quality_state"
+                    class="o_kanban_small_column o_opportunity_kanban"
+                    on_create="quality_assurance_management.create_qc_inspection_form_view"
+                    create="false">
+                <field name="quality_state"
+                       options='{"group_by_tooltip":
+                       {"requirements": "Description",
+                       "legend_priority": "Use of stars"}}'/>
+                <field name="name"/>
+                <field name="product_id"/>
+                <field name="color"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{kanban_color(record.color.raw_value)} oe_kanban_global_click">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <strong>
+                                        <span>
+                                            <t t-esc="record.name.value"/>
+                                        </span>
+                                    </strong>
+                                </div>
+                                <div class="col-xs-6">
+                                    <strong>
+                                        <span t-attf-class="pull-right text-right label #{['none'].indexOf(record.quality_state.raw_value) > -1 ? 'label-default' : ['fail'].indexOf(record.quality_state.raw_value) > -1 ? 'label-danger' : ['done'].indexOf(record.quality_state.raw_value) > -1 ? 'label-primary' : 'label-success'}">
+                                            <t t-esc="record.quality_state.value"/>
+                                        </span>
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="row text-muted">
+                                <div class="col-xs-8">
+                                    <span>
+                                        <t t-esc="record.product_id.value"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="inspection_form_view" model="ir.ui.view">
+        <field name="name">qc.inspection.form</field>
+        <field name="model">qc.inspection</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="QC Inspection" create="false"
+                  open="false">
+                <header>
+                    <button name="action_pass" type="object"
+                            class="oe_stat_button"
+                            attrs="{'invisible': [
+                            ('quality_state', '!=', 'todo')]}"
+                            string="Pass"/>
+                    <button name="%(action_process_wizard)d" type="action"
+                            class="oe_stat_button"
+                            attrs="{'invisible': [
+                            ('quality_state', '!=', 'todo')]}"
+                            string="Fail"/>
+                    <button name="action_incident" type="object"
+                            class="oe_stat_button"
+                            attrs="{'invisible': ['|',
+                            ('incident_ids', '!=', []),
+                            ('quality_state', '!=', 'fail')]}"
+                            string="Create Incident"/>
+                    <field name="quality_state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_incident" icon="fa-bell"
+                                type="object" class="oe_stat_button"
+                                attrs="{'invisible': [
+                                ('incident_count', '=', 0)]}">
+                            <field name="incident_count" string="Incident(s)"
+                                   widget="statinfo"/>
+                        </button>
+                    </div>
+                    <h2>
+                        <field name="name"/>
+                    </h2>
+                    <group>
+                        <group>
+                            <field name="product_id" readonly="1"/>
+                            <field name="product_categ_id" readonly="1"/>
+                            <field name="picking_type_id" readonly="1"/>
+                            <field name="product_qty" readonly="1"/>
+                            <field name="qc_team_id" required="1"
+                                   attrs="{'readonly':[
+                                   ('quality_state', '!=', 'todo')]}"/>
+                            <field name="responsible_id" required="1"
+                                   attrs="{'readonly':[
+                                   ('quality_state', '!=', 'todo')]}"/>
+                        </group>
+                        <group>
+                            <field name="inspection_date" readonly="1"/>
+                            <field name="partner_id" readonly="1"/>
+                            <field name="reference" readonly="1"/>
+                            <field name="ref_date" readonly="1"/>
+                            <field name="qc_test_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Quantitative">
+                            <field name="quantitative_ids" nolabel="1"
+                                   attrs="{'readonly':[
+                                   ('quality_state', '!=', 'todo')]}">
+                                <tree editable="bottom" delete="false"
+                                      create="false" open="false"
+                                      decoration-success="dimension_status=='optimum'"
+                                      decoration-primary="dimension_status=='acceptable'"
+                                      decoration-danger="dimension_status=='unacceptable'">
+                                    <field name="name"
+                                           readonly="1"/>
+                                    <field name="type" invisible="1"/>
+                                    <field name="value"/>
+                                    <field name="min_dimension" readonly="1"/>
+                                    <field name="min_value" readonly="1"/>
+                                    <field name="max_value" readonly="1"/>
+                                    <field name="max_dimension" readonly="1"/>
+                                    <field name="dimension_status"
+                                           readonly="1"/>
+                                </tree>
+                                <form string="Quantitative">
+                                    <group>
+                                        <field name="name" required="1"/>
+                                        <field name="type" invisible="1"/>
+                                        <field name="uom_id"
+                                               attrs="{'readonly':
+                                               [('type', '=', 'qualitative')]}"/>
+                                        <field name="min_dimension"
+                                               attrs="{'readonly':[
+                                                   ('type', '=', 'qualitative')]}"/>
+                                        <field name="min_value"
+                                               attrs="{'readonly':[
+                                                   ('type', '=', 'qualitative')]}"/>
+                                        <field name="max_value"
+                                               attrs="{'readonly':[
+                                                   ('type', '=', 'qualitative')]}"/>
+                                        <field name="max_dimension"
+                                               attrs="{'readonly':[
+                                                   ('type', '=', 'qualitative')]}"/>
+                                        <field name="dimension_status"
+                                               readonly="1"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Qualitative">
+                            <field name="qualitative_ids" nolabel="1"
+                                   attrs="{'readonly':[
+                                   ('quality_state', '!=', 'todo')]}">
+                                <tree delete="false" create="false"
+                                      open="false"
+                                      decoration-success="dimension_status=='optimum'"
+                                      decoration-primary="dimension_status=='acceptable'"
+                                      decoration-danger="dimension_status=='unacceptable'">
+                                    <field name="name" required="1"/>
+                                    <field name="type" invisible="1"/>
+                                    <field name="dimension_status"/>
+                                </tree>
+                                <form string="Qualitative">
+                                    <group>
+                                        <field name="name" required="1"/>
+                                        <field name="type" invisible="1"/>
+                                        <field name="dimension_status"/>
+                                    </group>
+                                    <notebook>
+                                        <page string="Questions">
+                                            <group>
+                                                <field name="question_ids"
+                                                       nolabel="1">
+                                                    <tree editable="bottom"
+                                                          create="false"
+                                                          delete="false">
+                                                        <field
+                                                                name="question"/>
+                                                        <field name="answer"
+                                                               widget="radio"/>
+                                                    </tree>
+                                                    <form>
+                                                        <group>
+                                                            <field
+                                                                    name="question"/>
+                                                            <field
+                                                                    name="answer"
+                                                                    widget="radio"/>
+                                                        </group>
+                                                    </form>
+                                                </field>
+                                            </group>
+                                        </page>
+                                    </notebook>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Remarks"
+                              attrs="{'invisible':[
+                              ('quality_state', '!=', 'fail')]}">
+                            <group>
+                                <field name="reason_id" readonly="1"/>
+                                <field name="remarks" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Incident" invisible="1">
+                            <field name="incident_ids" invisible="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"
+                           widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="create_qc_inspection_form_view" model="ir.actions.act_window">
+        <field name="name">Create an QC Inspection</field>
+        <field name="res_model">qc.inspection</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="inspection_form_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_qc_inspection" model="ir.actions.act_window">
+        <field name="name">QC Inspection</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">qc.inspection</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="qc_inspection_action_picking" model="ir.actions.act_window">
+        <field name="name">QC Inspection</field>
+        <field name="res_model">qc.inspection</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{
+            'search_default_picking_id': [active_id],
+            'default_picking_id': active_id}
+        </field>
+    </record>
+
+    <record id="qc_failed_action" model="ir.actions.act_window">
+        <field name="name">Failed Inspection</field>
+        <field name="res_model">qc.inspection</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id"
+               ref="quality_assurance_management.inspection_view_kanban"/>
+        <field name="domain">[('quality_state','=','fail')]</field>
+        <field name="help" type="html">
+            <p>
+                No tickets to display.
+            </p>
+        </field>
+    </record>
+
+    <record id="qc_todo_action" model="ir.actions.act_window">
+        <field name="name">Todo Inspection</field>
+        <field name="res_model">qc.inspection</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id"
+               ref="quality_assurance_management.inspection_view_kanban"/>
+        <field name="domain">[('quality_state','=','todo')]</field>
+        <field name="help" type="html">
+            <p>
+                No tickets to display.
+            </p>
+        </field>
+    </record>
+
+    <record id="qc_team_inspection_action" model="ir.actions.act_window">
+        <field name="name">Inspection</field>
+        <field name="res_model">qc.inspection</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id"
+               ref="quality_assurance_management.inspection_view_kanban"/>
+        <field name="domain">[('qc_team_id','=',active_id)]</field>
+        <field name="help" type="html">
+            <p>
+                No tickets to display.
+            </p>
+        </field>
+    </record>
+
+    <record id="qc_passed_action" model="ir.actions.act_window">
+        <field name="name">Passed Inspection</field>
+        <field name="res_model">qc.inspection</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id"
+               ref="quality_assurance_management.inspection_view_kanban"/>
+        <field name="domain">[('quality_state','=','pass')]</field>
+        <field name="help" type="html">
+            <p>
+                No tickets to display.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="qc_inspection_main_menu"
+              name="QC Inspection"
+              parent="qc_menu_root"
+              sequence="2"/>
+    <menuitem id="qc_inspection_sub_menu"
+              parent="qc_inspection_main_menu"
+              action="action_qc_inspection"
+              sequence="2"/>
+
+</flectra>

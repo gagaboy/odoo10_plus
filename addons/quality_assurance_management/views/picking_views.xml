@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="inspection_picking_form_inherit" model="ir.ui.view">
+        <field name="name">picking</field>
+        <field name="model">stock.picking</field>
+        <field eval="12" name="priority"/>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <field name="origin" position="after">
+                <field name="incident_ids" invisible="1"/>
+                <field name="qc_product" invisible="1"/>
+                <field name="purchase_id" invisible="1"/>
+                <field name="sale_id" invisible="1"/>
+            </field>
+            <button name="action_see_move_scrap" position="before">
+                <button name="action_quality_control"
+                        type="object" class="oe_stat_button" icon="fa-check"
+                        attrs="{'invisible': [('qc_product', '=', False)]}">
+                    <field name="qc_po_count" string="Inspection(s)"
+                           widget="statinfo"
+                           attrs="{'invisible':[
+                           ('purchase_id', '=', False)]}"/>
+                    <field name="qc_so_count" string="Inspection(s)"
+                           widget="statinfo"
+                           attrs="{'invisible':[('sale_id', '=', False)]}"/>
+                </button>
+            </button>
+            <button name="button_validate" position="after">
+                <button name="create_incident" type="object"
+                        string="Incident Report"
+                attrs="{'invisible': [('qc_product', '=', False)]}"/>
+            </button>
+        </field>
+    </record>
+
+</flectra>

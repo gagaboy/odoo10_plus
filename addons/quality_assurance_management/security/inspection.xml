@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record model="ir.module.category" id="module_inspection_category">
+        <field name="name">Quality Inspection</field>
+        <field name="description">Inspect your product based on Qc Test
+            criteria
+        </field>
+        <field name="sequence">2</field>
+    </record>
+
+    <record id="group_inspection_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_inspection_category"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">The Inspection user use the Inspection
+            Process
+        </field>
+    </record>
+
+    <record id="group_inspection_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_inspection_category"/>
+        <field name="implied_ids"
+               eval="[(4, ref('group_inspection_user'))]"/>
+        <field name="comment">The Inspection manager manages Inspection Process
+        </field>
+    </record>
+
+    <record id="stock.group_stock_user" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('group_inspection_user'))]"/>
+    </record>
+
+    <record model="res.users" id="base.user_root">
+       <field eval="[(4,ref('group_inspection_manager'))]" name="groups_id"/>
+   	</record>
+
+</flectra>

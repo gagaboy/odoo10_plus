@@ -1,0 +1,1139 @@
+# Translation of Flectra Server.
+# This file contains the translation of the following modules:
+#	* quality_assurance_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Flectra Server 1.0alpha\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-23 08:16+0000\n"
+"PO-Revision-Date: 2017-12-23 08:16+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: quality_assurance_management
+#: selection:qc.test,applied_on:0
+msgid " Product Category"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_mrp_production_incident_count
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_incident_count
+msgid "# Incident Reports"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_mrp_production_inspection_count
+msgid "# Inspection"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.qc_team_view_kanban
+msgid "<span>New</span>"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.qc_team_view_kanban
+msgid "<span>View</span>"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,help:quality_assurance_management.field_qc_team_alias_defaults
+msgid "A Python dictionary that will be evaluated to provide default values when creating new records for this alias."
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qualitative.quality,dimension_status:0
+#: selection:quantitative.quality,dimension_status:0
+msgid "Acceptable"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_active
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_active
+msgid "Active"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_alias_id
+msgid "Alias"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_alias_contact
+msgid "Alias Contact Security"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_alias_name
+msgid "Alias Name"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_alias_domain
+msgid "Alias domain"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_alias_model_id
+msgid "Aliased Model"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quality_questions_answer
+msgid "Answer"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_applied_on
+msgid "Apply On"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.quality_test_form_view
+msgid "Approve"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qc.test,state:0
+msgid "Approved"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qc.team,dashboard_graph_type:0
+msgid "Bar"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.process_wizard_form_view
+msgid "Cancel"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qc.test,state:0
+msgid "Cancelled"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_production_form_view_inherit
+msgid "Check availability"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_inspection_reason_code
+msgid "Code"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_color
+msgid "Color"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_color
+msgid "Color Index"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.menu,name:quality_assurance_management.qc_categories_main_menu
+msgid "Configuration"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.incident_report_form_view
+msgid "Confirm"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:incident.report,state:0
+msgid "Confirmed"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_form_view
+msgid "Create Incident"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.actions.act_window,name:quality_assurance_management.create_qc_inspection_form_view
+msgid "Create an QC Inspection"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_create_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_inspection_reason_create_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_process_wizard_create_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_create_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_create_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_create_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qualitative_quality_create_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quality_questions_create_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_create_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_inspection_reason_create_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_process_wizard_create_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_create_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_create_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_create_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qualitative_quality_create_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quality_questions_create_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_create_date
+msgid "Created on"
+msgstr ""
+
+#. module: quality_assurance_management
+#. flectra-web
+#: code:addons/quality_assurance_management/static/src/js/qc_team_dashboard.js:95
+#: model:ir.actions.act_window,name:quality_assurance_management.open_qc_team_dashboard_kanban_view
+#: model:ir.ui.menu,name:quality_assurance_management.menu_board_qc_team
+#: model:ir.ui.view,arch_db:quality_assurance_management.qc_team_form_view
+#, python-format
+msgid "Dashboard"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_dashboard_button_name
+msgid "Dashboard Button"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_dashboard_graph_data
+msgid "Dashboard Graph Data"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_inspection_date
+msgid "Date"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qc.team,dashboard_graph_group:0
+msgid "Day"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_alias_defaults
+msgid "Default Values"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_sale_order_picking_type_id
+msgid "Deliver To"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_dimension_status
+msgid "Dimension Status"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_display_name
+#: model:ir.model.fields,field_description:quality_assurance_management.field_inspection_reason_display_name
+#: model:ir.model.fields,field_description:quality_assurance_management.field_process_wizard_display_name
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_display_name
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_display_name
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_display_name
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qualitative_quality_display_name
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quality_questions_display_name
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:incident.report,state:0
+#: model:ir.ui.view,arch_db:quality_assurance_management.incident_report_form_view
+msgid "Done"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qc.test,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.qc_team_form_view
+msgid "Email Alias"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_end_date
+msgid "End Date"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_form_view
+#: model:ir.ui.view,arch_db:quality_assurance_management.process_wizard_form_view
+msgid "Fail"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.qc_team_view_kanban
+#: selection:qc.inspection,quality_state:0
+msgid "Failed"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.actions.act_window,name:quality_assurance_management.qc_failed_action
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_fail_inspection
+msgid "Failed Inspection"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.qc_team_form_view
+msgid "Graph"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_dashboard_graph_group
+msgid "Group by"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_inspection_reason_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_process_wizard_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qualitative_quality_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quality_questions_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_id
+msgid "ID"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,help:quality_assurance_management.field_qc_team_alias_parent_thread_id
+msgid "ID of the parent record holding the alias (example: project holding the task creation alias)"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_improvements
+#: model:ir.ui.view,arch_db:quality_assurance_management.incident_report_form_view
+msgid "Improvements"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:incident.report,state:0
+#: model:ir.ui.view,arch_db:quality_assurance_management.incident_report_form_view
+msgid "In Progress"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_form_view
+msgid "Incident"
+msgstr ""
+
+#. module: quality_assurance_management
+#: code:addons/quality_assurance_management/models/picking.py:57
+#: code:addons/quality_assurance_management/models/production.py:79
+#: code:addons/quality_assurance_management/models/qc_inspection.py:137
+#: model:ir.actions.act_window,name:quality_assurance_management.action_incident_report_view
+#: model:ir.model,name:quality_assurance_management.model_incident_report
+#: model:ir.model.fields,field_description:quality_assurance_management.field_mrp_production_incident_ids
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_incident_ids
+#: model:ir.model.fields,field_description:quality_assurance_management.field_stock_picking_incident_ids
+#: model:ir.ui.menu,name:quality_assurance_management.incident_report_main_menu
+#: model:ir.ui.menu,name:quality_assurance_management.incident_report_sub_menu
+#: model:ir.ui.view,arch_db:quality_assurance_management.incident_report_form_view
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_picking_form_inherit
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_production_form_view_inherit
+#, python-format
+msgid "Incident Report"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_form_view
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_production_form_view_inherit
+msgid "Incident(s)"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.module.category,description:quality_assurance_management.module_inspection_category
+msgid "Inspect your product based on Qc Test\n"
+"            criteria\n"
+"        "
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_value
+msgid "Inspected Value"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.actions.act_window,name:quality_assurance_management.qc_team_inspection_action
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_inspection_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_purchase_order_inspection_ids
+#: model:ir.model.fields,field_description:quality_assurance_management.field_sale_order_inspection_ids
+#: model:ir.model.fields,field_description:quality_assurance_management.field_stock_picking_inspection_ids
+#: model:ir.ui.view,arch_db:quality_assurance_management.inherit_inspection_sale_order_form_view
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_purchase_order_form_view_inherit
+msgid "Inspection"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:mail.message.subtype,name:quality_assurance_management.mt_qc_create
+#: model:mail.message.subtype,name:quality_assurance_management.mt_qc_team_create
+msgid "Inspection Create"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:mail.message.subtype,name:quality_assurance_management.mt_qc_fail
+#: model:mail.message.subtype,name:quality_assurance_management.mt_qc_team_fail
+msgid "Inspection Fail"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_picking_form_inherit
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_production_form_view_inherit
+msgid "Inspection(s)"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_mrp_production_inspection_ids
+#: model:ir.ui.view,arch_db:quality_assurance_management.qc_team_view_kanban
+msgid "Inspections"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report___last_update
+#: model:ir.model.fields,field_description:quality_assurance_management.field_inspection_reason___last_update
+#: model:ir.model.fields,field_description:quality_assurance_management.field_process_wizard___last_update
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection___last_update
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team___last_update
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test___last_update
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qualitative_quality___last_update
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quality_questions___last_update
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality___last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qc.team,dashboard_graph_period:0
+msgid "Last Month"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_write_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_inspection_reason_write_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_process_wizard_write_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_write_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_write_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_write_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qualitative_quality_write_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quality_questions_write_uid
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_write_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_inspection_reason_write_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_process_wizard_write_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_write_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_write_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_write_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qualitative_quality_write_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quality_questions_write_date
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qc.team,dashboard_graph_period:0
+msgid "Last Week"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qc.team,dashboard_graph_period:0
+msgid "Last Year"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qc.team,dashboard_graph_type:0
+msgid "Line"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:res.groups,name:quality_assurance_management.group_inspection_manager
+msgid "Manager"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model,name:quality_assurance_management.model_mrp_production
+msgid "Manufacturing Order"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_max_dimension
+msgid "Max. Dimension"
+msgstr ""
+
+#. module: quality_assurance_management
+#: code:addons/quality_assurance_management/models/qc_test.py:112
+#, python-format
+msgid "Max. Dimension should be grater than Min. Dimension"
+msgstr ""
+
+#. module: quality_assurance_management
+#: code:addons/quality_assurance_management/models/qc_test.py:118
+#, python-format
+msgid "Max. Dimension should be greater than Max. Value"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_max_value
+msgid "Max. Value"
+msgstr ""
+
+#. module: quality_assurance_management
+#: code:addons/quality_assurance_management/models/qc_test.py:108
+#, python-format
+msgid "Max. Value should be grater than Min. Value"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_min_dimension
+msgid "Min. Dimension"
+msgstr ""
+
+#. module: quality_assurance_management
+#: code:addons/quality_assurance_management/models/qc_test.py:115
+#, python-format
+msgid "Min. Dimension should be less than Min. Value"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_min_value
+msgid "Min. Value"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qc.team,dashboard_graph_group:0
+msgid "Month"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_reference
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qualitative_quality_name
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_name
+msgid "Name"
+msgstr ""
+
+#. module: quality_assurance_management
+#: code:addons/quality_assurance_management/models/incident_report.py:12
+#: code:addons/quality_assurance_management/models/incident_report.py:41
+#: code:addons/quality_assurance_management/models/incident_report.py:43
+#: code:addons/quality_assurance_management/models/qc_inspection.py:13
+#: code:addons/quality_assurance_management/models/qc_inspection.py:82
+#: code:addons/quality_assurance_management/models/qc_inspection.py:84
+#: code:addons/quality_assurance_management/models/qc_test.py:13
+#: code:addons/quality_assurance_management/models/qc_test.py:44
+#: code:addons/quality_assurance_management/models/qc_test.py:46
+#: selection:incident.report,state:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:quality.questions,answer:0
+msgid "No"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.actions.act_window,help:quality_assurance_management.qc_failed_action
+#: model:ir.actions.act_window,help:quality_assurance_management.qc_passed_action
+#: model:ir.actions.act_window,help:quality_assurance_management.qc_team_inspection_action
+#: model:ir.actions.act_window,help:quality_assurance_management.qc_todo_action
+msgid "No tickets to display."
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_picking_type_id
+msgid "Operation"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_picking_type_ids
+msgid "Operation Type"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.qc_team_view_kanban
+msgid "Operations"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qualitative.quality,dimension_status:0
+#: selection:quantitative.quality,dimension_status:0
+msgid "Optimum"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,help:quality_assurance_management.field_qc_team_alias_force_thread_id
+msgid "Optional ID of a thread (record) to which all incoming messages will be attached, even if they did not reply to it. If set, this will disable the creation of new records completely."
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_alias_user_id
+msgid "Owner"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_alias_parent_model_id
+msgid "Parent Model"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_alias_parent_thread_id
+msgid "Parent Record Thread ID"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,help:quality_assurance_management.field_qc_team_alias_parent_model_id
+msgid "Parent model holding the alias. The model holding the alias reference is not necessarily the model given by alias_model_id (example: project (parent_model) and task (model))"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_form_view
+msgid "Pass"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.qc_team_view_kanban
+#: selection:qc.inspection,quality_state:0
+msgid "Passed"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.actions.act_window,name:quality_assurance_management.qc_passed_action
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_pass_inspection
+msgid "Passed Inspection"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_picking_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_picking_id
+msgid "Picking"
+msgstr ""
+
+#. module: quality_assurance_management
+#: code:addons/quality_assurance_management/models/picking.py:78
+#, python-format
+msgid "Please Complete the Process of Inspection first!"
+msgstr ""
+
+#. module: quality_assurance_management
+#: code:addons/quality_assurance_management/models/production.py:93
+#, python-format
+msgid "Please complete the process of Quality Inspection"
+msgstr ""
+
+#. module: quality_assurance_management
+#: code:addons/quality_assurance_management/models/qc_inspection.py:118
+#: code:addons/quality_assurance_management/wizard/process.py:25
+#, python-format
+msgid "Please fill the %s field value for all lines"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,help:quality_assurance_management.field_qc_team_alias_contact
+msgid "Policy to post a message on the document using the mailgateway.\n"
+"- everyone: everyone can post\n"
+"- partners: only authenticated partners\n"
+"- followers: only followers of the related document or members of following channels\n"
+""
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.actions.act_window,name:quality_assurance_management.action_process_wizard
+msgid "Process"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_product_tmpl_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_product_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_product_id
+#: model:ir.ui.view,arch_db:quality_assurance_management.quality_test_form_view
+#: selection:qc.test,applied_on:0
+msgid "Product"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_product_categ_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_categ_id
+msgid "Product Category"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_product_tmpl_id
+msgid "Product Template"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.quality_test_form_view
+#: selection:qc.test,applied_on:0
+msgid "Product Variant"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_production_id
+msgid "Production"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_production_id
+msgid "Production Order"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.qc_team_view_kanban
+msgid "Products"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_protections
+#: model:ir.ui.view,arch_db:quality_assurance_management.incident_report_form_view
+msgid "Protections"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_purchase_id
+msgid "Purchase"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model,name:quality_assurance_management.model_purchase_order
+msgid "Purchase Order"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_stock_picking_qc_po_count
+msgid "QC Count Purchase"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_stock_picking_qc_so_count
+msgid "QC Count Sale"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:mail.message.subtype,description:quality_assurance_management.mt_qc_create
+msgid "QC Create"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:mail.message.subtype,description:quality_assurance_management.mt_qc_fail
+msgid "QC Fail"
+msgstr ""
+
+#. module: quality_assurance_management
+#: code:addons/quality_assurance_management/models/qc_team.py:258
+#, python-format
+msgid "QC Inspectiions"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.actions.act_window,name:quality_assurance_management.action_qc_inspection
+#: model:ir.actions.act_window,name:quality_assurance_management.qc_inspection_action_picking
+#: model:ir.model,name:quality_assurance_management.model_qc_inspection
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qualitative_quality_inspection_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_inspection_id
+#: model:ir.ui.menu,name:quality_assurance_management.qc_inspection_main_menu
+#: model:ir.ui.menu,name:quality_assurance_management.qc_inspection_sub_menu
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_form_view
+msgid "QC Inspection"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,help:quality_assurance_management.field_qc_test_applied_on
+msgid "QC Inspection applicable on selected option"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_mrp_production_qc_product
+msgid "QC Product"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_stock_picking_qc_product
+msgid "QC Product Check"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.actions.act_window,name:quality_assurance_management.action_qc_team
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_qc_team_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_name
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_qc_team_id
+#: model:ir.ui.menu,name:quality_assurance_management.qc_team_menu
+#: model:ir.ui.view,arch_db:quality_assurance_management.qc_team_form_view
+msgid "QC Team"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_member_ids
+msgid "QC Team Members"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.actions.act_window,name:quality_assurance_management.action_qc_test_view
+#: model:ir.model,name:quality_assurance_management.model_qc_test
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_qc_test_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qualitative_quality_qc_test_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_qc_test_id
+#: model:ir.ui.menu,name:quality_assurance_management.qc_test_menu
+#: model:ir.ui.view,arch_db:quality_assurance_management.quality_test_form_view
+msgid "QC Test"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_sale_order_qc_count
+msgid "Qc Count"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.qc_team_view_kanban
+msgid "Qc Test"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_qualitative_ids
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_qualitative_ids
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quality_questions_quality_id
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_form_view
+#: model:ir.ui.view,arch_db:quality_assurance_management.quality_test_form_view
+#: selection:qualitative.quality,type:0
+#: selection:quantitative.quality,type:0
+msgid "Qualitative"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model,name:quality_assurance_management.model_qualitative_quality
+msgid "Qualitative Quality Set"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.menu,name:quality_assurance_management.qc_menu_root
+#: model:ir.ui.menu,name:quality_assurance_management.quality_menu
+msgid "Quality Assurance Management"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.module.category,name:quality_assurance_management.module_inspection_category
+msgid "Quality Inspection"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model,name:quality_assurance_management.model_quality_questions
+msgid "Quality Questions"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_quantitative_ids
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_quantitative_ids
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_form_view
+#: model:ir.ui.view,arch_db:quality_assurance_management.quality_test_form_view
+#: selection:qualitative.quality,type:0
+#: selection:quantitative.quality,type:0
+msgid "Quantitative"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model,name:quality_assurance_management.model_quantitative_quality
+msgid "Quantitative Quality Set"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_product_qty
+msgid "Quantity"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quality_questions_question
+msgid "Question"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qualitative_quality_question_ids
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_form_view
+#: model:ir.ui.view,arch_db:quality_assurance_management.quality_test_form_view
+msgid "Questions"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model,name:quality_assurance_management.model_sale_order
+msgid "Quotation"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_inspection_reason_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_process_wizard_reason_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_reason_id
+msgid "Reason"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_inspection_reason_name
+msgid "Reason "
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.actions.act_window,name:quality_assurance_management.action_inspection_reason
+#: model:ir.ui.menu,name:quality_assurance_management.qc_reason_menu
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_reason_form_view
+msgid "Reasons"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_purchase_order_form_view_inherit
+msgid "Receive Products"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_alias_force_thread_id
+msgid "Record Thread ID"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_ref_date
+msgid "Ref. Date"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_name
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_name
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_reference
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_name
+msgid "Reference"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_remarks
+#: model:ir.model.fields,field_description:quality_assurance_management.field_process_wizard_remarks
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_remarks
+#: model:ir.ui.view,arch_db:quality_assurance_management.incident_report_form_view
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_form_view
+msgid "Remarks"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_responsible_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_responsible_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_responsible_id
+msgid "Responsible"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qualitative_quality_dimension_status
+msgid "Result"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.quality_test_form_view
+msgid "Review"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qc.test,state:0
+msgid "Reviewed"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_sale_id
+msgid "Sale Order"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_dashboard_graph_period
+msgid "Scale"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.qc_team_view_kanban
+msgid "Settings"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_start_date
+msgid "Start Date"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_state
+msgid "State"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_quality_state
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_test_state
+msgid "Status"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_incident_report_qc_team_id
+msgid "Team"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.qc_team_form_view
+msgid "Team Members"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:res.groups,comment:quality_assurance_management.group_inspection_manager
+msgid "The Inspection manager manages Inspection Process\n"
+"        "
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:res.groups,comment:quality_assurance_management.group_inspection_user
+msgid "The Inspection user use the Inspection\n"
+"            Process\n"
+"        "
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,help:quality_assurance_management.field_qc_team_color
+msgid "The color of the channel"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,help:quality_assurance_management.field_qc_team_alias_model_id
+msgid "The model (Flectra Document Kind) to which this alias corresponds. Any incoming email that does not reply to an existing record will cause the creation of a new record of this model (e.g. a Project Task)"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,help:quality_assurance_management.field_qc_team_alias_name
+msgid "The name of the email alias, e.g. 'jobs' if you want to catch emails for <jobs@example.flectrahq.com>"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,help:quality_assurance_management.field_qc_team_alias_user_id
+msgid "The owner of records created upon receiving emails on this alias. If this field is not set the system will attempt to find the right owner based on the sender (From) address, or will use the Administrator account if no system user is found for that address."
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,help:quality_assurance_management.field_qc_team_dashboard_graph_period
+msgid "The time period this channel's dashboard graph will consider."
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qc.inspection,quality_state:0
+msgid "To do"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.qc_team_view_kanban
+msgid "Todo"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.actions.act_window,name:quality_assurance_management.qc_todo_action
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_todo_inspection
+msgid "Todo Inspection"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model,name:quality_assurance_management.model_stock_picking
+msgid "Transfer"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_team_dashboard_graph_type
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qualitative_quality_type
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_type
+msgid "Type"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qualitative.quality,dimension_status:0
+#: selection:quantitative.quality,dimension_status:0
+msgid "Unacceptable"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model.fields,field_description:quality_assurance_management.field_qc_inspection_product_uom_id
+#: model:ir.model.fields,field_description:quality_assurance_management.field_quantitative_quality_uom_id
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:res.groups,name:quality_assurance_management.group_inspection_user
+msgid "User"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:qc.team,dashboard_graph_group:0
+msgid "Week"
+msgstr ""
+
+#. module: quality_assurance_management
+#: selection:quality.questions,answer:0
+msgid "Yes"
+msgstr ""
+
+#. module: quality_assurance_management
+#: code:addons/quality_assurance_management/models/incident_report.py:68
+#, python-format
+msgid "You can not delete Incident Report which is done"
+msgstr ""
+
+#. module: quality_assurance_management
+#: code:addons/quality_assurance_management/models/qc_test.py:70
+#, python-format
+msgid "You can not delete a Approved Test"
+msgstr ""
+
+#. module: quality_assurance_management
+#: code:addons/quality_assurance_management/models/qc_inspection.py:169
+#, python-format
+msgid "You can not delete a Passed or Failed QC Inspection!"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_production_form_view_inherit
+msgid "You have created QC Inspection for this                         Manufacturing Order. Do you want to create another QC                         Inspection?"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.inspection_purchase_order_form_view_inherit
+msgid "You have created QC Inspection for this                         Purchase Order. Do you want to create another QC                         Inspection?"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.actions.act_window,help:quality_assurance_management.open_qc_team_dashboard_kanban_view
+msgid "Your teams will appear here."
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model,name:quality_assurance_management.model_inspection_reason
+msgid "inspection.reason"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.ui.view,arch_db:quality_assurance_management.process_wizard_form_view
+msgid "or"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model,name:quality_assurance_management.model_process_wizard
+msgid "process.wizard"
+msgstr ""
+
+#. module: quality_assurance_management
+#: model:ir.model,name:quality_assurance_management.model_qc_team
+msgid "qc.team"
+msgstr ""
+

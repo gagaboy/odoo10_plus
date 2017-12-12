@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <record id="inspection_production_form_view_inherit" model="ir.ui.view">
+        <field name="name">mrp.production</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+            <field name="workorder_ids" position="after">
+                <field name="inspection_ids" invisible="1"/>
+                <field name="qc_product" invisible="1"/>
+            </field>
+            <button name="action_see_move_scrap" position="after">
+                <button name="action_quality_control"
+                        type="object" class="oe_stat_button" icon="fa-check"
+                        attrs="{'invisible': [('qc_product', '=', False)]}">
+                    <field name="inspection_count" string="Inspection(s)"
+                           widget="statinfo"/>
+                </button>
+                <button name="action_incident_report"
+                        type="object" class="oe_stat_button" icon="fa-check"
+                        attrs="{'invisible': [('qc_product', '=', False)]}">
+                    <field name="incident_count" string="Incident(s)"
+                           widget="statinfo"/>
+                </button>
+            </button>
+            <button name="action_cancel" position="after">
+                <button name="action_assign" string="Check availability"
+                        class="oe_stat_button" icon="fa-archive"
+                        confirm="You have created QC Inspection for this
+                        Manufacturing Order. Do you want to create another QC
+                        Inspection?" type="object"
+                        attrs="{'invisible': ['|', '|', '|',
+                        ('availability', 'in', ('assigned', 'none')),
+                        ('is_locked', '=', False),
+                        ('inspection_ids', '=', [])]}"/>
+            </button>
+            <xpath expr="//header/button[@name='action_assign']"
+                   position="attributes">
+                <attribute name="attrs">{'invisible': ['|', '|' , '|',
+                    ('availability',
+                    'in', ('assigned', 'none')), ('is_locked', '=', False),
+                    ('inspection_ids', '!=', [])]}
+                </attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_assign']"
+                   position="after">
+                <button name="create_incident" type="object"
+                        string="Incident Report"
+                        context="{'default_production_id': active_id}"
+                        attrs="{'invisible':[('inspection_ids', '=', [])]}"
+                />
+            </xpath>
+        </field>
+    </record>
+
+</flectra>
