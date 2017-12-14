@@ -624,8 +624,8 @@ class MailFollowers(models.Model):
 class ResourceCalendar(models.Model):
     _inherit = "resource.calendar"
 
-    no_of_hours = fields.Integer(string="No. of Hour(s) a Day")
-    no_of_days = fields.Integer(string="No. of Day(s) a Week")
+    no_of_hours = fields.Integer(string="No. of Hour(s) a Day", default=8)
+    no_of_days = fields.Integer(string="No. of Day(s) a Week", default=5)
 
     @api.multi
     @api.constrains('no_of_hours', 'no_of_days', 'attendance_ids')
@@ -644,6 +644,11 @@ class ResourceCalendar(models.Model):
             res = {}
             current_hours = resource.no_of_hours
             current_days = resource.no_of_days
+
+            if current_days > 7 or current_days < 1:
+                raise ValidationError(_(
+                    "No. of Days should be in between 1 - 7."))
+
             for attendance in resource.attendance_ids:
                 day = attendance.dayofweek
                 diff = abs(attendance.hour_from - attendance.hour_to)
@@ -652,15 +657,14 @@ class ResourceCalendar(models.Model):
                 else:
                     res[day] += diff
 
-            if len(res) > current_days:
-                raise ValidationError(
+            if current_days and len(res) > current_days:
+                raise ValidationError(_(
                     "You can not Add Working Hour(s) for more than %s\
-                    different days." % current_days)
+                    different days.") % current_days)
 
-            for data in sorted(list(res.items())):
-                day, hours = data
-                if hours > current_hours:
-                    raise ValidationError(
+            for day, hours in sorted(list(res.items())):
+                if current_hours and hours > current_hours:
+                    raise ValidationError(_(
                         "Invalid hours for %s!\n\nWorking hours per day should\
-                        not be greater than %s." % (
+                        not be greater than %s.") % (
                             week_days[int(day)], current_hours))
