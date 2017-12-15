@@ -26,6 +26,7 @@ import flectra
 from flectra import api, fields, models, modules, tools, _
 from flectra.exceptions import AccessDenied, UserError
 from flectra.tools.parse_version import parse_version
+from flectra.tools.misc import topological_sort
 from flectra.http import request
 
 _logger = logging.getLogger(__name__)

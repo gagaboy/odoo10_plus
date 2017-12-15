@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Part of Flectra. See LICENSE file for full copyright and licensing details.
+import ast
 import collections
 import copy
 import datetime
@@ -11,6 +12,7 @@ import time
 
 import itertools
 from dateutil.relativedelta import relativedelta
+from functools import partial
 from operator import itemgetter
 
 import json
