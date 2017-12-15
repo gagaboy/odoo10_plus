@@ -7,7 +7,7 @@
 
 from . import db, graph, loading, migration, module, registry
 
-from flectra.modules.loading import load_modules
+from flectra.modules.loading import load_modules, reset_modules_state
 
 from flectra.modules.module import (
     adapt_version,

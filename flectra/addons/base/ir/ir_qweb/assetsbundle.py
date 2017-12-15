@@ -152,7 +152,7 @@ class AssetsBundle(object):
         Not really a full checksum.
         We compute a SHA1 on the rendered bundle + max linked files last_modified date
         """
-        check = u"%s%s%s" % (json.dumps(self.files), u",".join(self.remains), self.last_modified)
+        check = u"%s%s%s" % (json.dumps(self.files, sort_keys=True), u",".join(self.remains), self.last_modified)
         return hashlib.sha1(check.encode('utf-8')).hexdigest()
 
     def clean_attachments(self, type):
@@ -201,12 +201,15 @@ class AssetsBundle(object):
         return self.env['ir.attachment'].sudo().browse(attachment_ids)
 
     def save_attachment(self, type, content, inc=None):
+        assert type in ('js', 'css')
         ira = self.env['ir.attachment']
 
         fname = '%s%s.%s' % (self.name, ('' if inc is None else '.%s' % inc), type)
+        mimetype = 'application/javascript' if type == 'js' else 'text/css'
         values = {
             'name': "/web/content/%s" % type,
             'datas_fname': fname,
+            'mimetype' : mimetype,
             'res_model': 'ir.ui.view',
             'res_id': False,
             'type': 'binary',

@@ -190,7 +190,6 @@ class Users(models.Model):
     def _companies_count(self):
         return self.env['res.company'].sudo().search_count([])
 
-
     partner_id = fields.Many2one('res.partner', required=True, ondelete='restrict', auto_join=True,
         string='Related Partner', help='Partner-related data of the user')
     login = fields.Char(required=True, help="Used to log into the system")
@@ -951,6 +950,8 @@ class ChangePasswordUser(models.TransientModel):
     @api.multi
     def change_password_button(self):
         for line in self:
+            if not line.new_passwd:
+                raise UserError(_("Before clicking on 'Change Password', you have to write a new password."))
             line.user_id.write({'password': line.new_passwd})
         # don't keep temporary passwords in the database longer than necessary
         self.write({'new_passwd': False})

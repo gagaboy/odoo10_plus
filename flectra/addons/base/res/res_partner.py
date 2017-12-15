@@ -200,7 +200,7 @@ class Partner(models.Model):
     # company_type is only an interface field, do not use it in business logic
     company_type = fields.Selection(string='Company Type',
         selection=[('person', 'Individual'), ('company', 'Company')],
-        compute='_compute_company_type', readonly=False)
+        compute='_compute_company_type', inverse='_write_company_type')
     company_id = fields.Many2one('res.company', 'Company', index=True, default=_default_company)
     color = fields.Integer(string='Color Index', default=0)
     user_ids = fields.One2many('res.users', 'partner_id', string='Users', auto_join=True)
@@ -229,7 +229,6 @@ class Partner(models.Model):
         help="Small-sized image of this contact. It is automatically "\
              "resized as a 64x64px image, with aspect ratio preserved. "\
              "Use this field anywhere a small image is required.")
-
     # hack to allow using plain browse record in qweb views, and used in ir.qweb.field.contact
     self = fields.Many2one(comodel_name=_name, compute='_compute_get_ids')
 
@@ -276,6 +275,35 @@ class Partner(models.Model):
         for partner in self:
             p = partner.commercial_partner_id
             partner.commercial_company_name = p.is_company and p.name or partner.company_name
+
+    @api.model
+    def _get_default_image(self, partner_type, is_company, parent_id):
+        if getattr(threading.currentThread(), 'testing', False) or self._context.get('install_mode'):
+            return False
+
+        colorize, img_path, image = False, False, False
+
+        if partner_type in ['other'] and parent_id:
+            parent_image = self.browse(parent_id).image
+            image = parent_image and base64.b64decode(parent_image) or None
+
+        if not image and partner_type == 'invoice':
+            img_path = get_module_resource('base', 'static/src/img', 'money.png')
+        elif not image and partner_type == 'delivery':
+            img_path = get_module_resource('base', 'static/src/img', 'truck.png')
+        elif not image and is_company:
+            img_path = get_module_resource('base', 'static/src/img', 'company_image.png')
+        elif not image:
+            img_path = get_module_resource('base', 'static/src/img', 'avatar.png')
+            colorize = True
+
+        if img_path:
+            with open(img_path, 'rb') as f:
+                image = f.read()
+        if image and colorize:
+            image = tools.image_colorize(image)
+
+        return tools.image_resize_image_big(base64.b64encode(image))
 
     @api.model
     def _fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
@@ -343,6 +371,10 @@ class Partner(models.Model):
     def _compute_company_type(self):
         for partner in self:
             partner.company_type = 'company' if partner.is_company else 'person'
+
+    def _write_company_type(self):
+        for partner in self:
+            partner.is_company = partner.company_type == 'company'
 
     @api.onchange('company_type')
     def onchange_company_type(self):
@@ -461,7 +493,6 @@ class Partner(models.Model):
         # (this is to allow the code from res_users to write to the partner!) or
         # if setting the company_id to False (this is compatible with any user
         # company)
-
         if vals.get('website'):
             vals['website'] = self._clean_website(vals['website'])
         if vals.get('parent_id'):
@@ -493,6 +524,10 @@ class Partner(models.Model):
             vals['website'] = self._clean_website(vals['website'])
         if vals.get('parent_id'):
             vals['company_name'] = False
+        # compute default image in create, because computing gravatar in the onchange
+        # cannot be easily performed if default images are in the way
+        if not vals.get('image'):
+            vals['image'] = self._get_default_image(vals.get('type'), vals.get('is_company'), vals.get('parent_id'))
         tools.image_resize_images(vals)
         partner = super(Partner, self).create(vals)
         partner._fields_sync(vals)
