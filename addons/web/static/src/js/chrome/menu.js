@@ -73,8 +73,13 @@ var Menu = Widget.extend({
 
         this.$el.parents().find('li#f_user_toggle a').click(function (event) {
             event.preventDefault();
+            if (self.$el.parents().find('.user_profile.close_profile').length) {
+                self.$el.parents().find('.f_launcher_content').animate({
+                    scrollTop: 0
+                }, 300);
+            }
             self.$el.parents().find('.user_profile').toggleClass('close_profile');
-            if(self.$el.parents().find('.f_launcher_close').length || self.$el.parents().find('.f_launcher.f_hide').length){
+            if (self.$el.parents().find('.f_launcher_close').length || self.$el.parents().find('.f_launcher.f_hide').length) {
                 self.$el.parents().find('.f_launcher').removeClass('f_launcher_close').removeClass('f_hide');
                 self.$el.parents().find('.user_profile').removeClass('close_profile');
                 window.sessionStorage.removeItem('menus_lite_mode');
