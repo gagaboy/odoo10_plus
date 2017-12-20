@@ -1,0 +1,141 @@
+.o_kanban_view.o_kanban_dashboard.o_support_desk_kanban {
+    @sale-table-spacing: 10px;
+
+    .o_kanban_record {
+        width: 420px;
+        min-height: 250px;
+    }
+
+    .o_support_desk_dashboard {
+        margin: (0 - @o-kanban-record-margin) (@o-kanban-record-margin - @flectra-horizontal-padding) @o-kanban-record-margin;
+        .o-flex(1, 0, 100%);
+        padding: 10px (@flectra-horizontal-padding - @sale-table-spacing);
+
+        background-color: @flectra-view-background-color;
+        position: relative;
+
+        > div {
+            display: inline-block;
+            vertical-align: top;
+            padding-left: 4px;
+            padding-right: 4px;
+            @media (min-width: @screen-sm-min) {
+                width: 100%;
+            }
+
+            > table {
+                margin-bottom: 0;
+                border-spacing: 6px 6px;
+                table-layout: fixed;
+                font-size: 16px;
+                 border-collapse: separate;
+                > tbody > tr > td {
+                    text-align: center;
+                    border: 1px solid #e5e5e5;
+                    border-left: 4px solid darkgoldenrod;
+                    padding: 10px 10px;
+
+                    span {
+                        display: inline;
+                    }
+                    &.o_border_left_red{
+                        border-left: 4px solid red;
+                    }
+                    &.o_border_left_green{
+                        border-left: 4px solid green;
+                    }
+                    a:hover {
+                        text-decoration: none;
+                    }
+                    &.o_text {
+                        text-align: left;
+                    }
+                    &.o_main {
+                        background-color: grey;
+                        &:hover {
+                            background-color: darken(grey, 10%);
+                        }
+                        a {
+                            color: white;
+                        }
+                    }
+
+                    &.o_highlight, .o_highlight {
+                        font-size: 30px;
+                        font-weight: bolder;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+// Style for the widget "dashboard_graph"
+.o_dashboard_graph {
+    &.o_graph_linechart {
+        > svg {
+            height: 75px;
+
+            // X axis
+            g.nv-x.nv-axis {
+                transform: translateY(50px);
+
+                // Remove max and min labels
+                g.nv-axisMaxMin {
+                    display: none;
+                }
+                g.tick.major {
+                    // Don't know why, but leads to strange bold text
+                    // stroke: @flectra-brand-primary;
+
+                    line {
+                        display: none;
+                    }
+                }
+            }
+
+            // !important are needed because nvd3 uses inline style on elements
+
+            // Remove strokes
+            g.nv-linesWrap {
+                g.nv-group.nv-series-0 {
+                    fill-opacity: 0.3 !important;
+                    fill: @flectra-brand-primary !important;
+                    stroke: @flectra-brand-primary !important;
+
+                    .nv-point {
+                        visibility: hidden;
+                        r: 3;
+                        stroke: @flectra-brand-primary !important;
+                        fill: white;
+                        stroke-width: 2;
+                    }
+                    .nv-point:nth-child(5n+1) {
+                        visibility: visible;
+                        fill-opacity: .95 !important;
+                        stroke-opacity: .95 !important;
+                    }
+                }
+            }
+        }
+    }
+    &.o_graph_barchart {
+        > svg {
+            height: 75px;
+            overflow: visible;
+            g.nv-barsWrap {
+                g.nv-group.nv-series-0 {
+                    g.past {
+                        opacity: 0.5;
+                        fill: @flectra-brand-primary !important;
+                    }
+                    g.future {
+                        opacity: 0.5;
+                        fill: @flectra-brand-optional !important;
+                    }
+                }
+            }
+        }
+    }
+}

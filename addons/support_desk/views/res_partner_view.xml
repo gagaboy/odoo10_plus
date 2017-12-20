@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra noupdate="0">
+    <!-- supportdesk.category -->
+    <record id="res_partner_view_form_inherit_supportdesk" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.supportdesk</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button" type="object"
+                    name="action_open_support_desk_ticket" icon="fa-life-ring"
+                        attrs="{'invisible': [('support_ticket_count', '=', 0)]}">
+                    <div class="o_stat_info">
+                        <field name="support_ticket_count" class="o_stat_value"/>
+                        <span class="o_stat_text"> Tickets</span>
+                    </div>
+                </button>
+                <button class="oe_stat_button" type="object"
+                    name="action_open_support_desk_team" icon="fa-users"
+                        attrs="{'invisible': [('team_count', '=', 0)]}">
+                    <div class="o_stat_info">
+                        <field name="team_count" class="o_stat_value"/>
+                        <span class="o_stat_text"> Teams</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+</flectra>

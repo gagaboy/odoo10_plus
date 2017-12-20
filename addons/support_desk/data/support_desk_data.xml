@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra noupdate="0">
+
+    <!-- Ticket related subtypes for messaging / Chatter -->
+    <record id="support_ticket_new" model="mail.message.subtype">
+        <field name="name">Support Ticket Created</field>
+        <field name="res_model">supportdesk.ticket</field>
+        <field name="description">Support Ticket created</field>
+        <field name="sequence">0</field>
+        <field name="hidden" eval="True"/>
+
+    </record>
+    <record id="support_ticket_resolved" model="mail.message.subtype">
+        <field name="name">Support Ticket Resolved</field>
+        <field name="res_model">supportdesk.ticket</field>
+        <field name="description">Support Ticket Resolved</field>
+        <field name="sequence">1</field>
+        <field name="internal" eval="True"/>
+    </record>
+    <record id="support_ticket_stage_changed" model="mail.message.subtype">
+        <field name="name">Stages Changed</field>
+        <field name="res_model">supportdesk.ticket</field>
+        <field name="sequence">2</field>
+        <field name="internal" eval="True"/>
+        <field name="description">Stages Changed</field>
+    </record>
+
+
+    <!-- CRON for calculate supportdesk Tickets-->
+    <record id="support_desk_tickets_cron" model="ir.cron">
+        <field name="name">Support Desk set SLAs on open tickets</field>
+        <field name="model_id" ref="model_supportdesk_ticket"/>
+        <field name="state">code</field>
+        <field name="code">model.recalculate_open_tickets()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+    </record>
+
+   <!--data for team-->
+    <record id="cust_support_team" model="supportdesk.team">
+        <field name="name">Customer Support</field>
+        <field name="alias_name">support</field>
+        <field name="apply_sla" eval="True"/>
+    </record>
+
+     <!--stage "Open" gets created by default with sequence 0-->
+    <record id="stage_pending" model="supportdesk.stage">
+        <field name="name">Pending</field>
+        <field name="sequence">1</field>
+        <field name="team_ids" eval="[(4, ref('cust_support_team'))]"/>
+        <field name="set_done" eval="False"/>
+    </record>
+    <record id="stage_resolved" model="supportdesk.stage">
+        <field name="name">Resolved</field>
+        <field name="team_ids" eval="[(4, ref('cust_support_team'))]"/>
+        <field name="sequence">2</field>
+        <field name="set_done" eval="True"/>
+    </record>
+    <record id="stage_closed" model="supportdesk.stage">
+        <field name="name">Closed</field>
+        <field name="sequence">3</field>
+        <field name="team_ids" eval="[(4, ref('cust_support_team'))]"/>
+        <field name="set_done" eval="True"/>
+        <field name="fold" eval="True"/>
+    </record>
+
+
+    <!--demo data for type-->
+    <record id="support_ticket_type_question" model="supportdesk.ticket.type">
+        <field name="name">Question</field>
+    </record>
+    <record id="support_ticket_type_incident" model="supportdesk.ticket.type">
+        <field name="name">Incident</field>
+    </record>
+    <record id="support_ticket_type_issue" model="supportdesk.ticket.type">
+        <field name="name">Issue</field>
+    </record>
+    <record id="support_ticket_type_task" model="supportdesk.ticket.type">
+        <field name="name">Task</field>
+    </record>
+</flectra>

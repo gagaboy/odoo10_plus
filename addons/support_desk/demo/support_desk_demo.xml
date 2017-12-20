@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra noupdate="0">
+     <!--demo data for team-->
+    <record id="it_support_team" model="supportdesk.team">
+        <field name="name">IT Support</field>
+        <field name="alias_name">ITsupport</field>
+        <field name="apply_sla" eval="False"/>
+    </record>
+
+    <!-- demo data for stages -->
+
+    <record id="stage_done" model="supportdesk.stage">
+        <field name="name">Done</field>
+        <field name="sequence">4</field>
+        <field name="team_ids" eval="[(4, ref('it_support_team'))]"/>
+        <field name="set_done" eval="True"/>
+        <field name="fold" eval="True"/>
+    </record>
+
+    <!-- demo data for tickets -->
+    <record id="support_ticket1" model="supportdesk.ticket">
+        <field name="name">Not getting emails from third party</field>
+        <field name="description"></field>
+        <field name="support_team_id" ref="support_desk.cust_support_team"/>
+        <field name="responsible_user_id" ref="base.user_root"/>
+        <field name="partner_id" ref="base.main_partner"/>
+        <field name="stage_id" ref="support_desk.stage_pending"/>
+        <field name="type_id" ref="support_desk.support_ticket_type_question"/>
+        <field name="priority">3</field>
+        <field name="create_date" eval="(datetime.now()-relativedelta(days=4)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+
+    <!-- Demo data for SLA policies -->
+    <record id="sla_critical_priority_sla_record" model="supportdesk.sla">
+        <field name="name">Resolved Critical Priority tickets in next 48 hours</field>
+        <field name="description">Set SLA fail on every critical tickets which are not resolved whithin 48 hours
+            after created the tickets
+        </field>
+        <field name="team_id" ref="support_desk.cust_support_team"/>
+        <field name="stage_id" ref="support_desk.stage_pending"/>
+        <field name="priority">3</field>
+        <field name="resolve_time_hours">0</field>
+        <field name="resolve_time_days">2</field>
+    </record>
+
+</flectra>

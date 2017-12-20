@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<flectra>
+    <template id="assets_backend" name="support_desk assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/support_desk/static/src/less/support_desk_dashboard.less"/>
+            <script type="text/javascript" src="/support_desk/static/src/js/support_desk_team_dashboard.js"></script>
+        </xpath>
+    </template>
+</flectra>

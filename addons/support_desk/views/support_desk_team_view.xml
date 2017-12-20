@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra noupdate="0">
+
+    <menuitem id="menu_root" name="Support Desk"
+              sequence="25"
+              web_icon="support_desk,static/description/icon.png"
+              groups="support_desk.group_support_desk_user"/>
+
+    <!-- supportdesk.STAGE -->
+    <record id="support_desk_stage_view_tree" model="ir.ui.view">
+        <field name="name">supportdesk.stage.tree</field>
+        <field name="model">supportdesk.stage</field>
+        <field name="arch" type="xml">
+            <tree string="Stage">
+                <field name="name"/>
+                <field name="set_done"/>
+                <field name="team_ids"/>
+                <field name="sequence" widget="handle" groups="base.group_no_one"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="support_desk_stage_view_form" model="ir.ui.view">
+        <field name="name">supportdesk.stage.form</field>
+        <field name="model">supportdesk.stage</field>
+        <field name="arch" type="xml">
+            <form string="Stage Search">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="team_ids" widget="many2many_tags" options="{'color_field': 'team_color'}"
+                                   groups="base.group_no_one"/>
+                            <field name="template_id" options="{'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="set_done"/>
+                            <field name="fold"/>
+                            <field name="sequence" groups="base.group_no_one"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="support_desk_stages_view_search" model="ir.ui.view">
+        <field name="name">supportdesk.stage.search</field>
+        <field name="model">supportdesk.stage</field>
+        <field name="arch" type="xml">
+            <search string="Stages Search">
+                <field name="team_ids"/>
+                <group expand="0" string="Group By">
+                    <filter string="Teams" name="team" context="{'group_by':'team_ids'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="support_desk_stage_action" model="ir.actions.act_window">
+        <field name="name">Stages</field>
+        <field name="res_model">supportdesk.stage</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="support_desk_stages_view_search"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to add a stage in your support team pipeline.
+            </p>
+            <p>
+                Stages will use to easily track and organize the support tickets.
+                Configure stages according to team settings.
+            </p>
+        </field>
+    </record>
+
+
+
+    <!-- supportdesk.TEAM -->
+    <record id="support_desk_team_view_tree" model="ir.ui.view">
+        <field name="name">supportdesk.team.tree</field>
+        <field name="model">supportdesk.team</field>
+        <field name="arch" type="xml">
+            <tree string="Support Desk Team">
+                <field name="sequence" widget="handle"/>
+                <field name="name" class="field_name"/>
+                <field name="alias_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="support_desk_team_action" model="ir.actions.act_window">
+        <field name="name">Support Desk Teams</field>
+        <field name="res_model">supportdesk.team</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            Click to add a new ticket team.
+          </p><p>
+            Teams allows to manage tickets.
+          </p>
+        </field>
+    </record>
+
+    <record id="support_desk_team_action_form" model="ir.actions.act_window">
+        <field name="name">Support Desk Teams</field>
+        <field name="res_model">supportdesk.team</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <record id="support_desk_team_view_form" model="ir.ui.view">
+        <field name="name">supportdesk.team.form</field>
+        <field name="model">supportdesk.team</field>
+        <field name="arch" type="xml">
+            <form string="team search" class="oe_form_configuration">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    <button class="oe_stat_button" type="action"
+                        name="%(support_desk_stage_action)d" icon="fa-arrow-circle-o-right"
+                        context="{'search_default_team_ids': active_id, 'default_team_ids': [active_id]}">
+                        <field string="Stages" name="stage_count" widget="statinfo"/>
+                    </button>
+                        <button string="Add/Remove Agent" name="%(action_remove_assignee_from_team)d" type="action"
+                                icon="fa-remove" />
+
+                    </div>
+                    <div class="oe_title" id='title'>
+                        <h1 id="name"><field name="name" placeholder="Support Desk Team..."/></h1>
+                    </div>
+
+
+                    <group>
+                        <field name="company_id" groups="base.group_multi_company" options="{'no_create_edit': True, 'no_create': True}"/>
+                        <field name="description" placeholder="Description for customer portal"/>
+                        <field name="working_hour_ids" options="{'no_create_edit': True, 'no_create': True}"/>
+
+                    </group>
+                    <group>
+                        <group name="auto_assignment" string="Ticket Assignment Policy">
+                            <field name="ticket_assignation" widget="radio"/>
+                            <field name="highest_support_ticket_count"
+                                   attrs="{'invisible': [('ticket_assignation', '!=', 'equitable')]}"/>
+                        </group>
+                        <group name="agents" string="Agents">
+                            <field name="agent_ids" widget="many2many_tags"
+                                   options="{'color_field': 'color'}" readonly="1"/>
+
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                             <field name="apply_domain"/>
+                             <div attrs="{'invisible': [('apply_domain','=',False)]}">
+                                <div class="text-muted">
+                                    Tickets created from mails
+                                </div>
+                                <div class="oe_edit_only" attrs="{'invisible': [('alias_domain', '=', False)]}">
+                                    <label for="alias_id" string="Choose an Email:"/>
+                                    <field name="alias_name"/>@<field name="alias_domain" class="oe_inline" readonly="1"/>
+                                        to create tickets
+                                </div>
+                                <p class="oe_read_only" attrs="{'invisible': [('alias_domain', '=', False)]}">Send emails to
+                                    <strong>
+                                        <field name="alias_id" class="oe_read_only oe_inline" required="False"/>
+                                    </strong>
+                                    to create tickets
+                                </p>
+                                <p attrs="{'invisible': [('alias_domain', '!=', False)]}">
+                                    <a type="action" name="%(base_setup.action_general_configuration)d"><i class="fa fa-arrow-right"/> Configure domain name</a>
+                                </p>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="apply_sla"/>
+                            <div attrs="{'invisible': [('apply_sla','=',False)]}">
+                                <button name="%(support_desk_sla_action)d" type="action"
+                                        string="Configure your SLA Policies here:" icon="fa-arrow-right"
+                                        class="btn-link"/>
+                            </div>
+                        </group>
+                    </group>
+s                    <group string="Graph" name="graph">
+                        <field name="dashboard_graph_period"/>
+                        <field name="dashboard_graph_group"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" help="Follow this team to automatically track the events associated to tickets of this team." groups="base.group_user"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+
+
+    <record id="support_desk_team_settings" model="ir.actions.server">
+        <field name="name">Support Desk: Teams Settings</field>
+        <field name="model_id" ref="support_desk.model_supportdesk_team"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_open_all_teams()
+        </field>
+    </record>
+
+    <menuitem id="support_desk_team_main_menu" name="Teams" action="support_desk_team_settings"
+        sequence="1" parent="support_desk.menu_root"
+        groups="support_desk.group_support_desk_manager"/>
+
+</flectra>

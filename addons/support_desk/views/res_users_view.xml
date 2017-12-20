@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+
+    <!-- Update Preferences form !-->
+    <record id="view_users_form_simple_modif_supportdesk" model="ir.ui.view">
+        <field name="name">res.users.preferences.form.supportdesk</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='preference_contact']" position="inside">
+                <field name="have_teams_auto_assignment"/>
+                <field name="not_available_supportdesk"/>
+            </xpath>
+        </field>
+    </record>
+</flectra>

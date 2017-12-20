@@ -1,0 +1,582 @@
+<?xml version="1.0"?>
+<flectra>
+
+    <!-- supportdesk.category -->
+    <record id="support_desk_category_view_tree" model="ir.ui.view">
+        <field name="name">supportdesk.category.tree</field>
+        <field name="model">supportdesk.category</field>
+        <field name="arch" type="xml">
+            <tree editable="top" string="Category">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="support_desk_category_action" model="ir.actions.act_window">
+        <field name="name">Ticket Categories</field>
+        <field name="res_model">supportdesk.category</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to add a new ticket category.
+            </p>
+            <p>
+                Category allows to manage tickets.
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_config" name="Configuration"
+              sequence="100" parent="support_desk.menu_root"
+              groups="support_desk.group_support_desk_manager"/>
+    <menuitem id="support_desk_ticket_config" name="Tickets"
+              sequence="2" parent="support_desk.menu_config"/>
+    <menuitem id="support_desk_category_menu" action="support_desk_category_action"
+              sequence="1" parent="support_desk.support_desk_ticket_config"
+              />
+     <menuitem id="support_desk_stage_menu" action="support_desk_stage_action"
+              sequence="3" parent="support_desk.support_desk_ticket_config"/>
+    <menuitem id="support_desk_sla_menu_main" name="SLA Policies"
+              sequence="4" parent="support_desk.menu_config"
+              groups="support_desk.group_apply_sla"/>
+    <menuitem id="support_desk_sla_sub_menu" action="support_desk_sla_action_main"
+              sequence="1" parent="support_desk_sla_menu_main"
+              groups="support_desk.group_apply_sla"/>
+
+    <!-- supportdesk.TYPE -->
+    <record id="support_desk_type_view_tree" model="ir.ui.view">
+        <field name="name">supportdesk.type.tree</field>
+        <field name="model">supportdesk.ticket.type</field>
+        <field name="arch" type="xml">
+            <tree editable="top" string="Category">
+                <field name="sequence" widget="handle" groups="base.group_no_one"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="support_desk_type_action" model="ir.actions.act_window">
+        <field name="name">Ticket Type</field>
+        <field name="res_model">supportdesk.ticket.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to add a new ticket type.
+            </p>
+            <p>
+                Type allows to manage support tickets.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="support_desk_type_menu" action="support_desk_type_action"
+              sequence="1" parent="support_desk.support_desk_ticket_config"/>
+
+
+
+    <!-- supportdesk.TICKET -->
+    <record id="support_desk_tickets_view_tree" model="ir.ui.view">
+        <field name="name">supportdesk.ticket.tree</field>
+        <field name="model">supportdesk.ticket</field>
+        <field name="arch" type="xml">
+            <tree string="Support Tickets">
+                <field name="number"/>
+                <field name="priority"/>
+                <field name="partner_id"/>
+                <field name="name"/>
+                <field name="responsible_user_id"/>
+                <field name="stage_id"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="support_desk_ticket_view_pivot_analysis" model="ir.ui.view">
+        <field name="name">supportdesk.ticket.pivot.analysis</field>
+        <field name="model">supportdesk.ticket</field>
+        <field name="arch" type="xml">
+            <pivot string="Support Desk Ticket Analysis" disable_linking="True">
+                <field name="support_team_id" type="row"/>
+                <field name="stage_id" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+     <record id="support_desk_ticket_view_pivot" model="ir.ui.view">
+        <field name="name">supportdesk.ticket.pivot</field>
+        <field name="model">supportdesk.ticket</field>
+        <field name="arch" type="xml">
+            <pivot string="Support Desk Tickets">
+                <field name="create_date" type="row" interval="day"/>
+                <field name="stage_id" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="support_desk_ticket_view_graph" model="ir.ui.view">
+        <field name="name">supportdesk.ticket.graph</field>
+        <field name="model">supportdesk.ticket</field>
+        <field name="arch" type="xml">
+            <graph string="Support Desk Tickets" stacked="True">
+                <field name="create_date" type="row" interval="day"/>
+                <field name="stage_id" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="support_desk_ticket_view_graph_analysis" model="ir.ui.view">
+        <field name="name">supportdesk.ticket.graph.analysis</field>
+        <field name="model">supportdesk.ticket</field>
+        <field name="arch" type="xml">
+            <graph string="Support Desk Ticket Analysis" stacked="True">
+                <field name="support_team_id" type="row"/>
+                <field name="stage_id" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+
+
+    <record id="support_desk_tickets_view_search" model="ir.ui.view">
+        <field name="name">supportdesk.ticket.search</field>
+        <field name="model">supportdesk.ticket</field>
+        <field name="arch" type="xml">
+            <search string="Support Tickets Search">
+                <field name="name"/>
+                <field name="id"/>
+                <field name="partner_id"/>
+                <field name="category_ids"/>
+                <field name="type_id"/>
+                <field name="support_team_id"/>
+                <field name="responsible_user_id"/>
+
+
+                <filter string="My Tickets" domain="[('responsible_user_id','=',uid)]" name="my_ticket"/>
+                <filter string="Unassigned Tickets" domain="[('responsible_user_id','=',False), ('stage_id.set_done', '=', False)]"
+                        name="unassigned"/>
+                <separator/>
+                <filter string="Open Tickets" domain="[('stage_id.set_done','=',False)]" name="is_open"/>
+                <filter string="Closed Tickets" domain="[('stage_id.set_done','=',True)]" name="set_done"/>
+                <separator/>
+                <filter string="Upcoming SLA Fail"
+                        domain="[('active_sla_policy', '=', True),('sla_policy_fail','=',False),('overdue_date','!=',False),('overdue_date', '&lt;=', (datetime.date.today() + relativedelta(days=1)).strftime('%Y-%m-%d'))]"
+                        name="upcoming_sla_policy_fail" groups="support_desk.group_apply_sla"/>
+                <filter string="SLA Failed" domain="[('sla_policy_fail','!=',False)]" name="sla_policy_failed"
+                        groups="support_desk.group_apply_sla"/>
+                <separator/>
+                <filter string="Unread Messages" domain="[('message_needaction','=',True)]" name="message_needaction"/>
+                <separator/>
+                <filter string="Archived" domain="[('active','=',False)]" name="archive"/>
+                <separator/>
+                <filter name="today" string="Today" domain="[('create_date','=',time.strftime('%%Y-%%m-%%d'))]"/>
+                <separator/>
+                <filter string="My Activities" name="activities_my"
+                        domain="[('activity_ids.user_id', '=', uid)]"/>
+                <separator/>
+                <filter string="Late Activities" name="activities_overdue"
+                        domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                        help="Show all records which has next action date is before today"/>
+                <filter string="Today Activities" name="activities_today"
+                        domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Future Activities" name="activities_upcoming_all"
+                        domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))
+                        ]"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="Assignee" name="assignee" context="{'group_by':'responsible_user_id'}"/>
+                    <filter string="Support Team" name="team" context="{'group_by':'support_team_id'}"/>
+                    <filter string="Support Ticket Type" name="type_id" context="{'group_by':'type_id'}"/>
+                    <filter string="Stage" name="stage" context="{'group_by':'stage_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="support_desk_ticket_view_search_closed" model="ir.ui.view">
+        <field name="name">supportdesk.ticket.search</field>
+        <field name="model">supportdesk.ticket</field>
+        <field name="arch" type="xml">
+            <search string="Tickets Search">
+                <field name="name"/>
+                <field name="type_id"/>
+                <field name="support_team_id"/>
+                <field name="responsible_user_id"/>
+                <filter string="My Tickets" domain="[('responsible_user_id','=',uid)]" name="my_ticket"/>
+                <filter string="Unassigned Tickets" domain="[('responsible_user_id','=',False)]" name="unassigned"/>
+                <separator/>
+                <filter string="Archived" domain="[('active','=',False)]" name="archive"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Assignee" name="assignee" context="{'group_by':'responsible_user_id'}"/>
+                    <filter string="Team" name="team" context="{'group_by':'support_team_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+
+
+
+    <record id="support_desk_ticket_view_form" model="ir.ui.view">
+        <field name="name">supportdesk.ticket.form</field>
+        <field name="model">supportdesk.ticket</field>
+        <field name="arch" type="xml">
+            <form string="Support Desk Ticket">
+                <header>
+                    <button name="own_ticket_assignment" string="Assign To Me" type="object" class="oe_highlight"
+                            groups="support_desk.group_support_desk_user"
+                            attrs="{'invisible': [('responsible_user_id', '!=', False)]}"/>
+                    <field name="stage_id" widget="statusbar"
+                           clickable="True" options="{'fold_field': 'fold'}"/>
+                </header>
+                <sheet>
+                    <field name="active_sla_policy" invisible="1"/>
+                    <field name="number" invisible="1"/>
+                    <div class="oe_button_box" name="button_box">
+
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <field name="kanban_state" widget="state_selection" class="oe_inline oe_right" invisible="1"/>
+                    <div class="oe_title">
+                        <h1>
+                            #<field name="number" attrs="{'invisible': [('number', '=', '')]}"
+                                    style="margin-right:10px;" readonly="1"></field>
+                            <field name="name" class="field_name" placeholder="Subject..."/>
+                        </h1>
+                        <field name="sla_policy_name" class="label label-danger oe_inline"
+                               attrs="{'invisible': [('active_sla_policy','=',False)]}"/>
+                    </div>
+                    <group>
+                        <group string="Customer Details">
+                            <field name="partner_id" class="field_partner_id" required="1"/>
+                            <field name="requestor_name" attrs="{'invisible': [('partner_id', '!=', False)]}"/>
+                            <field name="requestor_email" required="1"/>
+                            <field name="priority" widget="priority"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Team Details">
+                            <field name="support_team_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="responsible_user_id" class="field_user_id"/>
+                            <field name="assignee_partner_id" invisible="1"/>
+                             <field name="type_id" widget="selection"/>
+                            <field name="category_ids" widget="many2many_tags" options="{'color_field': 'category_color'}"/>
+                            <field name="overdue_date" invisible="1" />
+                            <field name="sla_policy_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description" class="field_description" placeholder="Description of the ticket..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="support_desk_ticket_view_kanban" model="ir.ui.view">
+        <field name="name">supportdesk.ticket.kanban</field>
+        <field name="model">supportdesk.ticket</field>
+        <field name="priority">10</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="stage_id" class="o_kanban_small_column">
+                <field name="stage_id"/>
+                <field name="responsible_user_id"/>
+                <field name="ticket_color"/>
+                <field name="priority"/>
+                <field name="message_needaction_counter"/>
+                <field name="category_ids"/>
+                <field name="active"/>
+                <field name="activity_ids"/>
+                <field name="activity_state"/>
+                <field name="support_team_id"/>
+                <field name="active_sla_policy"/>
+                <templates>
+                    <t t-name="kanban-box" >
+                        <div t-attf-class="#{kanban_color(record.ticket_color.raw_value)} oe_kanban_global_click">
+                            <div class="o_dropdown_kanban dropdown">
+                                <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+                                    <span class="fa fa-bars fa-lg"/>
+                                </a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <t t-if="widget.editable">
+                                        <li>
+                                            <a type="edit">Edit</a>
+                                        </li>
+                                    </t>
+                                    <t t-if="widget.deletable">
+                                        <li>
+                                            <a type="delete">Delete</a>
+                                        </li>
+                                    </t>
+                                    <li t-if="! record.active.value">
+                                        <a name="toggle_active" type="object">Restore</a>
+                                    </li>
+                                    <li t-if="record.active.value">
+                                        <a name="toggle_active" type="object">Archive</a>
+                                    </li>
+                                    <li>
+                                        <ul class="oe_kanban_colorpicker" data-field="ticket_color"/>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="oe_kanban_content">
+                                <div>
+                                    <field name="category_ids"/>
+                                </div>
+                                <div>
+                                    <strong>
+                                        <t t-if="record.number.raw_value">(#<field name="number"/>)</t>
+                                        <field name="name"/>
+                                    </strong>
+                                </div>
+                                <div>
+                                    <field name="partner_id"/>
+                                </div>
+                                <div
+                                        t-if="record.overdue_date &amp;&amp; record.overdue_date.raw_value &amp;&amp; record.active_sla_policy.raw_value"> <!-- here  -->
+                                    <t t-if="new Date(record.overdue_date.raw_value) &lt; (new Date())" t-set="red">
+                                        oe_kanban_text_red
+                                    </t>
+                                    <span class="fa fa-clock-o"/>
+                                    <span t-attf-class="#{red}">
+                                        <i>
+                                            <field name="overdue_date"/>
+                                        </i>
+                                    </span>
+                                </div>
+                                <div class="oe_kanban_bottom_left">
+                                    <field name="priority" widget="priority"/>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <t t-if="record.message_needaction_counter.raw_value">
+                                        <span class='oe_kanban_mail_new' title='Important Messages'>
+                                            <i class='fa fa-comments'/>
+                                            <t t-raw="record.message_needaction_counter.raw_value"/>
+                                        </span>
+                                    </t>
+                                    <img t-att-src="kanban_image('res.users', 'image_small', record.responsible_user_id.raw_value)"
+                                         t-att-title="record.responsible_user_id.value" width="24" height="24"
+                                         class="oe_kanban_avatar pull-right"/>
+                                    <span class="o_support_desk_sla_policy_failed pull-right fa fa-times-circle"
+                                          style="margin: 6px" t-attf-title="Failed SLA: {{record.sla_policy_name.raw_value}}"
+                                          t-if="record.sla_policy_fail &amp;&amp; record.sla_policy_fail.raw_value"></span>
+                                    <div class="pull-right">
+                                        <field name="activity_ids" widget="kanban_activity"/>
+                                        <field name="kanban_state" widget="state_selection" groups="base.group_user"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="oe_clear"></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="support_desk_ticket_view_kanban_no_create" model="ir.ui.view">
+        <field name="name">supportdesk.ticket.kanban.no.create</field>
+        <field name="model">supportdesk.ticket</field>
+        <field name="priority">100</field>
+        <field name="inherit_id" ref="support_desk.support_desk_ticket_view_kanban"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban[hasclass('o_kanban_small_column')]" position="attributes">
+                <attribute name="create">0</attribute>
+                <attribute name="group_create">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_support_desk_ticket_report_calendar" model="ir.ui.view">
+            <field name="name">supportdesk.ticket.calendar</field>
+            <field name="model">supportdesk.ticket</field>
+            <field name="arch" type="xml">
+                <calendar string="Support Desk Calendar" color="stage_id"
+                    date_start="create_date" mode="month">
+                    <field name="name"/>
+                    <field name="stage_id"/>
+                </calendar>
+            </field>
+        </record>
+
+     <!-- supportdesk team pivot View -->
+    <record id="support_desk_team_view_pivot_analysis" model="ir.ui.view">
+        <field name="name">supportdesk.ticket.pivot</field>
+        <field name="model">supportdesk.ticket</field>
+        <field name="arch" type="xml">
+            <pivot string="Performance Analysis" disable_linking="True">
+                <field name="stage_id" type="col"/>
+                <field name="name"/>
+                <field name="resolved_hours" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="support_desk_team_view_graph_analysis" model="ir.ui.view">
+        <field name="name">supportdesk.ticket.graph</field>
+        <field name="model">supportdesk.ticket</field>
+        <field name="arch" type="xml">
+            <graph string="Performance Analysis" stacked="True">
+                <field name="stage_id" type="col"/>
+                <field name="support_team_id" type="row"/>
+                <field name="resolved_hours" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="support_desk_ticket_action" model="ir.actions.act_window">
+        <field name="name">All Tickets</field>
+        <field name="res_model">supportdesk.ticket</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="support_desk.support_desk_ticket_view_kanban_no_create"/>
+        <field name="search_view_id" ref="support_desk_tickets_view_search"/>
+        <field name="context">{'search_default_is_open': True}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Nothing to display.
+            </p>
+        </field>
+    </record>
+
+     <record id="support_desk_ticket_slafailed" model="ir.actions.act_window">
+        <field name="name">SLA Failed Tickets</field>
+        <field name="res_model">supportdesk.ticket</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'search_default_sla_policy_failed': True}</field>
+        <field name="search_view_id" ref="support_desk_tickets_view_search"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click create a new support ticket.
+            </p>
+        </field>
+    </record>
+
+
+    <record id="support_desk_ticket_action_tree" model="ir.actions.act_window">
+        <field name="name">All Tickets</field>
+        <field name="res_model">supportdesk.ticket</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="support_desk.support_desk_ticket_view_kanban_no_create"/>
+        <field name="search_view_id" ref="support_desk_tickets_view_search"/>
+        <field name="context">{'search_default_is_open': True}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Nothing to display.
+            </p>
+        </field>
+    </record>
+
+    <!-- action for helpdask team -->
+    <record id="support_desk_ticket_team_action" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="res_model">supportdesk.ticket</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'search_default_support_team_id': active_id}</field>
+        <field name="search_view_id" ref="support_desk_tickets_view_search"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click create a new support ticket.
+            </p>
+        </field>
+    </record>
+
+    <record id="support_desk_ticket_unassigned_action" model="ir.actions.act_window">
+        <field name="name">Todo Tickets</field>
+        <field name="res_model">supportdesk.ticket</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'search_default_unassigned': True}</field>
+        <field name="search_view_id" ref="support_desk_tickets_view_search"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click create a new support ticket.
+            </p>
+        </field>
+    </record>
+
+    <!--Action for dashboard button-->
+    <record id="support_desk_high_priorities_ticket" model="ir.actions.act_window">
+        <field name="name">High Priority Support Tickets</field>
+        <field name="res_model">supportdesk.ticket</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="support_desk.support_desk_ticket_view_kanban_no_create"/>
+        <field name="domain">[('priority', '=', '2')]</field>
+        <field name="context">{'default_priority': '2', 'search_default_is_open': True}
+        </field>
+        <field name="search_view_id" ref="support_desk_tickets_view_search"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Nothing to display.
+            </p>
+        </field>
+    </record>
+
+    <record id="support_desk_urgent_ticket" model="ir.actions.act_window">
+        <field name="name">Urgent Tickets</field>
+        <field name="res_model">supportdesk.ticket</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+
+        <field name="domain">[('priority', '=', '3')]</field>
+        <field name="context">{'default_priority': '3', 'search_default_is_open': True}</field>
+        <field name="view_id" ref="support_desk.support_desk_ticket_view_kanban_no_create"/>
+        <field name="search_view_id" ref="support_desk_tickets_view_search"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Nothing to display.
+            </p>
+        </field>
+    </record>
+
+    <record id="support_desk_closed_ticket" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="res_model">supportdesk.ticket</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="support_desk.support_desk_ticket_view_kanban_no_create"/>
+        <field name="domain">[('stage_id.set_done','=',True)]</field>
+        <field name="context">{'search_default_set_done': True}</field>
+        <field name="search_view_id" ref="support_desk_tickets_view_search"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Nothing to display.
+            </p>
+        </field>
+    </record>
+    <record id="support_desk_closed_today_ticket" model="ir.actions.act_window">
+        <field name="name">Today Closed Tickets</field>
+        <field name="res_model">supportdesk.ticket</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="support_desk.support_desk_ticket_view_kanban_no_create"/>
+        <field name="domain">[('stage_id.set_done','=',True), ('resolved_date', '=', time.strftime('%Y-%m-%d'))]</field>
+        <field name="context">{'search_default_set_done': True}</field>
+        <field name="search_view_id" ref="support_desk_tickets_view_search"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Nothing to display.
+            </p>
+        </field>
+    </record>
+
+
+
+</flectra>

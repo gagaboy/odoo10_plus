@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+<data noupdate="0">
+    <template id="portal_my_home_menu_support_desk" name="Portal layout : Support Desk tickets menu entries"
+              inherit_id="portal.portal_layout" priority="50">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'ticket' or ticket">
+                <a t-if="ticket" t-attf-href="/my/support_tickets?{{ keep_query() }}">Support Tickets</a>
+                <t t-else="">Support Tickets</t>
+            </li>
+            <li t-if="ticket">
+                #<span t-field="ticket.id"/>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_support_desk_ticket" name="Portal My Home : Support Desk Ticket"
+              inherit_id="portal.portal_my_home" priority="50">
+        <xpath expr="//ul[hasclass('o_portal_docs')]" position="inside">
+            <li t-if="ticket_count" class="list-group-item">
+                <span class="badge" t-esc="ticket_count"/>
+                <a href="/my/support_tickets">Support Tickets</a>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_support_ticket" name="Support Desk Ticket">
+        <t t-call="portal.portal_layout">
+            <h3>Support Tickets
+                <t t-call="portal.portal_searchbar"/>
+            </h3>
+            <t t-if="not tickets">
+                <p>There are currently no Ticket for your account.</p>
+            </t>
+            <div t-if="tickets" class="panel panel-default">
+                <div class="table-responsive"><table class="table table-hover o_portal_my_doc_table">
+                    <thead>
+                        <tr class="active">
+                            <th>#Ticket No</th>
+                            <th>Description</th><th/>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <t t-foreach="tickets" t-as="support_ticket">
+                        <tr>
+                            <td><a t-attf-href="/supportdesk/ticket/#{support_ticket.id}">#<t t-esc="support_ticket.id"/></a></td>
+                            <td><span t-field="support_ticket.name"/></td><td/>
+                            <td><span t-field="support_ticket.stage_id.name"/></td>
+                        </tr>
+                    </t>
+                </table></div>
+                <div t-if="pager" class="o_portal_pager text-center">
+                    <t t-call="portal.pager"/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="support_tickets_followup" name="support_desk.Tickets">
+        <t t-call="portal.portal_layout">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>
+                                <t t-call='portal.record_pager'/>
+                                #<span t-field="support_ticket.id"/> - <span t-field="support_ticket.name"/>
+                                <a class="btn btn-info" t-att-href="'/web#return_label=Website&amp;model=supportdesk.ticket&amp;id=%s&amp;view_type=form' % (support_ticket.id)"
+                                   groups="support_desk.group_support_desk_user">Edit Ticket</a>
+                                <span t-field="support_ticket.stage_id.name" class="pull-right label label-info" title="Current stage of this ticket"/>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class='row'>
+                        <strong class="col-md-2">Reported by</strong>
+                        <div class="col-md-4" t-if="support_ticket.partner_id">
+                            <address t-field="support_ticket.partner_id" t-field-options='{"widget": "contact", "fields": ["name", "email"], "no_marker": true}'/>
+                        </div>
+                        <strong class="col-md-2" t-if="support_ticket.user_id">Assigned to</strong>
+                        <div class="col-md-4">
+                            <address t-field="support_ticket.user_id" t-field-options='{"widget": "contact", "fields": ["name", "email", "phone"], "no_marker": true}'/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <strong class="col-md-2">Description</strong>
+                        <div class="col-md-10" t-field="support_ticket.description"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt32">
+                <div class="col-md-12">
+                    <h4><strong>Message and communication history</strong></h4>
+                </div>
+                <div class="col-md-10 col-md-offset-1 mt16">
+                    <t t-call="portal.message_thread">
+                        <t t-set="object" t-value="ticket"/>
+                        <t t-set="disable_composer" t-value="support_ticket.stage_id.set_done"/>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+</data>
+</flectra>

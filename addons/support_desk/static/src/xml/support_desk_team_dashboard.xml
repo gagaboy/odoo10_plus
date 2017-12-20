@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <!--
+        This template is the ribbon at the top of the supportdesk dashboard that adds
+        some figures to it. We call this rubbon the "SalesDashboard".
+    -->
+    <t t-name="support_desk.supportdeskTeamDashboard">
+        <div t-if="show_demo or values" class="o_support_desk_dashboard">
+            <div t-attf-class="#{show_demo ? 'o_demo' : ''}" class="col-xs-12 o_box">
+                <table class="table" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td title="My open tickets">
+                            <a href="#" class="o_dashboard_action" name="support_desk.support_desk_ticket_action">
+                                All Tickets<br/><span class="o_highlight"><solid><t t-esc="values['all_tickets']"/></solid></span>
+                            </a>
+                        </td>
+                        <td  title="SLA fail tickets">
+                            <a href="#" class="o_dashboard_action" name="support_desk.support_desk_ticket_slafailed">
+                                OverDue<br/><span class="o_highlight"><t
+                                    t-esc="values['sla_policy_failed_tickets']"/></span>
+
+                            </a>
+                        </td>
+                        <td  title="My high priority tickets" class="o_border_left_red">
+                            <a href="#" class="o_dashboard_action"
+                               name="support_desk.support_desk_high_priorities_ticket">
+                                High Priority<br/><span
+                                    class="o_highlight" ><t t-esc="values['high_priority']"/></span>
+                            </a>
+                        </td>
+                        <td title="My urgent tickets" class="o_border_left_red">
+                            <a href="#" class="o_dashboard_action"
+                               name="support_desk.support_desk_urgent_ticket">
+                                Critical<br/>
+                                <span class="o_highlight"><t t-esc="values['critical']"/></span>
+
+                            </a>
+                        </td><td  title="Unassigned tickets">
+                            <a href="#" class="o_dashboard_action"
+                               name="support_desk.support_desk_ticket_unassigned_action">
+                                Todo Tickets<br/><span class="o_highlight"><t
+                                    t-esc="values['unassigned_tickets']"/></span>
+                            </a>
+                        </td>
+                        <td  title="Closed today tickets" class="o_border_left_green">
+                            <a href="#" class="o_dashboard_action" name="support_desk.support_desk_closed_today_ticket">
+                                Closed Today<br/><span class="o_highlight"><t t-esc="values['closed_today']"/></span>
+                            </a>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </t>
+</templates>

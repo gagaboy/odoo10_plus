@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_support_desk_category,support_desk_category,model_supportdesk_category,support_desk.group_support_desk_user,1,1,1,1
+access_support_desk_stage,supportdesk.stage,model_supportdesk_stage,support_desk.group_support_desk_user,1,0,0,0
+access_support_desk_stage_manager,supportdesk.stage.manager,model_supportdesk_stage,support_desk.group_support_desk_manager,1,1,1,1
+access_support_desk_stage_portal,supportdesk.stage.portal,support_desk.model_supportdesk_stage,base.group_portal,1,0,0,0
+access_support_desk_ticket_portal,supportdesk.ticket.portal,support_desk.model_supportdesk_ticket,base.group_portal,1,0,0,0
+access_support_desk_ticket,supportdesk.ticket,model_supportdesk_ticket,support_desk.group_support_desk_user,1,1,1,1
+access_support_desk_team_public,supportdesk.team,model_supportdesk_team,,1,0,0,0
+access_support_desk_team_manager,supportdesk.team.manager,model_supportdesk_team,support_desk.group_support_desk_manager,1,1,1,1
+access_support_desk_type_user,supportdesk.type.user,model_supportdesk_ticket_type,support_desk.group_support_desk_user,1,0,0,0
+access_support_desk_type_manager,supportdesk.type.manager,model_supportdesk_ticket_type,support_desk.group_support_desk_manager,1,1,1,1
+access_support_desk_skill,access_support_desk_skill,model_supportdesk_skill,,1,1,1,1
+access_schedule_activity,access_schedule_activity,model_schedule_activity,,1,1,1,1
+access_support_desk_sla,access_support_desk_sla,model_supportdesk_sla,,1,1,1,1

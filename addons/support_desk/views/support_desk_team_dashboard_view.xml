@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra noupdate="0">
+
+
+    <record id="support_desk_team_view_kanban" model="ir.ui.view" >
+        <field name="name">supportdesk.team.dashboard</field>
+        <field name="model">supportdesk.team</field>
+        <field name="priority">200</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_support_desk_kanban" create="0" js_class="support_desk_dashboard">
+
+                <field name="name"/>
+                <field name="team_color"/>
+                <field name="apply_domain"/>
+                <field name="alias_name"/>
+                <field name="alias_domain"/>
+                <field name="alias_id"/>
+                <field name="apply_sla"/>
+                <field name="dashboard_graph_type"/>
+                <field name="unassigned_tickets"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{kanban_color(record.team_color.raw_value)}">>
+                            <div t-attf-class="o_kanban_card_header">
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary"><field name="name"/></div>
+                                    <small
+                                            t-if="record.apply_domain.value and record.alias_name.value and record.alias_domain.value"><i class="fa fa-envelope-o"></i>&amp;nbsp; <t t-esc="record.alias_id.value"/></small>
+                                </div>
+                                <div class="o_kanban_manage_button_section">
+                                    <a class="o_kanban_manage_toggle_button" href="#"><i class="fa fa-ellipsis-v" /></a>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content">
+                                <div class="row">
+                                    <div class="col-xs-6 o_kanban_primary_left">
+                                        <button class="btn btn-primary"
+                                                name="%(support_desk.support_desk_ticket_team_action)d" type="action">Tickets</button>
+                                    </div>
+                                    <div class="col-xs-6 o_kanban_primary_right">
+                                        <div class="mb4" groups="support_desk.group_apply_sla" attrs="{'invisible': [('apply_sla', '=', False)]}">
+
+                                        </div>
+                                        <div class="mb4">
+                                            <a name="%(support_desk.support_desk_ticket_unassigned_action)d"
+                                               type="action"
+                                               context="{'search_default_team_id': active_id, 'default_team_id': active_id}"><t t-esc="record.unassigned_tickets.raw_value"/> Todo Tickets</a>
+                                        </div>
+                                        <div class="mb4" t-if="record.apply_sla.raw_value">
+                                            <a name="%(support_desk_sla_action_main)d" type="action"
+                                                    context="{'search_default_team_id': active_id, 'default_team_id': active_id}">
+                                                SLA Policies
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <t t-call="supportdeskDashboardGraph"/>
+                            </div>
+                            <div class="container o_kanban_card_manage_pane">
+                                <div t-if="widget.editable" class="o_kanban_card_manage_settings row">
+                                    <div class="col-xs-8">
+                                        <ul class="oe_kanban_colorpicker" data-field="team_color"/>
+                                    </div>
+                                    <div class="col-xs-4 text-right">
+                                        <a type="edit">Settings</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                    <t t-name="supportdeskDashboardGraph">
+                        <div t-if="record.dashboard_graph_data.raw_value">
+                            <field name="dashboard_graph_data" widget="dashboard_graph" t-att-graph_type="record.dashboard_graph_type.raw_value"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="support_desk_team_dashboard_action_main" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">supportdesk.team</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="context">{}</field>
+        <field name="view_id" ref="support_desk.support_desk_team_view_kanban"/>
+        <field name="help" type="html">
+            <p>
+                Your teams will appear here.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="support_desk_menu_team_dashboard" action="support_desk.support_desk_team_dashboard_action_main"
+        sequence="0" parent="support_desk.menu_root"
+        groups="support_desk.group_support_desk_user"/>
+</flectra>
