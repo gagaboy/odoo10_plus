@@ -8,7 +8,7 @@
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('settings')]" position="inside">
-                <div class="app_settings_block" data-string="CRM" data-key="crm" groups="sales_team.group_sale_manager">
+                <div class="app_settings_block" data-string="CRM" string="CRM" data-key="crm" groups="sales_team.group_sale_manager">
                     <h2>CRM</h2>
                     <div class="row mt16 o_settings_container">
                         <div class="col-xs-12 col-md-6 o_setting_box" id="crm_lead">
@@ -62,6 +62,17 @@
                                 <label for="module_crm_phone_validation"/>
                                 <div class="text-muted" id="module_crm_phone_validation">
                                     Validate and normalize phone numbers.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box" title="When populating your address book, Odoo relies on Clearbit’s API to provide you with a list of matching contacts or companies.When selecting one item, the partner name, logo and website get automatically set.">
+                            <div class="o_setting_left_pane">
+                                <field name="module_web_clearbit" widget="upgrade_boolean"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_web_clearbit"/>
+                                <div class="text-muted">
+                                    Look up company information (name, logo, etc.)
                                 </div>
                             </div>
                         </div>

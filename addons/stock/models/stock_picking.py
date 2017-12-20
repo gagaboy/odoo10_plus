@@ -273,6 +273,11 @@ class Picking(models.Model):
         'Has Packages', compute='_compute_has_packages',
         help='Check the existence of destination packages on move lines')
 
+    entire_package_ids = fields.One2many('stock.quant.package', compute='_compute_entire_package_ids',
+                                         help='Those are the entire packages of a picking shown in the view of operations')
+    entire_package_detail_ids = fields.One2many('stock.quant.package', compute='_compute_entire_package_ids',
+                                                help='Those are the entire packages of a picking shown in the view of detailed operations')
+
     show_check_availability = fields.Boolean(
         compute='_compute_show_check_availability',
         help='Technical field used to compute whether the check availability button should be shown.')
@@ -294,6 +299,7 @@ class Picking(models.Model):
     # Used to search on pickings
     product_id = fields.Many2one('product.product', 'Product', related='move_lines.product_id')
     show_operations = fields.Boolean(compute='_compute_show_operations')
+    show_lots_text = fields.Boolean(compute='_compute_show_lots_text')
 
     _sql_constraints = [
         ('name_uniq', 'unique(name, company_id)', 'Reference must be unique per company!'),
@@ -312,6 +318,18 @@ class Picking(models.Model):
                     picking.show_operations = False
             else:
                 picking.show_operations = False
+
+    @api.depends('move_line_ids', 'picking_type_id.use_create_lots', 'picking_type_id.use_existing_lots', 'state')
+    def _compute_show_lots_text(self):
+        group_production_lot_enabled = self.user_has_groups('stock.group_production_lot')
+        for picking in self:
+            if not picking.move_line_ids:
+                picking.show_lots_text = False
+            elif group_production_lot_enabled and picking.picking_type_id.use_create_lots \
+                    and not picking.picking_type_id.use_existing_lots and picking.state != 'done':
+                picking.show_lots_text = True
+            else:
+                picking.show_lots_text = False
 
     @api.depends('move_type', 'move_lines.state', 'move_lines.picking_id')
     @api.one
@@ -379,12 +397,20 @@ class Picking(models.Model):
 
     @api.one
     def _compute_has_packages(self):
-        has_packages = False
-        for pack_op in self.move_line_ids:
-            if pack_op.result_package_id:
-                has_packages = True
-                break
-        self.has_packages = has_packages
+        self.has_packages = self.move_line_ids.filtered(lambda ml: ml.result_package_id)
+
+    def _compute_entire_package_ids(self):
+        """ This compute method populate the two one2Many containing all entire packages of the picking.
+            An entire package is a package that is entirely reserved to be moved from a location to another one.
+        """
+        for picking in self:
+            packages = self.env['stock.quant.package']
+            for ml in picking.move_line_ids:
+                if ml.package_id.id == ml.result_package_id.id:
+                    if picking.state in ('done', 'cancel') or picking._check_move_lines_map_quant_package(ml.package_id):
+                        packages |= ml.package_id
+            picking.entire_package_ids = packages
+            picking.entire_package_detail_ids = packages
 
     @api.multi
     def _compute_show_check_availability(self):
@@ -599,28 +625,32 @@ class Picking(models.Model):
 
     do_transfer = action_done #TODO:replace later
 
+    def _check_move_lines_map_quant_package(self, package):
+        """ This method checks that all product of the package (quant) are well present in the move_line_ids of the picking. """
+        all_in = True
+        pack_move_lines = self.move_line_ids.filtered(lambda ml: ml.package_id == package)
+        keys = ['product_id', 'lot_id']
+
+        grouped_quants = {}
+        for k, g in groupby(sorted(package.quant_ids, key=itemgetter(*keys)), key=itemgetter(*keys)):
+            grouped_quants[k] = sum(self.env['stock.quant'].concat(*list(g)).mapped('quantity'))
+
+        grouped_ops = {}
+        for k, g in groupby(sorted(pack_move_lines, key=itemgetter(*keys)), key=itemgetter(*keys)):
+            grouped_ops[k] = sum(self.env['stock.move.line'].concat(*list(g)).mapped('product_qty'))
+        if any(grouped_quants.get(key, 0) - grouped_ops.get(key, 0) != 0 for key in grouped_quants) \
+                or any(grouped_ops.get(key, 0) - grouped_quants.get(key, 0) != 0 for key in grouped_ops):
+            all_in = False
+        return all_in
+
     @api.multi
     def _check_entire_pack(self):
         """ This function check if entire packs are moved in the picking"""
         for picking in self:
             origin_packages = picking.move_line_ids.mapped("package_id")
             for pack in origin_packages:
-                all_in = True
-                packops = picking.move_line_ids.filtered(lambda x: x.package_id == pack)
-                keys = ['product_id', 'lot_id']
-
-                grouped_quants = {}
-                for k, g in groupby(sorted(pack.quant_ids, key=itemgetter(*keys)), key=itemgetter(*keys)):
-                    grouped_quants[k] = sum(self.env['stock.quant'].concat(*list(g)).mapped('quantity'))
-
-                grouped_ops = {}
-                for k, g in groupby(sorted(packops, key=itemgetter(*keys)), key=itemgetter(*keys)):
-                    grouped_ops[k] = sum(self.env['stock.move.line'].concat(*list(g)).mapped('product_qty'))
-                if any(grouped_quants[key] - grouped_ops.get(key, 0) != 0 for key in grouped_quants)\
-                        or any(grouped_ops[key] - grouped_quants[key] != 0 for key in grouped_ops):
-                    all_in = False
-                if all_in and packops:
-                    packops.write({'result_package_id': pack.id})
+                if picking._check_move_lines_map_quant_package(pack):
+                    picking.move_line_ids.filtered(lambda ml: ml.package_id == pack).write({'result_package_id': pack.id})
 
     @api.multi
     def do_unreserve(self):
@@ -652,8 +682,11 @@ class Picking(models.Model):
 
             for line in lines_to_check:
                 product = line.product_id
-                if product and product.tracking != 'none' and (line.qty_done == 0 or (not line.lot_name and not line.lot_id)):
-                    raise UserError(_('You need to supply a lot/serial number for %s.') % product.name)
+                if product and product.tracking != 'none':
+                    if not line.lot_name and not line.lot_id:
+                        raise UserError(_('You need to supply a lot/serial number for %s.') % product.display_name)
+                    elif line.qty_done == 0:
+                        raise UserError(_('You cannot validate a transfer if you have not processed any quantity for %s.') % product.display_name)
 
         if no_quantities_done:
             view = self.env.ref('stock.view_immediate_transfer')
@@ -795,9 +828,11 @@ class Picking(models.Model):
                             operation.product_uom_qty - operation.qty_done,
                             precision_rounding=operation.product_uom_id.rounding,
                             rounding_method='UP')
+                        done_to_keep = operation.qty_done
                         new_operation = operation.copy(
-                            default={'product_uom_qty': operation.qty_done, 'qty_done': operation.qty_done})
+                            default={'product_uom_qty': 0, 'qty_done': operation.qty_done})
                         operation.write({'product_uom_qty': quantity_left_todo, 'qty_done': 0.0})
+                        new_operation.write({'product_uom_qty': done_to_keep})
                         operation_ids |= new_operation
 
                 operation_ids.write({'result_package_id': package.id})

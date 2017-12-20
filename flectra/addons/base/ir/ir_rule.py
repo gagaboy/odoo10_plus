@@ -125,12 +125,21 @@ class IrRule(models.Model):
     def create(self, vals):
         res = super(IrRule, self).create(vals)
         self.clear_caches()
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            res.create_app_ir_model_data(res.display_name)
         return res
 
     @api.multi
     def write(self, vals):
         res = super(IrRule, self).write(vals)
         self.clear_caches()
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            for record in self:
+                record.create_app_ir_model_data(record.display_name)
         return res
 
 #

@@ -203,6 +203,7 @@ QUnit.module('Views', {
     QUnit.test('basic onchange', function (assert) {
         assert.expect(5);
 
+        this.data.partner.fields.foo.onChange = true;
         this.data.partner.onchanges.foo = function (obj) {
             obj.bar = obj.foo.length;
         };
@@ -240,6 +241,7 @@ QUnit.module('Views', {
     QUnit.test('onchange with a many2one', function (assert) {
         assert.expect(5);
 
+        this.data.partner.fields.product_id.onChange = true;
         this.data.partner.onchanges.product_id = function (obj) {
             if (obj.product_id === 37) {
                 obj.foo = "space lollipop";
@@ -280,6 +282,7 @@ QUnit.module('Views', {
     QUnit.test('onchange on a one2many not in view (fieldNames)', function (assert) {
         assert.expect(6);
 
+        this.data.partner.fields.foo.onChange = true;
         this.data.partner.onchanges.foo = function (obj) {
             obj.bar = obj.foo.length;
             obj.product_ids = [];
@@ -425,6 +428,7 @@ QUnit.module('Views', {
     QUnit.test('onchange on a char with an unchanged many2one', function (assert) {
         assert.expect(2);
 
+        this.data.partner.fields.foo.onChange = true;
         this.data.partner.onchanges.foo = function (obj) {
             obj.foo = obj.foo + " alligator";
         };
@@ -453,6 +457,7 @@ QUnit.module('Views', {
     QUnit.test('onchange on a char with another many2one not set to a value', function (assert) {
         assert.expect(2);
         this.data.partner.records[0].product_id = false;
+        this.data.partner.fields.foo.onChange = true;
         this.data.partner.onchanges.foo = function (obj) {
             obj.foo = obj.foo + " alligator";
         };
@@ -1497,6 +1502,7 @@ QUnit.module('Views', {
         assert.expect(6);
 
         this.params.fieldNames = ['foo', 'bar'];
+        this.data.partner.fields.foo.onChange = true;
         this.data.partner.onchanges.foo = function (obj) {
             obj.bar = obj.foo.length;
         };
@@ -1562,6 +1568,7 @@ QUnit.module('Views', {
         assert.expect(6);
 
         this.params.fieldNames = ['foo', 'bar'];
+        this.data.partner.fields.foo.onChange = true;
         this.data.partner.onchanges.foo = function (obj) {
             obj.bar = obj.foo.length;
         };
@@ -2138,6 +2145,7 @@ QUnit.module('Views', {
         };
         _.extend(this.data.partner.fields, newFields);
 
+        this.data.partner.fields.foobool.onChange = true;
         this.data.partner.onchanges.foobool = function (obj) {
             if (obj.foobool) {
                 obj.foobool2 = true;

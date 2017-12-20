@@ -135,6 +135,11 @@ class IrFilters(models.Model):
         if matching_filters:
             matching_filter = self.browse(matching_filters[0]['id'])
             matching_filter.write(vals)
+            #builder code
+            if self._context.get('app_builder') \
+                    and not self._context.get('install_mode'):
+                for record in self:
+                    record.create_app_ir_model_data(record.display_name)
             return matching_filter
 
         return self.create(vals)
@@ -152,4 +157,8 @@ class IrFilters(models.Model):
         # Use unique index to implement unique constraint on the lowercase name (not possible using a constraint)
         tools.create_unique_index(self._cr, 'ir_filters_name_model_uid_unique_action_index',
             self._table, ['lower(name)', 'model_id', 'COALESCE(user_id,-1)', 'COALESCE(action_id,-1)'])
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            result.create_app_ir_model_data(result.display_name)
         return result

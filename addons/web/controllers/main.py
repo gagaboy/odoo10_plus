@@ -658,6 +658,10 @@ class WebClient(http.Controller):
     def test_suite(self, mod=None, **kwargs):
         return request.render('web.qunit_suite')
 
+    @http.route('/web/tests/mobile', type='http', auth="none")
+    def test_mobile_suite(self, mod=None, **kwargs):
+        return request.render('web.qunit_mobile_suite')
+
     @http.route('/web/benchmarks', type='http', auth="none")
     def benchmarks(self, mod=None, **kwargs):
         return request.render('web.benchmark_suite')
@@ -1260,7 +1264,7 @@ class Export(http.Controller):
         """
         return [
             {'tag': 'csv', 'label': 'CSV'},
-            {'tag': 'xls', 'label': 'Excel', 'error': None if xlwt else "XLWT required"},
+            {'tag': 'xls', 'label': 'Excel', 'error': None if xlwt else "XLWT 1.3.0 required"},
         ]
 
     def fields_get(self, model):
@@ -1432,7 +1436,6 @@ class ExportFormat(object):
         else:
             columns_headers = [val['label'].strip() for val in fields]
 
-
         return request.make_response(self.from_data(columns_headers, import_data),
             headers=[('Content-Disposition',
                             content_disposition(self.filename(model))),
@@ -1505,8 +1508,19 @@ class ExcelExport(ExportFormat, http.Controller):
         for row_index, row in enumerate(rows):
             for cell_index, cell_value in enumerate(row):
                 cell_style = base_style
+
+                if isinstance(cell_value, bytes) and not isinstance(cell_value, pycompat.string_types):
+                    # because xls uses raw export, we can get a bytes object
+                    # here. xlwt does not support bytes values in Python 3 ->
+                    # assume this is base64 and decode to a string, if this
+                    # fails note that you can't export
+                    try:
+                        cell_value = pycompat.to_text(cell_value)
+                    except UnicodeDecodeError:
+                        raise UserError(_("Binary fields can not be exported to Excel unless their content is base64-encoded. That does not seem to be the case for %s.") % fields[cell_index])
+
                 if isinstance(cell_value, pycompat.string_types):
-                    cell_value = re.sub("\r", " ", cell_value)
+                    cell_value = re.sub("\r", " ", pycompat.to_text(cell_value))
                 elif isinstance(cell_value, datetime.datetime):
                     cell_style = datetime_style
                 elif isinstance(cell_value, datetime.date):

@@ -185,16 +185,27 @@
                 failed = flectra.__DEBUG__.get_failed_jobs();
                 var unloaded = _.filter(debug_jobs, function (job) { return job.missing; });
 
-                var log = [(_.isEmpty(failed) ? (_.isEmpty(unloaded) ? 'info' : 'warning' ) : 'error') + ':', 'Some modules could not be started'];
-                if (missing.length)             log.push('\nMissing dependencies:   ', missing);
-                if (!_.isEmpty(failed))         log.push('\nFailed modules:         ', _.pluck(failed, 'name'));
-                if (!_.isEmpty(rejected))       log.push('\nRejected modules:       ', rejected);
-                if (!_.isEmpty(rejected_linked))log.push('\nRejected linked modules:', rejected_linked);
-                if (!_.isEmpty(unloaded))       log.push('\nNon loaded modules:     ', _.pluck(unloaded, 'name'));
-                if (flectra.debug && !_.isEmpty(debug_jobs)) log.push('\nDebug:                  ', debug_jobs);
-
                 if (flectra.debug || !_.isEmpty(failed) || !_.isEmpty(unloaded)) {
-                    console[_.isEmpty(failed) || _.isEmpty(unloaded) ? 'info' : 'error'].apply(console, log);
+                    var log = console[_.isEmpty(failed) || _.isEmpty(unloaded) ? 'info' : 'error'].bind(console);
+                    log((_.isEmpty(failed) ? (_.isEmpty(unloaded) ? 'info' : 'warning') : 'error') + ': Some modules could not be started');
+                    if (missing.length) {
+                        log('Missing dependencies:    ', missing);
+                    }
+                    if (!_.isEmpty(failed)) {
+                        log('Failed modules:          ', _.pluck(failed, 'name'));
+                    }
+                    if (!_.isEmpty(rejected)) {
+                        log('Rejected modules:        ', rejected);
+                    }
+                    if (!_.isEmpty(rejected_linked)) {
+                        log('Rejected linked modules: ', rejected_linked);
+                    }
+                    if (!_.isEmpty(unloaded)) {
+                        log('Non loaded modules:      ', _.pluck(unloaded, 'name'));
+                    }
+                    if (flectra.debug && !_.isEmpty(debug_jobs)) {
+                        log('Debug:                   ', debug_jobs);
+                    }
                 }
             }
             flectra.__DEBUG__.js_modules = {

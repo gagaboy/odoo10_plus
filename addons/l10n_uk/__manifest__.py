@@ -8,7 +8,7 @@
     'version': '1.0',
     'category': 'Localization',
     'description': """
-This is the latest UK Odoo localisation necessary to run Odoo accounting for UK SME's with:
+This is the latest UK localisation necessary to run accounting for UK SME's with:
 =================================================================================================
     - a CT600-ready chart of accounts
     - VAT100-ready tax structure

@@ -14,7 +14,8 @@ flectra.define('payment.payment_form', function (require) {
             'click #o_payment_form_pay': 'payEvent',
             'click #o_payment_form_add_pm': 'addPmEvent',
             'click button[name="delete_pm"]': 'deletePmEvent',
-            'click input[type="radio"]': 'radioClickEvent'
+            'click input[type="radio"]': 'radioClickEvent',
+            'click .o_payment_form_pay_icon_more': 'onClickMorePaymentIcon',
         },
 
         init: function(parent, options) {
@@ -117,7 +118,10 @@ flectra.define('payment.payment_form', function (require) {
 
                         self.displayError(
                             _t('Server Error'),
-                            _t("<p>We are not able to add your payment method at the moment.</p>") + (core.debug ? data.data.message : '')
+                            _t("<p>We are not able to add your payment method at the moment.</p>") +
+                               "<p>" +
+                               (core.debug ? (data.data.message.replace(/\n/g, "<br />")): '') +
+                               "</p>"
                         );
                     });
                 }
@@ -127,7 +131,7 @@ flectra.define('payment.payment_form', function (require) {
                     // if there's a prepare tx url set
                     if ($tx_url.length === 1) {
                         // if the user wants to save his credit card info
-                        var form_save_token = $('input[name="o_payment_form_save_token"]').checked === true;
+                        var form_save_token = $('input[name="o_payment_form_save_token"]').prop('checked');
                         // then we call the route to prepare the transaction
                         ajax.jsonRpc($tx_url[0].value, 'call', {
                             'acquirer_id': parseInt(acquirer_id),
@@ -141,13 +145,16 @@ flectra.define('payment.payment_form', function (require) {
                                 // if the server sent us the html form, we create a form element
                                 var newForm = document.createElement('form');
                                 newForm.setAttribute("method", "post"); // set it to post
+                                newForm.setAttribute("provider", checked_radio.dataset.provider);
                                 newForm.hidden = true; // hide it
                                 newForm.innerHTML = result; // put the html sent by the server inside the form
                                 var action_url = $(newForm).find('input[name="data_set"]').data('actionUrl');
                                 newForm.setAttribute("action", action_url); // set the action url
-                                document.getElementsByTagName('body')[0].appendChild(newForm); // append the form to the body
+                                $(document.getElementsByTagName('body')[0]).append(newForm); // append the form to the body
                                 $(newForm).find('input[data-remove-me]').remove(); // remove all the input that should be removed
-                                newForm.submit(); // and finally submit the form
+                                if(action_url) {
+                                    newForm.submit(); // and finally submit the form
+                                }
                             }
                             else {
                                 self.displayError(
@@ -158,7 +165,10 @@ flectra.define('payment.payment_form', function (require) {
                         }).fail(function (message, data) {
                             self.displayError(
                                 _t('Server Error'),
-                                _t("<p>We are not able to redirect you to the payment form.</p>") + (core.debug ? data.data.message : '')
+                                _t("<p>We are not able to redirect you to the payment form.</p>") +
+                                   "<p>" +
+                                   (core.debug ? (data.data.message.replace(/\n/g, "<br />")): '') +
+                                   "</p>"
                             );
                         });
                     }
@@ -205,11 +215,11 @@ flectra.define('payment.payment_form', function (require) {
                     if (element.dataset.isRequired) {
                         if (element.value.length === 0) {
                             $(element).closest('div.form-group').addClass('has-error');
+                            empty_inputs = true;
                         }
                         else {
                             $(element).closest('div.form-group').removeClass('has-error');
                         }
-                        empty_inputs = true;
                     }
                 });
 
@@ -264,7 +274,10 @@ flectra.define('payment.payment_form', function (require) {
 
                     self.displayError(
                         _t('Server error'),
-                        _t("<p>We are not able to add your payment method at the moment.</p>") + (core.debug ? data.data.message : '')
+                        _t("<p>We are not able to add your payment method at the moment.</p>") +
+                           "<p>" +
+                           (core.debug ? (data.data.message.replace(/\n/g, "<br />")): '') +
+                           "</p>"
                     );
                 });
             }
@@ -334,6 +347,16 @@ flectra.define('payment.payment_form', function (require) {
                 );
             });
         },
+
+        // event handler when clicking on 'and more' to show more payment icon
+        onClickMorePaymentIcon: function (ev) {
+            ev.preventDefault();
+            var $listItems = $(ev.currentTarget).parents('ul').children('li');
+            var $moreItem = $(ev.currentTarget).parents('li');
+            $listItems.removeClass('hidden');
+            $moreItem.addClass('hidden');
+        },
+
         // event handler when clicking on a radio button
         radioClickEvent: function (ev) {
             this.updateNewPaymentDisplayStatus();
@@ -386,15 +409,19 @@ flectra.define('payment.payment_form', function (require) {
         },
     });
 
-    require('web.dom_ready'); // only start this when dom is ready
-    if (!$('.o_payment_form').length) {
-        return $.Deferred().reject("DOM doesn't contain '.o_payment_form'");
-    }
-    $('.o_payment_form').each(function () {
-        var $elem = $(this);
-        var form = new PaymentForm(null, $elem.data());
-        form.attachTo($elem);
+    $(function () {
+        // TODO move this to another module, requiring dom_ready and rejecting
+        // the returned deferred to get the proper message
+        if (!$('.o_payment_form').length) {
+            console.log("DOM doesn't contain '.o_payment_form'");
+            return;
+        }
+        $('.o_payment_form').each(function () {
+            var $elem = $(this);
+            var form = new PaymentForm(null, $elem.data());
+            form.attachTo($elem);
+        });
     });
 
-
+    return PaymentForm;
 });

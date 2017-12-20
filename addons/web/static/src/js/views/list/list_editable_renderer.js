@@ -54,7 +54,7 @@ ListRenderer.include({
      * @returns {Deferred}
      */
     start: function () {
-        if (this.mode === 'edit') {
+        if (this._isEditable()) {
             this.$el.css({height: '100%'});
             core.bus.on('click', this, this._onWindowClicked.bind(this));
         }
@@ -101,6 +101,7 @@ ListRenderer.include({
                 });
                 var $row = self.$('.o_data_row:nth(' + rowIndex + ')');
                 self._setDecorationClasses(state.data[rowIndex], $row);
+                self._updateFooter();
             }
             return widgets;
         });
@@ -294,12 +295,7 @@ ListRenderer.include({
             renderInvisible: editMode,
             renderWidgets: editMode,
         };
-        if (!editMode) {
-            // Force 'readonly' mode for widgets in readonly rows as
-            // otherwise they default to the view mode which is 'edit' for
-            // an editable list view
-            options.mode = 'readonly';
-        }
+        options.mode = editMode ? 'edit' : 'readonly';
 
         // Switch each cell to the new mode; note: the '_renderBodyCell'
         // function might fill the 'this.defs' variables with multiple deferred
@@ -416,7 +412,7 @@ ListRenderer.include({
      * @returns {boolean}
      */
     _isEditable: function () {
-        return this.mode === 'edit' && !this.state.groupedBy.length && this.arch.attrs.editable;
+        return !this.state.groupedBy.length && this.editable;
     },
     /**
      * Move the cursor on the end of the previous line, if possible.
@@ -542,12 +538,21 @@ ListRenderer.include({
     _resequence: function (event, ui) {
         var self = this;
         var movedRecordID = ui.item.data('id');
-        var rowIDs = _.pluck(this.state.data, 'id');
-        rowIDs = _.without(rowIDs, movedRecordID);
-        rowIDs.splice(ui.item.index(), 0, movedRecordID);
-        var sequences = _.map(this.state.data, function(record) {
-            return record.data[self.handleField];
-        });
+        var rows = this.state.data;
+        var row = _.findWhere(rows, {id: movedRecordID});
+        var index0 = rows.indexOf(row);
+        var index1 = ui.item.index();
+        rows = rows.slice(Math.min(index0, index1), Math.max(index0, index1) + 1);
+        rows = _.without(rows, row);
+        if (index0 > index1) {
+            rows.unshift(row);
+        } else {
+            rows.push(row);
+        }
+
+        var sequences = _.pluck(_.pluck(rows, 'data'), self.handleField);
+        var rowIDs = _.pluck(rows, 'id');
+
         this.trigger_up('resequence', {
             rowIDs: rowIDs,
             offset: _.min(sequences),

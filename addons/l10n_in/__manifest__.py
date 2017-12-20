@@ -10,7 +10,7 @@ Indian Accounting: Chart of Account.
 
 Indian accounting chart and localization.
 
-Odoo allows to manage Indian Accounting by providing Two Formats Of Chart of Accounts i.e Indian Chart Of Accounts - Standard and Indian Chart Of Accounts - Schedule VI.
+Flectra allows to manage Indian Accounting by providing Two Formats Of Chart of Accounts i.e Indian Chart Of Accounts - Standard and Indian Chart Of Accounts - Schedule VI.
 
 Note: The Schedule VI has been revised by MCA and is applicable for all Balance Sheet made after
 31st March, 2011. The Format has done away with earlier two options of format of Balance

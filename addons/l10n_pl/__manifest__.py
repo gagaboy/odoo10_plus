@@ -17,7 +17,7 @@ To jest moduł do tworzenia wzorcowego planu kont, podatków, obszarów podatkow
 rejestrów podatkowych. Moduł ustawia też konta do kupna i sprzedaży towarów
 zakładając, że wszystkie towary są w obrocie hurtowym.
 
-Niniejszy moduł jest przeznaczony dla odoo 8.0.
+Niniejszy moduł jest przeznaczony dla Flectra 1.0.
 Wewnętrzny numer wersji OpenGLOBE 1.02
     """,
     'depends' : [
@@ -33,4 +33,5 @@ Wewnętrzny numer wersji OpenGLOBE 1.02
               'data/res_country_state_data.xml',
               'data/account_chart_template_data.yml'
     ],
+    'post_init_hook': '_preserve_tag_on_taxes',
 }

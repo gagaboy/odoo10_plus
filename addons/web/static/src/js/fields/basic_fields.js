@@ -20,6 +20,7 @@ var framework = require('web.framework');
 var session = require('web.session');
 var utils = require('web.utils');
 var view_dialogs = require('web.view_dialogs');
+var field_utils = require('web.field_utils');
 
 var qweb = core.qweb;
 var _t = core._t;
@@ -205,7 +206,7 @@ var InputField = DebouncedField.extend({
         if (!event || event === this.lastChangeEvent) {
             this.isDirty = false;
         }
-        if (this.isDirty || (event && event.target === this)) {
+        if (this.isDirty || (event && event.target === this && event.data.changes[this.name] === this.value)) {
             return $.when();
         } else {
             return this._render();
@@ -637,6 +638,7 @@ var FieldMonetary = InputField.extend({
         var currencyField = this.nodeOptions.currency_field || this.field.currency_field || 'currency_id';
         var currencyID = this.record.data[currencyField] && this.record.data[currencyField].res_id;
         this.currency = session.get_currency(currencyID);
+        this.formatOptions.currency = this.currency; // _formatValue() uses formatOptions
     },
 });
 
@@ -1169,6 +1171,10 @@ var AbstractFieldBinary = AbstractField.extend({
 });
 
 var FieldBinaryImage = AbstractFieldBinary.extend({
+    fieldDependencies: _.extend({}, AbstractFieldBinary.prototype.fieldDependencies, {
+        __last_update: {type: 'datetime'},
+    }),
+
     template: 'FieldBinaryImage',
     placeholder: "/web/static/src/img/placeholder.png",
     events: _.extend({}, AbstractFieldBinary.prototype.events, {
@@ -1191,7 +1197,7 @@ var FieldBinaryImage = AbstractFieldBinary.extend({
                     id: JSON.stringify(this.res_id),
                     field: this.nodeOptions.preview_image || this.name,
                     // unique forces a reload of the image when the record has been updated
-                    unique: (this.recordData.__last_update || '').replace(/[^0-9]/g, ''),
+                    unique: field_utils.format.datetime(this.recordData.__last_update).replace(/[^0-9]/g, ''),
                 });
             }
         }
@@ -1213,7 +1219,7 @@ var FieldBinaryFile = AbstractFieldBinary.extend({
     template: 'FieldBinaryFile',
     events: _.extend({}, AbstractFieldBinary.prototype.events, {
         'click': function (event) {
-            if (this.mode === 'readonly' && this.value) {
+            if (this.mode === 'readonly' && this.value && this.recordData.id) {
                 this.on_save_as(event);
             }
         },
@@ -1230,9 +1236,19 @@ var FieldBinaryFile = AbstractFieldBinary.extend({
         this.do_toggle(!!this.value);
         if (this.value) {
             this.$el.empty().append($("<span/>").addClass('fa fa-download'));
+            if (this.recordData.id) {
+                this.$el.css('cursor', 'pointer');
+            } else {
+                this.$el.css('cursor', 'not-allowed');
+            }
             if (this.filename_value) {
                 this.$el.append(" " + this.filename_value);
             }
+        }
+        if (!this.res_id) {
+            this.$el.css('cursor', 'not-allowed');
+        } else {
+            this.$el.css('cursor', 'pointer');
         }
     },
     _renderEdit: function () {
@@ -1258,7 +1274,7 @@ var FieldBinaryFile = AbstractFieldBinary.extend({
         if (!this.value) {
             this.do_warn(_t("Save As..."), _t("The field is empty, there's nothing to save !"));
             ev.stopPropagation();
-        } else {
+        } else if (this.res_id) {
             framework.blockUI();
             var c = crash_manager;
             var filename_fieldname = this.attrs.filename;
@@ -2018,7 +2034,12 @@ var JournalDashboardGraph = AbstractField.extend({
         return this._super.apply(this, arguments);
     },
     destroy: function () {
-        nv.utils.offWindowResize(this._onResize);
+        if ('nv' in window) {
+            // if the widget is destroyed before the lazy loaded libs (nv) are
+            // actually loaded (i.e. after the widget has actually started),
+            // nv is undefined, but the handler isn't bound yet anyway
+            nv.utils.offWindowResize(this._onResize);
+        }
         this._super.apply(this, arguments);
     },
 

@@ -21,7 +21,6 @@
         'data/ir_sequence_data.xml',
         'data/ecr_eco_data.xml',
         'data/ecr_category_data.xml',
-        'data/mrp_bom_data.xml',
         'wizard/process_wizard_views.xml',
         'views/engineering_change_request_views.xml',
         'views/engineering_change_order_views.xml',
@@ -34,7 +33,8 @@
     ],
     'demo': [
         'demo/plm_so_mo_demo.xml',
-        'demo/plm_users_demo.xml'
+        'demo/plm_users_demo.xml',
+        'demo/mrp_bom_data.xml',
     ],
     'installable': True,
     'auto_install': False,

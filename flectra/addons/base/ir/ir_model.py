@@ -4,6 +4,7 @@ import datetime
 import dateutil
 import logging
 import time
+import uuid
 from collections import defaultdict
 
 from flectra import api, fields, models, SUPERUSER_ID, tools,  _
@@ -30,6 +31,28 @@ def make_compute(text, deps):
     func = lambda self: safe_eval(text, SAFE_EVAL_BASE, {'self': self}, mode="exec")
     deps = [arg.strip() for arg in (deps or "").split(",")]
     return api.depends(*deps)(func)
+
+#builder code
+def fine_model_name(name):
+    return name.replace(" ", "_").lower() \
+        .replace('(', '').replace(')', '').replace('/', '_').replace('\\', '_')
+
+
+def safe_list_get(l, i):
+    try:
+        return l[i]
+    except KeyError:
+        return None
+
+
+def decorator_list(reborn):
+    reborn = (safe_list_get(reborn, 'model') or
+              safe_list_get(reborn, 'model_id') or
+              safe_list_get(reborn, 'res_model'))
+
+    if reborn and not isinstance(reborn, str):
+        return decorator_list(reborn)
+    return reborn
 
 
 # generic INSERT and UPDATE queries
@@ -60,6 +83,40 @@ def query_update(cr, table, values, selectors):
 class Base(models.AbstractModel):
     """ The base model, which is implicitly inherited by all models. """
     _name = 'base'
+    #builder code
+    def create_app_ir_model_data(self, name):
+        IrModelData = self.env['ir.model.data']
+        data = IrModelData.search([
+            ('model', '=', self._name), ('res_id', '=', self.id)
+        ])
+
+        if data:
+            data.write({})
+        else:
+            model = self._name
+            res_id = self.id
+            reborn = self.env[model].browse(res_id)
+            reborn_model = decorator_list(reborn)
+
+            if model == 'ir.ui.menu':
+                if reborn.action:
+                    reborn_model = decorator_list(reborn.action)
+                else:
+                    reborn_model = decorator_list(reborn.child_id.action)
+
+            app_data = self.env['app.creator.data'].search(
+                [('obj_name', '=', reborn_model)])
+
+            app_builder = self.env['ir.module.module'].search(
+                [('name', '=', 'flectra_app_builder')])
+
+            IrModelData.create({
+                'name': '%s_%s' % (fine_model_name(name), uuid.uuid4()),
+                'model': self._name,
+                'res_id': self.id,
+                'module': app_builder.name,
+                'app_data_id': app_data.id or False
+            })
 
 
 class Unknown(models.AbstractModel):
@@ -215,6 +272,32 @@ class IrModel(models.Model):
             self.pool.setup_models(self._cr)
             # update database schema
             self.pool.init_models(self._cr, [vals['model']], dict(self._context, update_custom_fields=True))
+
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            group_user = {
+                'name': vals.get('name', '') + ' group_user',
+                'group_id': self.env.ref('base.group_user').id,
+                'perm_write': False,
+                'perm_create': False,
+                'perm_unlink': False,
+            }
+            group_system = {
+                'name': vals.get('name', '') + ' group_system',
+                'group_id': self.env.ref('base.group_system').id,
+                'perm_write': True,
+                'perm_create': True,
+                'perm_unlink': True,
+            }
+            
+            ir_access = {'model_id': res.id, 'perm_read': True}
+            group_user.update(ir_access)
+            group_system.update(ir_access)
+            ir_model_access = self.env['ir.model.access']
+            ir_model_access.create(group_user)
+            ir_model_access.create(group_system)
+
         return res
 
     @api.model
@@ -630,6 +713,10 @@ class IrModelFields(models.Model):
                 models = self.pool.descendants([vals['model']], '_inherits')
                 self.pool.init_models(self._cr, models, dict(self._context, update_custom_fields=True))
 
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            res.create_app_ir_model_data(res.display_name)
         return res
 
     @api.multi
@@ -697,6 +784,12 @@ class IrModelFields(models.Model):
             # update the database schema of the models to patch
             models = self.pool.descendants(patched_models, '_inherits')
             self.pool.init_models(self._cr, models, dict(self._context, update_custom_fields=True))
+
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            for record in self:
+                record.create_app_ir_model_data(record.display_name)
 
         return res
 
@@ -1206,12 +1299,23 @@ class IrModelAccess(models.Model):
     @api.model
     def create(self, values):
         self.call_cache_clearing_methods()
-        return super(IrModelAccess, self).create(values)
+        res = super(IrModelAccess, self).create(values)
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            res.create_app_ir_model_data(res.display_name)
+        return res
 
     @api.multi
     def write(self, values):
         self.call_cache_clearing_methods()
-        return super(IrModelAccess, self).write(values)
+        res = super(IrModelAccess, self).write(values)
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            for record in self:
+                record.create_app_ir_model_data(record.display_name)
+        return res
 
     @api.multi
     def unlink(self):

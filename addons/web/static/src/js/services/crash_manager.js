@@ -54,7 +54,7 @@ var CrashManager = core.Class.extend({
             new (handler)(this, error).display();
             return;
         }
-        if (error.data.name === "openerp.http.SessionExpiredException" || error.data.name === "werkzeug.exceptions.Forbidden") {
+        if (error.data.name === "flectra.http.SessionExpiredException" || error.data.name === "werkzeug.exceptions.Forbidden") {
             this.show_warning({type: _t("Flectra Session Expired"), data: {message: _t("Your Flectra session expired. Please refresh the current web page.")}});
             return;
         }

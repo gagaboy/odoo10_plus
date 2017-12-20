@@ -66,19 +66,24 @@ class Location(models.Model):
     removal_strategy_id = fields.Many2one('product.removal', 'Removal Strategy', help="Defines the default method used for suggesting the exact location (shelf) where to take the products from, which lot etc. for this location. This method can be enforced at the product category level, and a fallback is made on the parent locations if none is set here.")
     putaway_strategy_id = fields.Many2one('product.putaway', 'Put Away Strategy', help="Defines the default method used for suggesting the exact location (shelf) where to store the products. This method can be enforced at the product category level, and a fallback is made on the parent locations if none is set here.")
     barcode = fields.Char('Barcode', copy=False, oldname='loc_barcode')
+    quant_ids = fields.One2many('stock.quant', 'location_id')
 
     _sql_constraints = [('barcode_company_uniq', 'unique (barcode,company_id)', 'The barcode for a location must be unique per company !')]
 
     @api.one
-    @api.depends('name', 'location_id.name')
+    @api.depends('name', 'location_id.complete_name')
     def _compute_complete_name(self):
         """ Forms complete name of location from parent location to child location. """
-        name = self.name
-        current = self
-        while current.location_id:
-            current = current.location_id
-            name = '%s/%s' % (current.name, name)
-        self.complete_name = name
+        if self.location_id.complete_name:
+            self.complete_name = '%s/%s' % (self.location_id.complete_name, self.name)
+        else:
+            self.complete_name = self.name
+
+    def write(self, values):
+        if 'usage' in values and values['usage'] == 'view':
+            if self.mapped('quant_ids'):
+                raise UserError(_("This location's usage cannot be changed to view as it contains products."))
+        return super(Location, self).write(values)
 
     def name_get(self):
         ret_list = []

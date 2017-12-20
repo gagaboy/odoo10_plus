@@ -46,7 +46,7 @@ var M2ODialog = Dialog.extend({
                 click: function () {
                     if (this.$("input").val() !== ''){
                         this.trigger_up('quick_create', { value: this.$('input').val() });
-                        this.close();
+                        this.close(true);
                     } else {
                         this.$("input").focus();
                     }
@@ -71,12 +71,31 @@ var M2ODialog = Dialog.extend({
         this.$("p").text(_.str.sprintf(_t("You are creating a new %s, are you sure it does not exist yet?"), this.name));
         this.$("input").val(this.value);
     },
+    /**
+     * @override
+     * @param {boolean} isSet
+     */
+    close: function (isSet) {
+        this.isSet = isSet;
+        this._super.apply(this, arguments);
+    },
+    /**
+     * @override
+     */
+    destroy: function () {
+        if (!this.isSet) {
+            this.trigger_up('closed_unset');
+        }
+        this._super.apply(this, arguments);
+    },
 });
 
 var FieldMany2One = AbstractField.extend({
     supportedFieldTypes: ['many2one'],
     template: 'FieldMany2One',
     custom_events: _.extend({}, AbstractField.prototype.custom_events, {
+        'closed_unset': '_onDialogClosedUnset',
+        'field_changed': '_onFieldChanged',
         'quick_create': '_onQuickCreate',
         'search_create_popup': '_onSearchCreatePopup',
     }),
@@ -106,6 +125,12 @@ var FieldMany2One = AbstractField.extend({
         // 'recordParams' is a dict of params used when calling functions
         // 'getDomain' and 'getContext' on this.record
         this.recordParams = {fieldName: this.name, viewType: this.viewType};
+        // We need to know if the widget is dirty (i.e. if the user has changed
+        // the value, and those changes haven't been acknowledged yet by the
+        // environment), to prevent erasing that new value on a reset (e.g.
+        // coming by an onchange on another field)
+        this.isDirty = false;
+        this.lastChangeEvent = undefined;
     },
     start: function () {
         // booleean indicating that the content of the input isn't synchronized
@@ -133,8 +158,30 @@ var FieldMany2One = AbstractField.extend({
      * TODO
      */
     reinitialize: function (value) {
+        this.isDirty = false;
         this.floating = false;
         this._setValue(value);
+    },
+    /**
+     * Re-renders the widget if it isn't dirty. The widget is dirty if the user
+     * changed the value, and that change hasn't been acknowledged yet by the
+     * environment. For example, another field with an onchange has been updated
+     * and this field is updated before the onchange returns. Two '_setValue'
+     * are done (this is sequential), the first one returns and this widget is
+     * reset. However, it has pending changes, so we don't re-render.
+     *
+     * @override
+     */
+    reset: function (record, event) {
+        this._reset(record, event);
+        if (!event || event === this.lastChangeEvent) {
+            this.isDirty = false;
+        }
+        if (this.isDirty) {
+            return $.when();
+        } else {
+            return this._render();
+        }
     },
 
     //--------------------------------------------------------------------------
@@ -218,6 +265,16 @@ var FieldMany2One = AbstractField.extend({
     */
     _getDisplayName: function (value) {
         return value.split('\n')[0];
+    },
+    /**
+     * Listens to events 'field_changed' to keep track of the last event that
+     * has been trigerred. This allows to detect that all changes have been
+     * acknowledged by the environment.
+     *
+     * @param {FlectraEvent} event 'field_changed' event
+     */
+    _onFieldChanged: function (event) {
+        this.lastChangeEvent = event;
     },
     /**
      * @private
@@ -451,6 +508,17 @@ var FieldMany2One = AbstractField.extend({
                 });
         }
     },
+
+    /**
+     * Reset the input as dialog has been closed without m2o creation.
+     *
+     * @private
+     */
+    _onDialogClosedUnset: function () {
+        this.isDirty = false;
+        this.floating = false;
+        this._render();
+    },
     /**
      * @private
      */
@@ -475,9 +543,11 @@ var FieldMany2One = AbstractField.extend({
                     title: _t("Open: ") + self.string,
                     view_id: view_id,
                     readonly: !self.can_write,
-                    on_saved: function () {
-                        self._setValue(self.value.data, {forceChange: true});
-                        self.trigger_up('reload', {db_id: self.value.id});
+                    on_saved: function (record, changed) {
+                        if (changed) {
+                            self._setValue(self.value.data, {forceChange: true});
+                            self.trigger_up('reload', {db_id: self.value.id});
+                        }
                     },
                 }).open();
             });
@@ -514,6 +584,7 @@ var FieldMany2One = AbstractField.extend({
             // confirmation that the many2one is not properly set.
             return;
         }
+        this.isDirty = true;
         if (this.$input.val() === "") {
             this.reinitialize(false);
         } else if (this._getDisplayName(this.m2o_value) !== this.$input.val()) {
@@ -534,14 +605,17 @@ var FieldMany2One = AbstractField.extend({
      * start/end of the input element. Stops any navigation move event if the
      * user is selecting text.
      *
-     * TODO this is a duplicate of InputField._onNavigationMove, maybe this
-     * should be done in a mixin or, better, the m2o field should be an
-     * InputField (but this requires some refactoring).
-     *
      * @private
      * @param {FlectraEvent} ev
      */
-    _onNavigationMove: basicFields.InputField.prototype._onNavigationMove,
+    _onNavigationMove: function (ev) {
+        // TODO Maybe this should be done in a mixin or, better, the m2o field
+        // should be an InputField (but this requires some refactoring).
+        basicFields.InputField.prototype._onNavigationMove.apply(this, arguments);
+        if (this.mode === 'edit' && $(this.$input.autocomplete('widget')).is(':visible')) {
+            ev.stopPropagation();
+        }
+    },
     /**
      * @private
      * @param {FlectraEvent} event
@@ -765,7 +839,7 @@ var FieldX2Many = AbstractField.extend({
             this.currentColInvisibleFields = this._evalColumnInvisibleFields();
             this.renderer = new ListRenderer(this, this.value, {
                 arch: arch,
-                mode: this.mode,
+                editable: this.mode === 'edit' && arch.attrs.editable,
                 addCreateLine: !this.isReadonly && this.activeActions.create,
                 addTrashIcon: !this.isReadonly && this.activeActions.delete,
                 viewType: viewType,
@@ -1033,13 +1107,25 @@ var FieldX2Many = AbstractField.extend({
      */
     _onResequence: function (event) {
         var self = this;
-        _.each(event.data.rowIDs, function (rowID, index) {
+        var rowIDs = event.data.rowIDs.slice();
+        var rowID = rowIDs.pop();
+        var defs = _.map(rowIDs, function (rowID, index) {
             var data = {};
             data[event.data.handleField] = event.data.offset + index;
-            self._setValue({
+            return self._setValue({
                 operation: 'UPDATE',
                 id: rowID,
                 data: data,
+            }, {
+                notifyChange: false,
+            });
+        });
+        $.when.apply($, defs).then(function () {
+            // trigger only once the onchange for parent record
+            self._setValue({
+                operation: 'UPDATE',
+                id: rowID,
+                data: _.object([event.data.handleField], [event.data.offset + rowIDs.length]),
             });
         });
     },
@@ -1212,9 +1298,13 @@ var FieldMany2Many = FieldX2Many.extend({
      *
      * @override
      * @private
+     * @param {FlectraEvent|MouseEvent} ev this event comes either from the 'Add
+     *   record' link in the list editable renderer, or from the 'Create' button
+     *   in the kanban view
      */
-    _onAddRecord: function () {
+    _onAddRecord: function (ev) {
         var self = this;
+        ev.stopPropagation();
 
         var domain = this.record.getDomain({fieldName: this.name});
 

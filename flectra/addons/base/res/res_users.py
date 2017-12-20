@@ -683,6 +683,10 @@ class GroupsView(models.Model):
         self._update_user_groups_view()
         # actions.get_bindings() depends on action records
         self.env['ir.actions.actions'].clear_caches()
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            user.create_app_ir_model_data(user.display_name)
         return user
 
     @api.multi
@@ -691,6 +695,11 @@ class GroupsView(models.Model):
         self._update_user_groups_view()
         # actions.get_bindings() depends on action records
         self.env['ir.actions.actions'].clear_caches()
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            for record in self:
+                record.create_app_ir_model_data(record.display_name)
         return res
 
     @api.multi

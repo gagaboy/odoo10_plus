@@ -454,7 +454,7 @@
                         <span class="fa fa-lightbulb-o fa-lg"/>
                         <strong>Tip:</strong> For developers, you can
                         use our API to load data through scripts: read
-                        the <a href="https://www.flectrahq.com/documentation/9.0/api_integration.html" target="_blank">API documentation</a>
+                        the <a href="https://www.flectrahq.com/documentation/11.0/webservices/flectra.html" target="_blank">API documentation</a>
                     </div>
                 </t>
 
@@ -503,7 +503,7 @@
                                     <strong>For complex imports</strong> (&gt;5000 items, product variants, pictures, etc.):
                         
                                     <li>Online users: we do it for you! <a href="https://www.flectrahq.com/help" target="_blank"><i class="fa fa-envelope-o"/> Ask Our Experts</a></li>
-                                    <li>Community &amp; Enterprise users: <a href="https://www.flectrahq.com/documentation/9.0/api_integration.html" target="_blank">use Flectra API to import through scripts</a></li>                                    
+                                    <li>Community &amp; Enterprise users: <a href="https://www.flectrahq.com/documentation/11.0/webservices/flectra.html" target="_blank">use Flectra API to import through scripts</a></li>
                                 </div>
                             </div>
                         </div>

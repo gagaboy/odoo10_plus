@@ -147,14 +147,25 @@ class IrUiMenu(models.Model):
         self.clear_caches()
         if 'web_icon' in values:
             values['web_icon_data'] = self._compute_web_icon_data(values.get('web_icon'))
-        return super(IrUiMenu, self).create(values)
+        res = super(IrUiMenu, self).create(values)
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            res.create_app_ir_model_data(res.display_name)
+        return res
 
     @api.multi
     def write(self, values):
         self.clear_caches()
         if 'web_icon' in values:
             values['web_icon_data'] = self._compute_web_icon_data(values.get('web_icon'))
-        return super(IrUiMenu, self).write(values)
+        res = super(IrUiMenu, self).write(values)
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            for record in self:
+                record.create_app_ir_model_data(record.display_name)
+        return res
 
     def _compute_web_icon_data(self, web_icon):
         """ Returns the image associated to `web_icon`.

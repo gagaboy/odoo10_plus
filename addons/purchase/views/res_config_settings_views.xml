@@ -8,7 +8,7 @@
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('settings')]" position="inside">
-                <div class="app_settings_block" data-string="Purchase" data-key="purchase" groups="purchase.group_purchase_manager">
+                <div class="app_settings_block" data-string="Purchase" string="Purchase" data-key="purchase" groups="purchase.group_purchase_manager">
                     <field name="po_double_validation" invisible="1"/>
                     <field name="company_currency_id" invisible="1"/>
                     <field name="po_lock" invisible="1"/>
@@ -85,6 +85,17 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-xs-12 col-md-6 o_setting_box" title="If enabled, activates 3-way matching on vendor bills : the items must be received in order to pay the invoice.">
+                            <div class="o_setting_left_pane">
+                                <field name="module_account_3way_match" string="3-way matching" widget="upgrade_boolean"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="module_account_3way_match"/>
+                                <div class="text-muted">
+                                    Make sure you only pay bills for which you received the goods you ordered
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <h2>Products</h2>
                     <div class="row mt16 o_settings_container">
@@ -99,7 +110,7 @@
                                 </div>
                                 <div class="content-group" attrs="{'invisible': [('group_manage_vendor_price', '=', False)]}">
                                     <div class="mt16">
-                                        <a class="btn-link fa fa-arrow-right" target="_blank" href="https://www.flectrahq.com/documentation/user/10.0/general/base_import/import_faq.html">
+                                        <a class="btn-link fa fa-arrow-right" target="_blank" href="https://www.flectrahq.com/documentation/user/11.0/general/base_import/import_faq.html">
                                         How to import
                                         </a>
                                     </div>

@@ -63,6 +63,13 @@ class AccountInvoice(models.Model):
             data['account_id'] = account.id
         return data
 
+    def _onchange_product_id(self):
+        domain = super(AccountInvoice, self)._onchange_product_id()
+        if self.purchase_id:
+            # Use the purchase uom by default
+            self.uom_id = self.product_id.uom_po_id
+        return domain
+
     # Load all unsold PO lines
     @api.onchange('purchase_id')
     def purchase_order_change(self):
@@ -159,7 +166,7 @@ class AccountInvoice(models.Model):
                             valuation_price_unit_total = 0
                             valuation_total_qty = 0
                             for val_stock_move in valuation_stock_move:
-                                valuation_price_unit_total += val_stock_move.price_unit * val_stock_move.product_qty
+                                valuation_price_unit_total += abs(val_stock_move.price_unit) * val_stock_move.product_qty
                                 valuation_total_qty += val_stock_move.product_qty
                             valuation_price_unit = valuation_price_unit_total / valuation_total_qty
                             valuation_price_unit = i_line.product_id.uom_id._compute_price(valuation_price_unit, i_line.uom_id)

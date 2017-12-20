@@ -108,7 +108,7 @@ class StockMove(models.Model):
              "* Done: When the shipment is processed, the state is \'Done\'.")
     price_unit = fields.Float(
         'Unit Price', help="Technical field used to record the product cost set by the user during a picking confirmation (when costing "
-                           "method used is 'average price' or 'real'). Value given in company currency and in product uom.")  # as it's a technical field, we intentionally don't provide the digits attribute
+                           "method used is 'average price' or 'real'). Value given in company currency and in product uom.", copy=False)  # as it's a technical field, we intentionally don't provide the digits attribute
     backorder_id = fields.Many2one('stock.picking', 'Back Order of', related='picking_id.backorder_id', index=True)
     origin = fields.Char("Source Document")
     procure_method = fields.Selection([
@@ -265,14 +265,17 @@ class StockMove(models.Model):
         detect errors. """
         raise UserError(_('The requested operation cannot be processed because of a programming error setting the `product_qty` field instead of the `product_uom_qty`.'))
 
-    @api.one
+    @api.multi
     @api.depends('move_line_ids.product_qty')
     def _compute_reserved_availability(self):
         """ Fill the `availability` field on a stock move, which is the actual reserved quantity
         and is represented by the aggregated `product_qty` on the linked move lines. If the move
         is force assigned, the value will be 0.
         """
-        self.reserved_availability = self.product_id.uom_id._compute_quantity(sum(self.move_line_ids.mapped('product_qty')), self.product_uom, rounding_method='HALF-UP')
+        result = {data['move_id'][0]: data['product_qty'] for data in 
+            self.env['stock.move.line'].read_group([('move_id', 'in', self.ids)], ['move_id','product_qty'], ['move_id'])}
+        for rec in self:
+            rec.reserved_availability = rec.product_id.uom_id._compute_quantity(result.get(rec.id, 0.0), rec.product_uom, rounding_method='HALF-UP')
 
     @api.one
     @api.depends('state', 'product_id', 'product_qty', 'location_id')
@@ -402,7 +405,7 @@ class StockMove(models.Model):
                     if propagated_date_field:
                         current_date = datetime.strptime(move.date_expected, DEFAULT_SERVER_DATETIME_FORMAT)
                         new_date = datetime.strptime(vals.get(propagated_date_field), DEFAULT_SERVER_DATETIME_FORMAT)
-                        delta = new_date - current_date
+                        delta = relativedelta.relativedelta(new_date, current_date)
                         if abs(delta.days) >= move.company_id.propagation_minimum_delta:
                             old_move_date = datetime.strptime(move.move_dest_ids[0].date_expected, DEFAULT_SERVER_DATETIME_FORMAT)
                             new_move_date = (old_move_date + relativedelta.relativedelta(days=delta.days or 0)).strftime(DEFAULT_SERVER_DATETIME_FORMAT)
@@ -466,14 +469,7 @@ class StockMove(models.Model):
     def _do_unreserve(self):
         if any(move.state in ('done', 'cancel') for move in self):
             raise UserError(_('Cannot unreserve a done move'))
-        for move in self:
-            move.move_line_ids.unlink()
-            if move.procure_method == 'make_to_order' and not move.move_orig_ids:
-                move.state = 'waiting'
-            elif move.move_orig_ids and not all(orig.state in ('done', 'cancel') for orig in move.move_orig_ids):
-                move.state = 'waiting'
-            else:
-                move.state = 'confirmed'
+        self.mapped('move_line_ids').unlink()
         return True
 
     def _push_apply(self):
@@ -607,9 +603,13 @@ class StockMove(models.Model):
         if not self.product_id or self.product_qty < 0.0:
             self.product_qty = 0.0
         if self.product_qty < self._origin.product_qty:
-            return {'warning': _("By changing this quantity here, you accept the "
-                                 "new quantity as complete: Flectra will not "
-                                 "automatically generate a back order.")}
+            warning_mess = {
+                'title': _('Quantity decreased!'),
+                'message' : _("By changing this quantity here, you accept the "
+                              "new quantity as complete: Odoo will not "
+                              "automatically generate a back order."),
+            }
+            return {'warning': warning_mess}
 
     @api.onchange('product_id')
     def onchange_product_id(self):
@@ -651,7 +651,16 @@ class StockMove(models.Model):
                 ('picking_type_id', '=', move.picking_type_id.id),
                 ('printed', '=', False),
                 ('state', 'in', ['draft', 'confirmed', 'waiting', 'partially_available', 'assigned'])], limit=1)
-            if not picking:
+            if picking:
+                if picking.partner_id.id != move.partner_id.id or picking.origin != move.origin:
+                    # If a picking is found, we'll append `move` to its move list and thus its
+                    # `partner_id` and `ref` field will refer to multiple records. In this
+                    # case, we chose to  wipe them.
+                    picking.write({
+                        'partner_id': False,
+                        'origin': False,
+                    })
+            else:
                 recompute = True
                 picking = Picking.create(move._get_new_picking_values())
             move.write({'picking_id': picking.id})
@@ -1010,7 +1019,7 @@ class StockMove(models.Model):
             rounding = move.product_uom.rounding
             if float_compare(move.quantity_done, move.product_uom_qty, precision_rounding=rounding) < 0:
                 # Need to do some kind of conversion here
-                qty_split = move.product_uom._compute_quantity(move.product_uom_qty - move.quantity_done, move.product_id.uom_id)
+                qty_split = move.product_uom._compute_quantity(move.product_uom_qty - move.quantity_done, move.product_id.uom_id, rounding_method='HALF-UP')
                 new_move = move._split(qty_split)
                 for move_line in move.move_line_ids:
                     if move_line.product_qty and move_line.qty_done:
@@ -1025,6 +1034,13 @@ class StockMove(models.Model):
                 # If you were already putting stock.move.lots on the next one in the work order, transfer those to the new move
                 move.move_line_ids.filtered(lambda x: x.qty_done == 0.0).write({'move_id': new_move})
             move.move_line_ids._action_done()
+        # Check the consistency of the result packages; there should be an unique location across
+        # the contained quants.
+        for result_package in moves_todo\
+                .mapped('move_line_ids.result_package_id')\
+                .filtered(lambda p: p.quant_ids and len(p.quant_ids) > 1):
+            if len(result_package.quant_ids.mapped('location_id')) > 1:
+                raise UserError(_('You should not put the contents of a package in different locations.'))
         picking = self and self[0].picking_id or False
         moves_todo.write({'state': 'done', 'date': fields.Datetime.now()})
         moves_todo.mapped('move_dest_ids')._action_assign()
@@ -1116,7 +1132,9 @@ class StockMove(models.Model):
             elif move.reserved_availability and move.reserved_availability <= move.product_uom_qty:
                 move.state = 'partially_available'
             else:
-                if move.move_orig_ids:
+                if move.procure_method == 'make_to_order' and not move.move_orig_ids:
+                    move.state = 'waiting'
+                elif move.move_orig_ids and not all(orig.state in ('done', 'cancel') for orig in move.move_orig_ids):
                     move.state = 'waiting'
                 else:
                     move.state = 'confirmed'

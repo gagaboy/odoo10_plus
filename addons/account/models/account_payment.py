@@ -132,7 +132,7 @@ class account_register_payments(models.TransientModel):
 
         # Check for selected invoices ids
         if not active_ids:
-            raise UserError(_("Programmation error: wizard action executed without active_ids in context."))
+            raise UserError(_("Programming error: wizard action executed without active_ids in context."))
 
         invoices = self.env['account.invoice'].browse(active_ids)
 

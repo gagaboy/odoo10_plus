@@ -398,7 +398,12 @@ actual arch.
             values['name'] = "%s %s" % (values.get('model'), values['type'])
 
         self.clear_caches()
-        return super(View, self).create(self._compute_defaults(values))
+        res = super(View, self).create(self._compute_defaults(values))
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            res.create_app_ir_model_data(res.display_name)
+        return res
 
     @api.multi
     def write(self, vals):
@@ -414,7 +419,13 @@ actual arch.
             custom_view.unlink()
 
         self.clear_caches()
-        return super(View, self).write(self._compute_defaults(vals))
+        res = super(View, self).write(self._compute_defaults(vals))
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            for record in self:
+                record.create_app_ir_model_data(record.display_name)
+        return res
 
     @api.multi
     def toggle(self):

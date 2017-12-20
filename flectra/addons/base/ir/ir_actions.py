@@ -46,6 +46,10 @@ class IrActions(models.Model):
         res = super(IrActions, self).create(vals)
         # self.get_bindings() depends on action records
         self.clear_caches()
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            res.create_app_ir_model_data(res.display_name)
         return res
 
     @api.multi
@@ -53,6 +57,11 @@ class IrActions(models.Model):
         res = super(IrActions, self).write(vals)
         # self.get_bindings() depends on action records
         self.clear_caches()
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            for record in self:
+                record.create_app_ir_model_data(record.display_name)
         return res
 
     @api.multi
@@ -214,7 +223,12 @@ class IrActionsActWindow(models.Model):
     @api.model
     def create(self, vals):
         self.clear_caches()
-        return super(IrActionsActWindow, self).create(vals)
+        res = super(IrActionsActWindow, self).create(vals)
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            res.create_app_ir_model_data(res.display_name)
+        return res
 
     @api.multi
     def unlink(self):
@@ -266,6 +280,10 @@ class IrActionsActWindowView(models.Model):
         res = super(IrActionsActWindowView, self)._auto_init()
         tools.create_unique_index(self._cr, 'act_window_view_unique_mode_per_action',
                                   self._table, ['act_window_id', 'view_mode'])
+        #builder code
+        if self._context.get('app_builder') \
+                and not self._context.get('install_mode'):
+            res.create_app_ir_model_data(res.display_name)
         return res
 
 
