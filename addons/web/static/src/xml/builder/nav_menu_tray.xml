@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="web.config">
+        <li class="web_navbar_item" id="app_builder_toogle">
+            <a href="javascript:void(0);" title="Toggle app_builder  ">
+                <i class="material-icons material-icons-nav">settings_applications</i>
+            </a>
+        </li>
+    </t>
+</templates>
+

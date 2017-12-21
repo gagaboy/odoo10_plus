@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+
+<t t-name="web.searchRenderer">
+    <div class="web_search_sub_item table-responsive lf100">
+        <table class="web_search_autocompletion_fields o_list_view table" data-type="autocompletion_fields">
+            <thead>
+                <tr>
+                    <th>
+                        <i class="fa fa-magic"/> <span>Autocompletion Fields</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="web_search_sub_item table-responsive lf250">
+        <table class="web_search_filters o_list_view table ui-droppable" data-type="filters">
+            <thead>
+                <tr>
+                    <th>
+                        <span><i class="fa fa-filter"/> Filters <span class="caret"/></span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="web_search_sub_item table-responsive lf500">
+        <table class="web_search_group_by o_list_view table ui-droppable" data-type="group_by">
+            <thead>
+                <tr>
+                    <th>
+                        <span><i class="fa fa-bars"/>  Group by <span class="caret"/></span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="web_search_sub_item table-responsive lf750">
+        <table class="web_favourites table">
+            <thead>
+                <tr>
+                    <th>
+                        <span><i class="fa fa-star"/> Favourites <span class="caret"/></span>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</t>
+
+</templates>

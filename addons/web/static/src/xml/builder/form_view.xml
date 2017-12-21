@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="web.char">
+        <tr class="app_builder-custom" t-att-data-id="id">
+            <td colspan="1" class="o_td_label">
+                <label for="o_field_input_10" class="o_form_label"><t t-esc="string" /></label>
+            </td>
+            <td colspan="1" style="width: 100%;">
+                <span class="o_form_field"><t t-esc="f_data" /></span>
+            </td>
+        </tr>
+    </t>
+
+    <t t-name="web.notebook">
+        <div class="o_notebook">
+                    <ul role="tablist" class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" disable_anchor="true" role="tab" href="#">
+                                New Page
+                            </a>
+                        </li>
+                    <li>
+                        <a class="add-tab">
+                            <i aria-hidden="true" class="fa fa-plus-square"/>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content nav nav-tabs">
+                    <div role="tabpanel" class="tab-pane  active">
+                        <div class="o_group">
+                            <table class="o_group o_inner_group o_group_col_6"><tbody><tr><td></td><td></td></tr></tbody></table>
+                            <table class="o_group o_inner_group o_group_col_6"><tbody><tr><td></td><td></td></tr></tbody></table>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </t>
+
+    <t t-name="web.addTab">
+        <li>
+            <a href="javascript:void(0)" id="add-tab">
+                <i class="fa fa-plus-square" aria-hidden="true"/>
+            </a>
+        </li>
+    </t>
+</templates>

@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="web.search_view_filters">
+        <div class="web_sidebar_content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTest">
+                            Components
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTest" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="web_sidebar_field_container">
+                            <ul id="componenets">
+                                <li id="filters" data-action="filters">
+                                    <a class="filters">
+                                        <span class="span-left">
+                                            <span class="span-inner" title=" Filters">
+                                                Filters
+                                            </span>
+                                        </span>
+                                        <span class="span-right">
+                                             <i class="fa icon icon-span icon_filter"/>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li id="separator" data-action="separator">
+                                    <a class="separator">
+                                        <span class="span-left">
+                                            <span class="span-inner" title=" Seperator">
+                                                Separator
+                                            </span>
+                                        </span>
+                                        <span class="span-right">
+                                             <i class="fa icon icon-span icon_separator"/>
+                                        </span>
+
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </t>
+
+    <t t-name="web.search_view_properties">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td><label for="string">Label</label></td>
+                        <td class="web_sidebar_text">
+                            <input id="string" name="string" type="text" value=""/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="domain">Domain</label></td>
+                        <td class="web_sidebar_text">
+                            <input id="domain" name="domain" type="text" value="[]"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </t>
+
+    <t t-name="web.sideBarKanbanControls">
+        <tr>
+            <td class="web_sidebar_checkbox">
+                <label for="el_bold">Bold</label>
+            </td>
+            <td class="o_checkbox">
+                <input id="el_required" type="checkbox" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="display_id">Display</label>
+            </td>
+            <td class="web_sidebar_text">
+                <select id="display_id" name="display_id" type="text" style="color: black;">
+                    <option selected=""></option>
+                    <option value="default">default</option>
+                    <option value="right">Pull Right</option>
+                    <option value="full">Full Width</option>
+                </select>
+            </td>
+        </tr>
+    </t>
+
+    <t t-name="web.sideBar">
+        <div id="web_container" class="web_sidebar">
+            <div class="web_body">
+                <div id="FieldAttrSideNav" class="field_attr_side_nav">
+                    <div id="field_attrs_panel">
+                        <h5>Field Attributtes</h5>
+                        <div id="properties">
+                            <div class="web_sidebar_content">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        <tr>
+                                           <td class="web_sidebar_checkbox">
+                                              <label for="el_invisible">Invisible</label>
+                                           </td>
+                                           <td class="o_checkbox">
+                                              <input id="el_invisible" type="checkbox"/>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td class="web_sidebar_checkbox">
+                                              <label for="el_required">Required</label>
+                                           </td>
+                                           <td class="o_checkbox">
+                                              <input id="el_required" type="checkbox"/>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td class="web_sidebar_checkbox">
+                                              <label for="el_readonly">Readonly</label>
+                                           </td>
+                                           <td class="o_checkbox">
+                                              <input id="el_readonly" type="checkbox"/>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td><label for="string">Label</label></td>
+                                           <td class="web_sidebar_text">
+                                              <input id="string" name="string" type="text" value=""/>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td><label for="tool">Help Tool Tip</label></td>
+                                           <td class="web_sidebar_text">
+                                              <input id="tool_tip" name="tool" type="text" value=""/>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td><label for="placeholder">Placeholder</label></td>
+                                           <td class="web_sidebar_text">
+                                              <input id="placeholder" name="placeholder" type="text" value=""/>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td><label for="default">Default</label></td>
+                                           <td class="web_sidebar_text">
+                                              <input id="default" name="default" type="text" value=""/>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td><label for="domain">Domain</label></td>
+                                           <td class="web_sidebar_text">
+                                              <input id="domain" name="domain" placeholder="[]" type="text" value=""/>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td><label for="context">Context</label></td>
+                                           <td class="web_sidebar_text">
+                                              <input id="context" name="context" placeholder="{}" type="text" value=""/>
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td><label for="widget_selection">Form Widget</label></td>
+                                           <td class="web_sidebar_text">
+                                              <input id="widget_id" name="widget_selection" type="text" class="widget_m2m_select2" />
+                                           </td>
+                                        </tr>
+                                        <tr>
+                                           <td><label for="security_groups">Visibility Groups</label></td>
+                                           <td class="web_sidebar_text">
+                                              <input id="groups_id" name="security_groups" type="text" class="group_m2m_select2" />
+                                           </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="field_del_panel">
+                        <div id="remove_button">
+                             <div class="web_sidebar_content">
+                                <div class="o_web_sidebar_toolbox">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <button class="btn btn-danger" id="btn_rm_view">
+                                                <i class="fa fa-trash-o fa-fw" aria-hidden="true"/><span>Remove</span></button>
+                                        </div>
+                                        <div class="col-md-3 col-md-offset-3">
+                                            <button class="btn btn-primary" id="btn_hide_nav">
+                                                    <i class="fa fa-eye fa-fw" aria-hidden="true"/><span>Hide</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content">
+                    <div class="panel-group" id="accordion">
+                        <div id="add" class="tab-pane fade in active">
+                            <div class="web_sidebar_content">
+                                <div class="panel panel-default">
+                                     <div class="panel-heading">
+                                          <h4 class="panel-title">
+                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                              View Attributtes
+                                            </a>
+                                          </h4>
+                                        </div>
+                                        <div id="collapseFour" class="panel-collapse collapse in">
+                                          <div class="panel-body">
+                                                <div class="web_sidebar_content">
+                                                    <div class="web_sidebar_checkbox">
+                                                        <div class="o_checkbox">
+                                                            <input id="can_create" type="checkbox"/>
+                                                        </div>
+                                                        <label for="can_create">Can Create</label>
+                                                    </div>
+                                                    <div class="web_sidebar_checkbox">
+                                                        <div class="o_checkbox">
+                                                            <input id="can_edit" type="checkbox"/>
+                                                        </div>
+                                                        <label for="can_edit">Can Edit</label>
+                                                    </div>
+
+                                                    <div class="web_sidebar_checkbox">
+                                                        <div class="o_checkbox">
+                                                            <input id="can_delete" type="checkbox"/>
+                                                        </div>
+                                                        <label for="can_delete">Can Delete</label>
+                                                    </div>
+
+
+                                                    <div class="web_sidebar_checkbox">
+                                                        <div class="o_checkbox">
+                                                            <input id="show_invisible" type="checkbox"/>
+                                                        </div>
+                                                        <label for="show_invisible">Show invisible elements</label>
+                                                    </div>
+                                                </div>
+                                          </div>
+                                     </div>
+                                 </div>
+                            </div>
+                            <div class="web_sidebar_content">
+                                 <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                      <h4 class="panel-title">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                           Components
+                                        </a>
+                                      </h4>
+                                    </div>
+                                     <div id="collapseOne" class="panel-collapse collapse in">
+                                          <div class="panel-body">
+                                                <div class="web_sidebar_field_container">
+                                                    <ul>
+                                                        <li>
+                                                            <a id="add_notebook" >
+                                                                <span class="span-left">
+                                                                    <span class="span-inner" title="Add NoteBook">
+                                                                         NoteBook
+                                                                    </span>
+                                                                </span>
+                                                                <span class="span-right">
+                                                                    <i class="fa icon icon-span icon_tabs"/>
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                          </div>
+                                     </div>
+                                 </div>
+                             </div>
+                            <div class="web_sidebar_content">
+                                 <div class="panel panel-default">
+                                     <div class="panel-heading">
+                                          <h4 class="panel-title">
+                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                               New Fields
+                                            </a>
+                                          </h4>
+                                     </div>
+                                     <div id="collapseTwo" class="panel-collapse collapse in">
+                                            <div class="panel-body">
+                                                <div class="web_sidebar_field_container">
+                                        <ul id="new">
+                                            <t t-foreach="new_fields" t-as="i">
+                                                <li t-att-data-id="i.label" data-action="new">
+                                                    <a class="name">
+                                                        <span class="span-left">
+                                                            <span class="span-inner" t-att-title="i.label">
+                                                                <t t-esc="i.label"/>
+                                                            </span>
+                                                        </span>
+                                                        <span class="span-right">
+                                                            <i t-att-class="'fa icon icon-span icon_'+(i.type)"/>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                            </div>
+                                     </div>
+                                 </div>
+                            </div>
+                            <div class="web_sidebar_content">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                              <h4 class="panel-title">
+                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                                   Existing Fields
+                                                </a>
+                                              </h4>
+                                    </div>
+                                    <div id="collapseThree" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <div class="web_sidebar_field_container">
+                                        <ul id="existing">
+                                            <t t-foreach="data" t-as="i">
+                                                <li t-att-data-id="i">
+                                                    <a class="name">
+                                                        <span class="span-left">
+                                                            <span class="span-inner" t-att-title="i">
+                                                                <t t-esc="data[i].string"/>
+                                                            </span>
+                                                        </span>
+                                                        <span class="span-right">
+                                                            <i t-att-class="'fa icon icon-span icon_'+(data[i].type)"/>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="web.sideBar.button">
+        <button type="button" id="add_button" class="btn btn-md">
+            <div class="fa fa-fw fa-plus-square o_button_icon"/>
+        </button>
+    </t>
+
+    <t t-name="web.calendar_view">
+        <table class="table table-hover">
+            <tbody>
+                <tr class="web_sidebar_checkbox">
+                    <td><label for="quick_create">Quick Create</label></td>
+                    <td class="o_checkbox"><input id="quick_add" name="quick_add" type="checkbox"/></td>
+                </tr>
+                <tr>
+                    <td><label for="start_date">Start Date Field</label></td>
+                    <td class="web_sidebar_text">
+                        <select id="date_start" name="start_date" type="text" class="group_m2m_select2" >
+                            <option selected=""></option>
+                            <option t-foreach="widget.ordered_fields" t-as="field" t-if="field.store and _.contains(['date', 'datetime'], field.type)" t-att-value="field.name">
+                                <t t-esc="field.string"/>
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="stop_date">Stop Date Field</label></td>
+                    <td class="web_sidebar_text"><select id="date_stop" name="stop_date" type="text" class="group_m2m_select2" >
+                        <option selected=""></option>
+                        <option t-foreach="widget.ordered_fields" t-as="field" t-if="field.store and _.contains(['date', 'datetime'], field.type)" t-att-value="field.name">
+                            <t t-esc="field.string"/>
+                        </option>
+                    </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="delay_field">Delay Field</label></td>
+                    <td class="web_sidebar_text">
+                        <select id="date_delay" name="delay_field" type="text" class="group_m2m_select2" >
+                            <option selected=""></option>
+                            <option t-foreach="widget.ordered_fields" t-as="field" t-if="_.contains(['float', 'integer'], field.type)" t-att-value="field.name">
+                                <t t-esc="field.string"/>
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="color_field">Color</label></td>
+                    <td class="web_sidebar_text"><select id="color" name="color_field" type="text" class="group_m2m_select2" >
+                        <option selected=""></option>
+                        <option t-foreach="widget.ordered_fields" t-as="field" t-if="_.contains(['many2one', 'selection'], field.type)" t-att-value="field.name">
+                            <t t-esc="field.string"/>
+                        </option>
+                    </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="all_day_field">All Day</label></td>
+                    <td class="web_sidebar_text"><select id="all_day" name="all_day_field" type="text" class="group_m2m_select2" >
+                        <option selected=""></option>
+                        <option t-foreach="widget.ordered_fields" t-as="field" t-if="field.type === 'boolean'" t-att-value="field.name">
+                                    <t t-esc="field.string"/>
+                        </option>
+                    </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="default_display_field">Default Display Field</label></td>
+                    <td class="web_sidebar_text">
+                        <select id="mode" name="default_display_field" type="text" class="group_m2m_select2" >
+                            <option selected=""></option>
+                            <option value="day">day</option>
+                            <option value="week">week</option>
+                            <option value="month">month</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </t>
+
+    <t t-name="web.pivot_view">
+         <table class="table table-hover">
+            <tbody>
+                <tr class="web_sidebar_checkbox">
+                    <td><label for="disable_linking">Allow Linking To List View</label></td>
+                    <td class="o_checkbox">
+                        <input id="disable_linking" name="disable_linking" type="checkbox"/>
+                    </td>
+                </tr>
+
+                 <tr class="web_sidebar_checkbox">
+                    <td><label for="display_quantity">Display Count</label></td>
+                    <td class="o_checkbox">
+                        <input id="display_quantity" name="display_quantity" type="checkbox"/>
+                    </td>
+                </tr>
+            </tbody>
+         </table>
+
+     </t>
+
+    <t t-name="web.gantt_view">
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td><label for="start_date">Start Date Field</label></td>
+                    <td class="web_sidebar_text">
+                        <select id="date_start" name="start_date" type="text" class="group_m2m_select2" >
+                            <option selected=""></option>
+                            <option t-foreach="widget.ordered_fields" t-as="field" t-if="field.store and _.contains(['date', 'datetime'], field.type)" t-att-value="field.name">
+                                <t t-esc="field.string"/>
+                            </option>
+                        </select>
+                    </td>
+                 </tr>
+
+                <tr>
+                    <td>
+                        <label for="stop_date">Stop Date Field</label>
+                    </td>
+                    <td class="web_sidebar_text">
+                        <select id="date_stop" name="stop_date" type="text" class="group_m2m_select2" >
+                            <option selected=""></option>
+                            <option t-foreach="widget.ordered_fields" t-as="field" t-if="field.store and _.contains(['date', 'datetime'], field.type)" t-att-value="field.name">
+                                <t t-esc="field.string"/>
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="group_by">Group By</label>
+                    </td>
+                    <td class="web_sidebar_text">
+                        <select id="default_group_by" name="default_group_by" type="text" class="group_m2m_select2" >
+                            <option selected=""></option>
+                            <option t-foreach="widget.ordered_fields" t-as="field" t-if="field.store and _.contains(['many2one'], field.type)" t-att-value="field.name">
+                                <t t-esc="field.string"/>
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </t>
+
+    <t t-name="web.reportSideBar">
+        <div id="web_report_container" class="web_report_sidebar">
+            <div class="web_report_body">
+                <div class="web_report_sidebar_content">
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr class="web_sidebar_checkbox">
+                                <td><label for="id_pmenu">Add in Print Menu</label></td>
+                                <td class="o_checkbox"><input id="id_pmenu" type="checkbox"/></td>
+                            </tr>
+                            <tr>
+                                <td><label for="string">Name</label></td>
+                                <td class="web_sidebar_text">
+                                    <input id="name" name="string" type="text" value=""/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="paper_format">Paper Format</label></td>
+                                <td class="web_sidebar_text">
+                                    <select id="paperformat_id" name="paper_format" class="paper_m2m_select2"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="security_groups">Security Groups</label></td>
+                                <td class="web_sidebar_text">
+                                    <input id="groups_id" name="security_groups" type="text" class="group_m2m_select2" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="web.ActionViewEditorSidebar">
+        <div id="web_report_container" class="web_report_sidebar">
+            <div class="web_report_body">
+                <div class="web_report_sidebar_content">
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <td><label for="string">Title</label></td>
+                                <td class="web_sidebar_text"><input id="name" name="string" type="text" t-att-value="widget.attrs.name"/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="string">Help Text</label>
+                                </td>
+                                <td class="web_sidebar_text">
+                                    <textarea id="help" name="help" rows="10">
+                                        <t t-esc="widget.attrs.help"/>
+                                    </textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="security_groups">Security Groups</label></td>
+                                <td class="web_sidebar_text">
+                                    <input id="groups_id" name="security_groups" type="text" class="group_m2m_select2" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="web.AppMaker.AddApp">
+        <a class="o_app o_menuitem flectra_new_app" href="#">
+            <i class="material-icons">add_circle_outline</i>
+            <div class="o_caption">Create An App</div>
+        </a>
+    </t>
+
+</templates>

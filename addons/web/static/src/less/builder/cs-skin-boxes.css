@@ -1,0 +1,1101 @@
+/* Custom select */
+/* Read the article: http://tympanus.net/codrops/2014/07/10/inspiration-for-custom-select-elements/ */
+/* Demo: http://tympanus.net/Development/SelectInspiration/ */
+/* GitHub: https://github.com/codrops/SelectInspiration */
+
+/* Custom select skin: fullscreen color picker (adjusted for fullscreen form) */
+div.cs-skin-boxes {
+    background: transparent;
+    font-size: 0.65em;
+    font-weight: 700;
+    max-width: 300px;
+    z-index: 2000;
+    color: #fff;
+}
+
+@media screen and (max-width: 30em) {
+    div.cs-skin-boxes {
+        font-size: 1em;
+    }
+}
+
+.cs-skin-boxes > span {
+    border: 3px solid #292c30;
+    border-radius: 5px;
+    width: 150px;
+    height: 140px;
+    font-size: 0.5em;
+    padding: 0 0 0 10px;
+    background: #555b64;
+}
+
+div.cs-skin-boxes:focus > span {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.cs-skin-boxes > span::before {
+    content: '';
+    display: block;
+    padding-top: 110px;
+    margin-left: -10px;
+    box-shadow: 0 25px 0 #292c30, inset 0 -10px #292c30;
+}
+
+.cs-skin-boxes > span::after,
+.cs-skin-boxes.cs-active > span::after {
+    top: auto;
+    -webkit-transform: none;
+    transform: none;
+}
+
+.cs-skin-boxes .cs-options {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    background: #3b3f45;
+    font-size: 12px;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, visibility 0s 0.3s;
+    transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+.cs-skin-boxes.cs-active .cs-options {
+    opacity: 1;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+.cs-skin-boxes .cs-options ul {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.cs-skin-boxes .cs-options li {
+    width: 20%;
+    height: 25%;
+    float: left;
+    position: relative;
+    cursor: pointer;
+    border-radius: 14px;
+    overflow: hidden;
+    opacity: 0;
+    color: rgba(255, 255, 255, 0.6);
+    border: 10px solid transparent;
+    background-clip: padding-box;
+    -webkit-transform: scale3d(0.8, 0.8, 1);
+    transform: scale3d(0.8, 0.8, 1);
+    box-shadow: inset 0 -6em 0 -2em #282b30, inset 0 -1px 1px #000;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+@media screen and (max-width: 30em) {
+    .cs-skin-boxes .cs-options li {
+        box-shadow: none;
+        border-width: 3px;
+        border-radius: 8px;
+    }
+}
+
+.cs-skin-boxes.cs-active .cs-options li {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(2) {
+    -webkit-transition-delay: 0.01s;
+    transition-delay: 0.01s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(3) {
+    -webkit-transition-delay: 0.02s;
+    transition-delay: 0.02s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(4) {
+    -webkit-transition-delay: 0.03s;
+    transition-delay: 0.03s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(5) {
+    -webkit-transition-delay: 0.04s;
+    transition-delay: 0.04s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(6) {
+    -webkit-transition-delay: 0.05s;
+    transition-delay: 0.05s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(7) {
+    -webkit-transition-delay: 0.06s;
+    transition-delay: 0.06s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(8) {
+    -webkit-transition-delay: 0.07s;
+    transition-delay: 0.07s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(9) {
+    -webkit-transition-delay: 0.08s;
+    transition-delay: 0.08s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(10) {
+    -webkit-transition-delay: 0.09s;
+    transition-delay: 0.09s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(11) {
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(12) {
+    -webkit-transition-delay: 0.11s;
+    transition-delay: 0.11s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(13) {
+    -webkit-transition-delay: 0.12s;
+    transition-delay: 0.12s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(14) {
+    -webkit-transition-delay: 0.13s;
+    transition-delay: 0.13s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(15) {
+    -webkit-transition-delay: 0.14s;
+    transition-delay: 0.14s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(16) {
+    -webkit-transition-delay: 0.15s;
+    transition-delay: 0.15s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(17) {
+    -webkit-transition-delay: 0.16s;
+    transition-delay: 0.16s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(18) {
+    -webkit-transition-delay: 0.17s;
+    transition-delay: 0.17s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(19) {
+    -webkit-transition-delay: 0.18s;
+    transition-delay: 0.18s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(20) {
+    -webkit-transition-delay: 0.19s;
+    transition-delay: 0.19s;
+}
+
+.cs-skin-boxes .cs-options li.cs-selected::after {
+    content: '\2714';
+    color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    font-size: 2em;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0) translate3d(0, -1em, 0);
+    transform: translate3d(-50%, -50%, 0) translate3d(0, -1em, 0);
+}
+
+.cs-skin-boxes .cs-options li.cs-selected span::after {
+    content: '';
+}
+
+@media screen and (max-width: 30em) {
+    .cs-skin-boxes .cs-options li.cs-selected::after {
+        -webkit-transform: translate3d(-50%, -50%, 0);
+        transform: translate3d(-50%, -50%, 0);
+    }
+}
+
+.cs-skin-boxes .cs-options li.color-588c75 {
+    background-color: #588c75;
+}
+
+.cs-skin-boxes .cs-options li.color-b0c47f {
+    background-color: #b0c47f;
+}
+
+.cs-skin-boxes .cs-options li.color-f3e395 {
+    background-color: #f3e395;
+}
+
+.cs-skin-boxes .cs-options li.color-f3ae73 {
+    background-color: #f3ae73;
+}
+
+.cs-skin-boxes .cs-options li.color-da645a {
+    background-color: #da645a;
+}
+
+.cs-skin-boxes .cs-options li.color-79a38f {
+    background-color: #79a38f;
+}
+
+.cs-skin-boxes .cs-options li.color-c1d099 {
+    background-color: #c1d099;
+}
+
+.cs-skin-boxes .cs-options li.color-f5eaaa {
+    background-color: #f5eaaa;
+}
+
+.cs-skin-boxes .cs-options li.color-f5be8f {
+    background-color: #f5be8f;
+}
+
+.cs-skin-boxes .cs-options li.color-e1837b {
+    background-color: #e1837b;
+}
+
+.cs-skin-boxes .cs-options li.color-9bbaab {
+    background-color: #9bbaab;
+}
+
+.cs-skin-boxes .cs-options li.color-d1dcb2 {
+    background-color: #d1dcb2;
+}
+
+.cs-skin-boxes .cs-options li.color-f9eec0 {
+    background-color: #f9eec0;
+}
+
+.cs-skin-boxes .cs-options li.color-f7cda9 {
+    background-color: #f7cda9;
+}
+
+.cs-skin-boxes .cs-options li.color-e8a19b {
+    background-color: #e8a19b;
+}
+
+.cs-skin-boxes .cs-options li.color-bdd1c8 {
+    background-color: #bdd1c8;
+}
+
+.cs-skin-boxes .cs-options li.color-e1e7cd {
+    background-color: #e1e7cd;
+}
+
+.cs-skin-boxes .cs-options li.color-faf4d4 {
+    background-color: #faf4d4;
+}
+
+.cs-skin-boxes .cs-options li.color-fbdfc9 {
+    background-color: #fbdfc9;
+}
+
+.cs-skin-boxes .cs-options li.color-f1c1bd {
+    background-color: #f1c1bd;
+}
+
+/*------------------------------Added My Custom class -----------------------------------------------------------------*/
+.cs-skin-boxes .cs-options li.color-ffebee {
+    background-color: #ffebee;
+}
+
+.cs-skin-boxes .cs-options li.color-FCE4EC {
+    background-color: #FCE4EC;
+}
+
+.cs-skin-boxes .cs-options li.color-F3E5F5 {
+    background-color: #F3E5F5;
+}
+
+.cs-skin-boxes .cs-options li.color-EDE7F6 {
+    background-color: #EDE7F6;
+}
+
+.cs-skin-boxes .cs-options li.color-E8EAF6 {
+    background-color: #E8EAF6;
+}
+
+.cs-skin-boxes .cs-options li.color-E3F2FD {
+    background-color: #E3F2FD;
+}
+
+.cs-skin-boxes .cs-options li.color-E1F5FE {
+    background-color: #E1F5FE;
+}
+
+.cs-skin-boxes .cs-options li.color-E0F7FA {
+    background-color: #E0F7FA;
+}
+
+.cs-skin-boxes .cs-options li.color-E0F2F1 {
+    background-color: #E0F2F1;
+}
+
+.cs-skin-boxes .cs-options li.color-E8F5E9 {
+    background-color: #E8F5E9;
+}
+
+.cs-skin-boxes .cs-options li.color-F1F8E9 {
+    background-color: #F1F8E9;
+}
+
+.cs-skin-boxes .cs-options li.color-F9FBE7 {
+    background-color: #F9FBE7;
+}
+
+.cs-skin-boxes .cs-options li.color-FFFDE7 {
+    background-color: #FFFDE7;
+}
+
+.cs-skin-boxes .cs-options li.color-FFF8E1 {
+    background-color: #FFF8E1;
+}
+
+.cs-skin-boxes .cs-options li.color-FFF3E0 {
+    background-color: #FFF3E0;
+}
+
+.cs-skin-boxes .cs-options li.color-FBE9E7 {
+    background-color: #FBE9E7;
+}
+
+.cs-skin-boxes .cs-options li.color-EFEBE9 {
+    background-color: #EFEBE9;
+}
+
+.cs-skin-boxes .cs-options li.color-FAFAFA {
+    background-color: #FAFAFA;
+}
+
+.cs-skin-boxes .cs-options li.color-ECEFF1 {
+    background-color: #ECEFF1;
+}
+
+.cs-skin-boxes .cs-options li.color-ffcdd2 {
+    background-color: #ffcdd2;
+}
+
+.cs-skin-boxes .cs-options li.color-F8BBD0 {
+    background-color: #F8BBD0;
+}
+
+.cs-skin-boxes .cs-options li.color-E1BEE7 {
+    background-color: #E1BEE7;
+}
+
+.cs-skin-boxes .cs-options li.color-D1C4E9 {
+    background-color: #D1C4E9;
+}
+
+.cs-skin-boxes .cs-options li.color-C5CAE9 {
+    background-color: #C5CAE9;
+}
+
+.cs-skin-boxes .cs-options li.color-BBDEFB {
+    background-color: #BBDEFB;
+}
+
+.cs-skin-boxes .cs-options li.color-B3E5FC {
+    background-color: #B3E5FC;
+}
+
+.cs-skin-boxes .cs-options li.color-B2EBF2 {
+    background-color: #B2EBF2;
+}
+
+.cs-skin-boxes .cs-options li.color-B2DFDB {
+    background-color: #B2DFDB;
+}
+
+.cs-skin-boxes .cs-options li.color-C8E6C9 {
+    background-color: #C8E6C9;
+}
+
+.cs-skin-boxes .cs-options li.color-DCEDC8 {
+    background-color: #DCEDC8;
+}
+
+.cs-skin-boxes .cs-options li.color-F0F4C3 {
+    background-color: #F0F4C3;
+}
+
+.cs-skin-boxes .cs-options li.color-FFF9C4 {
+    background-color: #FFF9C4;
+}
+
+.cs-skin-boxes .cs-options li.color-FFECB3 {
+    background-color: #FFECB3;
+}
+
+.cs-skin-boxes .cs-options li.color-FFE0B2 {
+    background-color: #FFE0B2;
+}
+
+.cs-skin-boxes .cs-options li.color-FFCCBC {
+    background-color: #FFCCBC;
+}
+
+.cs-skin-boxes .cs-options li.color-D7CCC8 {
+    background-color: #D7CCC8;
+}
+
+.cs-skin-boxes .cs-options li.color-F5F5F5 {
+    background-color: #F5F5F5;
+}
+
+.cs-skin-boxes .cs-options li.color-CFD8DC {
+    background-color: #CFD8DC;
+}
+
+.cs-skin-boxes .cs-options li.color-ef9a9a {
+    background-color: #ef9a9a;
+}
+
+.cs-skin-boxes .cs-options li.color-F48FB1 {
+    background-color: #F48FB1;
+}
+
+.cs-skin-boxes .cs-options li.color-CE93D8 {
+    background-color: #CE93D8;
+}
+
+.cs-skin-boxes .cs-options li.color-B39DDB {
+    background-color: #B39DDB;
+}
+
+.cs-skin-boxes .cs-options li.color-9FA8DA {
+    background-color: #9FA8DA;
+}
+
+.cs-skin-boxes .cs-options li.color-90CAF9 {
+    background-color: #90CAF9;
+}
+
+.cs-skin-boxes .cs-options li.color-81D4FA {
+    background-color: #81D4FA;
+}
+
+.cs-skin-boxes .cs-options li.color-80DEEA {
+    background-color: #80DEEA;
+}
+
+.cs-skin-boxes .cs-options li.color-80CBC4 {
+    background-color: #80CBC4;
+}
+
+.cs-skin-boxes .cs-options li.color-A5D6A7 {
+    background-color: #A5D6A7;
+}
+
+.cs-skin-boxes .cs-options li.color-C5E1A5 {
+    background-color: #C5E1A5;
+}
+
+.cs-skin-boxes .cs-options li.color-E6EE9C {
+    background-color: #E6EE9C;
+}
+
+.cs-skin-boxes .cs-options li.color-FFF59D {
+    background-color: #FFF59D;
+}
+
+.cs-skin-boxes .cs-options li.color-FFE082 {
+    background-color: #FFE082;
+}
+
+.cs-skin-boxes .cs-options li.color-FFCC80 {
+    background-color: #FFCC80;
+}
+
+.cs-skin-boxes .cs-options li.color-FFAB91 {
+    background-color: #FFAB91;
+}
+
+.cs-skin-boxes .cs-options li.color-BCAAA4 {
+    background-color: #BCAAA4;
+}
+
+.cs-skin-boxes .cs-options li.color-EEEEEE {
+    background-color: #EEEEEE;
+}
+
+.cs-skin-boxes .cs-options li.color-B0BEC5 {
+    background-color: #B0BEC5;
+}
+
+.cs-skin-boxes .cs-options li.color-e57373 {
+    background-color: #e57373;
+}
+
+.cs-skin-boxes .cs-options li.color-F06292 {
+    background-color: #F06292;
+}
+
+.cs-skin-boxes .cs-options li.color-BA68C8 {
+    background-color: #BA68C8;
+}
+
+.cs-skin-boxes .cs-options li.color-9575CD {
+    background-color: #9575CD;
+}
+
+.cs-skin-boxes .cs-options li.color-7986CB {
+    background-color: #7986CB;
+}
+
+.cs-skin-boxes .cs-options li.color-64B5F6 {
+    background-color: #64B5F6;
+}
+
+.cs-skin-boxes .cs-options li.color-4FC3F7 {
+    background-color: #4FC3F7;
+}
+
+.cs-skin-boxes .cs-options li.color-4DD0E1 {
+    background-color: #4DD0E1;
+}
+
+.cs-skin-boxes .cs-options li.color-4DB6AC {
+    background-color: #4DB6AC;
+}
+
+.cs-skin-boxes .cs-options li.color-81C784 {
+    background-color: #81C784;
+}
+
+.cs-skin-boxes .cs-options li.color-AED581 {
+    background-color: #AED581;
+}
+
+.cs-skin-boxes .cs-options li.color-DCE775 {
+    background-color: #DCE775;
+}
+
+.cs-skin-boxes .cs-options li.color-FFF176 {
+    background-color: #FFF176;
+}
+
+.cs-skin-boxes .cs-options li.color-FFD54F {
+    background-color: #FFD54F;
+}
+
+.cs-skin-boxes .cs-options li.color-FFB74D {
+    background-color: #FFB74D;
+}
+
+.cs-skin-boxes .cs-options li.color-FF8A65 {
+    background-color: #FF8A65;
+}
+
+.cs-skin-boxes .cs-options li.color-A1887F {
+    background-color: #A1887F;
+}
+
+.cs-skin-boxes .cs-options li.color-E0E0E0 {
+    background-color: #E0E0E0;
+}
+
+.cs-skin-boxes .cs-options li.color-90A4AE {
+    background-color: #90A4AE;
+}
+
+.cs-skin-boxes .cs-options li.color-ef5350 {
+    background-color: #ef5350;
+}
+
+.cs-skin-boxes .cs-options li.color-EC407A {
+    background-color: #EC407A;
+}
+
+.cs-skin-boxes .cs-options li.color-AB47BC {
+    background-color: #AB47BC;
+}
+
+.cs-skin-boxes .cs-options li.color-7E57C2 {
+    background-color: #7E57C2;
+}
+
+.cs-skin-boxes .cs-options li.color-5C6BC0 {
+    background-color: #5C6BC0;
+}
+
+.cs-skin-boxes .cs-options li.color-42A5F5 {
+    background-color: #42A5F5;
+}
+
+.cs-skin-boxes .cs-options li.color-29B6F6 {
+    background-color: #29B6F6;
+}
+
+.cs-skin-boxes .cs-options li.color-26C6DA {
+    background-color: #26C6DA;
+}
+
+.cs-skin-boxes .cs-options li.color-26A69A {
+    background-color: #26A69A;
+}
+
+.cs-skin-boxes .cs-options li.color-66BB6A {
+    background-color: #66BB6A;
+}
+
+.cs-skin-boxes .cs-options li.color-9CCC65 {
+    background-color: #9CCC65;
+}
+
+.cs-skin-boxes .cs-options li.color-D4E157 {
+    background-color: #D4E157;
+}
+
+.cs-skin-boxes .cs-options li.color-FFEE58 {
+    background-color: #FFEE58;
+}
+
+.cs-skin-boxes .cs-options li.color-FFCA28 {
+    background-color: #FFCA28;
+}
+
+.cs-skin-boxes .cs-options li.color-FFA726 {
+    background-color: #FFA726;
+}
+
+.cs-skin-boxes .cs-options li.color-FF7043 {
+    background-color: #FF7043;
+}
+
+.cs-skin-boxes .cs-options li.color-8D6E63 {
+    background-color: #8D6E63;
+}
+
+.cs-skin-boxes .cs-options li.color-BDBDBD {
+    background-color: #BDBDBD;
+}
+
+.cs-skin-boxes .cs-options li.color-78909C {
+    background-color: #78909C;
+}
+
+.cs-skin-boxes .cs-options li.color-f44336 {
+    background-color: #f44336;
+}
+
+.cs-skin-boxes .cs-options li.color-E91E63 {
+    background-color: #E91E63;
+}
+
+.cs-skin-boxes .cs-options li.color-9C27B0 {
+    background-color: #9C27B0;
+}
+
+.cs-skin-boxes .cs-options li.color-673AB7 {
+    background-color: #673AB7;
+}
+
+.cs-skin-boxes .cs-options li.color-3F51B5 {
+    background-color: #3F51B5;
+}
+
+.cs-skin-boxes .cs-options li.color-2196F3 {
+    background-color: #2196F3;
+}
+
+.cs-skin-boxes .cs-options li.color-03A9F4 {
+    background-color: #03A9F4;
+}
+
+.cs-skin-boxes .cs-options li.color-00BCD4 {
+    background-color: #00BCD4;
+}
+
+.cs-skin-boxes .cs-options li.color-009688 {
+    background-color: #009688;
+}
+
+.cs-skin-boxes .cs-options li.color-4CAF50 {
+    background-color: #4CAF50;
+}
+
+.cs-skin-boxes .cs-options li.color-8BC34A {
+    background-color: #8BC34A;
+}
+
+.cs-skin-boxes .cs-options li.color-CDDC39 {
+    background-color: #CDDC39;
+}
+
+.cs-skin-boxes .cs-options li.color-FFEB3B {
+    background-color: #FFEB3B;
+}
+
+.cs-skin-boxes .cs-options li.color-FFC107 {
+    background-color: #FFC107;
+}
+
+.cs-skin-boxes .cs-options li.color-FF9800 {
+    background-color: #FF9800;
+}
+
+.cs-skin-boxes .cs-options li.color-FF5722 {
+    background-color: #FF5722;
+}
+
+.cs-skin-boxes .cs-options li.color-795548 {
+    background-color: #795548;
+}
+
+.cs-skin-boxes .cs-options li.color-9E9E9E {
+    background-color: #9E9E9E;
+}
+
+.cs-skin-boxes .cs-options li.color-607D8B {
+    background-color: #607D8B;
+}
+
+.cs-skin-boxes .cs-options li.color-e53935 {
+    background-color: #e53935;
+}
+
+.cs-skin-boxes .cs-options li.color-D81B60 {
+    background-color: #D81B60;
+}
+
+.cs-skin-boxes .cs-options li.color-8E24AA {
+    background-color: #8E24AA;
+}
+
+.cs-skin-boxes .cs-options li.color-5E35B1 {
+    background-color: #5E35B1;
+}
+
+.cs-skin-boxes .cs-options li.color-3949AB {
+    background-color: #3949AB;
+}
+
+.cs-skin-boxes .cs-options li.color-1E88E5 {
+    background-color: #1E88E5;
+}
+
+.cs-skin-boxes .cs-options li.color-039BE5 {
+    background-color: #039BE5;
+}
+
+.cs-skin-boxes .cs-options li.color-00ACC1 {
+    background-color: #00ACC1;
+}
+
+.cs-skin-boxes .cs-options li.color-00897B {
+    background-color: #00897B;
+}
+
+.cs-skin-boxes .cs-options li.color-43A047 {
+    background-color: #43A047;
+}
+
+.cs-skin-boxes .cs-options li.color-7CB342 {
+    background-color: #7CB342;
+}
+
+.cs-skin-boxes .cs-options li.color-C0CA33 {
+    background-color: #C0CA33;
+}
+
+.cs-skin-boxes .cs-options li.color-FDD835 {
+    background-color: #FDD835;
+}
+
+.cs-skin-boxes .cs-options li.color-FFB300 {
+    background-color: #FFB300;
+}
+
+.cs-skin-boxes .cs-options li.color-FB8C00 {
+    background-color: #FB8C00;
+}
+
+.cs-skin-boxes .cs-options li.color-F4511E {
+    background-color: #F4511E;
+}
+
+.cs-skin-boxes .cs-options li.color-6D4C41 {
+    background-color: #6D4C41;
+}
+
+.cs-skin-boxes .cs-options li.color-757575 {
+    background-color: #757575;
+}
+
+.cs-skin-boxes .cs-options li.color-546E7A {
+    background-color: #546E7A;
+}
+
+.cs-skin-boxes .cs-options li.color-d32f2f {
+    background-color: #d32f2f;
+}
+
+.cs-skin-boxes .cs-options li.color-C2185B {
+    background-color: #C2185B;
+}
+
+.cs-skin-boxes .cs-options li.color-7B1FA2 {
+    background-color: #7B1FA2;
+}
+
+.cs-skin-boxes .cs-options li.color-512DA8 {
+    background-color: #512DA8;
+}
+
+.cs-skin-boxes .cs-options li.color-303F9F {
+    background-color: #303F9F;
+}
+
+.cs-skin-boxes .cs-options li.color-1976D2 {
+    background-color: #1976D2;
+}
+
+.cs-skin-boxes .cs-options li.color-0288D1 {
+    background-color: #0288D1;
+}
+
+.cs-skin-boxes .cs-options li.color-0097A7 {
+    background-color: #0097A7;
+}
+
+.cs-skin-boxes .cs-options li.color-00796B {
+    background-color: #00796B;
+}
+
+.cs-skin-boxes .cs-options li.color-388E3C {
+    background-color: #388E3C;
+}
+
+.cs-skin-boxes .cs-options li.color-689F38 {
+    background-color: #689F38;
+}
+
+.cs-skin-boxes .cs-options li.color-AFB42B {
+    background-color: #AFB42B;
+}
+
+.cs-skin-boxes .cs-options li.color-FBC02D {
+    background-color: #FBC02D;
+}
+
+.cs-skin-boxes .cs-options li.color-FFA000 {
+    background-color: #FFA000;
+}
+
+.cs-skin-boxes .cs-options li.color-F57C00 {
+    background-color: #F57C00;
+}
+
+.cs-skin-boxes .cs-options li.color-E64A19 {
+    background-color: #E64A19;
+}
+
+.cs-skin-boxes .cs-options li.color-5D4037 {
+    background-color: #5D4037;
+}
+
+.cs-skin-boxes .cs-options li.color-616161 {
+    background-color: #616161;
+}
+
+.cs-skin-boxes .cs-options li.color-455A64 {
+    background-color: #455A64;
+}
+
+.cs-skin-boxes .cs-options li.color-c62828 {
+    background-color: #c62828;
+}
+
+.cs-skin-boxes .cs-options li.color-AD1457 {
+    background-color: #AD1457;
+}
+
+.cs-skin-boxes .cs-options li.color-6A1B9A {
+    background-color: #6A1B9A;
+}
+
+.cs-skin-boxes .cs-options li.color-4527A0 {
+    background-color: #4527A0;
+}
+
+.cs-skin-boxes .cs-options li.color-283593 {
+    background-color: #283593;
+}
+
+.cs-skin-boxes .cs-options li.color-1565C0 {
+    background-color: #1565C0;
+}
+
+.cs-skin-boxes .cs-options li.color-0277BD {
+    background-color: #0277BD;
+}
+
+.cs-skin-boxes .cs-options li.color-00838F {
+    background-color: #00838F;
+}
+
+.cs-skin-boxes .cs-options li.color-00695C {
+    background-color: #00695C;
+}
+
+.cs-skin-boxes .cs-options li.color-2E7D32 {
+    background-color: #2E7D32;
+}
+
+.cs-skin-boxes .cs-options li.color-558B2F {
+    background-color: #558B2F;
+}
+
+.cs-skin-boxes .cs-options li.color-9E9D24 {
+    background-color: #9E9D24;
+}
+
+.cs-skin-boxes .cs-options li.color-F9A825 {
+    background-color: #F9A825;
+}
+
+.cs-skin-boxes .cs-options li.color-FF8F00 {
+    background-color: #FF8F00;
+}
+
+.cs-skin-boxes .cs-options li.color-EF6C00 {
+    background-color: #EF6C00;
+}
+
+.cs-skin-boxes .cs-options li.color-D84315 {
+    background-color: #D84315;
+}
+
+.cs-skin-boxes .cs-options li.color-4E342E {
+    background-color: #4E342E;
+}
+
+.cs-skin-boxes .cs-options li.color-424242 {
+    background-color: #424242;
+}
+
+.cs-skin-boxes .cs-options li.color-37474F {
+    background-color: #37474F;
+}
+
+.cs-skin-boxes .cs-options li.color-b71c1c {
+    background-color: #b71c1c;
+}
+
+.cs-skin-boxes .cs-options li.color-880E4F {
+    background-color: #880E4F;
+}
+
+.cs-skin-boxes .cs-options li.color-4A148C {
+    background-color: #4A148C;
+}
+
+.cs-skin-boxes .cs-options li.color-311B92 {
+    background-color: #311B92;
+}
+
+.cs-skin-boxes .cs-options li.color-1A237E {
+    background-color: #1A237E;
+}
+
+.cs-skin-boxes .cs-options li.color-0D47A1 {
+    background-color: #0D47A1;
+}
+
+.cs-skin-boxes .cs-options li.color-01579B {
+    background-color: #01579B;
+}
+
+.cs-skin-boxes .cs-options li.color-006064 {
+    background-color: #006064;
+}
+
+.cs-skin-boxes .cs-options li.color-004D40 {
+    background-color: #004D40;
+}
+
+.cs-skin-boxes .cs-options li.color-1B5E20 {
+    background-color: #1B5E20;
+}
+
+.cs-skin-boxes .cs-options li.color-33691E {
+    background-color: #33691E;
+}
+
+.cs-skin-boxes .cs-options li.color-827717 {
+    background-color: #827717;
+}
+
+.cs-skin-boxes .cs-options li.color-F57F17 {
+    background-color: #F57F17;
+}
+
+.cs-skin-boxes .cs-options li.color-FF6F00 {
+    background-color: #FF6F00;
+}
+
+.cs-skin-boxes .cs-options li.color-E65100 {
+    background-color: #E65100;
+}
+
+.cs-skin-boxes .cs-options li.color-BF360C {
+    background-color: #BF360C;
+}
+
+.cs-skin-boxes .cs-options li.color-3E2723 {
+    background-color: #3E2723;
+}
+
+.cs-skin-boxes .cs-options li.color-212121 {
+    background-color: #212121;
+}
+
+.cs-skin-boxes .cs-options li.color-263238 {
+    background-color: #263238;
+}
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
+.cs-icon {
+    margin: 20px;
+}
+.cs-icon-material{
+    font-size:65px
+}
+.cs-icon-li {
+    text-align: center;
+    background-color: #5890f5;
+}
+
+.cs-skin-boxes .cs-options span {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 2em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media screen and (max-width: 30em) {
+    .cs-skin-boxes .cs-options span {
+        display: none;
+    }
+}
+
+.cs-skin-boxes .cs-options li span:hover,
+.cs-skin-boxes li.cs-focus span,
+.cs-skin-boxes li.cs-selected span {
+    color: #fff;
+}

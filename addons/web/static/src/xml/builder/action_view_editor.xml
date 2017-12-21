@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <div t-name="web.ActionViewEditor"
+         class="action_view_editor">
+        <div class="container mt32">
+            <div class="col-md-4 " data="general">
+                <h5>
+                    <strong>General Views</strong>
+                </h5>
+            </div>
+            <div class="col-md-6" data="multiple">
+                <h5>
+                    <strong>Multiple Record Views</strong>
+                </h5>
+            </div>
+        </div>
+
+        <div class="container mt32">
+            <div class="col-md-4 " data="timeline">
+                <h5>
+                    <strong>Timeline Views</strong>
+                </h5>
+            </div>
+            <div class="col-md-6" data="reporting">
+                <h5>
+                    <strong>Reporting Views</strong>
+                </h5>
+            </div>
+        </div>
+    </div>
+
+    <div t-name="web.ActionViewEditorCards"
+         class="action_view_cards">
+        <div t-att-class="widget.column">
+            <div class="views-card text-center"
+                 t-att-data-view="widget.view_type">
+                <div class="views-info">
+                    <img t-att-src="'/web/static/src/img/builder/view_type/app_builder_' + widget.view_type + '_view.png'"/>
+                    <h2 class="hvr-underline-from-center">
+                        <span>
+                            <t t-esc="widget.view_type.toUpperCase()"/>
+                        </span>
+                    </h2>
+                    <div class="card-desc">
+                        <t t-esc="widget.view_desc"/>
+                    </div>
+                    <div class="overlay">
+                        <div class="text">Activate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</templates>

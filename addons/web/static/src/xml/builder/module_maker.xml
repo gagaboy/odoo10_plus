@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="web.ModuleMaker">
+        <div class="container flectra_module_maker">
+            <div class="fs-form-wrap" id="fs-form-wrap">
+                <div class="fs-title">
+                    <img src="/web/static/src/img/builder/app_builder_app_icon.png"/>
+                    <h1>Flectra App Builder</h1>
+                </div>
+                <form id="app_maker_form" class="fs-form fs-form-full"
+                      autocomplete="off">
+                    <ol class="fs-fields">
+                        <li>
+                            <div class="splash-screen fs-anim-upper">
+                                <label class="fs-field-block fs-anim-upper"
+                                       for="q1">Welcome Folks!
+                                </label>
+                                <label class="fs-field-main fs-anim-upper"
+                                       for="q1">Flectra App Builder
+                                </label>
+                                <label class="fs-field-sub fs-anim-upper"
+                                       for="q1">Create Web Applications
+                                    Interactively
+                                </label>
+                                <label class="fs-field-sub fs-anim-upper"
+                                       for="q1">More Faster And More
+                                    Convenient!
+                                </label>
+                                <img class="splash-screen-img fs-anim-upper"
+                                     src="/web/static/src/img/builder/app_builder_app_icon.png"/>
+                            </div>
+                        </li>
+                        <li>
+                            <label class="fs-field-label fs-anim-upper"
+                                   data-info="your class name,defines your app purpose make it funnier, creative &amp; purposeful ;-) ..."
+                                   for="q2">What's your application name?
+                            </label>
+                            <input class="fs-anim-lower" id="q2" name="q2"
+                                   type="text"
+                                   placeholder="Nerdy Project Name"
+                                   required=""/>
+                        </li>
+                        <li>
+                            <label class="fs-field-label fs-anim-upper"
+                                   for="q3"
+                                   data-info="your object name is, name that let you access your class prorties...">
+                                What's your object name?
+                            </label>
+                            <input class="fs-field-label fs-anim-lower" id="q3"
+                                   name="q3" type="text"
+                                   placeholder="e.g Nerd"
+                                   required="" has_model="0"/>
+                        </li>
+                        <li>
+                            <label class="fs-field-block fs-field-sub fs-anim-upper"
+                                   for="q4">
+                                Let's Get Your Manifest Information Real Quick!
+                            </label>
+
+                            <label class="fs-field-block fs-anim-upper"
+                                   for="q4"/>
+                            <label class="fs-field-block fs-anim-upper"
+                                   for="q4">
+                                Your App Category.
+                            </label>
+                            <input type="text" class="fs-anim-lower" id="q4"
+                                   name="q4" placeholder="Your App Category"
+                                   required=""/>
+                        </li>
+                        <li>
+                            <label class="fs-field-block fs-anim-upper"
+                                   for="q4">
+                                Your App version.
+                            </label>
+
+                            <input type="number" class="fs-anim-lower" id="q4"
+                                   name="q4" placeholder="Your App version"
+                                   required=""/>
+                        </li>
+                        <li>
+                            <label class="fs-field-block fs-anim-upper"
+                                   for="q4">
+                                Describe Your Application purpose here!
+                            </label>
+                            <textarea class="fs-anim-lower" id="q4" name="q4"
+                                      placeholder="Describe Your App here"
+                                      required=""/>
+                            <label class="fs-field-block fs-anim-upper"
+                                   for="q4"/>
+
+                            <select class="custom-select-fx fs-anim-lower"
+                                    required="">
+                                <option value="" disabled="" selected="">Pick
+                                    An App Licence
+                                </option>
+                                <t t-foreach="widget.app_licence" t-as="l">
+                                    <option t-att-value='l[0]'>
+                                        <t t-esc="l[1]"/>
+                                    </option>
+                                </t>
+                            </select>
+                        </li>
+                        <li>
+                            <label class="fs-field-label fs-anim-upper"
+                                   for="q4"
+                                   data-info="This will help us know what kind of Icon you need">
+                                Want To Design Your New Icon?
+                            </label>
+
+                            <select id="icons"
+                                    class="cs-select cs-skin-boxes fs-anim-lower left-400-css-color">
+                                <option value="" disabled="" selected="">Pick
+                                    an icon for app
+                                </option>
+                                <t t-foreach="widget.ICONS" t-as="icon">
+                                    <option t-att-value="icon"
+                                            data-icon="material_icons"
+                                            t-att-data-class="icon">
+                                        <t t-esc="icon"/>
+                                    </option>
+                                </t>
+                            </select>
+
+                            <div class="icon_preview fs-field-label fs-anim-lower">
+
+                            </div>
+
+                            <div id="fcolor_picker"
+                                 class="fs-field-label fs-anim-upper fcolor_picker">
+                                <input type="color"/>
+                                <label>Font Color Picker</label>
+                            </div>
+
+                            <div id="bcolor_picker"
+                                 class="fs-field-label fs-anim-upper bcolor_picker">
+                                <input type="color"/>
+                                <label>Background Color Picker</label>
+                            </div>
+
+                            <div id="cupload_icon"
+                                 class="fs-field-label fs-anim-upper cupload_icon">
+                                <a href="#">Upload Icon</a>
+                                <input id="iupload_icon" type="file"
+                                       style="display:none;"/>
+                            </div>
+
+                        </li>
+                        <li>
+                            <label class="fs-field-block fs-anim-upper"
+                                   for="q5"
+                                   data-info="We'll make sure you get the best out of app builder!">
+                                Is everything looking great?
+                            </label>
+                            <label class="fs-field-sub fs-anim-upper" for="q5">
+                                You can always go back and modify it. ;)
+                            </label>
+
+                            <label id="app_name"
+                                   class="fs-field-sub fs-anim-upper" for="q5">
+                                Your App Name :
+                            </label>
+
+                            <label id="object_name"
+                                   class="fs-field-sub fs-anim-upper" for="q6">
+                                Your Object Name :
+                            </label>
+
+                            <label id="app_category"
+                                   class="fs-field-sub fs-anim-upper" for="q5">
+                                Your App Category :
+                            </label>
+
+                            <label id="app_version"
+                                   class="fs-field-sub fs-anim-upper" for="q6">
+                                Your App Version :
+                            </label>
+
+                            <label id="app_description"
+                                   class="fs-field-sub fs-anim-upper" for="q5">
+                                Your App Description :
+                            </label>
+
+                            <label id="app_licence"
+                                   class="fs-field-sub fs-anim-upper" for="q6">
+                                Your App Licence :
+                            </label>
+
+                            <div class="icon_preview fs-field-label fs-anim-lower"/>
+                        </li>
+                    </ol><!-- /fs-fields -->
+                    <button class="fs-submit" type="submit">Send answers
+                    </button>
+                </form><!-- /fs-form -->
+            </div><!-- /fs-form-wrap -->
+
+        </div><!-- /container -->
+        <script>
+            (function() {
+            var formWrap = document.getElementById('fs-form-wrap');
+            [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function(el)
+            {
+            new SelectFx(el, {
+            stickyPlaceholder: false,
+            onClick: function(element) {
+            var front = $('.cs-select:eq(0)');
+            var back = $('.cs-select:eq(2)');
+            var icon = $('.cs-select:eq(4)');
+            if (front.hasClass('cs-active')) {
+            back.addClass('toggle-z-index');
+            icon.addClass('toggle-z-index');
+            }
+            if (back.hasClass('cs-active')) {
+            front.addClass('toggle-z-index');
+            icon.addClass('toggle-z-index');
+            }
+            if (icon.hasClass('cs-active')) {
+            front.addClass('toggle-z-index');
+            back.addClass('toggle-z-index');
+            }
+            },
+            onChange: function(val) {
+            if (el.id === 'icons') {
+            var div = '<div class="material-icon-preview material-icons icon_preview_mirror">' + val + '</div>'
+            if ($(el).siblings().first().before().hasClass('material-icons')) {
+            $(el).siblings().first().before().remove();
+            }
+            $('.icon_preview').html('');
+            $('.icon_preview').append(div);
+            $(el).siblings().first().before(div);
+            }
+            $(el).siblings().first()[0].style.backgroundColor = val;
+            $('.cs-select').removeClass('toggle-z-index');
+            if (el.id === 'font_color') {
+            $('.icon_preview').attr('data-color', val);
+            $('.icon_preview').css('color', val);
+            }
+            if (el.id === 'background_color') {
+            $('.icon_preview').attr('data-bcolor', val);
+            $('.icon_preview').css('background-color', val);
+            }
+            }
+            });
+            });
+
+            new FForm(formWrap, {
+            onReview: function(el) {
+            return false;
+            }
+            });
+            })();
+        </script>
+    </t>
+
+    <t t-name="web.ModuleMakerUtility">
+        <ul class="nav navbar-nav navbar-left">
+            <!-- <li style="margin-top: 4px;">
+                <a aria-expanded="false" class="dropdown-toggle"
+                   data-toggle="dropdown" href="#"
+                   style="margin-top:5px !important">
+                    Utilities
+                    <span class="caret"/>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="#" id="app_builder_import">
+                            <i class="fa fa-cloud-upload fa-fw"
+                               aria-hidden="true"/>Import
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="app_builder_export">
+                            <i class="fa fa-cloud-download fa-fw"
+                               aria-hidden="true"/>Export
+                        </a>
+                    </li>
+                </ul>
+            </li>-->
+        </ul>
+    </t>
+</templates>

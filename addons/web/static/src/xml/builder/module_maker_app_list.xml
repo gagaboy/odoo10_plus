@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="web.module_maker_app_list">
+        <div class="container">
+          <table class="table flectra_app_list">
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+    </t>
+</templates>

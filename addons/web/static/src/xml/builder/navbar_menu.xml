@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="web.btn_save_n_close">
+        <ul class="nav navbar-nav navbar-right web_btn_save_n_close">
+            <div class="app_builder_controls">
+                <button class="btn btn-lg btn-success" data-action="mk_app_view" type="button" title="App Creator">
+                    <i class="fa fa-gavel" aria-hidden="true"/>
+                </button>
+
+                <button data-action="close_view" type="button"
+                        class="btn btn-lg btn-danger" title="Close App Builder"><i class="fa fa-close" aria-hidden="true"/>
+                </button>
+            </div>
+        </ul>
+    </t>
+
+    <t t-name="web.submenu">
+        <div id="submenu_overlay" class="submenu_overlay">
+            <ol class="breadcrumb app_builder_breadcrumbs"/>
+            <div class="sliding-line" id="line-top" />
+            <ul class="nav navbar-nav navbar-left submenu">
+                <li>
+                    <a aria-expanded="true" data-name="ac_controls" data-toggle="collapse" href="#" role="button">Access Controls</a>
+                </li>
+                <li>
+                    <a aria-expanded="true" data-name="ac_autom" data-toggle="collapse" href="#" role="button">Automations</a>
+                </li>
+
+                <li>
+                    <a aria-expanded="true" data-name="reports" data-toggle="collapse" href="#" role="button">Reports</a>
+                </li>
+                <li>
+                    <a aria-expanded="true" data-name="udf_filters" data-toggle="collapse" href="#" role="button">Filters</a>
+                </li>
+                <li>
+                    <a aria-expanded="true" data-name="ac_views" data-toggle="collapse" href="#" role="button">Views</a>
+                </li>
+                <li class="magic-color" />
+            </ul>
+            <div class="sliding-line" id="line-bottom"/>
+        </div>
+        <div id="top-nav">
+            <div class="centerd">
+                <span>&#9776;</span>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="web.view_navbar">
+        <div class="navbar-collapse collapse app_builder_nav">
+            <t t-call="web.btn_save_n_close"/>
+        </div>
+        <t t-call="web.submenu"/>
+    </t>
+
+</templates>

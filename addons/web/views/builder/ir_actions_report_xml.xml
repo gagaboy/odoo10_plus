@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <record id="app_builder_report_kanban_view" model="ir.ui.view">
+        <field name="name">app.builder.report.kanban.view</field>
+        <field name="model">ir.actions.report</field>
+        <field name="arch" type="xml">
+            <kanban class="o_web_report_kanban"
+                    js_class="app_builder_report_kanban">
+                <field name="display_name"/>
+                <field name="report_type"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div t-if="record.report_type.value == 'PDF'"
+                                 class="o_kanban_image">
+                                <i class="material-icons">
+                                    picture_as_pdf
+                                </i>
+                            </div>
+                            <div t-else="1" class="o_kanban_image">
+                                <i class="material-icons">
+                                    insert_drive_file
+                                </i>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong>
+                                    <field name="display_name"/>
+                                </strong>
+                                <div>
+                                    <field name="report_type"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</flectra>

@@ -1,0 +1,5 @@
+<template>
+    <div t-name="web.report_container">
+        <iframe t-att-src="widget.report_url" class="report_frame_container"/>
+    </div>
+</template>
