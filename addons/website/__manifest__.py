@@ -9,7 +9,8 @@
     'website': 'https://www.flectrahq.com/page/website-builder',
     'version': '1.0',
     'description': "",
-    'depends': ['web', 'web_editor', 'web_planner', 'http_routing', 'portal'],
+    'depends': ['web', 'web_editor', 'web_planner',
+                'http_routing', 'portal', 'base_automation'],
     'installable': True,
     'data': [
         'data/website_data.xml',
@@ -22,6 +23,7 @@
         'views/res_config_settings_views.xml',
         'views/ir_actions_views.xml',
         'views/res_company_views.xml',
+        'views/module_view.xml',
         'wizard/base_language_install_views.xml',
         'data/web_planner_data.xml',
     ],
