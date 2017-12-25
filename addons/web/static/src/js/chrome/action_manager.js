@@ -23,7 +23,7 @@ var pyeval = require('web.pyeval');
 var session = require('web.session');
 var ViewManager = require('web.ViewManager');
 var Widget = require('web.Widget');
-
+var action_history;
 /**
  * Class representing the actions of the ActionManager
  * Basic implementation for client actions that are functions
@@ -534,6 +534,11 @@ var ActionManager = Widget.extend({
                     state.active_ids = inner_action_descr.context.active_ids.join(',');
                 }
             }
+            //builder code
+            var action_descr = this.inner_action.get_action_descr();
+            if (action_descr.no_update_state) {
+                return;
+            }
         }
         this.webclient.do_push_state(state);
     },
@@ -717,12 +722,53 @@ var ActionManager = Widget.extend({
                 search_disable_custom_filters: action.context && action.context.search_disable_custom_filters,
             });
         }
+	//builder code
+        var qs = $.deparam.querystring();
+        if (qs.app_builder === "main") {
+            this.clear_action_stack();
+        }
+        if (options) {
+            if (options.active_view) {
+                this._update_action_history('active_view', options.active_view);
+            }
+        }
+        if (_.isObject(action) && options && 'no_update_state' in options) {
+            action.no_update_state = options.no_update_state;
+        }
+        this._init_action(options);
+        this.disable_app_builder(action, options);
 
         return $.when(this[type](action, options)).then(function (executor_action) {
             options.on_load(executor_action);
             return action;
         });
     },
+    //builder code starts
+    disable_app_builder: function (action) {
+        if (action.view_id === undefined) {
+            $('#app_builder_toogle').addClass("disabled")
+                .find("a").prop("disabled", true);
+        } else {
+            $('#app_builder_toogle').removeClass("disabled")
+                .find("a").prop("disabled", false);
+        }
+    },
+
+    _get_last_action: function () {
+        return action_history;
+    },
+
+    _init_action: function (options) {
+        action_history = {
+            el: this.$el,
+            options: options
+        };
+    },
+    _update_action_history: function (key, value) {
+        action_history[key] = value;
+        return action_history;
+    },
+    //builder code ends
     null_action: function() {
         this.dialog_stop();
         this.clear_action_stack();

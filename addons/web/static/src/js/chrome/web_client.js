@@ -11,6 +11,7 @@ var SystrayMenu = require('web.SystrayMenu');
 var UserMenu = require('web.UserMenu');
 var UserProfile = require('web.UserProfile');
 var config = require('web.config');
+var bus = require('builder.bus');
 
 return AbstractWebClient.extend({
     events: {
@@ -22,8 +23,23 @@ return AbstractWebClient.extend({
             });
         },
     },
+    //builder custom events
+    custom_events: _.extend({}, AbstractWebClient.prototype.custom_events, {
+        'open_app_builder': '_on_app_builder_open',
+        'on_new_app_create': '_on_build_app'
+    }),
+    //builder init
+    init: function () {
+        var self = this;
+        self._super.apply(this, arguments);
+        self.app_builder_status = false;
+        bus.on('app_builder_toggled', this, function (status) {
+            self.app_builder_status = status;
+        });
+    },
     show_application: function() {
         var self = this;
+        var qs = $.deparam.querystring();
 
         // Allow to call `on_attach_callback` and `on_detach_callback` when needed
         this.action_manager.is_in_DOM = true;
@@ -55,11 +71,26 @@ return AbstractWebClient.extend({
         this.systray_menu.setElement(this.$el.parents().find('.oe_systray'));
         var systray_menu_loaded = this.systray_menu.start();
 
+        //builder access check
+        if (!session.is_system) {
+            if (qs.app_builder !== undefined) {
+                self.do_warn("Access Denied", "Flectra App Builder Requires Access To Admin Account or Requires Appropriate Rights!.");
+                delete qs.app_builder;
+                var l = window.location;
+                var url = l.protocol + "//" + l.host + l.pathname + '?' + $.param(qs) + l.hash;
+                window.history.pushState({path: url}, '', url);
+            }
+        }
+
         // Start the menu once both systray and user menus are rendered
         // to prevent overflows while loading
         return $.when(systray_menu_loaded, user_menu_loaded).then(function() {
             self.menu.start();
             self.bind_hashchange();
+            self.app_builder_status = _.contains(['main', 'app_creator'], qs.app_builder) ? qs.app_builder : false;
+            if (self.app_builder_status === 'app_creator') {
+                self.trigger_up('open_app_builder', {'status': self.app_builder_status});
+            }
         });
 
     },
@@ -196,6 +227,80 @@ return AbstractWebClient.extend({
             this.menu.reflow();
         }
     },
+    //builder methods
+    fetch_app_builder: function (action) {
+        var arr = [];
+        if (action) {
+            this.res_id = action.widget.env.currentId;
+            if (this.app_builder_status) {
+                arr.push(this.open_app_builder(this.app_builder_status, {action: action}));
+            }
+        }
+    },
+
+    _on_app_builder_open: function (ev) {
+        var self = this;
+        this.app_builder_status = ev.data.status || 'main'; // Checks weather we are in app_builder mode or not
+        var action = this.action_manager.get_inner_action(); // action object for having views,model,xml description
+        var action_desc = action && action.action_descr || null;
+        var active_view = action && action.get_active_view();
+        var def_obj = self.fetch_app_builder(action);
+        return $.when.apply($, def_obj).then(function () {
+            bus.trigger('app_builder_toggled', self.app_builder_status, action_desc, active_view);
+        });
+    },
+
+    open_app_builder: function (mode, options) {
+        options = options || {};
+        var def_obj = [];
+        var self = this;
+        var act = options.action;
+        this.app_builder_status = mode;
+        var reborn_options = {
+            clear_breadcrumbs: true
+        };
+        _.extend(reborn_options, options);
+        if (act) {
+            if (!options.active_view) {
+                reborn_options.active_view = act.get_active_view();
+            } else {
+                reborn_options.active_view = options.active_view;
+                def_obj.push(act.widget.switch_mode(options.active_view));
+            }
+            reborn_options.action = act.action_descr;
+        }
+        return $.when.apply($, def_obj).then(function () {
+            return self.do_action('action_web_' + mode, reborn_options);
+        });
+    },
+
+    _on_build_app: function (ev) {
+        var data = {
+            "type": "ir.actions.act_window",
+            "res_model": ev.data.model_name,
+            'menu_id': ev.data.menu_id,
+            'id': ev.data.action_id,
+            'res_id': 1,
+            "views": [[false, "list"], [false, "form"]]
+        };
+        bus.trigger('app_builder_toggled', 'main');
+        this.do_action(data, {
+            view_type: 'form',
+            action_manager: this.action_manager
+        });
+    },
+    do_action: function (action, options) {
+        if (this.app_builder_status === 'main' &&
+            this.action_manager.get_inner_action().widget.active_view !== undefined) {
+            options = options || {};
+            if (this.res_id !== undefined) {
+                options.action.res_id = this.res_id;
+            }
+            options.active_view = this.action_manager.get_inner_action().widget.active_view;
+            options.view_env = this.action_manager.get_inner_action().widget.env;
+        }
+        return this._super.apply(this, arguments);
+    }
 });
 
 });

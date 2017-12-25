@@ -125,6 +125,9 @@
         $headings.each(function () {
             var $heading = $(this),
                 $parentLi = $heading.parent();
+            if (("" + $parentLi.attr('class')).toString().indexOf('o_invisible_modifier') !== -1) {
+                return;
+            }
             $heading.data('bs.tabcollapse.parentLi', $parentLi);
             view.$accordion.append(view._createAccordionGroup(view.$accordion.attr('id'), $heading.detach()));
         });

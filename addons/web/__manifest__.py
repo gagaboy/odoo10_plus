@@ -15,8 +15,10 @@ This module provides the core of the Odoo Web Client.
     'depends': ['base'],
     'auto_install': True,
     'data': [
+        'security/ir.model.access.csv',
         'views/webclient_templates.xml',
         'views/report_templates.xml',
+        'views/builder/ir_actions_report_xml.xml'
     ],
     'qweb': [
         "static/src/xml/base.xml",
@@ -26,6 +28,7 @@ This module provides the core of the Odoo Web Client.
         "static/src/xml/web_calendar.xml",
         "static/src/xml/backend_theme.xml",
         "static/src/xml/backend_theme_customizer.xml",
+        "static/src/xml/builder/*.xml"
     ],
     'bootstrap': True,  # load translations for login screen
 }

@@ -269,6 +269,146 @@
 
         <script type="text/javascript" src="/web/static/src/js/backend_theme_customizer/backend_theme_customizer.js"/>
         <script type="text/javascript" src="/web/static/src/js/backend_theme_customizer/customize_switcher.js"/>
+	
+	<!-- CAUTION App Builder starts here-->
+        <!-- less/css Files For Flectra App Builder-->
+        <link href="/web/static/src/less/builder/side_bar.less"
+              rel="stylesheet" type="text/less"/>
+
+        <!-- less/css Files For Flectra App Builder library-->
+        <link href="/web/static/src/less/builder/material-icons.css"
+              rel="stylesheet" type="text/css"/>
+
+        <link href="/web/static/src/less/builder/normalize.css"
+              rel="stylesheet" type="text/css"/>
+
+        <link href="/web/static/src/less/builder/main.css"
+              rel="stylesheet" type="text/css"/>
+
+        <link href="/web/static/src/less/builder/component.css"
+              rel="stylesheet" type="text/css"/>
+
+        <link href="/web/static/src/less/builder/cs-select.css"
+              rel="stylesheet" type="text/css"/>
+
+        <link href="/web/static/src/less/builder/cs-skin-boxes.css"
+              rel="stylesheet" type="text/css"/>
+
+        <!--DRAGULA LIBRARY CSS FILES-->
+        <link href="/web/static/src/js/libs/dragula/dragula.min.css"
+              rel="stylesheet" type="text/css"/>
+
+        <!-- JS Files For Flectra App Builder-->
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/systray.js"/>
+
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/action_url_mod.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/action_manager_relation.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/action_view_editor.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/action_view_editor_window.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/action_view_editor_thumbs.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/main.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/module_maker.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/module_maker_utility.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/misc_functions.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/ir_actions.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/field_creator_dialog.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/add_button_dialog.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/view_manager.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/ui_drag_manager_list.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/ui_drag_manager_form.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/ui_drag_manager_kanban.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/ui_drag_manager_calendar.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/ui_drag_manager_gantt.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/ui_drag_manager_pivot.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/add_report_dialog.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/report_manager_kanban.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/ui_drag_manager_search.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/edit_app_builder_reports.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/editor_report_window.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/app_export_dialog.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/app_builder_tour.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/views/view_fields_manager.js"/>
+
+
+        <script type="text/javascript"
+                src="/web/static/src/js/builder/views/virtual_search_view.js"/>
+
+
+        <!--FULL-SCREEN-APP-BUILDER LIBRARY JS FILES-->
+        <script type="text/javascript"
+                src="/web/static/src/js/libs/full_screen_app_creator/modernizr.custom.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/libs/full_screen_app_creator/classie.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/libs/full_screen_app_creator/selectFx.js"/>
+
+        <script type="text/javascript"
+                src="/web/static/src/js/libs/full_screen_app_creator/fullscreenForm.js"/>
+
+
+        <!--DRAGULA LIBRARY JS FILES-->
+        <script type="text/javascript"
+                src="/web/static/src/js/libs/dragula/dragula.js"/>
+
+
     </template>
 
     <!-- Backend Theme Customizer Main Color -->

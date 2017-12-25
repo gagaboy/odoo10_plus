@@ -227,6 +227,14 @@ var KanbanRecord = Widget.extend({
         var $result = $('<span>', {
             text: formatted_value,
         });
+        //builder code
+        var qs = $.deparam.querystring();
+        if(qs.app_builder === 'main'){
+            $result.attr('field_name',field_name);
+            $result.attr('field_type',field.type);
+            $result.addClass('web_span');
+        }
+
         $field.replaceWith($result);
         this._setFieldDisplay($result, field_name);
         return $result;
