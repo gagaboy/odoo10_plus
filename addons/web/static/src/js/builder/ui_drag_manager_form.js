@@ -14,7 +14,7 @@ flectra.define('web.UIDragManagerForm', function (require) {
     var QWeb = core.qweb;
     var self;
     var element = [];
-    var selected_label, selected_tab;
+    var selected_label, selected_tab, lines;
 
     var form_view = Widget.extend({
 
@@ -124,10 +124,13 @@ flectra.define('web.UIDragManagerForm', function (require) {
                     return $(el).attr('data-action') === 'new';
                 }
             });
-
+            drake.containers = $.grep(drake.containers, function (value) {
+                if (!$(value).hasClass('ui-sortable'))
+                    return value;
+            });
             $('div.o_notebook > ul > li').addClass('app_builder-custom');
-
             var len = $('div.o_notebook').length;
+
             for (var i = 0; i < len; i++) {
                 $($('div.o_notebook')[i]).attr('notebook_id', i + 1);
             }
@@ -141,6 +144,8 @@ flectra.define('web.UIDragManagerForm', function (require) {
             $('.o_form_view').find('header').remove();
             $('.o_chatter').remove();
             $('.o_form_sheet').find("tr").addClass('app_builder-custom');
+            $('.o_field_one2many.o_field_widget.o_field_x2many.o_field_x2many_list').find('.app_builder-custom').removeClass('app_builder-custom');
+            $('.o_field_one2many.o_field_widget.o_field_x2many.o_field_x2many_list').addClass('app_builder-custom');
             $('.o_form_sheet').find("table.o_group").each(function (i, e) {
                 if ($(e).children().children().children().length === 0) {
                     $(e).addClass('empty_container');
@@ -398,46 +403,75 @@ flectra.define('web.UIDragManagerForm', function (require) {
                             }
                         }
                     }
+                } else if (lines !== null) {
+                    old_text = lines;
+                    options.field_name = old_text;
+                    options.tag_operation = 'field';
+                    misc.update_view(options);
                 }
             }
             else if (this.id === "tool_tip") {
-                old_text = selected_label.text();
+                if (selected_label !== null) {
+                    old_text = selected_label.text();
+                    options.field_name = self.getFieldAttribute(old_text, 'string').name;
+                }
+                else if (lines !== null) {
+                    old_text = lines;
+                    options.field_name = old_text;
+                }
                 var help_text = $(this).val();
                 options.tag_operation = 'field';
-                options.field_name = self.getFieldAttribute(old_text, 'string').name;
                 options.tab_string = help_text;
                 options.attr_name = 'help';
                 misc.update_view(options);
             }
             else if (this.id === "placeholder") {
-                old_text = selected_label.text();
+                if (selected_label !== null) {
+                    old_text = selected_label.text();
+                    options.field_name = self.getFieldAttribute(old_text, 'string').name;
+                }
+                else if (lines !== null) {
+                    old_text = lines;
+                    options.field_name = old_text;
+                }
                 var placeholder = $(this).val();
                 options.tag_operation = 'field';
-                options.field_name = self.getFieldAttribute(old_text, 'string').name;
                 options.tab_string = placeholder;
                 options.attr_name = 'placeholder';
                 misc.update_view(options);
             } else if (this.id === "default") {
                 old_text = selected_label.text();
+                options.field_name = self.getFieldAttribute(old_text, 'string').name;
                 var default_value = $(this).val();
                 options.tag_operation = 'default_value';
-                options.field_name = self.getFieldAttribute(old_text, 'string').name;
                 options.value = default_value;
                 options.model = self.model;
                 options.op = 'set';
                 misc.set_or_get_default_value(options);
             } else if (this.id === "domain") {
-                old_text = selected_label.text();
+                if (selected_label !== null) {
+                    old_text = selected_label.text();
+                    options.field_name = self.getFieldAttribute(old_text, 'string').name;
+                }
+                else if (lines !== null) {
+                    old_text = lines;
+                    options.field_name = old_text;
+                }
                 options.tag_operation = 'field';
-                options.field_name = self.getFieldAttribute(old_text, 'string').name;
                 options.tab_string = $(this).val();
                 options.attr_name = 'domain';
                 misc.update_view(options);
 
             } else if (this.id === "context") {
-                old_text = selected_label.text();
+                if (selected_label !== null) {
+                    old_text = selected_label.text();
+                    options.field_name = self.getFieldAttribute(old_text, 'string').name;
+                }
+                else if (lines !== null) {
+                    old_text = lines;
+                    options.field_name = old_text;
+                }
                 options.tag_operation = 'field';
-                options.field_name = self.getFieldAttribute(old_text, 'string').name;
                 options.tab_string = $(this).val();
                 options.attr_name = 'context';
                 misc.update_view(options);
@@ -455,7 +489,15 @@ flectra.define('web.UIDragManagerForm', function (require) {
                     domain: [['res_id', '=', $(this).val()], ['model', '=', 'res.groups']]
                 }).then(function (resp) {
                     _.each(resp, function (e) {
-                        options.field_name = self.getFieldAttribute(selected_label.text(), 'string').name;
+                        var old_text;
+                        if (selected_label !== null) {
+                            old_text = selected_label.text();
+                            options.field_name = self.getFieldAttribute(old_text, 'string').name;
+                        }
+                        else if (lines !== null) {
+                            old_text = lines;
+                            options.field_name = old_text;
+                        }
                         options.tag_operation = 'field';
                         options.tab_string = e.complete_name;
                         options.attr_name = 'groups';
@@ -464,8 +506,16 @@ flectra.define('web.UIDragManagerForm', function (require) {
                 });
             }
             if (this.id === 'widget_id') {
+                var old_text;
+                if (selected_label !== null) {
+                    old_text = selected_label.text();
+                    options.field_name = self.getFieldAttribute(old_text, 'string').name;
+                }
+                else if (lines !== null) {
+                    old_text = lines;
+                    options.field_name = old_text;
+                }
                 var widget_text = self.field_widgets[$(this).val()];
-                options.field_name = self.getFieldAttribute(selected_label.text(), 'string').name;
                 options.tag_operation = 'field';
                 options.tab_string = widget_text;
                 options.attr_name = 'widget';
@@ -475,10 +525,16 @@ flectra.define('web.UIDragManagerForm', function (require) {
 
         onCheckChange: function () {
             var options = {};
-            var old_text = selected_label ? selected_label.text() : '';
+            var old_text;
+            if (selected_label !== null) {
+                old_text = selected_label.text();
+                options.field_name = self.getFieldAttribute(old_text, 'string').name;
+            }
+            else if (lines !== null) {
+                old_text = lines;
+                options.field_name = old_text;
+            }
             options.tag_operation = 'field';
-            if(old_text)
-                options.field_name = self.getFieldAttribute(old_text, 'string')['name'] || '';
             options.view_id = self.view_id;
             options.pos = "attributes";
             if (this.id === "show_invisible") {
@@ -497,12 +553,20 @@ flectra.define('web.UIDragManagerForm', function (require) {
             if (this.id === "el_invisible") {
                 options.attr_name = 'invisible';
                 if (this.checked) {
-                    selected_label.addClass('o_form_invisible');
-                    selected_label.parent().siblings().children().addClass('o_form_invisible');
+                    if (selected_label !== null) {
+                        selected_label.addClass('o_form_invisible');
+                        selected_label.parent().siblings().children().addClass('o_form_invisible');
+                    }else{
+                        $('div[name='+lines+']').addClass('o_form_invisible');
+                    }
                     options.tab_string = '1';
                 } else {
-                    selected_label.removeClass('web_show_invisible').removeClass('o_form_invisible');
-                    selected_label.parent().siblings().children().removeClass('web_show_invisible').removeClass('o_form_invisible');
+                    if (selected_label !== null) {
+                        selected_label.removeClass('web_show_invisible').removeClass('o_form_invisible');
+                        selected_label.parent().siblings().children().removeClass('web_show_invisible').removeClass('o_form_invisible');
+                    }else{
+                        $('div[name='+lines+']').removeClass('o_form_invisible');
+                    }
                     options.tab_string = '0';
                 }
                 misc.update_view(options);
@@ -759,13 +823,19 @@ flectra.define('web.UIDragManagerForm', function (require) {
 
         setPropertyValue: function (elements) {
             if (elements.length > 0) {
-                var string = elements[0].html().trim();
-                var attrs = self.getFieldAttribute(string, 'string');
-                self.p_visible.prop('checked', elements[0].hasClass('o_invisible_modifier'));
-                console.log('===', attrs);
+                var string, attrs, name;
+                if (elements[0].name) {
+                    name = elements[0].name;
+                    attrs = self.getFieldAttribute(name, 'name');
+                }
+                else {
+                    string = elements[0].html().trim();
+                    attrs = self.getFieldAttribute(string, 'string');
+                    self.p_visible.prop('checked', elements[0].hasClass('o_invisible_modifier'));
+                }
                 if (attrs) {
                     self.p_required.prop('checked', attrs.required);
-                    self.p_readonly.prop('checked',attrs.readonly);
+                    self.p_readonly.prop('checked', attrs.readonly);
                     self.get_default_value(attrs.name);
                     self.p_text.val(attrs.string);
                     self.p_tool_tip.val(attrs.help);
@@ -787,12 +857,14 @@ flectra.define('web.UIDragManagerForm', function (require) {
                             value: []
                         });
                     }
-                    if (attrs.type === 'many2many') {
+                    if (attrs.type === 'many2many' || attrs.type === 'one2many') {
                         self.p_domain.parent().parent().show();
                         self.p_context.parent().parent().show();
+                        self.p_default.parent().parent().hide();
                     } else {
                         self.p_domain.parent().parent().hide();
                         self.p_context.parent().parent().hide();
+                        self.p_default.parent().parent().show();
                     }
                 } else {
                     self.p_tool_tip.val("");
@@ -855,6 +927,8 @@ flectra.define('web.UIDragManagerForm', function (require) {
                 $(this).addClass(highlight);
                 selected_label = $(this).find('label').length > 0 ? $(this).find('label') : null;
                 selected_tab = $(this).find('a[data-toggle="tab"]').length > 0 ? $(this).find('a') : null;
+                lines = $(this).hasClass('o_field_one2many o_field_widget o_field_x2many o_field_x2many_list')
+                    ? $(this).attr('name') : null;
                 if (selected_label !== null) {
                     elements.push(selected_label);
                 }
@@ -870,6 +944,9 @@ flectra.define('web.UIDragManagerForm', function (require) {
                     self.p_default.parent().parent().hide();
                     self.p_domain.parent().parent().hide();
                     self.p_context.parent().parent().hide();
+                }
+                if (lines !== null) {
+                    elements.push({'name': lines});
                 }
                 self.setPropertyValue(elements)
             });

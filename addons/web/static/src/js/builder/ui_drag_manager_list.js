@@ -81,7 +81,6 @@ flectra.define('web.UIDragManagerList', function (require) {
                     self._on_lose_focus(ev);
                 });
             });
-
         },
 
         editor: function () {
@@ -114,7 +113,6 @@ flectra.define('web.UIDragManagerList', function (require) {
             self.p_context = $('#context');
             self.p_domain.parent().parent().hide();
             self.p_context.parent().parent().hide();
-
         },
 
         initDragula: function (register_container) {
@@ -295,7 +293,8 @@ flectra.define('web.UIDragManagerList', function (require) {
             options.attr_value = this.checked ? 1 : 0;
             var nearest = $(current_col[0]);
             var field_properties = self.find_in_fields(nearest.text(), 'string') || self.find_in_columns(nearest.text(), 'string');
-            options.xpath_field_name = field_properties.name || field_properties.attrs.name;
+            if (field_properties)
+                options.xpath_field_name = field_properties.name || field_properties.attrs.name;
             options.tag_operation = 'change_field_attrs';
             if (this.id === "el_invisible") {
                 options.attr_type = 'invisible';

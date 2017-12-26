@@ -204,12 +204,15 @@ flectra.define('web.ModuleMaker', function (require) {
 
         on_next_page: function (ev) {
             var $target = $(ev.target);
-            if($target.attr('has_model') === "0"){
+            var currentTarget = $(ev.delegateTarget);
+            var $error = currentTarget.find('span.fs-message-error');
+            if ($target.attr('has_model') === "0") {
                 return;
             }
-            var currentTarget = $(ev.delegateTarget);
+            if ($error.hasClass('fs-show')) {
+                return;
+            }
             var $page = currentTarget.find('li.fs-current');
-            var $error = currentTarget.find('span.fs-message-error');
             var $input = $page.find('input[type=text]');
             var $textarea = $page.find('textarea');
             var $number = $page.find('input[type=number]');
@@ -241,7 +244,7 @@ flectra.define('web.ModuleMaker', function (require) {
                 this.app_name = $(self.controls[0]).val().replace(/[^A-Z0-9]+/ig, "_");
                 this.menu_name = $(self.controls[1]).val().replace(/[^A-Z0-9]+/ig, "_");
                 this.app_category = $(self.controls[2]).val().replace(/[^A-Z0-9]+/ig, "_");
-                this.app_version = $(self.controls[3]).val();
+                this.app_version = parseFloat($(self.controls[3]).val());
                 this.app_description = $(self.controls[5]).val();
                 this.app_licence = $(self.controls[4]).val();
                 this.color = this.$el.find('.icon_preview').attr('data-color');
