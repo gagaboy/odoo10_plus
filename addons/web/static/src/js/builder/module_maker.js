@@ -203,6 +203,10 @@ flectra.define('web.ModuleMaker', function (require) {
         },
 
         on_next_page: function (ev) {
+            var $target = $(ev.target);
+            if($target.attr('has_model') === "0"){
+                return;
+            }
             var currentTarget = $(ev.delegateTarget);
             var $page = currentTarget.find('li.fs-current');
             var $error = currentTarget.find('span.fs-message-error');

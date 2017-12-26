@@ -94,7 +94,7 @@ flectra.define('web.UIDragManagerList', function (require) {
             };
             var View = view_registry.get('list');
             this.view = new View(fields_view, self._action.options.action.viewManager.env);
-            def = this.view.CreateAppBuilderEditor(this, list_renderer, editor_params);
+            def = this.view.CreateBuilderEditor(this, list_renderer, editor_params);
             return def;
         },
 

@@ -65,7 +65,7 @@ flectra.define('web.UIDragManagerCalendar', function (require) {
             };
             var View = view_registry.get('calendar');
             this.view = new View(fields_view, self._action.options.action.viewManager.env);
-            def = this.view.CreateAppBuilderEditor(this, calendar_renderer, editor_params);
+            def = this.view.CreateBuilderEditor(this, calendar_renderer, editor_params);
             return def;
         },
 

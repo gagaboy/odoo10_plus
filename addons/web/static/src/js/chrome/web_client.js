@@ -281,7 +281,8 @@ return AbstractWebClient.extend({
             'menu_id': ev.data.menu_id,
             'id': ev.data.action_id,
             'res_id': 1,
-            "views": [[false, "list"], [false, "form"]]
+            "views": [[false, "list"], [false, "form"]],
+            "view_mode":'list,form'
         };
         bus.trigger('app_builder_toggled', 'main');
         this.do_action(data, {

@@ -661,7 +661,6 @@ class FlectraAppBuilder(http.Controller):
             arch_db = self.blank_report_arch()
         else:
             arch_db = self.commercial_report_arch(fields)
-
         ir_view = request.env['ir.ui.view'].with_context(
             {'app_builder': True}).create(
             {'name': 'report',
@@ -703,7 +702,7 @@ class FlectraAppBuilder(http.Controller):
                                     <div class="row">
                                         <h2>
                                             <strong>
-                                                <span t-field="o.name"/>
+                                                <span t-field="o.display_name"/>
                                             </strong>
                                         </h2>
                                         """ + p_tag + """

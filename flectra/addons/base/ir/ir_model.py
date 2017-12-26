@@ -107,14 +107,11 @@ class Base(models.AbstractModel):
             app_data = self.env['app.creator.data'].search(
                 [('obj_name', '=', reborn_model)])
 
-            app_builder = self.env['ir.module.module'].search(
-                [('name', '=', 'flectra_app_builder')])
-
             IrModelData.create({
                 'name': '%s_%s' % (fine_model_name(name), uuid.uuid4()),
                 'model': self._name,
                 'res_id': self.id,
-                'module': app_builder.name,
+                'module': 'flectra_app_builder',
                 'app_data_id': app_data.id or False
             })
 

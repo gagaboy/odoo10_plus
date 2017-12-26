@@ -72,7 +72,7 @@ flectra.define('web.UIDragManagerKanban', function (require) {
             };
             var View = view_registry.get('kanban');
             self.view = new View(fields_view, self._action.options.action.viewManager.env);
-            def = self.view.CreateAppBuilderEditor(self, kanban_renderer, editor_params);
+            def = self.view.CreateBuilderEditor(self, kanban_renderer, editor_params);
             return def;
         },
 

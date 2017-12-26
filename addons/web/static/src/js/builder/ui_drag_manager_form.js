@@ -71,7 +71,7 @@ flectra.define('web.UIDragManagerForm', function (require) {
             };
             var View = view_registry.get('form');
             this.view = new View(fields_view, self._action.options.action.viewManager.env);
-            def = this.view.CreateAppBuilderEditor(this, form_renderer, editor_params);
+            def = this.view.CreateBuilderEditor(this, form_renderer, editor_params);
             return def;
         },
 

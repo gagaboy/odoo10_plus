@@ -190,6 +190,23 @@ var AbstractView = Class.extend({
     setController: function (Controller) {
         this.Controller = Controller;
     },
+    // builder code
+    CreateBuilderEditor: function (parent, Renderer, options) {
+        var self = this;
+        return this._loadSubviews(parent).then(function () {
+            return $.when(
+                self._loadData(parent),
+                ajax.loadLibs(self)
+            ).then(function (id) {
+                var m = self.getModel();
+                var s = m.get(id);
+                var p = _.extend({}, self.rendererParams, options);
+                var r = new Renderer(parent, s, p);
+                m.setParent(r);
+                return r;
+            });
+        });
+    },
 
     //--------------------------------------------------------------------------
     // Private
