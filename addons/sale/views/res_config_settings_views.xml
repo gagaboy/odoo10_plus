@@ -79,17 +79,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-md-6 o_setting_box" title="Boost your sales with two kinds of discount programs: promotions and coupon codes. Specific conditions can be set (products, customers, minimum purchase amount, period). Rewards can be discounts (% or amount) or free products.">
-                            <div class="o_setting_left_pane">
-                                <field name="module_sale_coupon" widget="upgrade_boolean"/>
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label for="module_sale_coupon"/>
-                                <div class="text-muted" id="sale_coupon">
-                                    Manage promotion &amp; coupon programs
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-xs-12 col-md-6 o_setting_box" title="There are two ways to manage pricelists: 1) Multiple prices per product: must be set in the Sales tab of the product detail form. 2) Price computed from formulas: must be set in the pricelist form.">
                             <div class="o_setting_left_pane">
                                 <field name="multi_sales_price"/>
